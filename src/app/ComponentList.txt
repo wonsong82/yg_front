@@ -1,0 +1,124 @@
+
+App
+
+  Frame
+
+    Header
+
+      MenuButton
+
+      Logo
+
+      UserUI
+        Link:login
+        Lonk:cart
+
+      Cart
+        CartList:shop
+        CartList:music
+
+      Menu
+
+        StaticMenuGroup
+          Link:shop
+          Link:music
+          Link:tour
+          Link:events
+          Link:blog
+
+        ArtistMenuGroup
+          Link:artist/bigbang
+          Link:artist/2ne1
+          Link:artist/cl
+          Link:artist/epic-high
+          Link:artist/winner
+          Link:artist/ikon
+          Link:artist/lee-hi
+          Link:artist/akdong-musician
+
+
+    Popup
+      BlogDetail
+      EventDetail
+      TourDetail
+      AlbumDetail
+      ShopDetail
+
+    Page
+
+      404
+
+      Main
+        TourThumb:main
+        TourThumb:sub
+        TourThumb:sub
+        ShopThumb:main
+        ShopThumb:main
+        MusicThumb:main
+        MusicThumb:main
+        MusicThumb:main
+        MusicThumb:main
+        EventsThumb:main
+        BlogThumb:main
+        BlogThumb:main
+
+      Blog
+        BlogThumb[]
+        HotPost
+        MostViewedPost
+
+      Event
+        GridSystem:5x9
+          EventThumb[1x1|2x2]
+
+      Shop
+        CategoryFilter
+        SearchFilter
+        GridSystem:5x6
+          ShopThumb[1x1|1x2|2x2|2x1]
+
+      Tour
+        DateFilter
+        TourList
+          TourItem[]
+            TourImage:linkToDetail
+            TourInfo[]
+            ViewMore
+
+      Music
+        GridSystem:3x2
+          AlbumThumb[]
+          ViewMore
+        GridSystem:2x2
+          Track[]
+            MusicPlayer
+          ViewMore
+
+      Artist
+        SwipeableContainer
+
+
+
+
+
+
+    BG
+
+    Footer
+
+      FooterMenuGroup
+        Link:about-us
+        Link:contact-us
+        Link:returns-exchanges
+        Link:privacy-policy
+
+      FooterSocialGroup
+        Link:youtube
+        Link:instagram
+        Link:twitter
+        Link:facebook
+
+      Newsletter
+
+      CopyrightText
+
