@@ -1,0 +1,35 @@
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+
+  .menu {
+    position: absolute;
+    top: 19px;
+    left: 37px;
+
+    .icon-main-menu {
+      font-size: 20px;
+
+    }
+  }
+
+
+
+  .home {
+    position: absolute;
+    left: 50%;
+    top: 2px;
+    transform: translateX(-50%);
+
+
+    .icon-logo {
+      font-size: 60px;
+    }
+  }
+
+
+
+}

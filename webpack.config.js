@@ -10,7 +10,7 @@ var Strip = require('strip-loader');
  */
 var paths = {
   entries: [
-    {app: './src/index.js'}
+    {app: './app/index.js'}
   ],
   output: path.join(__dirname, 'public')
 };
@@ -69,6 +69,10 @@ var config = {
   },
   postcss: function(){
     return [require('precss'), require('autoprefixer')]
+  },
+  devServer: {
+    headers: { "Access-Control-Allow-Origin": "*" },
+    contentBase: 'public'
   }
 };
 

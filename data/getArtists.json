@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Artist 1",
+    "themeColor": "#f60",
+    "bg": "",
+    "textColor": "#fff"
+  },
+  {
+    "id": 2,
+    "name": "Artist 2",
+    "themeColor": "#c60",
+    "bg": "",
+    "textColor": "#fff"
+  },
+  {
+    "id": 3,
+    "name": "Artist 3",
+    "themeColor": "#333",
+    "bg": "",
+    "textColor": "#fff"
+  }
+]

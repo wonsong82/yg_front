@@ -1,0 +1,37 @@
+.Frame {
+  width: 0;
+  height: 0;
+
+  .top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+  }
+
+  .left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 27px;
+    bottom: 0;
+  }
+
+  .right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 27px;
+    bottom: 0;
+  }
+
+  .bottom {
+    position: fixed;
+    bottom: 0;
+    height: 27px;
+    left: 0;
+    right: 0;
+  }
+
+}
