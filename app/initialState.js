@@ -27,7 +27,19 @@ const initialState = {
     loaded: false,
     isFetching: false,
     list: [
-      
+
+
+    ]
+  },
+
+  event: {
+    loaded: false,
+    isFetching: false,
+    list: [
+      {
+        id,
+        aritstId
+      }
 
     ]
   }

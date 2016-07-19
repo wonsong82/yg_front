@@ -12,22 +12,29 @@ class HoverLink extends Component {
     }
   }
 
-  componentWillUpdate(nextProps, nextState) {
-        
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.hovered != this.state.hovered
   }
 
+  componentDidUpdate() {
+    const { textColor, hoverColor } = this.props
+    let color = this.state.hovered ? hoverColor : textColor
+    $(findDOMNode(this)).stop().velocity({color}, {easing:'easeOutQuart', duration:300})
+  }
 
   onMouseOver(e){
     e.preventDefault()
+    console.log('over')
     this.setState({hovered: true})
   }
 
   onMouseOut(e){
     e.preventDefault()
+    console.log('out')
     this.setState({hovered: false})
   }
 
-  setColor(){
+  hoverColor(){
     const { textColor, hoverColor } = this.props
     return this.state.hovered ?
       hoverColor : textColor
@@ -42,7 +49,6 @@ class HoverLink extends Component {
         className={className}
         onMouseOver={this.onMouseOver.bind(this)}
         onMouseOut={this.onMouseOut.bind(this)}
-        style={{color:this.setColor()}}
       >{children}</Link>
     )     
   }
