@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --progress --colors",
+    "test": "mocha --compilers js:babel-core/register --require ./test/index.js --recursive",
+    "test:watch": "npm run test -- --watch",
     "build:dev": "webpack",
     "build": "webpack -p",
     "install:webpack": "npm install -g webpack webpack-dev-server",

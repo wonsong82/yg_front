@@ -2,8 +2,10 @@ require('./Page.scss')
 import React from 'react'
 
 
-const Page = () => (
-    <div className="Page">Page</div>
+const Page = ({ children }) => (
+    <div className="Page">
+      {children}
+    </div>
 )
 
 

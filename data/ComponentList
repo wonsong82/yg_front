@@ -1,0 +1,82 @@
+AppContainer(App)
+  : getArtists()
+
+  Header
+
+  Footer
+
+  Frame
+
+  Popup
+
+  Page
+
+
+note:
+
+  layouts
+    promotion
+      tourThumb:4x1
+      tourThumb:
+
+
+
+
+
+
+
+
+
+
+
+
+when popup receive props
+  -> change frame theme color
+  -> popup color : grey
+
+when popup closing
+  -> change frame theme color to page color
+
+
+
+
+ '/',
+  '/promotion/shop/:item',
+  '/promotion/music/:item',
+  '/promotion/tour/:item',
+  '/promotion/event/:item',
+  '/promotion/blog/:item',
+  '/shop',
+  '/shop/:item',
+  '/music',
+  '/music/:item',
+  '/tour',
+  '/tour/:item',
+  '/event',
+  '/event/:item',
+  '/blog',
+  '/blog/:item',
+  '/artist/:name',
+  '/artist/:name/shop/:item',
+  '/artist/:name/music/:item',
+  '/artist/:name/tour/:item',
+  '/artist/:name/event/:item',
+  '/artist/:name/blog/:item'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

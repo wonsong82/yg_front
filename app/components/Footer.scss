@@ -2,4 +2,6 @@
   z-index: 999;
   position: relative;
   height: 274px;
+  transition: background-color 1s ease;
+  will-change: background-color;
 }

@@ -2,22 +2,25 @@
   {
     "id": 1,
     "name": "Artist 1",
-    "themeColor": "#f60",
+    "urlFriendlyName": "artist-1",
+    "themeColor": "#ff0000",
     "bg": "",
-    "textColor": "#fff"
+    "textColor": "#ffffff"
   },
   {
     "id": 2,
     "name": "Artist 2",
-    "themeColor": "#c60",
+    "urlFriendlyName": "artist-2",
+    "themeColor": "#00ff00",
     "bg": "",
-    "textColor": "#fff"
+    "textColor": "#ffffff"
   },
   {
     "id": 3,
     "name": "Artist 3",
-    "themeColor": "#333",
+    "urlFriendlyName": "artist-3",
+    "themeColor": "#0000ff",
     "bg": "",
-    "textColor": "#fff"
+    "textColor": "#ffffff"
   }
 ]

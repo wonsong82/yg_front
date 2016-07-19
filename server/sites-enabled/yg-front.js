@@ -6,12 +6,27 @@ var cors = require('cors');
 
 app.get([
   '/',
-  '/blog',
-  '/event',
-  '/tour',
+  '/promotion/shop/:item',
+  '/promotion/music/:item',
+  '/promotion/tour/:item',
+  '/promotion/event/:item',
+  '/promotion/blog/:item',
   '/shop',
+  '/shop/:item',
   '/music',
-  '/artist/:name'
+  '/music/:item',
+  '/tour',
+  '/tour/:item',
+  '/event',
+  '/event/:item',
+  '/blog',
+  '/blog/:item',
+  '/artist/:name',
+  '/artist/:name/shop/:item',
+  '/artist/:name/music/:item',
+  '/artist/:name/tour/:item',
+  '/artist/:name/event/:item',
+  '/artist/:name/blog/:item'
 ], function(req, res){
   res.sendFile(path.resolve('../public/index-server.html'));
 });

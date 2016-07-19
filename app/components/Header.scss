@@ -12,7 +12,8 @@
 
     .icon-main-menu {
       font-size: 20px;
-
+      transition: color 1s ease;
+      will-change: color;
     }
   }
 
@@ -27,6 +28,8 @@
 
     .icon-logo {
       font-size: 60px;
+      transition: color 1s ease;
+      will-change: color;
     }
   }
 

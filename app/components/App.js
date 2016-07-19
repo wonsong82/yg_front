@@ -5,6 +5,7 @@ import Header from './Header'
 import Page from './Page'
 import Footer from './Footer'
 import Frame from './Frame'
+import MainMenu from './MainMenu'
 
 
 class App extends Component {
@@ -13,30 +14,24 @@ class App extends Component {
     super(props)
   }
 
-  componentDidMount() {
-    const { getArtistsIfNeeded } = this.props
-    getArtistsIfNeeded()
-  }
-
   render(){
+    const { page, themeColor, textColor, artistsList } = this.props
+
     return (
       <div className="App">
-
-        <Page />
-        <Frame color="#f87c91" />
-        <Header color="#ffffff" />
-        <Footer color="#f87c91" />
-
+        <Page>{page}</Page>
+        <MainMenu artists={artistsList} />
+        <Frame color={themeColor} />
+        <Footer bgColor={themeColor} textColor={textColor} />
+        <Header color={textColor} />
 
       </div>
     )
   }
-
-
 }
 
 App.propTypes = {
-  getArtistsIfNeeded: PropTypes.func.isRequired,
+  isArtistLoading: PropTypes.bool.isRequired,
   artistsList: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -45,7 +40,11 @@ App.propTypes = {
       textColor: PropTypes.string.isRequired,
       themeColor: PropTypes.string.isRequired
     })
-  ).isRequired
+  ).isRequired,
+  themeColor: PropTypes.string.isRequired,
+  textColor: PropTypes.oneOf(['#ffffff', '#000000']).isRequired,
+  page: PropTypes.element.isRequired,
+  popup: PropTypes.element
 }
 
 

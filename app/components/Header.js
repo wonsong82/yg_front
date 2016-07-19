@@ -27,6 +27,7 @@ class Header extends React.Component {
           <span className="icon-logo" style={{color}} />
         </Link>
 
+        
 
 
       </div>
