@@ -17,9 +17,19 @@ class HoverLink extends Component {
   }
 
   componentDidUpdate() {
+    this.handleTransition()
+  }
+
+  handleTransition() {
     const { textColor, hoverColor } = this.props
-    let color = this.state.hovered ? hoverColor : textColor
-    $(findDOMNode(this)).stop().velocity({color}, {easing:'easeOutQuart', duration:300})
+    switch(this.state.hovered){
+      case true:
+        $(findDOMNode(this)).stop().velocity({color:hoverColor}, {easing:'easeOutQuad', duration:300})
+        break;
+      case false:
+        $(findDOMNode(this)).stop().velocity({color:textColor}, {easing:'easeOutQuad', duration:300})
+    }
+
   }
 
   onMouseOver(e){
