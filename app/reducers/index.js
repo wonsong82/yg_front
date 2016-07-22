@@ -16,6 +16,43 @@ const theme = ( state = initState.theme, action ) => {
 }
 
 
+// MAIN MENU
+import { OPEN_MAIN_MENU, CLOSE_MAIN_MENU, TOGGLE_MAIN_MENU, ENABLE_MAIN_MENU, DISABLE_MAIN_MENU } from '../actions/'
+const mainMenu = ( state = initState.mainMenu, action) => {
+  switch(action.type){
+    case OPEN_MAIN_MENU:
+      return Object.assign({}, state,
+        {
+          opened: true
+        })
+    case CLOSE_MAIN_MENU:
+      return Object.assign({}, state,
+        {
+          opened: false
+        })
+    case TOGGLE_MAIN_MENU:
+      return Object.assign({}, state,
+        {
+          opened: !state.opened
+        })
+    case ENABLE_MAIN_MENU:
+      return Object.assign({}, state, 
+        {
+          disabled: false
+        })
+    case DISABLE_MAIN_MENU:
+      return Object.assign({}, state,        
+        {
+          disabled: true
+        })
+    default:
+      return state
+  }
+}
+
+
+
+
 // ARTISTS
 import { REQUEST_ARTISTS, RECEIVE_ARTISTS } from '../actions/'
 const artists = ( state = initState.artists, action) => {
@@ -41,7 +78,7 @@ const artists = ( state = initState.artists, action) => {
 
 
 
-const appReducer = combineReducers({ artists, theme })
+const appReducer = combineReducers({ artists, mainMenu, theme })
 export default appReducer
 
 

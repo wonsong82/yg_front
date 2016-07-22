@@ -24,24 +24,24 @@ class HoverLink extends Component {
     const { textColor, hoverColor } = this.props
     switch(this.state.hovered){
       case true:
-        $(findDOMNode(this)).stop().velocity({color:hoverColor}, {easing:'easeOutQuad', duration:300})
+        $(findDOMNode(this)).velocity('stop',true).velocity({color:hoverColor}, {easing:'easeOutQuad', duration:500})
         break;
       case false:
-        $(findDOMNode(this)).stop().velocity({color:textColor}, {easing:'easeOutQuad', duration:300})
+        $(findDOMNode(this)).velocity('stop',true).velocity({color:textColor}, {easing:'easeOutQuad', duration:500})
     }
 
   }
 
-  onMouseOver(e){
+  onMouseEnter(e){
     e.preventDefault()
-    console.log('over')
     this.setState({hovered: true})
+    this.props.onMouseEnter()
   }
 
-  onMouseOut(e){
+  onMouseLeave(e){
     e.preventDefault()
-    console.log('out')
     this.setState({hovered: false})
+    this.props.onMouseLeave()
   }
 
   hoverColor(){
@@ -49,16 +49,22 @@ class HoverLink extends Component {
     return this.state.hovered ?
       hoverColor : textColor
   }
+
+  onLinkClick(){
+    this.props.onClick()
+  }
   
   render() {
-    const { children, to, className } = this.props
+    const { children, to, className, textColor } = this.props
 
     return (
       <Link
+        style={{color: textColor}}
         to={to}
         className={className}
-        onMouseOver={this.onMouseOver.bind(this)}
-        onMouseOut={this.onMouseOut.bind(this)}
+        onMouseEnter={this.onMouseEnter.bind(this)}
+        onMouseLeave={this.onMouseLeave.bind(this)}
+        onClick={this.onLinkClick.bind(this)}
       >{children}</Link>
     )     
   }

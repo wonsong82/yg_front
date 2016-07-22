@@ -12,6 +12,8 @@ const initialState = {
       /**
        * {
        *    id,
+       *    name,
+       *    urlFriendlyName,
        *    bg,
        *    textColor,
        *    themeColor
@@ -22,9 +24,15 @@ const initialState = {
     current: 0,
     next: 0
   },
+  
+  mainMenu: {
+    disabled: false, // disabled in transition
+    opened: false
+  },
+  
 
   blog: {
-    loaded: false,
+    loaded: false,    
     isFetching: false,
     list: [
 

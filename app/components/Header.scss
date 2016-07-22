@@ -1,7 +1,4 @@
 .Header {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 56px;
 
@@ -9,6 +6,13 @@
     position: absolute;
     top: 19px;
     left: 37px;
+    transition: opacity 300ms ease;
+    cursor: pointer;
+
+    &.disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
 
     .icon-main-menu {
       font-size: 20px;

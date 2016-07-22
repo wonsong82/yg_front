@@ -1,7 +1,8 @@
+@import './variable';
+
 .Footer {
-  z-index: 999;
-  position: relative;
-  height: 274px;
+  width: 100%;
+  height: $footerHeight;
   transition: background-color 1s ease;
   will-change: background-color;
 }

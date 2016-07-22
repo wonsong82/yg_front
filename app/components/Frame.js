@@ -8,6 +8,7 @@ const Frame = ({ color }) => (
     <span className="bottom" style={{backgroundColor:color}} />
     <span className="left" style={{backgroundColor:color}} />
     <span className="right" style={{backgroundColor:color}} />
+    <span className="footer" style={{backgroundColor:color}} />
   </div>
 )
 

@@ -12,6 +12,7 @@ class AppContainer extends Component {
   componentDidMount(){
     const { dispatch } = this.props
     dispatch(getArtistsList())
+    // todo: dispatch others
   }
 
   componentWillReceiveProps(nextProps) {
@@ -20,8 +21,11 @@ class AppContainer extends Component {
     if(nextProps.artistLoaded) {
       const { dispatch, page, popup, artistsList, params } = nextProps
       const { themeColor, textColor } = computeThemeColor(page, popup, artistsList, params)
-      dispatch(setThemeColor(themeColor, textColor))
+      if(themeColor != this.props.themeColor)
+        dispatch(setThemeColor(themeColor, textColor))
     }
+    
+    
   }
 
 
@@ -34,14 +38,13 @@ AppContainer.propTypes = {}
 
 
 const mapStateToProps = (state) => {
-  const { isFetching, loaded, list } = state.artists
-  const { textColor, themeColor } = state.theme
   return {
-    artistLoaded: loaded,
-    isArtistLoading: isFetching,
-    artistsList: list,
-    textColor,
-    themeColor
+    artistLoaded: state.artists.loaded,
+    isArtistLoading: state.artists.isFetching,
+    artistsList: state.artists.list,
+    textColor: state.theme.textColor,
+    themeColor: state.theme.themeColor,
+    mainMenuOpened: state.mainMenu.opened
   }
 }
 

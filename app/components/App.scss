@@ -1,4 +1,5 @@
 @import './Spinner.scss';
+@import './variable.scss';
 
 * {
   margin: 0;
@@ -7,7 +8,7 @@
 }
 
 body {
-  background-color: #f0f0f0;
+  background-color: $bgColor;
 }
 
 .page-loading {
@@ -24,3 +25,30 @@ body {
     transform: translate(-50%, -50%);
   }
 }
+
+.App {
+  position: relative;
+
+  .Header {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .Page {
+    position: relative;
+    padding: $frameSizeTop $frameSize $footerHeight;
+    box-sizing: border-box;
+  }
+  .Footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .MainMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
+
+

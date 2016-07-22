@@ -69,8 +69,10 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.9.1",
+    "connect-with-transition-group": "^0.1.0",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
+    "jquery": "latest",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
@@ -79,7 +81,6 @@
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
     "velocity-animate": "^1.2.3",
-    "velocity-react": "^1.1.5",
-    "jquery": "latest"
+    "velocity-react": "^1.1.5"
   }
 }

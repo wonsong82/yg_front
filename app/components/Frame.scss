@@ -1,3 +1,5 @@
+@import './variable';
+
 .Frame {
   width: 0;
   height: 0;
@@ -12,14 +14,14 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 56px;
+    height: $frameSizeTop;
   }
 
   .left {
     position: fixed;
     top: 0;
     left: 0;
-    width: 27px;
+    width: $frameSize;
     bottom: 0;
   }
 
@@ -27,16 +29,26 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 27px;
+    width: $frameSize;
     bottom: 0;
   }
 
   .bottom {
     position: fixed;
     bottom: 0;
-    height: 27px;
+    height: $frameSize;
     left: 0;
     right: 0;
   }
 
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $footerHeight;
+    transition: background-color 1s ease;
+    will-change: background-color;
+  }
 }
+

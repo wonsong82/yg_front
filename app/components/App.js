@@ -1,11 +1,12 @@
 require('./App.scss')
 import React, { Component, PropTypes } from 'react'
+import TransitionGroup from 'react/lib/ReactTransitionGroup'
 
-import Header from './Header'
 import Page from './Page'
 import Footer from './Footer'
 import Frame from './Frame'
-import MainMenu from './MainMenu'
+import MainMenuContainer from '../containers/MainMenuContainer'
+import HeaderContainer from '../containers/HeaderContainer'
 
 
 class App extends Component {
@@ -13,17 +14,23 @@ class App extends Component {
   constructor(props){
     super(props)
   }
+  
 
   render(){
-    const { page, themeColor, textColor, artistsList } = this.props
+    
+    const { page, themeColor, textColor, artistsList, mainMenuOpened } = this.props
 
     return (
       <div className="App">
-        <Page>{page}</Page>
-        <MainMenu artists={artistsList} />
+        <Page>{page}</Page>        
         <Frame color={themeColor} />
-        <Footer bgColor={themeColor} textColor={textColor} />
-        <Header color={textColor} />
+        
+        <TransitionGroup className="MainMenuTransition" component="div">
+          {mainMenuOpened && <MainMenuContainer artists={artistsList}  />}
+        </TransitionGroup>
+        
+        <HeaderContainer color={textColor} />
+        <Footer color={textColor} />
 
       </div>
     )
@@ -43,6 +50,7 @@ App.propTypes = {
   ).isRequired,
   themeColor: PropTypes.string.isRequired,
   textColor: PropTypes.oneOf(['#ffffff', '#000000']).isRequired,
+  mainMenuOpened: PropTypes.bool.isRequired,
   page: PropTypes.element.isRequired,
   popup: PropTypes.element
 }

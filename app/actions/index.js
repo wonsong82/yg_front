@@ -12,23 +12,55 @@ export const setThemeColor = (themeColor, textColor) => {
 }
 
 
+// MAIN MENU
+export const OPEN_MAIN_MENU = 'open_main_menu'
+export const CLOSE_MAIN_MENU = 'close_main_menu'
+export const TOGGLE_MAIN_MENU = 'toggle_main_menu'
+export const ENABLE_MAIN_MENU = 'enable_main_menu'
+export const DISABLE_MAIN_MENU = 'disable_main_menu' 
+
+export const openMainMenu = () => {
+  return {
+    type: OPEN_MAIN_MENU
+  }
+}
+export const closeMainMenu = () => {
+  return {
+    type: CLOSE_MAIN_MENU
+  }
+}
+export const toggleMainMenu = () => {
+  return {
+    type: TOGGLE_MAIN_MENU
+  }
+}
+export const enableMainMenu = () => {
+  return {
+    type: ENABLE_MAIN_MENU
+  }
+}
+export const disableMainMenu = () => {
+  return {
+    type: DISABLE_MAIN_MENU
+  }
+}
+
 
 
 // ARTISTS
 export const REQUEST_ARTISTS = 'request_artists'
+export const RECEIVE_ARTISTS = 'receive_artists'
 export const requestArtists = () => {
   return {
     type: REQUEST_ARTISTS
   }
 }
-export const RECEIVE_ARTISTS = 'receive_artists'
 export const receiveArtists = (artistsList) => {
   return {
     type: RECEIVE_ARTISTS,
     list: artistsList
   }
 }
-
 // ThunkMiddleware
 export const fetchArtists = () => {
   return function(dispatch){

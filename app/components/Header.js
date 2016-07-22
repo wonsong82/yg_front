@@ -1,5 +1,5 @@
 require('./Header.scss')
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
 
@@ -11,15 +11,19 @@ class Header extends React.Component {
 
   onMenuClick(e){
     e.preventDefault()
+    if(!this.props.isMenuButtonDisabled)
+      this.props.onMenuClick()
   }
 
   render(){
-    const { color } = this.props
+    const { color, isMenuButtonDisabled } = this.props
 
     return (
       <div className="Header">
 
-        <a href="#" onClick={this.onMenuClick.bind(this)} className="menu">
+        <a href="#"
+           onClick={this.onMenuClick.bind(this)}
+           className={isMenuButtonDisabled? 'menu disabled': 'menu'} >
           <span className="icon-main-menu" style={{color}} />
         </a>
 
@@ -27,13 +31,20 @@ class Header extends React.Component {
           <span className="icon-logo" style={{color}} />
         </Link>
 
-        
+        {/* My Page Link */}
+
+        {/* Cart Link */}
 
 
       </div>
     )
   }
 
+}
+
+Header.propTypes = {
+  color: PropTypes.string.isRequired,
+  isMenuButtonDisabled: PropTypes.bool.isRequired
 }
 
 

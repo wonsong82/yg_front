@@ -1,26 +1,50 @@
 [
   {
     "id": 1,
-    "name": "Artist 1",
-    "urlFriendlyName": "artist-1",
-    "themeColor": "#ff0000",
-    "bg": "",
+    "name": "Lee HI",
+    "urlFriendlyName": "lee-hi",
+    "bg": "/images/leehi.jpg",
+    "themeColor": "#ff8197",
     "textColor": "#ffffff"
   },
   {
     "id": 2,
-    "name": "Artist 2",
-    "urlFriendlyName": "artist-2",
-    "themeColor": "#00ff00",
-    "bg": "",
+    "name": "AKMU",
+    "urlFriendlyName": "akmu",
+    "bg": "/images/akmu.jpg",
+    "themeColor": "#367ed8",
     "textColor": "#ffffff"
   },
   {
     "id": 3,
-    "name": "Artist 3",
-    "urlFriendlyName": "artist-3",
-    "themeColor": "#0000ff",
-    "bg": "",
+    "name": "IKON",
+    "urlFriendlyName": "ikon",
+    "bg": "/images/ikon.jpg",
+    "themeColor": "#e52429",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 4,
+    "name": "EPIK HIGH",
+    "urlFriendlyName": "epic-high",
+    "bg": "/images/epichigh.jpg",
+    "themeColor": "#bee1d2",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 5,
+    "name": "2NE1",
+    "urlFriendlyName": "2ne1",
+    "bg": "/images/2ne1.jpg",
+    "themeColor": "#ff3480",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 6,
+    "name": "PSY",
+    "urlFriendlyName": "psy",
+    "bg": "/images/psy.jpg",
+    "themeColor": "#00943b",
     "textColor": "#ffffff"
   }
 ]
