@@ -1,12 +1,13 @@
 import { connect } from 'react-redux'
 
-import { toggleMainMenu } from '../actions/'
+import { toggleMainMenu, closeMainMenu } from '../actions/'
 import Header from '../components/Header'
 
 
 const mapStateToProps = (state) => {
   return {
-    isMenuButtonDisabled: state.mainMenu.disabled
+    isMenuButtonDisabled: state.mainMenu.disabled,
+    isMenuOpened: state.mainMenu.opened
   }
 }
 
@@ -14,6 +15,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onMenuClick: () => {
       dispatch(toggleMainMenu())
+    },
+    onHomeClick: () => {
+      dispatch(closeMainMenu())
     }
   }
 }

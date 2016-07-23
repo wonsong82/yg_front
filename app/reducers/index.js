@@ -17,7 +17,7 @@ const theme = ( state = initState.theme, action ) => {
 
 
 // MAIN MENU
-import { OPEN_MAIN_MENU, CLOSE_MAIN_MENU, TOGGLE_MAIN_MENU, ENABLE_MAIN_MENU, DISABLE_MAIN_MENU } from '../actions/'
+import { OPEN_MAIN_MENU, CLOSE_MAIN_MENU, ENABLE_MAIN_MENU, DISABLE_MAIN_MENU } from '../actions/'
 const mainMenu = ( state = initState.mainMenu, action) => {
   switch(action.type){
     case OPEN_MAIN_MENU:
@@ -29,11 +29,6 @@ const mainMenu = ( state = initState.mainMenu, action) => {
       return Object.assign({}, state,
         {
           opened: false
-        })
-    case TOGGLE_MAIN_MENU:
-      return Object.assign({}, state,
-        {
-          opened: !state.opened
         })
     case ENABLE_MAIN_MENU:
       return Object.assign({}, state, 

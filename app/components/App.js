@@ -1,12 +1,11 @@
 require('./App.scss')
 import React, { Component, PropTypes } from 'react'
-import TransitionGroup from 'react/lib/ReactTransitionGroup'
 
 import Page from './Page'
 import Footer from './Footer'
 import Frame from './Frame'
-import MainMenuContainer from '../containers/MainMenuContainer'
 import HeaderContainer from '../containers/HeaderContainer'
+import MainMenuTransitionContainer from '../containers/MainMenuTransitionContainer'
 
 
 class App extends Component {
@@ -14,21 +13,29 @@ class App extends Component {
   constructor(props){
     super(props)
   }
-  
+
+  componentDidMount(){
+    const { page } = this.props
+    if(page.type.name == 'StaticLayout'){
+      $('.App .Page').empty()
+      $('.StaticPage').detach().appendTo('.App .Page').removeClass('StaticPage').addClass('StaticLayout')
+    }
+  }
+
 
   render(){
-    
-    const { page, themeColor, textColor, artistsList, mainMenuOpened } = this.props
+    const { page, themeColor, textColor } = this.props    
 
+    
     return (
       <div className="App">
-        <Page>{page}</Page>        
+        
+        <Page>{ page }</Page>
+        
         <Frame color={themeColor} />
-        
-        <TransitionGroup className="MainMenuTransition" component="div">
-          {mainMenuOpened && <MainMenuContainer artists={artistsList}  />}
-        </TransitionGroup>
-        
+
+        <MainMenuTransitionContainer />
+
         <HeaderContainer color={textColor} />
         <Footer color={textColor} />
 

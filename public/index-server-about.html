@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YG Presents</title>
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/app.css">
+</head>
+<body>
+
+<div class="StaticPage">
+    Event Tester:
+    <a href="#" id="test-link">Test Link</a>
+</div>
+<script>
+    document.querySelector('#test-link').addEventListener('click', function(e){
+        alert("HI");
+        e.preventDefault();
+    })
+</script>
+
+<div id="root">
+    <div class="page-loading">
+        <div class="page-loading__spinner">
+            <div class="Spinner">
+                <span class="tl box"></span>
+                <span class="tr box"></span>
+                <span class="bl box"></span>
+                <span class="br box"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="http://localhost:8080/app.js"></script>
+</body>
+</html>

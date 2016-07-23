@@ -1,0 +1,62 @@
+.MenuButton {
+  position:relative;
+  width: 28px;
+  height: 28px;
+  transition: transform 0.6s ease-out;
+  will-change: transform;
+
+  .top {
+    background: #000;
+    width: 20px;
+    height: 2px;
+    position: absolute;
+    top:5px;
+    left:4px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .middle {
+    background: #000;
+    width: 20px;
+    height: 2px;
+    position: absolute;
+    top:13px;
+    left:4px;
+    transition: all 0.3s ease-in-out;
+    will-change: transform, width;
+  }
+
+  .bottom {
+    background: #000;
+    width: 20px;
+    height: 2px;
+    position: absolute;
+    top:21px;
+    left:4px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &.close {
+    transform: rotate(-45deg);
+
+    .top {
+      width: 14px;
+      transform-origin: 50% 50%;
+      transform: rotate(90deg) translate(1px, -3px);
+    }
+
+    .middle {
+      width: 28px;
+      transform: translateX(-4px)
+    }
+
+    .bottom {
+      width: 14px;
+      transform-origin: 50% 50%;
+      transform: rotate(-90deg) translate(1px, 3px);
+    }
+  }
+}
+
+
+

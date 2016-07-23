@@ -1,3 +1,5 @@
+window.debugMode = true
+
 require('./static/font-klavika.css')
 require('./static/icon-yg.css')
 window.$ = window.jQuery = require('jquery')
@@ -24,4 +26,5 @@ render (
   </Provider>,
 
   document.querySelector('#root')
+
 )

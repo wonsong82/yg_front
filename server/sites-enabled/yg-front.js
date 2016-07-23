@@ -37,6 +37,12 @@ app.get([
   res.sendFile(path.resolve('../data/getArtists.json'));
 });
 
+app.get([
+  '/about'
+], function(req, res){
+  res.sendFile(path.resolve('../public/index-server-about.html'))
+});
+
 
 app.use(cors());
 app.use('/', express.static(path.resolve('../public')));

@@ -1,10 +1,10 @@
 require('./MainMenu.scss')
 import React, { Component, PropTypes } from 'react'
-import { findDOMNode } from 'react-dom'
 import TransitionGroup from 'react/lib/ReactTransitionGroup'
 import { Link } from 'react-router'
 import HoverLink from './HoverLink'
 import MainMenuImage from './MainMenuImage'
+
 
 
 class MainMenu extends Component {
@@ -40,13 +40,16 @@ class MainMenu extends Component {
 
 
   onArtistEnter(id) {
+    if(this.props.menuDisabled) return false
     this.setState({
       image: this.getArtistImage(id),
       prevImage: this.state.image
     })
+
   }
 
   onArtistLeave() {
+
   }
 
   getArtistImage( id ){
@@ -57,35 +60,6 @@ class MainMenu extends Component {
     return filteredArtist[0].bg
   }
 
-  componentWillEnter(callback){
-    this.props.onEnterBefore()
-    $(findDOMNode(this))
-      .velocity({
-        opacity: 1
-      }, {
-        duration: 800,
-        easing: 'easeInOutQuad',
-        begin: (e) => $(e).css({opacity:0}),
-        complete: () => callback()
-      })
-  }
-  componentDidEnter(){
-    this.props.onEnterAfter()
-  }
-  componentWillLeave(callback){
-    this.props.onLeaveBefore()
-    $(findDOMNode(this))
-      .velocity({
-        opacity: 0
-      }, {
-        duration: 500,
-        easing: 'easeInOutQuad',
-        complete: () => callback()
-      })
-  }
-  componentDidLeave(){
-    this.props.onLeaveAfter()
-  }
 
   onLinkClick(){
     this.props.onLinkClick()
@@ -94,7 +68,7 @@ class MainMenu extends Component {
 
   
   render() {
-    const { artists } = this.props
+    const { artists, menuDisabled } = this.props
 
     // Static Links
     const staticLinks = [
@@ -107,6 +81,7 @@ class MainMenu extends Component {
       let { to, text } = link
       return <Link key={to}
                    to={'/'+to}
+                   ref="staticLink"
                    className="link"
                    activeClassName="current"
                    onClick={this.onLinkClick.bind(this)}
@@ -148,16 +123,18 @@ class MainMenu extends Component {
           }
         </TransitionGroup>
 
-        <div className="static">
+        <div className="static" ref="static">
           {staticLinks}
         </div>
 
-        <div className="artists"
+        <div className="artists" ref="artists"
              onMouseEnter={this.onArtistsEnter.bind(this)}
              onMouseLeave={this.onArtistsLeave.bind(this)}
         >
           {artistLinks}
         </div>
+        
+        {menuDisabled && <span className="film" />}
 
       </div>
     )     

@@ -29,11 +29,6 @@ export const closeMainMenu = () => {
     type: CLOSE_MAIN_MENU
   }
 }
-export const toggleMainMenu = () => {
-  return {
-    type: TOGGLE_MAIN_MENU
-  }
-}
 export const enableMainMenu = () => {
   return {
     type: ENABLE_MAIN_MENU
@@ -44,7 +39,15 @@ export const disableMainMenu = () => {
     type: DISABLE_MAIN_MENU
   }
 }
-
+export const toggleMainMenu = () => {
+  return (dispatch, getState) => {
+    let state = getState()
+    if(state.mainMenu.opened)
+      return dispatch(closeMainMenu())
+    else
+      return dispatch(openMainMenu())
+  }
+}
 
 
 // ARTISTS

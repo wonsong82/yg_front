@@ -1,6 +1,8 @@
 require('./Header.scss')
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
+import MenuButton from './MenuButton'
+
 
 
 class Header extends React.Component {
@@ -15,8 +17,12 @@ class Header extends React.Component {
       this.props.onMenuClick()
   }
 
+  onHomeClick(){
+    this.props.onHomeClick()
+  }
+
   render(){
-    const { color, isMenuButtonDisabled } = this.props
+    const { color, isMenuButtonDisabled, isMenuOpened } = this.props
 
     return (
       <div className="Header">
@@ -24,10 +30,14 @@ class Header extends React.Component {
         <a href="#"
            onClick={this.onMenuClick.bind(this)}
            className={isMenuButtonDisabled? 'menu disabled': 'menu'} >
-          <span className="icon-main-menu" style={{color}} />
+          
+            <MenuButton color={color} close={isMenuOpened} />
+          
         </a>
 
-        <Link to="/" className="home">
+        <Link to="/"
+              className="home"
+              onClick={this.onHomeClick.bind(this)}>
           <span className="icon-logo" style={{color}} />
         </Link>
 

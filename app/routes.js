@@ -9,6 +9,7 @@ import TourLayout from './components/layouts/TourLayout'
 import EventLayout from './components/layouts/EventLayout'
 import BlogLayout from './components/layouts/BlogLayout'
 import ArtistLayout from './components/layouts/ArtistLayout'
+import StaticLayout from './components/layouts/StaticLayout'
 
 import ShopItem from './components/items/ShopItem'
 import MusicItem from './components/items/MusicItem'
@@ -80,6 +81,11 @@ export default (
            components={{page: ArtistLayout, popup: EventItem}} />
     <Route path="artist/:name/blog/:item"
            components={{page: ArtistLayout, popup: BlogItem}} />
+
+    <Route path="*"
+           components={{page: StaticLayout}} />
+
+
     
     
     
