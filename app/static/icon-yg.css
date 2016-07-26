@@ -89,3 +89,6 @@
 .icon-main-menu:before {
   content: "\71";
 }
+.icon-email:before {
+	content: "\72";
+}

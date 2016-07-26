@@ -11,19 +11,20 @@ class Spinner extends Component {
   
   render() {
     const backgroundColor = this.props.color
+
     return (
       <div className="Spinner">
-        <span class="tl box" style={{backgroundColor}} />
-        <span class="tr box" style={{backgroundColor}} />
-        <span class="bl box" style={{backgroundColor}} />
-        <span class="br box" style={{backgroundColor}} />
+        <span className="tl box" style={{backgroundColor}} />
+        <span className="tr box" style={{backgroundColor}} />
+        <span className="bl box" style={{backgroundColor}} />
+        <span className="br box" style={{backgroundColor}} />
       </div>
     )
   }
 }
 
 Spinner.propTypes = {
-  color: PropTypes.string.required
+  color: PropTypes.string.isRequired
 }
 
 

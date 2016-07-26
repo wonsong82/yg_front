@@ -68,12 +68,21 @@ const artists = ( state = initState.artists, action) => {
 }
 
 
+// SIGNUP
+import {} from '../actions/'
+const signup = ( state = initState.signup, action ) => {
+  switch(action.type) {
+
+    default:
+      return state
+  }
+}
 
 
 
 
 
-const appReducer = combineReducers({ artists, mainMenu, theme })
+const appReducer = combineReducers({ artists, mainMenu, theme, signup })
 export default appReducer
 
 

@@ -45,9 +45,14 @@ const initialState = {
     isFetching: false,
     list: [
     ]
+  },
+
+
+  signup: {
+    error: false,
+    errorMsg: '',
+    isLoading: false
   }
-
-
 
 
 

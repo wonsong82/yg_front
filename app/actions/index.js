@@ -88,3 +88,8 @@ export const getArtistsList = () => {
 }
 
 
+// EMAIL SIGNUP
+
+
+
+

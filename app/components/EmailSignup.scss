@@ -1,0 +1,187 @@
+.EmailSignup {
+  padding: 14px;
+
+  h3 {
+    font: 500 18px/24px 'Klavika', sans-serif;
+    text-transform: uppercase;
+    transition: color 1000ms ease;
+    will-change: color;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font: 400 14px/24px 'Klavika', sans-serif;
+    transition: color 1000ms ease;
+    will-change: color;
+    margin-bottom: 10px;
+  }
+
+  form {
+    display: block;
+    font-size: 0;
+  }
+
+  input {
+    display: inline-block;
+    appearance: none;
+    border: 1px solid rgba(0,0,0,0);
+    background: transparent;
+    width: 340px;
+    height: 40px;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    transition: border-color 300ms ease, color 1000ms ease;
+    will-change: border-color, color;
+    font: 500 14px/24px 'Klavika', sans-serif;
+    padding: 0 7px;
+    vertical-align: top;
+    &::-webkit-input-placeholder {
+      font-weight: 400;
+    }
+    &::-moz-placeholder {
+      font-weight: 400;
+    }
+    &:-moz-placeholder {
+      font-weight: 400;
+    }
+    &:-ms-input-placeholder {
+      font-weight: 400;
+    }
+  }
+
+  button {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0);
+    box-sizing: content-box;
+    font: 400 14px/24px 'Klavika', sans-serif;
+    border-left: none;
+    vertical-align: top;
+    transition: border-color 300ms ease;
+    will-change: border-color;
+    position: relative;
+    .icon-email {
+      cursor: pointer;
+      transition: color 300ms ease;
+      font-size: 20px;
+      line-height: 20px;
+      vertical-align: middle;
+    }
+    .loading-container {
+      opacity: 0.8;
+      width: 22px;
+      height: 22px;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+
+  &.light {
+    h3 {
+      color: rgba(0,0,0, .80);
+    }
+    p {
+      color: rgba(0,0,0, .55);
+    }
+    input {
+      color: rgba(0,0,0, 1);
+      border-color: rgba(0,0,0, .55);
+      &:active, &:focus {
+        border-color: rgba(0,0,0, 1);
+      }
+      &::-webkit-input-placeholder {
+        color: rgba(0,0,0, .55);
+      }
+      &::-moz-placeholder {
+        color: rgba(0,0,0, .55);
+      }
+      &:-moz-placeholder {
+        color: rgba(0,0,0, .55);
+      }
+      &:-ms-input-placeholder {
+        color: rgba(0,0,0, .55);
+      }
+    }
+    button {
+      border-color: rgba(0,0,0, .55);
+      .icon-email {
+        color: rgba(0,0,0, .80);
+      }
+      &:hover, &:active {
+        border-color: rgba(0,0,0, 1);
+        .icon-email {
+          color: rgba(0,0,0, 1);
+        }
+      }
+    }
+  }
+
+  &.dark {
+    h3 {
+      color: rgba(255,255,255, .80);
+    }
+    p {
+      color: rgba(255,255,255, .55);
+    }
+    input {
+      color: rgba(255,255,255, 1);
+      border-color: rgba(255,255,255, .55);
+      &:active, &:focus {
+        border-color: rgba(255,255,255, 1);
+      }
+      &::-webkit-input-placeholder {
+        color: rgba(255,255,255, .55);
+      }
+      &::-moz-placeholder {
+        color: rgba(255,255,255, .55);
+      }
+      &:-moz-placeholder {
+        color: rgba(255,255,255, .55);
+      }
+      &:-ms-input-placeholder {
+        color: rgba(255,255,255, .55);
+      }
+    }
+    button {
+      border-color: rgba(255,255,255, .55);
+      .icon-email {
+        color: rgba(255,255,255, .80);
+      }
+      &:hover, &:active {
+        border-color: rgba(255,255,255, 1);
+        .icon-email {
+          color: rgba(255,255,255, 1);
+        }
+      }
+    }
+  }
+
+
+
+
+
+  input::-webkit-input-placeholder {
+    color: red;
+  }
+  input:-moz-placeholder {
+    /* FF 4-18 */
+    color: red;
+  }
+  input::-moz-placeholder {
+    /* FF 19+ */
+    color: red;
+  }
+  input:-ms-input-placeholder {
+    /* IE 10+ */
+    color: red;
+  }
+
+}
