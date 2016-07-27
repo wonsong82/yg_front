@@ -1,1 +1,68 @@
-{}
+[
+  {
+    "id": 7,
+    "post_title": "LEE HI First Album",
+    "post_content": "LEE HI First Album",
+    "post_date": "2016-07-18 23:33:38",
+    "subtitle": "LEE HI First Album - subtitle",
+    "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+    "album_url": "www.albumurl.com",
+    "album_release_date": "20160717",
+    "artist_id": 1
+  },
+  {
+    "id": 8,
+    "post_title": "AKMU First Album",
+    "post_content": "AKMU First Album",
+    "post_date": "2016-07-18 23:33:38",
+    "subtitle": "AKMU First Album - subtitle",
+    "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+    "album_url": "www.albumurl.com",
+    "album_release_date": "20160717",
+    "artist_id": 2
+  },
+  {
+    "id": 9,
+    "post_title": "IKON First Album",
+    "post_content": "IKON First Album",
+    "post_date": "2016-07-18 23:33:38",
+    "subtitle": "IKON First Album - subtitle",
+    "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+    "album_url": "www.albumurl.com",
+    "album_release_date": "20160717",
+    "artist_id": 3
+  },
+  {
+    "id": 10,
+    "post_title": "EPIC HIGH First Album",
+    "post_content": "EPIC HIGH First Album",
+    "post_date": "2016-07-18 23:33:38",
+    "subtitle": "EPIC HIGH First Album - subtitle",
+    "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+    "album_url": "www.albumurl.com",
+    "album_release_date": "20160717",
+    "artist_id": 4
+  },
+  {
+    "id": 11,
+    "post_title": "2 NE 1 First Album",
+    "post_content": "2 NE 1 First Album",
+    "post_date": "2016-07-18 23:33:38",
+    "subtitle": "2 NE 1 First Album - subtitle",
+    "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+    "album_url": "www.albumurl.com",
+    "album_release_date": "20160717",
+    "artist_id": 5
+  },
+  {
+    "id": 12,
+    "post_title": "PSY First Album",
+    "post_content": "PSY First Album",
+    "post_date": "2016-07-18 23:33:38",
+    "subtitle": "PSY First Album - subtitle",
+    "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+    "album_url": "www.albumurl.com",
+    "album_release_date": "20160717",
+    "artist_id": 6
+  }
+]

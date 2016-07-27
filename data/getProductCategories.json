@@ -1,1 +1,26 @@
-{}
+[
+  {
+    "cat_ID": 1,
+    "name": "T-Shirt"
+  },
+  {
+    "cat_ID": 2,
+    "name": "Accessories"
+  },
+  {
+    "cat_ID": 3,
+    "name": "Ablum"
+  },
+  {
+    "cat_ID": 4,
+    "name": "Stationery"
+  },
+  {
+    "cat_ID": 5,
+    "name": "Bag"
+  },
+  {
+    "cat_ID": 6,
+    "name": "Pants"
+  }
+]
