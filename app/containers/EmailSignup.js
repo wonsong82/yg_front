@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import {  } from '../actions/'
+import { newsletterSignup } from '../actions/'
 import EmailSignup from '../components/EmailSignup'
 
 
@@ -14,6 +14,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    onSubmit: (email) => dispatch(newsletterSignup(email))
   }
 }
 

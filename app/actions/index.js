@@ -89,6 +89,50 @@ export const getArtistsList = () => {
 
 
 // EMAIL SIGNUP
+export const NEWSLETTER_SIGNUP_REQUEST = 'newsletter_signup_request'
+export const NEWSLETTER_SIGNUP_RECEIVE = 'newsletter_signup_receive'
+export const newsletterSignupRequest = () => {
+  return {
+    type: NEWSLETTER_SIGNUP_REQUEST
+  }
+}
+export const newsletterSignupReceive = ( code, data ) => {
+  return {
+    type: NEWSLETTER_SIGNUP_RECEIVE,
+    code,
+    data
+  }
+}
+export const newsletterSignup = ( email ) => {
+  return ( dispatch, getState ) => {
+    let state = getState()
+    let shoudFetch = !state.signup.isLoading
+    if(shoudFetch){
+      dispatch(newsletterSignupRequest())
+      fetch('/api/newsletterSignup', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          'email': email
+        })
+      })
+        .then(response => {
+          dispatch(newsletterSignupReceive())
+          let code = response.status
+          // todo: status related dispatch ....
+          console.log(code)
+        })
+    }
+    else {
+      return Promise.resolve()
+    }
+  }
+}
+
+
 
 
 

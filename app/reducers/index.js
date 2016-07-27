@@ -69,10 +69,17 @@ const artists = ( state = initState.artists, action) => {
 
 
 // SIGNUP
-import {} from '../actions/'
+import { NEWSLETTER_SIGNUP_RECEIVE, NEWSLETTER_SIGNUP_REQUEST } from '../actions/'
 const signup = ( state = initState.signup, action ) => {
   switch(action.type) {
-
+    case NEWSLETTER_SIGNUP_REQUEST:
+      return {
+        isLoading: true
+      }
+    case NEWSLETTER_SIGNUP_RECEIVE:
+      return {
+        isLoading: false
+      }
     default:
       return state
   }

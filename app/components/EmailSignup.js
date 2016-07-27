@@ -8,10 +8,32 @@ class EmailSignup extends Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      emailValue: ''
+    }
   }
 
-  onSubmit(){
+  onSubmit(e){
+    e.preventDefault()
+    if(!this.props.isLoading){
+      this.props.onSubmit(this.state.emailValue)
 
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(!nextProps.isLoading){
+      this.setState({
+        emailValue: ''
+      })
+    }
+  }
+
+
+  onEmailInputChange(e){
+    this.setState({
+      emailValue: e.target.value
+    })
   }
 
   render() {
@@ -23,7 +45,7 @@ class EmailSignup extends Component {
         <p>Enter your email address to receive all news from our website.</p>
 
         <form action="#" onSubmit={this.onSubmit.bind(this)}>
-          <input type="text" placeholder="Enter your E-mail" />
+          <input type="text" placeholder="Enter your E-mail" value={this.state.emailValue} onChange={this.onEmailInputChange.bind(this)} />
           <button type="submit">
             { !isLoading ?
               <span className="icon-email"/>
@@ -36,10 +58,15 @@ class EmailSignup extends Component {
       </div>
     )
   }
-
 }
 
-EmailSignup.propTypes = {}
+EmailSignup.propTypes = {
+  title: PropTypes.string.isRequired,
+  themeColor: PropTypes.oneOf(['dark', 'light']),
+  isLoading: PropTypes.bool.isRequired,
+  color: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired
+}
 
 
 

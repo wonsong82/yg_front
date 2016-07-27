@@ -49,8 +49,6 @@ const initialState = {
 
 
   signup: {
-    error: false,
-    errorMsg: '',
     isLoading: false
   }
 
