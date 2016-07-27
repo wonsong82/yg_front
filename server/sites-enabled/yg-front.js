@@ -37,6 +37,31 @@ app.get([
   res.sendFile(path.resolve('../data/getArtists.json'));
 });
 
+app.post([
+  '/api/newsletterSignup'
+], function(req, res){
+  setTimeout(function(){
+    var user = req.params.email;
+    switch(Math.floor(Math.random() * 2)){
+      case 0:
+        res.status(200).json({"msg": "subscribing", "email":user});
+        break;
+      case 1:
+        res.status(409).json({"msg": "already subscribed", "email":user});
+        break;
+    }
+  }, 500);
+ /* var user = req.params.email;
+  switch(Math.floor(Math.random() * 2)){
+    case 0:
+      res.status(200).json({"msg": "subscribing", "email":user});
+      break;
+    case 1:
+      res.status(409).json({"msg": "already subscribed", "email":user});
+      break;
+  }*/
+});
+
 app.get([
   '/about'
 ], function(req, res){

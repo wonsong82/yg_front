@@ -1,3 +1,5 @@
+const DEBUG = true
+
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
@@ -5,7 +7,7 @@ import createLogger from 'redux-logger'
 import appReducer from './reducers/'
 const loggerMiddleware = createLogger()
 
-const middlewares = window.debugMode ?
+const middlewares = DEBUG ?
   applyMiddleware(thunkMiddleware, loggerMiddleware) :
   applyMiddleware(thunkMiddleware)
 
