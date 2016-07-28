@@ -126,16 +126,17 @@ export const getToursList = () => {
 
 
 //Albums
-export const REQUEST_ALBUMS = 'request_album';
-export const RECEIVE_ALBUMS = 'receive_album';
+export const REQUEST_ALBUMS = 'request_albums';
+export const RECEIVE_ALBUMS = 'receive_albums';
 export const requestAlbums = () => {
   return{
     type: REQUEST_ALBUMS
   }
 }
-export const receiveAlbums = () => {
+export const receiveAlbums = (albumsList) => {
   return{
-    type: RECEIVE_ALBUMS
+    type: RECEIVE_ALBUMS,
+    list: albumsList
   }
 }
 export const getAlbumsList = () => {
@@ -156,6 +157,76 @@ export const getAlbumsList = () => {
     }
   }
 }
+
+
+
+//Blogs
+export const REQUEST_BLOGS = 'request_blogs';
+export const RECEIVE_BLOGS = 'receive_blogs';
+export const requestBlogs = () => {
+  return{
+    type: REQUEST_BLOGS
+  }
+}
+export const receiveBlogs = (blogsList) => {
+  return{
+    type: RECEIVE_BLOGS,
+    list: blogsList
+  }
+}
+export const getBlogsList = () => {
+  return (dispatch, getState) => {
+    let state = getState()
+    let shouldFetch
+    const { blogs } = state
+
+    shouldFetch = !(blogs.loaded || (!blogs.loaded && blogs.isFetching))
+
+    if(shouldFetch){
+      dispatch(requestBlogs())
+      return fetch('api/getBlogs')
+          .then(response => response.json())
+          .then(json => dispatch(receiveBlogs(json)))
+    }else{
+      return Promise.resolve()
+    }
+  }
+}
+
+//Events
+export const REQUEST_EVENTS = 'request_events';
+export const RECEIVE_EVENTS = 'receive_events';
+export const requestEvents = () => {
+  return{
+    type: REQUEST_EVENTS
+  }
+}
+export const receiveEvents = (eventsList) => {
+  return{
+    type: RECEIVE_EVENTS,
+    list: eventsList
+  }
+}
+export const getEventsList = () => {
+  return (dispatch, getState) => {
+    let state = getState()
+    let shouldFetch
+    const { events } = state
+
+    shouldFetch = !(events.loaded || (!events.loaded && events.isFetching))
+
+    if(shouldFetch){
+      dispatch(requestEvents())
+      return fetch('api/getEvents')
+          .then(response => response.json())
+          .then(json => dispatch(receiveEvents(json)))
+    }else{
+      return Promise.resolve()
+    }
+  }
+}
+
+
 
 
 

@@ -44,12 +44,6 @@ app.get([
 });
 
 app.get([
-  '/api/getTours'
-], function (req, res) {
-  res.sendFile(path.resolve('../data/getTours.json'));
-});
-
-app.get([
   '/api/getEvents'
 ], function (req, res) {
   res.sendFile(path.resolve('../data/getEvents.json'));

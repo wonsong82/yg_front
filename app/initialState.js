@@ -38,6 +38,15 @@ const initialState = {
     list: [
     ],
   },
+
+  blogs: {
+    loaded: false,
+    isFetching: false,
+    list: [
+
+
+    ]
+  },
   
   mainMenu: {
     disabled: false, // disabled in transition
@@ -45,16 +54,9 @@ const initialState = {
   },
   
 
-  blog: {
-    loaded: false,    
-    isFetching: false,
-    list: [
 
 
-    ]
-  },
-
-  event: {
+  events: {
     loaded: false,
     isFetching: false,
     list: [
