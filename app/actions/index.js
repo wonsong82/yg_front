@@ -87,6 +87,79 @@ export const getArtistsList = () => {
   }
 }
 
+// TOUR
+export const REQUEST_TOURS = 'request_tours'
+export const RECEIVE_TOURS = 'receive_tours'
+export const requestTours = () => {
+  return {
+    type : REQUEST_TOURS
+  }
+}
+export const receiveTours = (toursList) => {
+  return {
+    type : RECEIVE_TOURS,
+    list : toursList
+  }
+}
+export const getToursList = () => {
+  return (dispatch, getState) => {
+    let state = getState()
+    let shouldFetch
+    const { tours } = state
+    //var tours = state.tours
+
+    shouldFetch = !(tours.loaded || (!tours.loaded && tours.isFetching))
+
+    if(shouldFetch){
+      dispatch(requestTours())
+      return fetch('/api/getTours')
+          .then(response => response.json())
+          .then(json =>
+          {
+            dispatch(receiveTours(json))
+          })
+    }else{
+      return Promise.resolve()
+    }
+  }
+}
+
+
+//Albums
+export const REQUEST_ALBUMS = 'request_album';
+export const RECEIVE_ALBUMS = 'receive_album';
+export const requestAlbums = () => {
+  return{
+    type: REQUEST_ALBUMS
+  }
+}
+export const receiveAlbums = () => {
+  return{
+    type: RECEIVE_ALBUMS
+  }
+}
+export const getAlbumsList = () => {
+  return (dispatch, getState) => {
+    let state = getState()
+    let shouldFetch
+    const { albums } = state
+
+    shouldFetch = !(albums.loaded || (!albums.loaded && albums.isFetching))
+
+    if(shouldFetch){
+      dispatch(requestAlbums())
+      return fetch('api/getAlbums')
+          .then(response => response.json())
+          .then(json => dispatch(receiveAlbums(json)))
+    }else{
+      return Promise.resolve()
+    }
+  }
+}
+
+
+
+
 
 // EMAIL SIGNUP
 export const NEWSLETTER_SIGNUP_REQUEST = 'newsletter_signup_request'

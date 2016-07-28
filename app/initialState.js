@@ -5,12 +5,6 @@ const initialState = {
     themeColor: '#f0f0f0'
   },
 
-  mainMenu: {
-    disabled: false, // disabled in transition
-    opened: false
-  },
-
-
   artists: {
     loaded: false,
     isFetching: false,
@@ -30,6 +24,26 @@ const initialState = {
     current: 0,
     next: 0
   },
+
+  tours: {
+    loaded: false,
+    isFetching: false,
+    list: [
+    ],
+  },
+
+  albums: {
+    loaded: false,
+    isFetching: false,
+    list: [
+    ],
+  },
+  
+  mainMenu: {
+    disabled: false, // disabled in transition
+    opened: false
+  },
+  
 
   blog: {
     loaded: false,    
