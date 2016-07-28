@@ -42,13 +42,15 @@ app.post([
 ], function(req, res){
   setTimeout(function(){
     var user = req.params.email;
-    switch(Math.floor(Math.random() * 2)){
+    switch(Math.floor(Math.random() * 3)){
       case 0:
         res.status(200).json({"msg": "subscribing", "email":user});
         break;
       case 1:
         res.status(409).json({"msg": "already subscribed", "email":user});
         break;
+      case 2:
+        res.status(400).json({"msg": "bad email format", "email":user});
     }
   }, 500);
  /* var user = req.params.email;
