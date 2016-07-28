@@ -37,6 +37,43 @@ app.get([
   res.sendFile(path.resolve('../data/getArtists.json'));
 });
 
+app.get([
+  '/api/getTours'
+], function (req, res) {
+ res.sendFile(path.resolve('../data/getTours.json'));
+});
+
+app.get([
+  '/api/getTours'
+], function (req, res) {
+  res.sendFile(path.resolve('../data/getTours.json'));
+});
+
+app.get([
+  '/api/getEvents'
+], function (req, res) {
+  res.sendFile(path.resolve('../data/getEvents.json'));
+});
+
+app.get([
+  '/api/getBlogs'
+], function (req, res) {
+  res.sendFile(path.resolve('../data/getBlogs.json'));
+});
+
+app.get([
+  '/api/getAlbums'
+], function (req, res) {
+  res.sendFile(path.resolve('../data/getAlbums.json'));
+});
+
+app.get([
+  '/api/getMusics'
+], function (req, res) {
+  res.sendFile(path.resolve('../data/getMusics.json'));
+});
+
+
 app.post([
   '/api/newsletterSignup'
 ], function(req, res){

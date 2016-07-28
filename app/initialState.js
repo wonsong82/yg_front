@@ -24,6 +24,20 @@ const initialState = {
     current: 0,
     next: 0
   },
+
+  tours: {
+    loaded: false,
+    isFetching: false,
+    list: [
+    ],
+  },
+
+  albums: {
+    loaded: false,
+    isFetching: false,
+    list: [
+    ],
+  },
   
   mainMenu: {
     disabled: false, // disabled in transition

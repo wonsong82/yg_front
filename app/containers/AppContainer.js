@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getArtistsList, setThemeColor, setTextColor } from '../actions/'
+import { getArtistsList, getToursList, getAlbumsList, setThemeColor, setTextColor } from '../actions/'
 import { computeThemeColor } from '../functions/'
 import App from '../components/App'
 
@@ -12,6 +12,10 @@ class AppContainer extends Component {
   componentDidMount(){
     const { dispatch } = this.props
     dispatch(getArtistsList())
+    dispatch(getToursList())
+    dispatch(getAlbumsList())
+
+
     // todo: dispatch others
   }
 
@@ -45,6 +49,8 @@ const mapStateToProps = (state) => {
     textColor: state.theme.textColor,
     themeColor: state.theme.themeColor,
     mainMenuOpened: state.mainMenu.opened
+
+    //@todo other states than artist, for example blogs, tours, ..
   }
 }
 
