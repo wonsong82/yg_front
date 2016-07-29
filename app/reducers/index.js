@@ -106,6 +106,45 @@ const albums = ( state = initState.albums , action) => {
 }
 
 
+//Blogs
+import { REQUEST_BLOGS, RECEIVE_BLOGS} from '../actions'
+const blogs = ( state = initState.blogs , action) => {
+  switch(action.type){
+    case REQUEST_BLOGS:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case RECEIVE_BLOGS:
+      return {
+        isFetching: false,
+        loaded: true,
+        list: action.list
+      }
+    default:
+      return state
+  }
+}
+
+//Blogs
+import { REQUEST_EVENTS, RECEIVE_EVENTS} from '../actions'
+const events = ( state = initState.events , action) => {
+  switch(action.type){
+    case REQUEST_EVENTS:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case RECEIVE_EVENTS:
+      return {
+        isFetching: false,
+        loaded: true,
+        list: action.list
+      }
+    default:
+      return state
+  }
+}
+
+
 
 // SIGNUP
 import { NEWSLETTER_SIGNUP_RECEIVE, NEWSLETTER_SIGNUP_REQUEST } from '../actions/'
@@ -128,7 +167,7 @@ const signup = ( state = initState.signup, action ) => {
 
 
 
-const appReducer = combineReducers({ artists, mainMenu, theme, signup , tours, albums})
+const appReducer = combineReducers({ artists, mainMenu, theme, signup , tours, albums, blogs, events})
 export default appReducer
 
 
