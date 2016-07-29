@@ -1,11 +1,12 @@
 require('./App.scss')
 import React, { Component, PropTypes } from 'react'
 
-import Page from './Page'
-import Footer from './Footer'
-import Frame from './Frame'
-import HeaderContainer from '../containers/HeaderContainer'
-import MainMenuTransitionContainer from '../containers/MainMenuTransitionContainer'
+import Page from '../components/app/Page'
+import Footer from '../components/app/Footer'
+import Frame from '../components/app/Frame'
+import Header from '../containers/app/Header'
+import Menu from '../containers/app/Menu'
+
 
 
 class App extends Component {
@@ -16,29 +17,25 @@ class App extends Component {
 
   componentDidMount(){
     const { page } = this.props
-    if(page.type.name == 'StaticLayout'){
+    if(page.type.name == 'Static'){
       $('.App .Page').empty()
-      $('.StaticPage').detach().appendTo('.App .Page').removeClass('StaticPage').addClass('StaticLayout')
+      $('.StaticPage').detach().appendTo('.App .Page').removeClass('StaticPage').addClass('Static')
     }
   }
 
 
   render(){
-    const { page, themeColor, textColor } = this.props    
+    const { page, themeColor, textColor } = this.props
 
-    
+
     return (
       <div className="App">
-        
-        <Page>{ page }</Page>
-        
+
+        <Page>{page}</Page>
         <Frame color={themeColor} />
-
-        <MainMenuTransitionContainer />
-
-        <HeaderContainer color={textColor} />
+        <Menu />
+        <Header color={textColor} />
         <Footer color={textColor} />
-
       </div>
     )
   }

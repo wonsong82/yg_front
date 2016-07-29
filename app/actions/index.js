@@ -133,9 +133,10 @@ export const requestAlbums = () => {
     type: REQUEST_ALBUMS
   }
 }
-export const receiveAlbums = () => {
+export const receiveAlbums = (list) => {
   return{
-    type: RECEIVE_ALBUMS
+    type: RECEIVE_ALBUMS,
+    list
   }
 }
 export const getAlbumsList = () => {
@@ -148,7 +149,7 @@ export const getAlbumsList = () => {
 
     if(shouldFetch){
       dispatch(requestAlbums())
-      return fetch('api/getAlbums')
+      return fetch('/api/getAlbums')
           .then(response => response.json())
           .then(json => dispatch(receiveAlbums(json)))
     }else{

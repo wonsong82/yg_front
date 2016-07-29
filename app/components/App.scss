@@ -1,4 +1,4 @@
-@import './Spinner.scss';
+@import './lib/spinner/SquareSpinner.scss';
 @import './variable.scss';
 
 * {
@@ -44,7 +44,7 @@ body {
     bottom: 0;
     left: 0;
   }
-  .MainMenu {
+  .Menu {
     position: fixed;
     top: 0;
     left: 0;

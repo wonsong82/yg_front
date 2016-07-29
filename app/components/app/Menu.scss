@@ -1,0 +1,81 @@
+@import '../variable';
+
+.App .Menu {
+  width: 100%;
+  height: 100%;
+
+  .menu-bg {
+    position: absolute;
+    top: $frameSizeTop;
+    left: $frameSize;
+    right: $frameSize;
+    bottom: $footerHeight;
+    background: $bgColor;
+  }
+
+  .menu-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .MainMenuBG {
+      position:absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+
+  .static {
+    position: absolute;
+    top: 104px;
+    left: 57px;
+
+    .link {
+      transition: color 300ms ease;
+      will-change: color;
+      font: 400 24px/32px 'Klavika', sans-serif;
+      color: rgba(0,0,0,0.7);
+      display: block;
+
+      &.current {
+        font-weight: 500;
+      }
+
+      &:hover, &:active {
+        color: rgba(0,0,0,0.9)
+      }
+    }
+  }
+
+  .artists {
+    position: absolute;
+    top: 104px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .link {
+      display: block;
+      font: 400 44px/66px 'Klavika', sans-serif;
+      text-align: center;
+      transition: font-size 500ms $easeOutQuart, line-height 500ms $easeOutQuart;
+      will-change: font-size, line-height;
+
+      &:hover, &:active {
+        font-size: 82px;
+        line-height: 88px;
+      }
+    }
+  }
+
+  .film {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

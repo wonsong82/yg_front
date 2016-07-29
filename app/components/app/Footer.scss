@@ -1,0 +1,60 @@
+@import '../variable';
+
+.App .Footer {
+  width: 100%;
+  height: $footerHeight;
+  transition: background-color 1s ease;
+  will-change: background-color;
+  font-size: 0;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 18px 0 0 0;
+
+  .site-links {
+    display: inline-block;
+    font-size: 0;
+    a {
+      display: inline-block;
+      font: 500 14px/22px 'Klavika', sans-serif;
+      vertical-align: bottom;
+      text-transform: uppercase;
+      opacity: 0.80;
+      transition: color 1000ms ease, opacity 300ms ease;
+      will-change: color, opacity;
+      &+a {
+        margin-left: 70px;
+      }
+      &:hover, &:active {
+        opacity: 1;
+      }
+    }
+  }
+
+  .social-links {
+    display: inline-block;
+    font-size: 0;
+    padding-left: 90px;
+    margin-bottom: 50px;
+    a {
+      span {
+        font-size: 22px;
+        line-height: 22px;
+        vertical-align: bottom;
+        opacity: 0.80;
+        transition: color 1000ms ease, opacity 300ms ease;
+        will-change: color, opacity;
+      }
+      &+a {
+        margin-left: 10px;
+      }
+      &:hover span, &:active span {
+        opacity: 1;
+      }
+    }
+  }
+
+  .EmailSignup {
+    display: block;
+  }
+
+}
