@@ -13,11 +13,11 @@ import ArtistPage from './components/app/page/Artist'
 import StaticPage from './components/app/page/Static'
 
 
-import ShopItem from './components/items/Shop'
-import MusicItem from './components/items/Music'
-import TourItem from './components/items/Tour'
-import EventItem from './components/items/Event'
-import BlogItem from './components/items/Blog'
+import ShopItem from './components/app/item/Shop'
+import MusicItem from './components/app/item/Music'
+import TourItem from './components/app/item/Tour'
+import EventItem from './components/app/item/Event'
+import BlogItem from './components/app/item/Blog'
 
 
 export default (

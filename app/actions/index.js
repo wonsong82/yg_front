@@ -149,7 +149,7 @@ export const getAlbumsList = () => {
 
     if(shouldFetch){
       dispatch(requestAlbums())
-      return fetch('api/getAlbums')
+      return fetch('/api/getAlbums')
           .then(response => response.json())
           .then(json => dispatch(receiveAlbums(json)))
     }else{
@@ -184,7 +184,7 @@ export const getBlogsList = () => {
 
     if(shouldFetch){
       dispatch(requestBlogs())
-      return fetch('api/getBlogs')
+      return fetch('/api/getBlogs')
           .then(response => response.json())
           .then(json => dispatch(receiveBlogs(json)))
     }else{
@@ -217,7 +217,7 @@ export const getEventsList = () => {
 
     if(shouldFetch){
       dispatch(requestEvents())
-      return fetch('api/getEvents')
+      return fetch('/api/getEvents')
           .then(response => response.json())
           .then(json => dispatch(receiveEvents(json)))
     }else{
