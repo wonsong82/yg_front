@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getArtistsList, getToursList, getAlbumsList, setThemeColor, setTextColor } from '../actions/'
+import { getArtistsList, getToursList, getAlbumsList, getBlogsList, getEventsList, setThemeColor, setTextColor } from '../actions/'
 import { computeThemeColor } from '../functions/'
 import AppComponent from '../components/App'
 
@@ -12,9 +12,10 @@ class App extends Component {
   componentDidMount(){
     const { dispatch } = this.props
     dispatch(getArtistsList())
-    dispatch(getToursList())
     dispatch(getAlbumsList())
-
+    dispatch(getBlogsList())
+    dispatch(getEventsList())
+    dispatch(getToursList())
 
     // todo: dispatch others
   }
@@ -28,8 +29,6 @@ class App extends Component {
       if(themeColor != this.props.themeColor)
         dispatch(setThemeColor(themeColor, textColor))
     }
-
-
   }
 
 

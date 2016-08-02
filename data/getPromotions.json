@@ -1,1 +1,26 @@
-{}
+[
+  {
+    "id": 7,
+    "post_type": "album"
+  },
+  {
+    "id": 8,
+    "post_type": "album"
+  },
+  {
+    "id": 19,
+    "post_type": "event"
+  },
+  {
+    "id": 20,
+    "post_type": "event"
+  },
+  {
+    "id": 25,
+    "post_type": "tour"
+  },
+  {
+    "id": 26,
+    "post_type": "tour"
+  }
+]
