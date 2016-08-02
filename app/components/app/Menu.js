@@ -133,17 +133,21 @@ class MainMenu extends Component {
           }
         </TransitionGroup>
 
-        <div className="static" ref="static">
-          {staticLinks}
+        <div className="links">
+          <div className="static" ref="static">
+            {staticLinks}
+          </div>
+
+          <div className="artists" ref="artists"
+               onMouseEnter={this.onArtistsEnter.bind(this)}
+               onMouseLeave={this.onArtistsLeave.bind(this)}
+               onMouseMove={this.onArtistsOver.bind(this)}
+          >
+            {artistLinks}
+          </div>
         </div>
 
-        <div className="artists" ref="artists"
-             onMouseEnter={this.onArtistsEnter.bind(this)}
-             onMouseLeave={this.onArtistsLeave.bind(this)}
-             onMouseMove={this.onArtistsOver.bind(this)}
-        >
-          {artistLinks}
-        </div>
+
         
         {disabled && <span className="film" />}
 

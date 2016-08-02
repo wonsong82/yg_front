@@ -9,7 +9,7 @@ const Footer = ({ color }) => (
     <div className="Footer" style={{color}}>
 
       <div className="site-links">
-        <AnchorLink className="asdf" href="/about-us" style={{color}}>About Us</AnchorLink>
+        <AnchorLink href="/about-us" style={{color}}>About Us</AnchorLink>
         <AnchorLink href="/contact" style={{color}}>Contact Us</AnchorLink>
         <AnchorLink href="/returns-exchange" style={{color}}>Returns & Exchanges</AnchorLink>
         <AnchorLink href="/privacy-policy" style={{color}}>Privacy Policy</AnchorLink>

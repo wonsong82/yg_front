@@ -8,7 +8,7 @@
   font-size: 0;
   text-align: center;
   box-sizing: border-box;
-  padding: 18px 0 0 0;
+  padding: 12px 0 0 0;
 
   .site-links {
     display: inline-block;
@@ -34,7 +34,7 @@
     display: inline-block;
     font-size: 0;
     padding-left: 90px;
-    margin-bottom: 48px;
+    margin-bottom: 50px;
     a {
       span {
         font-size: 22px;
@@ -55,7 +55,7 @@
 
   .EmailSignup {
     display: block;
-    margin-bottom: 38px;
+    margin-bottom: 58px;
   }
 
   .copyright {
@@ -77,21 +77,34 @@
   height: $footerHeight--md;
   .site-links {
     display: block;
-    margin-bottom: 48px;
+    margin-bottom: 44px;
   }
   .social-links {
     padding-left: 0;
     display: block;
-    margin-bottom: 34px;
+    margin-bottom: 28px;
   }
 }}
 
 @media (max-width: 767px) {
 .App .Footer {
   height: $footerHeight--sm;
+  .site-links {
+    a {
+      display: block;
+      text-align: center;
+      &+a {
+        margin-left: 0;
+        margin-top: 8px;
+      }
+    }
+  }
 }}
 
 @media (max-width: 479px) {
 .App .Footer {
   height: $footerHeight--xs;
+  .EmailSignup input {
+    width: 257px;
+  }
 }}

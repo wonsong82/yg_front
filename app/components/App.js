@@ -33,9 +33,9 @@ class App extends Component {
 
         <Page ready={pageLoaded} color={textColor}>{page}</Page>
         <Frame color={themeColor} />
+        <Footer color={textColor} />
         <Menu />
         <Header color={textColor} />
-        <Footer color={textColor} />
       </div>
     )
   }

@@ -9,7 +9,7 @@
     top: $frameSizeTop;
     left: $frameSize;
     right: $frameSize;
-    bottom: $footerHeight;
+    bottom: $frameSize;
     background: $bgColor;
   }
 
@@ -27,48 +27,57 @@
     }
   }
 
-
-  .static {
+  .links {
     position: absolute;
-    top: 104px;
-    left: 57px;
+    top: $frameSizeTop;
+    left: $frameSize;
+    right: $frameSize;
+    bottom: $frameSize;
 
-    .link {
-      transition: color 300ms ease;
-      will-change: color;
-      font: 400 24px/32px 'Klavika', sans-serif;
-      color: rgba(0,0,0,0.7);
-      display: block;
+    .static {
+      position: absolute;
+      top: 48px;
+      left: 32px;
 
-      &.current {
-        font-weight: 500;
+      .link {
+        transition: color 300ms ease;
+        will-change: color;
+        font: 400 24px/32px 'Klavika', sans-serif;
+        color: rgba(0,0,0,0.7);
+        display: block;
+
+        &.current {
+          font-weight: 500;
+        }
+
+        &:hover, &:active {
+          color: rgba(0,0,0,0.9)
+        }
       }
+    }
 
-      &:hover, &:active {
-        color: rgba(0,0,0,0.9)
+    .artists {
+      position: absolute;
+      top: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      .link {
+        display: block;
+        font: 400 44px/66px 'Klavika', sans-serif;
+        text-align: center;
+        transition: font-size 500ms $easeOutQuart, line-height 500ms $easeOutQuart;
+        will-change: font-size, line-height;
+
+        &:hover, &:active {
+          font-size: 82px;
+          line-height: 88px;
+        }
       }
     }
   }
 
-  .artists {
-    position: absolute;
-    top: 104px;
-    left: 50%;
-    transform: translateX(-50%);
 
-    .link {
-      display: block;
-      font: 400 44px/66px 'Klavika', sans-serif;
-      text-align: center;
-      transition: font-size 500ms $easeOutQuart, line-height 500ms $easeOutQuart;
-      will-change: font-size, line-height;
-
-      &:hover, &:active {
-        font-size: 82px;
-        line-height: 88px;
-      }
-    }
-  }
 
   .film {
     display: block;
@@ -79,3 +88,75 @@
     left: 0;
   }
 }
+
+@media (max-width: 1279px) {
+.App .Menu {
+  .menu-bg, .links {
+    position: absolute;
+    top: $frameSizeTop--lg;
+    left: $frameSize--lg;
+    right: $frameSize--lg;
+    bottom: $frameSize--lg;
+  }
+}}
+
+@media (max-width: 1023px) {
+.App .Menu {
+  .menu-bg, .links {
+    position: absolute;
+    top: $frameSizeTop--md;
+    left: $frameSize--md;
+    right: $frameSize--md;
+    bottom: $frameSize--md;
+  }
+}}
+
+@media (max-width: 767px) {
+.App .Menu {
+  .menu-bg, .links {
+    position: absolute;
+    top: $frameSizeTop--sm;
+    left: $frameSize--sm;
+    right: $frameSize--sm;
+    bottom: $frameSize--sm;
+  }
+  .links {
+    .static {
+      position: relative;
+      top: auto;
+      left: auto;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      .link {
+        text-align: center;
+        font: 400 18px/36px 'Klavika', sans-serif;
+      }
+    }
+    .artists {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: translate(0, 0);
+      text-align: center;
+      .link {
+        font: 400 24px/40px 'Klavika', sans-serif;
+
+        &:hover, &:active {
+          font-size: 36px;
+          line-height: 48px;
+        }
+      }
+    }
+  }
+}}
+
+@media (max-width: 479px) {
+.App .Menu {
+  .menu-bg, .links {
+    position: absolute;
+    top: $frameSizeTop--xs;
+    left: $frameSize--xs;
+    right: $frameSize--xs;
+    bottom: $footerHeight--xs;
+  }
+}}
