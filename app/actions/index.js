@@ -206,7 +206,7 @@ export const receiveBlogs = (json) => {
     data: json
   }
 }
-export const getBlogs = () => {
+export const getBlogsList = () => {
   return (dispatch, getState) => {
     let state = getState()
     let shouldFetch

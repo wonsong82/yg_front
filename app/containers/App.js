@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getArtistsList, getToursList, getAlbumsList, getBlogs, setThemeColor, setTextColor, setResponsiveMode, handleResponsiveChange, setPageLoaded } from '../actions/'
+import { getArtistsList, getToursList, getAlbumsList, getBlogsList, getEventsList, setThemeColor, setTextColor, setResponsiveMode, handleResponsiveChange, setPageLoaded } from '../actions/'
 import { computeThemeColor } from '../functions/'
 import AppComponent from '../components/App'
 
@@ -14,11 +14,10 @@ class App extends Component {
     dispatch(setResponsiveMode($(window).width()))
     dispatch(handleResponsiveChange())
     dispatch(getArtistsList())
-    dispatch(getToursList())
     dispatch(getAlbumsList())
-    dispatch(getBlogs())
-
-
+    dispatch(getBlogsList())
+    dispatch(getEventsList())
+    dispatch(getToursList())
     // todo: dispatch others
   }
 
@@ -39,9 +38,6 @@ class App extends Component {
       if(artistLoaded && toursLoaded && albumsLoaded && blogsLoaded )
         dispatch(setPageLoaded(true))
     }
-
-
-
   }
 
 
