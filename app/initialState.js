@@ -73,6 +73,48 @@ const initialState = {
     ]
   },
 
+  musics: {
+    loaded: false,
+    isFetching: false,
+    list: [
+    ]
+  },
+
+  products: {
+    loaded: false,
+    isFetching: false,
+    list: [
+    ]
+  },
+
+  promotions: {
+    loaded: false,
+    isFetching: false,
+    list: [
+    ]
+  },
+
+  hottracks: {
+    loaded: false,
+    isFetching: false,
+    list: [
+    ]
+  },
+
+  hotblogs: {
+    loaded: false,
+    isFetching: false,
+    list: [
+    ]
+  },
+
+  product_categories: {
+    loaded: false,
+    isFetching: false,
+    list: [
+    ]
+  },
+
   page: {
     loaded: false
 

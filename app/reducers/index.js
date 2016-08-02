@@ -172,6 +172,125 @@ const events = ( state = initState.events , action) => {
 }
 
 
+//MUSICS
+import { REQUEST_MUSICS, RECEIVE_MUSICS} from '../actions'
+const musics = ( state = initState.musics , action) => {
+  switch(action.type){
+    case REQUEST_MUSICS:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case RECEIVE_MUSICS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        loaded: true,
+        list: action.list
+      })
+    default:
+      return state
+  }
+}
+
+
+//Products
+import { REQUEST_PRODUCTS, RECEIVE_PRODUCTS} from '../actions'
+const products = ( state = initState.products , action) => {
+  switch(action.type){
+    case REQUEST_PRODUCTS:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case RECEIVE_PRODUCTS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        loaded: true,
+        list: action.list
+      })
+    default:
+      return state
+  }
+}
+
+//Promotions
+import { REQUEST_PROMOTIONS, RECEIVE_PROMOTIONS} from '../actions'
+const promotions = ( state = initState.promotions , action) => {
+  switch(action.type){
+    case REQUEST_PROMOTIONS:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case RECEIVE_PROMOTIONS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        loaded: true,
+        list: action.list
+      })
+    default:
+      return state
+  }
+}
+
+
+//Hot Tracks
+import { REQUEST_HOTTRACKS, RECEIVE_HOTTRACKS} from '../actions'
+const hottracks = ( state = initState.hottracks , action) => {
+  switch(action.type){
+    case REQUEST_HOTTRACKS:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case RECEIVE_HOTTRACKS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        loaded: true,
+        list: action.list
+      })
+    default:
+      return state
+  }
+}
+
+//Hot Blogs
+import { REQUEST_HOTBLOGS, RECEIVE_HOTBLOGS} from '../actions'
+const hotblogs = ( state = initState.hotblogs , action) => {
+  switch(action.type){
+    case REQUEST_HOTBLOGS:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case RECEIVE_HOTBLOGS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        loaded: true,
+        list: action.list
+      })
+    default:
+      return state
+  }
+}
+
+
+
+//Categories
+import { REQUEST_PRODUCT_CATEGORIES, RECEIVE_PRODUCT_CATEGORIES} from '../actions'
+const product_categories = ( state = initState.product_categories , action) => {
+  switch(action.type){
+    case REQUEST_PRODUCT_CATEGORIES:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+    case RECEIVE_PRODUCT_CATEGORIES:
+      return Object.assign({}, state, {
+        isFetching: false,
+        loaded: true,
+        list: action.list
+      })
+    default:
+      return state
+  }
+}
+
+
 // PAGE
 import { SET_PAGE_LOADED } from '../actions/'
 const page = ( state = initState.page, action ) => {
@@ -207,7 +326,7 @@ const signup = ( state = initState.signup, action ) => {
 
 
 
-const appReducer = combineReducers({ artists, mainMenu, theme, signup , tours, albums, blogs, events, page})
+const appReducer = combineReducers({ artists, mainMenu, theme, signup , tours, albums, blogs, events, products, musics, promotions , hottracks , hotblogs, product_categories ,page})
 export default appReducer
 
 
