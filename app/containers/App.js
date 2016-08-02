@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getArtistsList, getToursList, getAlbumsList, getBlogsList, getEventsList, setThemeColor, setTextColor, setResponsiveMode, handleResponsiveChange, setPageLoaded } from '../actions/'
+import { getArtistsList, getToursList, getAlbumsList, getBlogsList, getEventsList,
+    getMusicsList, getProductsList , getPromotionsList , getHotTracksList , getHotBlogsList , getProductCategoriesList ,
+    setThemeColor, setTextColor, setResponsiveMode, handleResponsiveChange, setPageLoaded } from '../actions/'
 import { computeThemeColor } from '../functions/'
 import AppComponent from '../components/App'
 
@@ -18,6 +20,14 @@ class App extends Component {
     dispatch(getBlogsList())
     dispatch(getEventsList())
     dispatch(getToursList())
+    dispatch(getMusicsList())
+    dispatch(getProductsList())
+    dispatch(getPromotionsList())
+    dispatch(getHotTracksList())
+    dispatch(getHotBlogsList())
+    dispatch(getProductCategoriesList())
+
+
     // todo: dispatch others
   }
 

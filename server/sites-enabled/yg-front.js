@@ -32,6 +32,12 @@ app.get([
 });
 
 app.get([
+  '/api/getAlbums'
+], function (req, res) {
+  res.sendFile(path.resolve('../data/getAlbums.json'));
+});
+
+app.get([
   '/api/getArtists'
 ], function(req, res){
   res.sendFile(path.resolve('../data/getArtists.json'));
@@ -55,17 +61,45 @@ app.get([
   res.sendFile(path.resolve('../data/getBlogs.json'));
 });
 
-app.get([
-  '/api/getAlbums'
-], function (req, res) {
-  res.sendFile(path.resolve('../data/getAlbums.json'));
-});
+
 
 app.get([
   '/api/getMusics'
 ], function (req, res) {
   res.sendFile(path.resolve('../data/getMusics.json'));
 });
+
+app.get([
+  '/api/getProducts'
+], function (req, res) {
+  res.sendFile(path.resolve('../data/getProducts.json'));
+});
+
+app.get([
+  '/api/getPromotions'
+], function (req, res) {
+  res.sendFile(path.resolve('../data/getPromotions.json'));
+});
+
+app.get([
+  '/api/getHotTracks'
+], function (req, res) {
+  res.sendFile(path.resolve('../data/getHotTracks.json'));
+});
+
+app.get([
+  '/api/getProductCategories'
+], function (req, res) {
+  res.sendFile(path.resolve('../data/getProductCategories.json'));
+});
+
+app.get([
+  '/api/getHotBlogs'
+], function (req, res) {
+  res.sendFile(path.resolve('../data/getHotBlogs.json'));
+});
+
+
 
 
 app.post([

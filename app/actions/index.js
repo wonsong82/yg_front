@@ -269,6 +269,208 @@ export const getEventsList = () => {
 }
 
 
+//Musics
+export const REQUEST_MUSICS = 'request_musics';
+export const RECEIVE_MUSICS = 'receive_musics';
+export const requestMusics = () => {
+    return{
+        type: REQUEST_MUSICS
+    }
+}
+export const receiveMusics = (musicsList) => {
+    return{
+        type: RECEIVE_MUSICS,
+        list: musicsList
+    }
+}
+export const getMusicsList = () => {
+    return (dispatch, getState) => {
+        let state = getState()
+        let shouldFetch
+        const { musics } = state
+
+        shouldFetch = !(musics.loaded || (!musics.loaded && musics.isFetching))
+
+        if(shouldFetch){
+            dispatch(requestMusics())
+            return fetch('/api/getMusics')
+                .then(response => response.json())
+                .then(json => dispatch(receiveMusics(json)))
+        }else{
+            return Promise.resolve()
+        }
+    }
+}
+
+
+//Products
+export const REQUEST_PRODUCTS = 'request_products';
+export const RECEIVE_PRODUCTS = 'receive_products';
+export const requestProducts = () => {
+    return{
+        type: REQUEST_PRODUCTS
+    }
+}
+export const receiveProducts = (productsList) => {
+    return{
+        type: RECEIVE_PRODUCTS,
+        list: productsList
+    }
+}
+export const getProductsList = () => {
+    return (dispatch, getState) => {
+        let state = getState()
+        let shouldFetch
+        const { products } = state
+
+        shouldFetch = !(products.loaded || (!products.loaded && products.isFetching))
+
+        if(shouldFetch){
+            dispatch(requestProducts())
+            return fetch('/api/getProducts')
+                .then(response => response.json())
+                .then(json => dispatch(receiveProducts(json)))
+        }else{
+            return Promise.resolve()
+        }
+    }
+}
+
+
+//Promotions
+export const REQUEST_PROMOTIONS = 'request_promotions';
+export const RECEIVE_PROMOTIONS = 'receive_promotions';
+export const requestPromotions = () => {
+    return{
+        type: REQUEST_PROMOTIONS
+    }
+}
+export const receivePromotions = (promotionsList) => {
+    return{
+        type: RECEIVE_PROMOTIONS,
+        list: promotionsList
+    }
+}
+export const getPromotionsList = () => {
+    return (dispatch, getState) => {
+        let state = getState()
+        let shouldFetch
+        const { promotions } = state
+
+        shouldFetch = !(promotions.loaded || (!promotions.loaded && promotions.isFetching))
+
+        if(shouldFetch){
+            dispatch(requestPromotions())
+            return fetch('/api/getPromotions')
+                .then(response => response.json())
+                .then(json => dispatch(receivePromotions(json)))
+        }else{
+            return Promise.resolve()
+        }
+    }
+}
+
+//HotTracks
+export const REQUEST_HOTTRACKS = 'request_hot_tracks';
+export const RECEIVE_HOTTRACKS = 'receive_hot_tracks';
+export const requestHotTracks = () => {
+    return{
+        type: REQUEST_HOTTRACKS
+    }
+}
+export const receiveHotTracks = (hotTracksList) => {
+    return{
+        type: RECEIVE_HOTTRACKS,
+        list: hotTracksList
+    }
+}
+export const getHotTracksList = () => {
+    return (dispatch, getState) => {
+        let state = getState()
+        let shouldFetch
+        const { hottracks } = state
+
+        shouldFetch = !(hottracks.loaded || (!hottracks.loaded && hottracks.isFetching))
+
+        if(shouldFetch){
+            dispatch(requestHotTracks())
+            return fetch('/api/getHotTracks')
+                .then(response => response.json())
+                .then(json => dispatch(receiveHotTracks(json)))
+        }else{
+            return Promise.resolve()
+        }
+    }
+}
+
+
+//Hot Blogs
+export const REQUEST_HOTBLOGS = 'request_hot_blogs';
+export const RECEIVE_HOTBLOGS = 'receive_hot_blogs';
+export const requestHotBlogs = () => {
+    return{
+        type: REQUEST_HOTBLOGS
+    }
+}
+export const receiveHotBlogs = (hotBlogsList) => {
+    return{
+        type: RECEIVE_HOTBLOGS,
+        list: hotBlogsList
+    }
+}
+export const getHotBlogsList = () => {
+    return (dispatch, getState) => {
+        let state = getState()
+        let shouldFetch
+        const { hotblogs } = state
+
+        shouldFetch = !(hotblogs.loaded || (!hotblogs.loaded && hotblogs.isFetching))
+
+        if(shouldFetch){
+            dispatch(requestHotBlogs())
+            return fetch('/api/getHotBlogs')
+                .then(response => response.json())
+                .then(json => dispatch(receiveHotBlogs(json)))
+        }else{
+            return Promise.resolve()
+        }
+    }
+}
+
+
+
+//Categories
+export const REQUEST_PRODUCT_CATEGORIES = 'request_product_categories';
+export const RECEIVE_PRODUCT_CATEGORIES = 'receive_product_categories';
+export const requestProductCategories = () => {
+    return{
+        type: REQUEST_PRODUCT_CATEGORIES
+    }
+}
+export const receiveProductCategories = (hotProductCategoriesList) => {
+    return{
+        type: RECEIVE_PRODUCT_CATEGORIES,
+        list: hotProductCategoriesList
+    }
+}
+export const getProductCategoriesList = () => {
+    return (dispatch, getState) => {
+        let state = getState()
+        let shouldFetch
+        const { product_categories } = state
+
+        shouldFetch = !(product_categories.loaded || (!product_categories.loaded && product_categories.isFetching))
+
+        if(shouldFetch){
+            dispatch(requestProductCategories())
+            return fetch('/api/getProductCategories')
+                .then(response => response.json())
+                .then(json => dispatch(receiveProductCategories(json)))
+        }else{
+            return Promise.resolve()
+        }
+    }
+}
 
 
 
