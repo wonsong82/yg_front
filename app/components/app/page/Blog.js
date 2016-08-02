@@ -14,6 +14,9 @@ const Blog = ({ posts, hotPosts, mostViewedPosts }) => (
 
     </div>
 )
+Blog.defaultProps = {
+  pageType: 'Blog'
+}
 
 
 export default Blog

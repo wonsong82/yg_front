@@ -116,10 +116,14 @@ var key;
 
 // PRODUCTION CONFIG
 if(env.production){
-  process.env.NODE_ENV = 'production';
   config.bail = true;
   config.debug  = false;
   config.plugins = config.plugins.concat([
+    new webpack.DefinePlugin({
+      'process.env':{
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
     new webpack.optimize.UglifyJsPlugin({
       output: {
         comments: false
@@ -133,7 +137,7 @@ if(env.production){
     {
       test: /\.jsx?$/,
       loaders: [
-        Strip.loader('debug', 'console.log'),
+        //Strip.loader('debug', 'console.log'),
         'babel'
       ],
       exclude: /node_modules/
@@ -143,7 +147,13 @@ if(env.production){
 
 // DEBUG CONFIG
 else if(env.debug){
-  process.env.NODE_ENV = 'development';
+  config.plugins = config.plugins.concat([
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development')
+      }
+    })
+  ]);
   config.debug = true;
   config.devtool = 'inline-source-map';
   config.module.loaders = config.module.loaders.concat([
@@ -162,7 +172,13 @@ else if(env.debug){
 
 // DEVELOPMENT CONFIG
 else if(env.development){
-  process.env.NODE_ENV = 'development';
+  config.plugins = config.plugins.concat([
+    new webpack.DefinePlugin({
+      'process.env':{
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
+  ]);
   config.debug = true;
   for(key in config.entry){
     if(config.entry.hasOwnProperty(key)){

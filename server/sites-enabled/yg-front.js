@@ -1,3 +1,5 @@
+var ENV = require('../../env');
+
 var path = require('path');
 var express = require('express');
 var app = express();
@@ -28,7 +30,10 @@ app.get([
   '/artist/:name/event/:item',
   '/artist/:name/blog/:item'
 ], function(req, res){
-  res.sendFile(path.resolve('../public/index-server.html'));
+  if(ENV.Env == 'development')
+    res.sendFile(path.resolve('../public/index-server.html'));
+  else
+    res.sendFile(path.resolve('../public/index.html'));
 });
 
 app.get([
@@ -141,4 +146,4 @@ app.use('/', express.static(path.resolve('../public')));
 app.use(router);
 
 exports.app = app;
-exports.domain = 'ygfront.local';
+exports.domain = ENV.Domain;

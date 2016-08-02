@@ -17,7 +17,7 @@ class App extends Component {
 
   componentDidMount(){
     const { page } = this.props
-    if(page.type.name == 'Static'){
+    if(page.props.pageType == 'Static'){
       $('.App .Page').empty()
       $('.StaticPage').detach().appendTo('.App .Page').removeClass('StaticPage').addClass('Static')
     }

@@ -11,7 +11,7 @@ export const computeThemeColor = ( page, popup, artistsList, params ) => {
 
   let themeColor, textColor
   if (typeof popup === 'undefined') { // 팝업이 없을경우
-    switch (page.type.name) {
+    switch (page.props.pageType) {
       case 'Artist': // 페이지가 아티스트일경우
         if (artistsList.length) {
           let filtered = artistsList.filter(artist => {
