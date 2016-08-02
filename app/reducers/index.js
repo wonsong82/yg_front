@@ -2,13 +2,23 @@ import { combineReducers } from 'redux'
 import initState from '../initialState'
 
 // THEME
-import { SET_THEME_COLOR } from '../actions/'
+import { SET_THEME_COLOR, SET_RESPONSIVE_MODE } from '../actions/'
 const theme = ( state = initState.theme, action ) => {
   switch(action.type){
     case SET_THEME_COLOR:
       return Object.assign({}, state, {
         themeColor: action.themeColor,
         textColor: action.textColor
+      })
+    case SET_RESPONSIVE_MODE:
+      const { width } = action
+      return Object.assign({}, state, {
+        responsiveMode:
+          width >= 1280 ? 1280 :
+          width >= 1024 ? 1024 :
+          width >= 768  ? 768 :
+          width >= 480  ? 480 :
+                          320
       })
     default:
       return state
@@ -57,11 +67,11 @@ const artists = ( state = initState.artists, action) => {
         isFetching: true
       })
     case RECEIVE_ARTISTS:
-      return {
+      return Object.assign({}, state, {
         isFetching: false,
         loaded: true,
         list: action.list
-      }
+      })
     default:
       return state
   }
@@ -76,11 +86,11 @@ const tours = ( state = initState.tours, action) => {
         isFetching: true
       })
     case RECEIVE_TOURS:
-      return {
+      return Object.assign({}, state, {
         isFetching: false,
         loaded: true,
         list: action.list
-      }
+      })
     default:
       return state
   }
@@ -95,11 +105,11 @@ const albums = ( state = initState.albums , action) => {
         isFetching: true
       })
     case RECEIVE_ALBUMS:
-      return {
+      return Object.assign({}, state, {
         isFetching: false,
         loaded: true,
         list: action.list
-      }
+      })
     default:
       return state
   }
@@ -107,7 +117,7 @@ const albums = ( state = initState.albums , action) => {
 
 
 //Blogs
-import { REQUEST_BLOGS, RECEIVE_BLOGS} from '../actions'
+import { REQUEST_BLOGS, RECEIVE_BLOGS, SET_MORE_BLOG_POSTS} from '../actions'
 const blogs = ( state = initState.blogs , action) => {
   switch(action.type){
     case REQUEST_BLOGS:
@@ -115,17 +125,34 @@ const blogs = ( state = initState.blogs , action) => {
         isFetching: true
       })
     case RECEIVE_BLOGS:
-      return {
+      let { posts, hot_posts, most_viewed_posts } = action.data
+      return Object.assign({}, state, {
         isFetching: false,
         loaded: true,
-        list: action.list
-      }
+        data: {
+          posts,
+          total_posts: posts.length,
+          hot_posts,
+          total_hot_posts: hot_posts.length,
+          most_viewed_posts,
+          total_most_viewed_posts: most_viewed_posts.length
+        }
+      })
+    case SET_MORE_BLOG_POSTS:
+      const postsLoaded = state.postsLoaded,
+            postsCount = state.data.postsCount,
+            next = postsLoaded + action.count > postsCount ? postsCount : postsLoaded + action.count
+      return Object.assign({}, state, {
+        postsLoaded : next
+      })
+
+
     default:
       return state
   }
 }
 
-//Blogs
+//Events
 import { REQUEST_EVENTS, RECEIVE_EVENTS} from '../actions'
 const events = ( state = initState.events , action) => {
   switch(action.type){
@@ -134,16 +161,29 @@ const events = ( state = initState.events , action) => {
         isFetching: true
       })
     case RECEIVE_EVENTS:
-      return {
+      return Object.assign({}, state, {
         isFetching: false,
         loaded: true,
         list: action.list
-      }
+      })
     default:
       return state
   }
 }
 
+
+// PAGE
+import { SET_PAGE_LOADED } from '../actions/'
+const page = ( state = initState.page, action ) => {
+  switch(action.type) {
+    case SET_PAGE_LOADED:
+      return Object.assign({}, state, {
+        loaded: action.state
+      })
+    default:
+      return state
+  }
+}
 
 
 // SIGNUP
@@ -167,7 +207,7 @@ const signup = ( state = initState.signup, action ) => {
 
 
 
-const appReducer = combineReducers({ artists, mainMenu, theme, signup , tours, albums, blogs, events})
+const appReducer = combineReducers({ artists, mainMenu, theme, signup , tours, albums, blogs, events, page})
 export default appReducer
 
 

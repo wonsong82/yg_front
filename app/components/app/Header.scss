@@ -1,4 +1,4 @@
-.Header {
+.App .Header {
   width: 100%;
   height: 56px;
 
@@ -21,8 +21,6 @@
     }
   }
 
-
-
   .home {
     position: absolute;
     left: 50%;
@@ -36,7 +34,27 @@
       will-change: color;
     }
   }
-
-
-
 }
+
+
+@media (max-width: 1279px) {
+.App .Header {
+}}
+
+@media (max-width: 1023px) {
+.App .Header {
+}}
+
+@media (max-width: 767px) {
+.App .Header {
+  .menu {
+    left: 18px;
+  }
+}}
+
+@media (max-width: 479px) {
+.App .Header {
+  .menu {
+    left: 18px;
+  }
+}}

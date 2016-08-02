@@ -39,6 +39,16 @@ class MainMenu extends Component {
     })
   }
 
+  onArtistsOver(){
+    if(!this.state.artists.hovered){
+      this.setState({
+        artists: {
+          hovered: true
+        }
+      })
+    }
+  }
+
 
   onArtistEnter(id) {
     if(this.props.menuDisabled) return false
@@ -46,12 +56,11 @@ class MainMenu extends Component {
       image: this.getArtistImage(id),
       prevImage: this.state.image
     })
-
   }
-
   onArtistLeave() {
 
   }
+
 
   getArtistImage( id ){
     const { artists } = this.props
@@ -67,7 +76,6 @@ class MainMenu extends Component {
   }
 
 
-  
   render() {
     const { artists, disabled } = this.props
 
@@ -132,6 +140,7 @@ class MainMenu extends Component {
         <div className="artists" ref="artists"
              onMouseEnter={this.onArtistsEnter.bind(this)}
              onMouseLeave={this.onArtistsLeave.bind(this)}
+             onMouseMove={this.onArtistsOver.bind(this)}
         >
           {artistLinks}
         </div>

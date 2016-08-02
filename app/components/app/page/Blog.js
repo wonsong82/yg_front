@@ -1,8 +1,18 @@
 import React from 'react'
 
 
-const Blog = () => (
-    <div className="Blog">Blog</div>
+const Blog = ({ posts, hotPosts, mostViewedPosts }) => (
+    <div className="BlogLayout">
+
+      <section className="main">
+
+
+      </section>
+
+      <section className="side">
+      </section>
+
+    </div>
 )
 
 

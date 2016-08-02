@@ -10,6 +10,26 @@ export const setThemeColor = (themeColor, textColor) => {
     textColor
   }
 }
+export const SET_RESPONSIVE_MODE = 'set_responsive_mode'
+export const setResponsiveMode = width => {
+  return {
+    type: SET_RESPONSIVE_MODE,
+    width
+  }
+}
+export const handleResponsiveChange = () => (dispatch, getState) => {
+  $(window).resize(function(){
+    const width = $(window).width(),
+          currentMode = getState().theme.responsiveMode,
+          mode = width >= 1280 ? 1280 : width >= 1024 ? 1024 : width >= 768 ? 768 : width >= 480 ? 480 : 320
+    if(currentMode != mode) {
+      dispatch(setResponsiveMode(mode))
+      // todo: change grid system
+    }
+  })
+}
+
+
 
 
 // MAIN MENU
@@ -48,6 +68,17 @@ export const toggleMainMenu = () => {
       return dispatch(openMainMenu())
   }
 }
+
+
+// PAGE
+export const SET_PAGE_LOADED = 'set_page_loaded'
+export const setPageLoaded = state => {
+  return {
+    type: SET_PAGE_LOADED,
+    state
+  }
+}
+
 
 
 // ARTISTS
@@ -161,20 +192,21 @@ export const getAlbumsList = () => {
 
 
 //Blogs
-export const REQUEST_BLOGS = 'request_blogs';
-export const RECEIVE_BLOGS = 'receive_blogs';
+export const REQUEST_BLOGS = 'request_blogs'
+export const RECEIVE_BLOGS = 'receive_blogs'
+export const SET_MORE_BLOG_POSTS = 'set_more_blog_posts'
 export const requestBlogs = () => {
   return{
     type: REQUEST_BLOGS
   }
 }
-export const receiveBlogs = (blogsList) => {
+export const receiveBlogs = (json) => {
   return{
     type: RECEIVE_BLOGS,
-    list: blogsList
+    data: json
   }
 }
-export const getBlogsList = () => {
+export const getBlogs = () => {
   return (dispatch, getState) => {
     let state = getState()
     let shouldFetch
@@ -192,6 +224,16 @@ export const getBlogsList = () => {
     }
   }
 }
+export const setMoreBlogPosts = ( count ) => {
+  return {
+    type: SET_MORE_BLOG_POSTS,
+    count
+  }
+}
+
+
+
+
 
 //Events
 export const REQUEST_EVENTS = 'request_events';

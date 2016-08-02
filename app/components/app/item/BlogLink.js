@@ -1,10 +1,10 @@
 import React from 'react'
 
 
-const BlogThumb = () => (
+const BlogLink = ({  }) => (
     <div className="BlogThumb">BlogThumb</div>
 )
 
 
-export default BlogThumb
+export default BlogLink
 

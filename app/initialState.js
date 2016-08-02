@@ -2,7 +2,8 @@ const initialState = {
 
   theme: {
     textColor: '#000000',
-    themeColor: '#f0f0f0'
+    themeColor: '#f0f0f0',
+    responsiveMode: 0,
   },
 
   artists: {
@@ -42,17 +43,26 @@ const initialState = {
   blogs: {
     loaded: false,
     isFetching: false,
-    list: [
-
-
-    ]
+    data: {
+      posts: [],
+      postsCount: 0,
+      hotPosts: [],
+      hotPostsCount: 0,
+      mostViewedPosts: [],
+      mostViewedPostsCount: 0
+    },
+    postsLoaded: 0,
+    hotPostsLoaded: 0,
+    mostViewedPostsLoaded: 0
   },
+
+
+
   
   mainMenu: {
     disabled: false, // disabled in transition
     opened: false
   },
-  
 
 
 
@@ -61,6 +71,11 @@ const initialState = {
     isFetching: false,
     list: [
     ]
+  },
+
+  page: {
+    loaded: false
+
   },
 
 

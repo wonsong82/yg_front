@@ -52,3 +52,67 @@
   }
 }
 
+
+@media (max-width: 1279px) {
+.App .Frame {
+  .top {
+    height: $frameSizeTop--lg;
+  }
+  .left, .right {
+    width: $frameSize--lg;
+  }
+  .bottom {
+    height: $frameSize--lg;
+  }
+  .footer {
+    height: $footerHeight--lg;
+  }
+}}
+
+@media (max-width: 1023px) {
+.App .Frame {
+  .top {
+    height: $frameSizeTop--md;
+  }
+  .left, .right {
+    width: $frameSize--md;
+  }
+  .bottom {
+    height: $frameSize--md;
+  }
+  .footer {
+    height: $footerHeight--md;
+  }
+}}
+
+@media (max-width: 767px) {
+.App .Frame {
+  .top {
+    height: $frameSizeTop--sm;
+  }
+  .left, .right {
+    width: $frameSize--sm;
+  }
+  .bottom {
+    height: $frameSize--sm;
+  }
+  .footer {
+    height: $footerHeight--sm;
+  }
+}}
+
+@media (max-width: 479px) {
+.App .Frame {
+  .top {
+    height: $frameSizeTop--xs;
+  }
+  .left, .right {
+    width: $frameSize--xs;
+  }
+  .bottom {
+    height: $frameSize--xs;
+  }
+  .footer {
+    height: $footerHeight--xs;
+  }
+}}

@@ -52,3 +52,31 @@ body {
 }
 
 
+@media (max-width: 1279px) {
+.App {
+  .Page {
+    padding: $frameSizeTop--lg $frameSize--lg $footerHeight--lg;
+  }
+}}
+
+@media (max-width: 1023px) {
+.App {
+  .Page {
+    padding: $frameSizeTop--md $frameSize--md $footerHeight--md;
+  }
+}}
+
+@media (max-width: 767px) {
+.App {
+  .Page {
+    padding: $frameSizeTop--sm $frameSize--sm $footerHeight--sm;
+  }
+}}
+
+@media (max-width: 479px) {
+.App {
+  .Page {
+    padding: $frameSizeTop--xs $frameSize--xs $footerHeight--xs;
+  }
+}}
+

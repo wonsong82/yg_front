@@ -1,10 +1,39 @@
+// Defaults
 $bgColor: #f0f0f0;
-$footerHeight: 274px;
 
+$opacity--primary: 0.80;
+$opacity--title: 0.63;
+$opacity--sub: 0.55;
+$opacity--caption: 0.40;
+$opacity--line1: 0.27;
+$opacity--line2: 0.08;
+
+
+// Frame Sizes for each sizes
 $frameSizeTop: 56px;
 $frameSize: 27px;
+$footerHeight: 270px;
+
+$frameSizeTop--lg: 56px;
+$frameSize--lg: 25px;
+$footerHeight--lg: 270px;
+
+$frameSizeTop--md: 56px;
+$frameSize--md: 25px;
+$footerHeight--md: 313px;
+
+$frameSizeTop--sm: 56px;
+$frameSize--sm: 10px;
+$footerHeight--sm: 401px;
+
+$frameSizeTop--xs: 56px;
+$frameSize--xs: 10px;
+$footerHeight--xs: 423px;
 
 
+
+
+// Shadows
 $shadowFocus  : 0 0 8px rgba(0,0,0,.18), 0 8px 16px rgba(0,0,0,.36);
 $shadow0dp    : 0 0 0 0 rgba(0,0,0,0), 0 0 0 0 rgba(0,0,0,0), 0 0 0 0 rgba(0,0,0,0);
 $shadow2dp    : 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
@@ -15,6 +44,7 @@ $shadow8dp    : 0 8px 10px 0 rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12), 0 
 $shadow16dp   : 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
 
 
+// Easings
 $easeInOutQuad     : cubic-bezier(0.455, 0.03, 0.515, 0.955);
 $easeInOutQuart    : cubic-bezier(0.77, 0, 0.175, 1);
 $easeInOutExpo     : cubic-bezier(1, 0, 0, 1);

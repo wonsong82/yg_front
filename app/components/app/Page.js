@@ -1,10 +1,16 @@
 require('./Page.scss')
 import React from 'react'
+import SquareSpinner from '../../components/lib/spinner/SquareSpinner'
 
 
-const Page = ({ children }) => (
+const Page = ({ ready, color, children }) => (
     <div className="Page">
-      {children}
+      { ready ?
+        children :
+        <div className="loading">
+          <SquareSpinner color={color} />
+        </div>
+      }
     </div>
 )
 

@@ -53,6 +53,7 @@ class Transition extends Component {
     const mainMenu = this.refs.mainMenu
     const artists = $('a.link', mainMenu.refs.artists)
 
+    // Show Main Menu
     $(findDOMNode(mainMenu))
       .velocity('stop', true)
       .velocity({
@@ -63,6 +64,7 @@ class Transition extends Component {
         complete: () => this.props.onTransitionFinish()
       })
 
+    // Show artists staggering
     artists.each((i, e)=>{
       $(e)
         .velocity('stop', true)
