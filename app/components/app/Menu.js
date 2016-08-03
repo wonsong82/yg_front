@@ -70,10 +70,16 @@ class MainMenu extends Component {
 
   componentDidMount() {
     $(window).on('keyup', this.onESCPressed.bind(this))
+    $('.links').on('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
   }
 
   componentWillUnmount() {
     $(window).off('keyup', this.onESCPressed)
+    $('.links').off('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
+  }
+
+  preventOtherScrolls(e){
+    e.preventDefault()
   }
 
 
