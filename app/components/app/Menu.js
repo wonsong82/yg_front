@@ -1,6 +1,7 @@
 require('./Menu.scss')
 import React, { Component, PropTypes } from 'react'
 import TransitionGroup from 'react/lib/ReactTransitionGroup'
+import ScrollArea from 'react-scrollbar/dist/no-css'
 
 import RouterLink from '../../components/lib/link/RouterLink'
 import HoverLink from '../../components/lib/link/HoverLink'
@@ -61,6 +62,20 @@ class MainMenu extends Component {
 
   }
 
+  onESCPressed(e){
+    if(e.keyCode == 27){
+      this.props.onESCPressed()
+    }
+  }
+
+  componentDidMount() {
+    $(window).on('keyup', this.onESCPressed.bind(this))
+  }
+
+  componentWillUnmount() {
+    $(window).off('keyup', this.onESCPressed)
+  }
+
 
   getArtistImage( id ){
     const { artists } = this.props
@@ -89,14 +104,15 @@ class MainMenu extends Component {
     ].map( link => {
       let { to, text } = link
       return (
-        <RouterLink key={to}
+        <li>
+          <RouterLink key={to}
                     to={'/'+to}
                     className="link"
                     activeClassName="current"
-                    onClick={this.onLinkClick.bind(this)}
-        >
-          {text}
-        </RouterLink>
+                    onClick={this.onLinkClick.bind(this)}>
+            {text}
+          </RouterLink>
+        </li>
       )
     })
 
@@ -105,17 +121,18 @@ class MainMenu extends Component {
     const artistLinks = artists.map(( artist ) => {
       let { id, urlFriendlyName, themeColor, name } = artist
       return (
-        <HoverLink key={id}
-                   to={"/artist/"+urlFriendlyName}
-                   className="link"
-                   textColor="#000000"
-                   hoverColor={themeColor}
-                   onClick={this.onLinkClick.bind(this)}
-                   onMouseEnter={this.onArtistEnter.bind(this, id)}
-                   onMouseLeave={this.onArtistLeave.bind(this)}
-        >
-          {name}
-        </HoverLink>
+        <li>
+          <HoverLink key={id}
+                     to={"/artist/"+urlFriendlyName}
+                     className="link"
+                     textColor="#000000"
+                     hoverColor={themeColor}
+                     onClick={this.onLinkClick.bind(this)}
+                     onMouseEnter={this.onArtistEnter.bind(this, id)}
+                     onMouseLeave={this.onArtistLeave.bind(this)}>
+            {name}
+          </HoverLink>
+        </li>
       )
     })
 
@@ -133,19 +150,28 @@ class MainMenu extends Component {
           }
         </TransitionGroup>
 
-        <div className="links">
-          <div className="static" ref="static">
-            {staticLinks}
-          </div>
 
-          <div className="artists" ref="artists"
-               onMouseEnter={this.onArtistsEnter.bind(this)}
-               onMouseLeave={this.onArtistsLeave.bind(this)}
-               onMouseMove={this.onArtistsOver.bind(this)}
-          >
-            {artistLinks}
-          </div>
-        </div>
+          <ScrollArea className="links"
+            speed={0.8}
+            horizontal={false}
+            smoothScrolling={true}
+            contentClassName="content">
+
+            <div className="static" ref="static">
+              {staticLinks}
+            </div>
+
+            <div className="artists" ref="artists"
+                 onMouseEnter={this.onArtistsEnter.bind(this)}
+                 onMouseLeave={this.onArtistsLeave.bind(this)}
+                 onMouseMove={this.onArtistsOver.bind(this)} >
+              {artistLinks}
+            </div>
+
+
+
+          </ScrollArea>
+
 
 
         

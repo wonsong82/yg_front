@@ -5,8 +5,8 @@ import AnchorLink from '../../components/lib/link/AnchorLink'
 
 
 
-const Footer = ({ color }) => (
-    <div className="Footer" style={{color}}>
+const Footer = ({ color, bgColor }) => (
+    <div className="Footer" style={{color, backgroundColor: bgColor}}>
 
       <div className="site-links">
         <AnchorLink href="/about-us" style={{color}}>About Us</AnchorLink>
@@ -31,8 +31,6 @@ const Footer = ({ color }) => (
       </div>
 
       <EmailSignup title="NEWSLETTER" />
-
-      <div className="copyright" style={{color}}>All Rights Reserved @ 2016 YG PRESENTS</div>
 
     </div>
 )

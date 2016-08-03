@@ -32,8 +32,8 @@ class App extends Component {
       <div className="App">
 
         <Page ready={pageLoaded} color={textColor}>{page}</Page>
-        <Frame color={themeColor} />
-        <Footer color={textColor} />
+        <Footer color={textColor} bgColor={themeColor} />
+        <Frame color={textColor} bgColor={themeColor} />
         <Menu />
         <Header color={textColor} />
       </div>

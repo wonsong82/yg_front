@@ -21,7 +21,7 @@
       opacity: 0.80;
       transition: color 1000ms ease, opacity 300ms ease;
       will-change: color, opacity;
-      &+a {
+      & + a {
         margin-left: 70px;
       }
       &:hover, &:active {
@@ -44,7 +44,7 @@
         transition: color 1000ms ease, opacity 300ms ease;
         will-change: color, opacity;
       }
-      &+a {
+      & + a {
         margin-left: 10px;
       }
       &:hover span, &:active span {
@@ -56,14 +56,6 @@
   .EmailSignup {
     display: block;
     margin-bottom: 58px;
-  }
-
-  .copyright {
-    font: 400 12px/18px 'Klavika', sans-serif;
-    opacity: $opacity--sub;
-    text-align: center;
-    transition: color 1000ms ease, opacity 300ms ease;
-    will-change: color, opacity;
   }
 }
 

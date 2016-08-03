@@ -16,7 +16,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onTransitionStart: () => dispatch(disableMainMenu()),
     onTransitionFinish: () => dispatch(enableMainMenu()),
-    onLinkClick: () => dispatch(closeMainMenu())
+    onLinkClick: () => dispatch(closeMainMenu()),
+    onESCPressed: () => dispatch(closeMainMenu())
   }
 }
 

@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import initState from '../initialState'
 
+
 // THEME
 import { SET_THEME_COLOR, SET_RESPONSIVE_MODE } from '../actions/'
 const theme = ( state = initState.theme, action ) => {

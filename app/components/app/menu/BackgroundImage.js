@@ -25,7 +25,13 @@ class MainMenuImage extends Component {
       .velocity({opacity:0}, {
         duration: 500,
         easing: 'easeInOutQuad',
-        complete: () => callback()
+        complete: () => {
+          try {
+            callback()
+          }
+          catch(e){}
+
+        }
       })
   }
 

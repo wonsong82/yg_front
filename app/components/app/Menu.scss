@@ -39,39 +39,57 @@
       top: 48px;
       left: 32px;
 
-      .link {
-        transition: color 300ms ease;
-        will-change: color;
-        font: 400 24px/32px 'Klavika', sans-serif;
-        color: rgba(0,0,0,0.7);
+      li {
         display: block;
 
-        &.current {
-          font-weight: 500;
-        }
+        .link {
+          transition: color 300ms ease;
+          will-change: color;
+          font: 400 24px/32px 'Klavika', sans-serif;
+          color: rgba(0,0,0,0.7);
+          display: inline;
 
-        &:hover, &:active {
-          color: rgba(0,0,0,0.9)
+          &.current {
+            font-weight: 500;
+          }
+
+          &:hover, &:active {
+            color: rgba(0,0,0,0.9)
+          }
         }
       }
+
+
     }
 
     .artists {
-      position: absolute;
-      top: 48px;
+      position: relative;
+      padding-top: 48px;
+      padding-bottom: 32px;
+      text-align: center;
+      float: left;
       left: 50%;
-      transform: translateX(-50%);
-
-      .link {
+      transform: translate(-50%, 0);
+      &:after {
         display: block;
-        font: 400 44px/66px 'Klavika', sans-serif;
-        text-align: center;
-        transition: font-size 500ms $easeOutQuart, line-height 500ms $easeOutQuart;
-        will-change: font-size, line-height;
+        clear: both;
+        content: ""
+      }
 
-        &:hover, &:active {
-          font-size: 82px;
-          line-height: 88px;
+      li {
+        display: block;
+
+        .link {
+          display: inline;
+          font: 400 44px/66px 'Klavika', sans-serif;
+          text-align: center;
+          transition: font-size 500ms $easeOutQuart, line-height 500ms $easeOutQuart;
+          will-change: font-size, line-height;
+
+          &:hover, &:active {
+            font-size: 82px;
+            line-height: 88px;
+          }
         }
       }
     }
@@ -127,23 +145,23 @@
       left: auto;
       padding-top: 18px;
       padding-bottom: 18px;
-      .link {
+      li {
         text-align: center;
-        font: 400 18px/36px 'Klavika', sans-serif;
+        .link {
+          font: 400 18px/36px 'Klavika', sans-serif;
+        }
       }
     }
     .artists {
-      position: relative;
-      top: auto;
-      left: auto;
-      transform: translate(0, 0);
-      text-align: center;
-      .link {
-        font: 400 24px/40px 'Klavika', sans-serif;
+      padding-top: 0;
+      li {
+        .link {
+          font: 400 24px/40px 'Klavika', sans-serif;
 
-        &:hover, &:active {
-          font-size: 36px;
-          line-height: 48px;
+          &:hover, &:active {
+            font-size: 36px;
+            line-height: 48px;
+          }
         }
       }
     }
@@ -157,6 +175,6 @@
     top: $frameSizeTop--xs;
     left: $frameSize--xs;
     right: $frameSize--xs;
-    bottom: $footerHeight--xs;
+    bottom: $frameSize--xs;
   }
 }}
