@@ -46,3 +46,45 @@ export const computeThemeColor = ( page, popup, artistsList, params ) => {
     textColor
   }
 }
+
+
+
+export const getData = ( apiURL, state, onStart, onComplete, dispatch, fetch ) => {
+  let shouldFetch = !( state.loaded || (!state.loaded && state.isFetching) )
+  if(shouldFetch){
+    dispatch(onStart())
+    return fetch(apiURL)
+      .then(response => response.json())
+      .then(json => dispatch(onComplete(json)))
+  }
+  else {
+    return Promise.resolve()
+  }
+}
+
+
+
+export const getFacebookShareLink = ( url ) => {
+  return 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url)
+}
+
+export const getTwitterShareLink = ( url ) => {
+  return 'https://twitter.com/home?status=' + encodeURIComponent(url)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

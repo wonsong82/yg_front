@@ -25,105 +25,102 @@ const initialState = {
     current: 0,
     next: 0
   },
-
-  tours: {
-    loaded: false,
-    isFetching: false,
-    list: [
-    ],
-  },
-
-  albums: {
-    loaded: false,
-    isFetching: false,
-    list: [
-    ],
-  },
-
-  blogs: {
-    loaded: false,
-    isFetching: false,
-    data: {
-      posts: [],
-      postsCount: 0,
-      hotPosts: [],
-      hotPostsCount: 0,
-      mostViewedPosts: [],
-      mostViewedPostsCount: 0
-    },
-    postsLoaded: 0,
-    hotPostsLoaded: 0,
-    mostViewedPostsLoaded: 0
-  },
-
-
-
   
   mainMenu: {
     disabled: false, // disabled in transition
     opened: false
   },
 
-
-
-  events: {
-    loaded: false,
-    isFetching: false,
-    list: [
-    ]
-  },
-
-  musics: {
-    loaded: false,
-    isFetching: false,
-    list: [
-    ]
-  },
-
-  products: {
-    loaded: false,
-    isFetching: false,
-    list: [
-    ]
-  },
-
-  promotions: {
-    loaded: false,
-    isFetching: false,
-    list: [
-    ]
-  },
-
-  hottracks: {
-    loaded: false,
-    isFetching: false,
-    list: [
-    ]
-  },
-
-  hotblogs: {
-    loaded: false,
-    isFetching: false,
-    list: [
-    ]
-  },
-
-  product_categories: {
-    loaded: false,
-    isFetching: false,
-    list: [
-    ]
-  },
-
   page: {
-    loaded: false
 
   },
-
 
   signup: {
     isLoading: false
-  }
+  },
+
+
+  data: {
+    loaded: false,
+
+    blogs: {
+      loaded: false,
+      isFetching: false,
+      contents: {
+        posts: [],
+        postsCount: 0,
+        hotPosts: [],
+        hotPostsCount: 0,
+        mostViewedPosts: [],
+        mostViewedPostsCount: 0
+      }
+    },
+
+    tours: {
+      loaded: false,
+      isFetching: false,
+      list: [
+      ],
+    },
+
+    albums: {
+      loaded: false,
+      isFetching: false,
+      list: [
+      ],
+    },
+
+
+
+    events: {
+      loaded: false,
+      isFetching: false,
+      list: [
+      ]
+    },
+
+    musics: {
+      loaded: false,
+      isFetching: false,
+      list: [
+      ]
+    },
+
+    products: {
+      loaded: false,
+      isFetching: false,
+      list: [
+      ]
+    },
+
+    promotions: {
+      loaded: false,
+      isFetching: false,
+      list: [
+      ]
+    },
+
+    hottracks: {
+      loaded: false,
+      isFetching: false,
+      list: [
+      ]
+    },
+
+    hotblogs: {
+      loaded: false,
+      isFetching: false,
+      list: [
+      ]
+    },
+
+    product_categories: {
+      loaded: false,
+      isFetching: false,
+      list: [
+      ]
+    }
+  },
 
 
 

@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getArtistsList, getToursList, getAlbumsList, getBlogsList, getEventsList,
-    getMusicsList, getProductsList , getPromotionsList , getHotTracksList , getHotBlogsList , getProductCategoriesList ,
-    setThemeColor, setTextColor, setResponsiveMode, handleResponsiveChange, setPageLoaded } from '../actions/'
+import { getArtistsList, setThemeColor, setTextColor, setResponsiveMode, handleResponsiveChange, setDataLoaded, getBlogsData} from '../actions/'
 import { computeThemeColor } from '../functions/'
 import AppComponent from '../components/App'
 
@@ -11,23 +9,13 @@ class App extends Component {
   constructor(props){
     super(props)
   }
+
   componentDidMount(){
     const { dispatch } = this.props
     dispatch(setResponsiveMode($(window).width()))
     dispatch(handleResponsiveChange())
     dispatch(getArtistsList())
-    dispatch(getAlbumsList())
-    dispatch(getBlogsList())
-    dispatch(getEventsList())
-    dispatch(getToursList())
-    dispatch(getMusicsList())
-    dispatch(getProductsList())
-    dispatch(getPromotionsList())
-    dispatch(getHotTracksList())
-    dispatch(getHotBlogsList())
-    dispatch(getProductCategoriesList())
-
-
+    dispatch(getBlogsData())
     // todo: dispatch others
   }
 
@@ -43,10 +31,10 @@ class App extends Component {
     }
 
     // 로딩
-    const { dispatch, pageLoaded, artistLoaded, toursLoaded, albumsLoaded, blogsLoaded } = nextProps
-    if(!pageLoaded){
-      if(artistLoaded && toursLoaded && albumsLoaded && blogsLoaded )
-        dispatch(setPageLoaded(true))
+    const { dispatch, dataLoaded, artistLoaded, blogsLoaded } = nextProps
+    if(!dataLoaded){
+      if(artistLoaded && blogsLoaded  )
+        dispatch(setDataLoaded(true))
     }
   }
 
@@ -68,12 +56,8 @@ const mapStateToProps = (state) => {
     themeColor: state.theme.themeColor,
     mainMenuOpened: state.mainMenu.opened,
 
-    pageLoaded: state.page.loaded,
-    toursLoaded: state.tours.loaded,
-    albumsLoaded: state.albums.loaded,
-    blogsLoaded: state.blogs.loaded,
-
-
+    dataLoaded: state.data.loaded,
+    blogsLoaded: state.data.blogs.loaded
     //@todo other states than artist, for example blogs, tours, ..
   }
 }

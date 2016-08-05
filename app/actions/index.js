@@ -1,4 +1,6 @@
 import fetch from 'isomorphic-fetch'
+import { getData, getFacebookShareLink, getTwitterShareLink } from '../functions/'
+import { Site } from '../../env'
 
 
 // THEME
@@ -70,16 +72,6 @@ export const toggleMainMenu = () => {
 }
 
 
-// PAGE
-export const SET_PAGE_LOADED = 'set_page_loaded'
-export const setPageLoaded = state => {
-  return {
-    type: SET_PAGE_LOADED,
-    state
-  }
-}
-
-
 
 // ARTISTS
 export const REQUEST_ARTISTS = 'request_artists'
@@ -118,123 +110,95 @@ export const getArtistsList = () => {
   }
 }
 
-// TOUR
-export const REQUEST_TOURS = 'request_tours'
-export const RECEIVE_TOURS = 'receive_tours'
-export const requestTours = () => {
+
+
+
+/***
+ * PAGE
+ */
+export const INIT_PAGE = 'init_page'
+export const initPage = pageType => ({ type: INIT_PAGE, pageType })
+
+
+export const SET_BLOGS_LIST = 'set_blog_list'
+export const SET_HOT_POSTS_LIST = 'set_hot_posts_list'
+export const SET_POSTS_ALL_LOADED = 'set_posts_all_loaded'
+export const SET_HOT_POSTS_ALL_LOADED = 'set_hot_posts_all_loaded'
+export const setBlogsList      = posts => ({ type: SET_BLOGS_LIST, posts })
+export const setHotPostsList   = posts => ({ type: SET_HOT_POSTS_LIST, posts })
+export const setPostsAllLoaded = bool  => ({ type: SET_POSTS_ALL_LOADED, bool })
+export const setHotPostsAllLoaded = bool  => ({ type: SET_HOT_POSTS_ALL_LOADED, bool })
+
+export const loadBlogsList = ( count ) => (dispatch, getState) => {
+  const state = getState()
+  if(state.page.type == 'blog'){
+    const posts = state.page.posts,
+          postsData = state.data.blogs.contents.posts,
+          postsDataCount = postsData.length
+
+    let curCount  = posts.length
+    let nextCount = curCount + count
+
+    let newPosts = []
+    postsData.some(( post, index ) => {
+      const { id, post_title, url_friendly_name, excerpt, post_date, main_image } = post
+      const url = Site + '/blog/' + url_friendly_name
+
+      newPosts.push({
+        id,
+        title: post_title,
+        url,
+        text: excerpt,
+        date: post_date,
+        image: main_image || false,
+        facebookLink: getFacebookShareLink(url),
+        twitterLink: getTwitterShareLink(url),
+      })
+
+      // 인덱스가 전체 데이타 인덱스의 마지막의 경우 || 카운트의 마지막일 경우
+      if(postsDataCount-1 == index || nextCount-1 == index){
+        // 인덱스가 전체의 마지막일경우 뷰모어 안나오게 디스페치
+        if(postsDataCount-1 == index){
+          dispatch(setPostsAllLoaded(true))
+        }
+        return true
+      }
+    })
+
+    dispatch(setBlogsList(newPosts))
+  }
+}
+
+
+
+
+
+
+
+
+
+/**
+ * DATA
+ */
+export const SET_DATA_LOADED = 'set_data_loaded'
+export const setDataLoaded = state => {
   return {
-    type : REQUEST_TOURS
+    type: SET_DATA_LOADED,
+    state
   }
 }
-export const receiveTours = (toursList) => {
-  return {
-    type : RECEIVE_TOURS,
-    list : toursList
-  }
-}
-export const getToursList = () => {
-  return (dispatch, getState) => {
-    let state = getState()
-    let shouldFetch
-    const { tours } = state
-    //var tours = state.tours
-
-    shouldFetch = !(tours.loaded || (!tours.loaded && tours.isFetching))
-
-    if(shouldFetch){
-      dispatch(requestTours())
-      return fetch('/api/getTours')
-          .then(response => response.json())
-          .then(json =>
-          {
-            dispatch(receiveTours(json))
-          })
-    }else{
-      return Promise.resolve()
-    }
-  }
-}
-
-
-//Albums
-export const REQUEST_ALBUMS = 'request_albums';
-export const RECEIVE_ALBUMS = 'receive_albums';
-export const requestAlbums = () => {
-  return{
-    type: REQUEST_ALBUMS
-  }
-}
-export const receiveAlbums = (albumsList) => {
-  return{
-    type: RECEIVE_ALBUMS,
-    list: albumsList
-  }
-}
-export const getAlbumsList = () => {
-  return (dispatch, getState) => {
-    let state = getState()
-    let shouldFetch
-    const { albums } = state
-
-    shouldFetch = !(albums.loaded || (!albums.loaded && albums.isFetching))
-
-    if(shouldFetch){
-      dispatch(requestAlbums())
-      return fetch('/api/getAlbums')
-          .then(response => response.json())
-          .then(json => dispatch(receiveAlbums(json)))
-    }else{
-      return Promise.resolve()
-    }
-  }
-}
-
-
 
 //Blogs
 export const REQUEST_BLOGS = 'request_blogs'
 export const RECEIVE_BLOGS = 'receive_blogs'
-export const SET_MORE_BLOG_POSTS = 'set_more_blog_posts'
-export const requestBlogs = () => {
-  return{
-    type: REQUEST_BLOGS
-  }
-}
-export const receiveBlogs = (json) => {
-  return{
-    type: RECEIVE_BLOGS,
-    data: json
-  }
-}
-export const getBlogsList = () => {
-  return (dispatch, getState) => {
-    let state = getState()
-    let shouldFetch
-    const { blogs } = state
-
-    shouldFetch = !(blogs.loaded || (!blogs.loaded && blogs.isFetching))
-
-    if(shouldFetch){
-      dispatch(requestBlogs())
-      return fetch('/api/getBlogs')
-          .then(response => response.json())
-          .then(json => dispatch(receiveBlogs(json)))
-    }else{
-      return Promise.resolve()
-    }
-  }
-}
-export const setMoreBlogPosts = ( count ) => {
-  return {
-    type: SET_MORE_BLOG_POSTS,
-    count
-  }
-}
+export const requestBlogs = ()      => ({type: REQUEST_BLOGS})
+export const receiveBlogs = (json)  => ({type: RECEIVE_BLOGS, data: json})
+export const getBlogsData = ()      => (dispatch, getState) => getData('/api/getBlogs', getState().data.blogs, requestBlogs, receiveBlogs, dispatch, fetch)
 
 
 
 
-
+/*
 //Events
 export const REQUEST_EVENTS = 'request_events';
 export const RECEIVE_EVENTS = 'receive_events';
@@ -267,6 +231,10 @@ export const getEventsList = () => {
     }
   }
 }
+
+
+
+
 
 
 //Musics
@@ -471,7 +439,79 @@ export const getProductCategoriesList = () => {
         }
     }
 }
+*/
 
+/*
+ // TOUR
+ export const REQUEST_TOURS = 'request_tours'
+ export const RECEIVE_TOURS = 'receive_tours'
+ export const requestTours = () => {
+ return {
+ type : REQUEST_TOURS
+ }
+ }
+ export const receiveTours = (toursList) => {
+ return {
+ type : RECEIVE_TOURS,
+ list : toursList
+ }
+ }
+ export const getToursList = () => {
+ return (dispatch, getState) => {
+ let state = getState()
+ let shouldFetch
+ const { tours } = state
+ //var tours = state.tours
+
+ shouldFetch = !(tours.loaded || (!tours.loaded && tours.isFetching))
+
+ if(shouldFetch){
+ dispatch(requestTours())
+ return fetch('/api/getTours')
+ .then(response => response.json())
+ .then(json =>
+ {
+ dispatch(receiveTours(json))
+ })
+ }else{
+ return Promise.resolve()
+ }
+ }
+ }
+
+
+ //Albums
+ export const REQUEST_ALBUMS = 'request_albums';
+ export const RECEIVE_ALBUMS = 'receive_albums';
+ export const requestAlbums = () => {
+ return{
+ type: REQUEST_ALBUMS
+ }
+ }
+ export const receiveAlbums = (albumsList) => {
+ return{
+ type: RECEIVE_ALBUMS,
+ list: albumsList
+ }
+ }
+ export const getAlbumsList = () => {
+ return (dispatch, getState) => {
+ let state = getState()
+ let shouldFetch
+ const { albums } = state
+
+ shouldFetch = !(albums.loaded || (!albums.loaded && albums.isFetching))
+
+ if(shouldFetch){
+ dispatch(requestAlbums())
+ return fetch('/api/getAlbums')
+ .then(response => response.json())
+ .then(json => dispatch(receiveAlbums(json)))
+ }else{
+ return Promise.resolve()
+ }
+ }
+ }*/
 
 
 

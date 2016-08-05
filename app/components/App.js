@@ -25,13 +25,13 @@ class App extends Component {
 
 
   render(){
-    const { page, themeColor, textColor, pageLoaded } = this.props
+    const { page, themeColor, textColor, dataLoaded } = this.props
 
 
     return (
       <div className="App">
 
-        <Page ready={pageLoaded} color={textColor}>{page}</Page>
+        <Page ready={dataLoaded} color={textColor}>{page}</Page>
         <Footer color={textColor} bgColor={themeColor} />
         <Frame color={textColor} bgColor={themeColor} />
         <Menu />

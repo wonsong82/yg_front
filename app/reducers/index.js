@@ -78,73 +78,89 @@ const artists = ( state = initState.artists, action) => {
   }
 }
 
-// Tours
-import { REQUEST_TOURS, RECEIVE_TOURS } from '../actions/'
-const tours = ( state = initState.tours, action) => {
+
+
+// PAGE
+import { INIT_PAGE, SET_BLOGS_LIST, SET_HOT_POSTS_LIST, SET_POSTS_ALL_LOADED, SET_HOT_POSTS_ALL_LOADED } from '../actions/'
+const page = ( state = initState.page, action ) => {
   switch(action.type){
-    case REQUEST_TOURS:
+    case INIT_PAGE:
+      switch(action.pageType) {
+        case 'Blog':
+          return Object.assign({}, state, {
+            type: 'blog',
+            posts: [],
+            postsAllLoaded: false,
+            hotPosts: [],
+            hotPostsAllLoaded: false
+          })
+
+        default:
+          return state
+      }
+
+    case SET_BLOGS_LIST:
       return Object.assign({}, state, {
-        isFetching: true
+        posts: action.posts
       })
-    case RECEIVE_TOURS:
+
+
+    case SET_HOT_POSTS_LIST:
+
+
+    case SET_POSTS_ALL_LOADED:
       return Object.assign({}, state, {
-        isFetching: false,
-        loaded: true,
-        list: action.list
+        postsAllLoaded: action.bool
       })
+
+    case SET_HOT_POSTS_ALL_LOADED:
+      return Object.assign({}, state, {
+        hotPostsAllLoaded: action.bool
+      })
+
+
     default:
       return state
   }
 }
 
-//Albums
-import { REQUEST_ALBUMS, RECEIVE_ALBUMS} from '../actions'
-const albums = ( state = initState.albums , action) => {
-  switch(action.type){
-    case REQUEST_ALBUMS:
-      return Object.assign({}, state, {
-        isFetching: true
-      })
-    case RECEIVE_ALBUMS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        loaded: true,
-        list: action.list
-      })
-    default:
-      return state
-  }
-}
 
 
-//Blogs
-import { REQUEST_BLOGS, RECEIVE_BLOGS, SET_MORE_BLOG_POSTS} from '../actions'
-const blogs = ( state = initState.blogs , action) => {
+
+
+
+// DATA
+import { SET_DATA_LOADED, REQUEST_BLOGS, RECEIVE_BLOGS } from '../actions'
+const data = ( state = initState.data , action) => {
   switch(action.type){
+
+    // SET ALL DATA LOADED
+    case SET_DATA_LOADED:
+      return Object.assign({}, state, {
+        loaded: action.state
+      })
+
+    // BLOG
     case REQUEST_BLOGS:
       return Object.assign({}, state, {
-        isFetching: true
+        blogs: Object.assign({}, state.blogs, {isFetching: true})
       })
+
     case RECEIVE_BLOGS:
       let { posts, hot_posts, most_viewed_posts } = action.data
       return Object.assign({}, state, {
-        isFetching: false,
-        loaded: true,
-        data: {
-          posts,
-          total_posts: posts.length,
-          hot_posts,
-          total_hot_posts: hot_posts.length,
-          most_viewed_posts,
-          total_most_viewed_posts: most_viewed_posts.length
-        }
-      })
-    case SET_MORE_BLOG_POSTS:
-      const postsLoaded = state.postsLoaded,
-            postsCount = state.data.postsCount,
-            next = postsLoaded + action.count > postsCount ? postsCount : postsLoaded + action.count
-      return Object.assign({}, state, {
-        postsLoaded : next
+        blogs: Object.assign({}, state.blogs, {
+          isFetching: false,
+          loaded: true,
+          contents: {
+            posts,
+            total_posts: posts.length,
+            hot_posts,
+            total_hot_posts: hot_posts.length,
+            most_viewed_posts,
+            total_most_viewed_posts: most_viewed_posts.length
+          }
+        })
       })
 
 
@@ -153,6 +169,48 @@ const blogs = ( state = initState.blogs , action) => {
   }
 }
 
+
+
+/*// Tours
+ import { REQUEST_TOURS, RECEIVE_TOURS } from '../actions/'
+ const tours = ( state = initState.data.tours, action) => {
+ switch(action.type){
+ case REQUEST_TOURS:
+ return Object.assign({}, state, {
+ isFetching: true
+ })
+ case RECEIVE_TOURS:
+ return Object.assign({}, state, {
+ isFetching: false,
+ loaded: true,
+ list: action.list
+ })
+ default:
+ return state
+ }
+ }
+
+ //Albums
+ import { REQUEST_ALBUMS, RECEIVE_ALBUMS} from '../actions'
+ const albums = ( state = initState.albums , action) => {
+ switch(action.type){
+ case REQUEST_ALBUMS:
+ return Object.assign({}, state, {
+ isFetching: true
+ })
+ case RECEIVE_ALBUMS:
+ return Object.assign({}, state, {
+ isFetching: false,
+ loaded: true,
+ list: action.list
+ })
+ default:
+ return state
+ }
+ }*/
+
+
+/*
 //Events
 import { REQUEST_EVENTS, RECEIVE_EVENTS} from '../actions'
 const events = ( state = initState.events , action) => {
@@ -290,20 +348,8 @@ const product_categories = ( state = initState.product_categories , action) => {
       return state
   }
 }
+*/
 
-
-// PAGE
-import { SET_PAGE_LOADED } from '../actions/'
-const page = ( state = initState.page, action ) => {
-  switch(action.type) {
-    case SET_PAGE_LOADED:
-      return Object.assign({}, state, {
-        loaded: action.state
-      })
-    default:
-      return state
-  }
-}
 
 
 // SIGNUP
@@ -327,7 +373,7 @@ const signup = ( state = initState.signup, action ) => {
 
 
 
-const appReducer = combineReducers({ artists, mainMenu, theme, signup , tours, albums, blogs, events, products, musics, promotions , hottracks , hotblogs, product_categories ,page})
+const appReducer = combineReducers({ artists, mainMenu, theme, signup, data, page})
 export default appReducer
 
 

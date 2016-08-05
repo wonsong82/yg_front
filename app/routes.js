@@ -8,7 +8,7 @@ import ShopPage from './components/app/page/Shop'
 import MusicPage from './components/app/page/Music'
 import TourPage from './components/app/page/Tour'
 import EventPage from './components/app/page/Event'
-import BlogPage from './components/app/page/Blog'
+import BlogPage from './containers/app/page/Blog'
 import ArtistPage from './components/app/page/Artist'
 import StaticPage from './components/app/page/Static'
 
