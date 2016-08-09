@@ -104,8 +104,10 @@ const page = ( state = initState.page, action ) => {
         posts: action.posts
       })
 
-
     case SET_HOT_POSTS_LIST:
+      return Object.assign({}, state, {
+        hotPosts: action.posts
+      })
 
 
     case SET_POSTS_ALL_LOADED:

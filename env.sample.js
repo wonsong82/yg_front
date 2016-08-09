@@ -1,2 +1,3 @@
-module.exports.Env = 'production';
-module.exports.Domain = 'ygfront.local'
+module.exports.Env = 'development';
+module.exports.Site = 'http://ygfront.local';
+module.exports.Domain = 'ygfront.local';

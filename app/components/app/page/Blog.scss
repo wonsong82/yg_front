@@ -1,0 +1,56 @@
+@import '../../variable.scss';
+
+$gridWidth: 226px;
+$gridHeight: 195px;
+$gap: 10px;
+$pagePadding--top: 70px;
+$pagePadding--bottom: 100px;
+@function getGridWidth($size){
+  @return $gridWidth * $size + (($size - 1) * $gap);
+}
+
+.App .Page .BlogLayout {
+  width: getGridWidth(5);
+  margin: $pagePadding--top auto $pagePadding--bottom;
+  &:after {
+    clear: both;
+    display: block;
+    content: ""
+  }
+
+  .main {
+    width: getGridWidth(3);
+    float: left;
+
+    h3 {
+      font: 400 22px/22px 'Klavika', sans-serif;
+      color: (0,0,0, $opacity--primary);
+      margin-bottom: 13px;
+    }
+
+    .blog-list {
+
+      li {
+        width: 698px;
+        height: 574px;
+        background: #f60;
+
+        &+li {
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+
+  .side {
+    width: getGridWidth(2);
+    float: left;
+    margin-left: $gap;
+
+    h3 {
+      font: 400 22px/22px 'Klavika', sans-serif;
+      color: (0,0,0, $opacity--primary);
+      margin-bottom: 13px;
+    }
+  }
+}

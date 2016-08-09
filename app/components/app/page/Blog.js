@@ -1,10 +1,11 @@
+require('./Blog.scss')
 import React from 'react'
 import BlogLink from '../../../components/app/item/BlogLink'
 import BlogTextLink from '../../../components/app/item/BlogTextLink'
 import ViewMore from '../../../components/lib/link/ViewMore'
 
 
-const Blog = ({ posts, hotPosts, onBlogViewMoreClick, onHotPostViewMoreClick, postsAllLoaded, hotPostsAllLoaded }) => (
+const Blog = ({ posts, hotPosts, onBlogViewMoreClick, onHotPostsViewMoreClick, postsAllLoaded, hotPostsAllLoaded }) => (
 
   <div className="BlogLayout">
 
@@ -49,7 +50,7 @@ const Blog = ({ posts, hotPosts, onBlogViewMoreClick, onHotPostViewMoreClick, po
 
       {
         !hotPostsAllLoaded &&
-        <ViewMore onClick={onHotPostViewMoreClick} />
+        <ViewMore onClick={onHotPostsViewMoreClick} />
       }
 
     </section>

@@ -1,37 +1,13 @@
 import fetch from 'isomorphic-fetch'
-import { getData, getFacebookShareLink, getTwitterShareLink } from '../functions/'
-import { Site } from '../../env'
+const Middlewares = require('../middlewares/')
 
 
 // THEME
 export const SET_THEME_COLOR = 'set_theme_color'
-export const setThemeColor = (themeColor, textColor) => {
-  return {
-    type: SET_THEME_COLOR,
-    themeColor,
-    textColor
-  }
-}
 export const SET_RESPONSIVE_MODE = 'set_responsive_mode'
-export const setResponsiveMode = width => {
-  return {
-    type: SET_RESPONSIVE_MODE,
-    width
-  }
-}
-export const handleResponsiveChange = () => (dispatch, getState) => {
-  $(window).resize(function(){
-    const width = $(window).width(),
-          currentMode = getState().theme.responsiveMode,
-          mode = width >= 1280 ? 1280 : width >= 1024 ? 1024 : width >= 768 ? 768 : width >= 480 ? 480 : 320
-    if(currentMode != mode) {
-      dispatch(setResponsiveMode(mode))
-      // todo: change grid system
-    }
-  })
-}
-
-
+export const setThemeColor = (themeColor, textColor) => ({ type: SET_THEME_COLOR, themeColor, textColor })
+export const setResponsiveMode = width => ({ type: SET_RESPONSIVE_MODE, width })
+export const handleResponsiveChange = Middlewares.handleResponsiveChange
 
 
 // MAIN MENU
@@ -40,75 +16,21 @@ export const CLOSE_MAIN_MENU = 'close_main_menu'
 export const TOGGLE_MAIN_MENU = 'toggle_main_menu'
 export const ENABLE_MAIN_MENU = 'enable_main_menu'
 export const DISABLE_MAIN_MENU = 'disable_main_menu' 
-
-export const openMainMenu = () => {
-  return {
-    type: OPEN_MAIN_MENU
-  }
-}
-export const closeMainMenu = () => {
-  return {
-    type: CLOSE_MAIN_MENU
-  }
-}
-export const enableMainMenu = () => {
-  return {
-    type: ENABLE_MAIN_MENU
-  }
-}
-export const disableMainMenu = () => {
-  return {
-    type: DISABLE_MAIN_MENU
-  }
-}
-export const toggleMainMenu = () => {
-  return (dispatch, getState) => {
-    let state = getState()
-    if(state.mainMenu.opened)
-      return dispatch(closeMainMenu())
-    else
-      return dispatch(openMainMenu())
-  }
-}
+export const openMainMenu = () => ({ type: OPEN_MAIN_MENU })
+export const closeMainMenu = () => ({ type: CLOSE_MAIN_MENU })
+export const enableMainMenu = () => ({ type: ENABLE_MAIN_MENU })
+export const disableMainMenu = () => ({ type: DISABLE_MAIN_MENU })
+export const toggleMainMenu = Middlewares.toggleMainMenu
 
 
 
 // ARTISTS
 export const REQUEST_ARTISTS = 'request_artists'
 export const RECEIVE_ARTISTS = 'receive_artists'
-export const requestArtists = () => {
-  return {
-    type: REQUEST_ARTISTS
-  }
-}
-export const receiveArtists = (artistsList) => {
-  return {
-    type: RECEIVE_ARTISTS,
-    list: artistsList
-  }
-}
-// ThunkMiddleware
-export const fetchArtists = () => {
-  return function(dispatch){
-    dispatch(requestArtists())
-    return fetch('/api/getArtists')
-      .then(response => response.json())
-      .then(json => dispatch(receiveArtists(json)))
-  }
-}
-export const getArtistsList = () => {
-  return (dispatch, getState) => {
-    let state = getState()
-    let shouldFetch
-    const { artists } = state
-    shouldFetch = !(artists.loaded || (!artists.loaded && artists.isFetching))
-
-    if(shouldFetch)
-      return dispatch(fetchArtists())
-    else
-      return Promise.resolve() // polyfill
-  }
-}
+export const requestArtists = () => ({ type: REQUEST_ARTISTS })
+export const receiveArtists = artistsList => ({ type: RECEIVE_ARTISTS, list: artistsList })
+export const fetchArtists = Middlewares.fetchArtists
+export const getArtistsList = Middlewares.getArtistsList
 
 
 
@@ -116,10 +38,12 @@ export const getArtistsList = () => {
 /***
  * PAGE
  */
+// PAGE:PAGE
 export const INIT_PAGE = 'init_page'
 export const initPage = pageType => ({ type: INIT_PAGE, pageType })
 
 
+// PAGE:BLOG
 export const SET_BLOGS_LIST = 'set_blog_list'
 export const SET_HOT_POSTS_LIST = 'set_hot_posts_list'
 export const SET_POSTS_ALL_LOADED = 'set_posts_all_loaded'
@@ -128,72 +52,33 @@ export const setBlogsList      = posts => ({ type: SET_BLOGS_LIST, posts })
 export const setHotPostsList   = posts => ({ type: SET_HOT_POSTS_LIST, posts })
 export const setPostsAllLoaded = bool  => ({ type: SET_POSTS_ALL_LOADED, bool })
 export const setHotPostsAllLoaded = bool  => ({ type: SET_HOT_POSTS_ALL_LOADED, bool })
-
-export const loadBlogsList = ( count ) => (dispatch, getState) => {
-  const state = getState()
-  if(state.page.type == 'blog'){
-    const posts = state.page.posts,
-          postsData = state.data.blogs.contents.posts,
-          postsDataCount = postsData.length
-
-    let curCount  = posts.length
-    let nextCount = curCount + count
-
-    let newPosts = []
-    postsData.some(( post, index ) => {
-      const { id, post_title, url_friendly_name, excerpt, post_date, main_image } = post
-      const url = Site + '/blog/' + url_friendly_name
-
-      newPosts.push({
-        id,
-        title: post_title,
-        url,
-        text: excerpt,
-        date: post_date,
-        image: main_image || false,
-        facebookLink: getFacebookShareLink(url),
-        twitterLink: getTwitterShareLink(url),
-      })
-
-      // 인덱스가 전체 데이타 인덱스의 마지막의 경우 || 카운트의 마지막일 경우
-      if(postsDataCount-1 == index || nextCount-1 == index){
-        // 인덱스가 전체의 마지막일경우 뷰모어 안나오게 디스페치
-        if(postsDataCount-1 == index){
-          dispatch(setPostsAllLoaded(true))
-        }
-        return true
-      }
-    })
-
-    dispatch(setBlogsList(newPosts))
-  }
-}
-
-
-
-
-
+export const loadBlogsList = Middlewares.loadBlogsList
+export const loadHotPostsList = Middlewares.loadHotPostsList
 
 
 
 
 /**
  * DATA
+ * : ajax data related
  */
 export const SET_DATA_LOADED = 'set_data_loaded'
-export const setDataLoaded = state => {
-  return {
-    type: SET_DATA_LOADED,
-    state
-  }
-}
+export const setDataLoaded = state => ({ type: SET_DATA_LOADED, state })
 
-//Blogs
+// DATA:BLOG
 export const REQUEST_BLOGS = 'request_blogs'
 export const RECEIVE_BLOGS = 'receive_blogs'
 export const requestBlogs = ()      => ({type: REQUEST_BLOGS})
 export const receiveBlogs = (json)  => ({type: RECEIVE_BLOGS, data: json})
-export const getBlogsData = ()      => (dispatch, getState) => getData('/api/getBlogs', getState().data.blogs, requestBlogs, receiveBlogs, dispatch, fetch)
+export const getBlogsData = Middlewares.getBlogsData
+
+
+
+
+
+
+
+
 
 
 
