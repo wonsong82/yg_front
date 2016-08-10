@@ -1,8 +1,15 @@
+require('./BlogTextLink.scss')
 import React from 'react'
+import RouterLink from '../../../../components/lib/link/RouterLink'
 
 
-const BlogTextLink = () => (
-    <div className="BlogTextLink">BlogTextLink</div>
+
+const BlogTextLink = ({ title, url, text, date }) => (
+
+  <div className="BlogTextLink">
+    <RouterLink className="title" to={url}>{title}</RouterLink>
+    <span className="date">{date}</span>
+  </div>
 )
 
 

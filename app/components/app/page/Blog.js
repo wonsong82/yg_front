@@ -18,7 +18,7 @@ const Blog = ({ posts, hotPosts, onBlogViewMoreClick, onHotPostsViewMoreClick, p
       {
         posts &&
         posts.map( post => (
-          <li key={post.id}>
+          <li key={'blog' + post.id}>
             <BlogThumb {...post}  />
           </li>
         ))
@@ -27,7 +27,7 @@ const Blog = ({ posts, hotPosts, onBlogViewMoreClick, onHotPostsViewMoreClick, p
 
       {
         !postsAllLoaded &&
-        <ViewMore onClick={onBlogViewMoreClick} />
+        <ViewMore className="view-more" onClick={onBlogViewMoreClick} />
       }
     </section>
 
@@ -41,7 +41,7 @@ const Blog = ({ posts, hotPosts, onBlogViewMoreClick, onHotPostsViewMoreClick, p
       {
         hotPosts &&
         hotPosts.map( post => (
-          <li key={post.id}>
+          <li key={'hot' + post.id}>
             <BlogTextLink {...post} />
           </li>
         ))
@@ -50,7 +50,7 @@ const Blog = ({ posts, hotPosts, onBlogViewMoreClick, onHotPostsViewMoreClick, p
 
       {
         !hotPostsAllLoaded &&
-        <ViewMore onClick={onHotPostsViewMoreClick} />
+        <ViewMore className="view-more" onClick={onHotPostsViewMoreClick} />
       }
 
     </section>

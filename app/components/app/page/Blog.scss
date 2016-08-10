@@ -21,7 +21,7 @@ $pagePadding--bottom: 100px;
     h3 {
       font: 400 22px/22px 'Klavika', sans-serif;
       color: (0,0,0, $opacity--primary);
-      margin-bottom: 13px;
+      margin-bottom: 15px;
     }
 
     .blog-list {
@@ -34,6 +34,12 @@ $pagePadding--bottom: 100px;
         }
       }
     }
+
+    .view-more {
+      position: relative;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
   }
 
   .side {
@@ -44,43 +50,51 @@ $pagePadding--bottom: 100px;
     h3 {
       font: 400 22px/22px 'Klavika', sans-serif;
       color: (0,0,0, $opacity--primary);
-      margin-bottom: 13px;
+      margin-bottom: 15px;
     }
 
     .hot-post-list {
+      border-top: 1px solid rgba(0,0,0, $opacity--line1);
+      border-bottom: 1px solid rgba(0,0,0, $opacity--line1);
 
       li {
         width: 100%;
 
         &+li {
-          margin-top: 8px;
+          border-top: 1px solid rgba(0,0,0, $opacity--line2);
         }
       }
+    }
 
+    .view-more {
+      position: relative;
+      left: 50%;
+      transform: translate(-50%, 0);
     }
   }
 }
 
 
-@media (max-width: 1279px) {
+@media (max-width: $maxWidth--8-10) {
 .App .Page .BlogLayout {
   width: getGridWidth(6);
 
   .main {
     width: getGridWidth(6);
+    margin-bottom: 40px;
   }
 
   .side {
     margin-left: 0;
     width: getGridWidth(6);
+    .hot-post-list {
+      border: none;
+    }
   }
 }}
 
-@media (max-width: 1023px) {
 
-}
-
-@media (max-width: 767px) {
+@media (max-width: $maxWidth--4-10) {
 .App .Page .BlogLayout {
   width: getGridWidth(4);
 
@@ -95,7 +109,7 @@ $pagePadding--bottom: 100px;
 }}
 
 
-@media (max-width: 511px) {
+@media (max-width: $maxWidth--2-10) {
 .App .Page .BlogLayout {
   width: getGridWidth(2);
 

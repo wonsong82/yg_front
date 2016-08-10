@@ -1,5 +1,5 @@
 export const toArray = obj => Object.keys(obj).map(key => obj[key])
-
+export const excerptStr = ( string, length=120 ) => string.length > length ? string.substr(0, length) + '...' : string
 
 
 /***

@@ -5,13 +5,15 @@ import RouterLink from '../../../../components/lib/link/RouterLink'
 import Image from '../../../../components/lib/image/Image'
 
 
-const BlogThumb = ({ id, title, url, text, date, image, facebookShareLink, twitterShareLink, thumb_2x1 }) => (
+const BlogThumb = ({ title, url, text, date, image, facebookShareLink, twitterShareLink, thumb_2x1 }) => (
 
 
   <div className="BlogThumb">
 
     <div className="header">
-      <h6 className="title">{title}</h6>
+      <RouterLink className="title" to={url}>
+        <h6>{title}</h6>
+      </RouterLink>
       <span className="by">By YGPRESENTS</span>
       <span className="date">{date}</span>
       <div className="socialLinks">

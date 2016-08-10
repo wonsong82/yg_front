@@ -115,9 +115,13 @@ const initialState = {
 
 export const blogInitState = {
   type: 'blog',
-  posts: [],
+  posts: [
+    /*{ id, title, url, text, date, image, thumb_2x1, facebookShareLink, twitterShareLink } */
+  ],
+  hotPosts: [
+    /*{ id, title, url, text, date }*/
+  ],
   postsAllLoaded: false,
-  hotPosts: [],
   hotPostsAllLoaded: false
 }
 

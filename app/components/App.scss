@@ -54,7 +54,23 @@ body {
     top: 0;
     left: 0;
   }
+
+
+  .ViewMore {
+    display: inline-block;
+    font: 400 14px/18px 'Klavika', sans-serif;
+    color: rgba(0,0,0, $opacity--line1);
+    padding: 20px;
+    transition: color 0.3s ease;
+    will-change: color;
+    &:hover, &:active {
+      color: rgba(0,0,0, $opacity--title);
+    }
+  }
+
 }
+
+
 
 
 @media (max-width: 1279px) {

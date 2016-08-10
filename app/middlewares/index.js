@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import { toArray, getData, getFacebookShareLink, getTwitterShareLink, loadImages } from '../functions/'
+import { toArray, excerptStr, getData, getFacebookShareLink, getTwitterShareLink, loadImages } from '../functions/'
 import { Site } from '../../env'
 
 
@@ -10,10 +10,9 @@ export const handleResponsiveChange = () => (dispatch, getState) => {
   $(window).resize(function(){
     const width = $(window).width(),
       currentMode = getState().app.responsiveMode,
-      mode = width >= 1280 ? 1280 : width >= 1024 ? 1024 : width >= 768 ? 768 : width >= 480 ? 480 : 320
+      mode = width >= 1280 ? 1280 : width >= 1024 ? 1024 : width >= 768 ? 768 : width >= 512 ? 512 : 320
     if(currentMode != mode) {
       dispatch(setResponsiveMode(mode))
-      // todo: change grid system
     }
   })
 }
@@ -44,42 +43,38 @@ export const loadBlogsList = ( count ) => (dispatch, getState) => {
     const posts = state.page.posts,
       postsData = state.data.blogs.contents.posts,
       postsDataCount = Object.keys(postsData).length
-
     let curCount  = posts.length
     let nextCount = curCount + count
-
     let newPosts = []
     var index = 0
-    for( let key in postsData ){
-      let post = postsData[key]
-      let { id, post_title, url_friendly_name, excerpt, post_date, main_image, thumb_2x1, thumb_3x2 } = post
-      let url = Site + '/blog/' + url_friendly_name
-
-      newPosts.push({
-        id,
-        title: post_title,
-        url,
-        text: excerpt,
-        date: post_date,
-        image: main_image || false,
-        thumb_2x1: thumb_2x1 || main_image || false,
-        facebookShareLink: getFacebookShareLink(url),
-        twitterShareLink: getTwitterShareLink(url),
-      })
-
-      // 인덱스가 전체 데이타 인덱스의 마지막의 경우 || 카운트의 마지막일 경우
-      if(postsDataCount-1 == index || nextCount-1 == index){
-        // 인덱스가 전체의 마지막일경우 뷰모어 안나오게 디스페치
-        if(postsDataCount-1 == index){
-          dispatch(setPostsAllLoaded(true))
+    for( let key in postsData ) {
+      if (postsData.hasOwnProperty(key)) {
+        let post = postsData[key]
+        let {id, post_title, url_friendly_name, excerpt, post_date, main_image, thumb_2x1} = post
+        let url = Site + '/blog/' + url_friendly_name
+        newPosts.push({
+          id,
+          title: excerptStr(post_title),
+          url,
+          text: excerpt,
+          date: post_date,
+          image: main_image || false,
+          thumb_2x1: thumb_2x1 || main_image || false,
+          facebookShareLink: getFacebookShareLink(url),
+          twitterShareLink: getTwitterShareLink(url),
+        })
+        // 인덱스가 전체 데이타 인덱스의 마지막의 경우 || 카운트의 마지막일 경우
+        if (postsDataCount - 1 == index || nextCount - 1 == index) {
+          // 인덱스가 전체의 마지막일경우 뷰모어 안나오게 디스페치
+          if (postsDataCount - 1 == index) {
+            dispatch(setPostsAllLoaded(true))
+          }
+          break
         }
-        break
+        index++
       }
-
-      index++
+      dispatch(setBlogsList(newPosts))
     }
-
-    dispatch(setBlogsList(newPosts))
   }
 }
 
@@ -98,35 +93,30 @@ export const loadHotPostsList = ( count ) => (dispatch, getState) => {
 
     let newPosts = []
     var index = 0
-    for( let key in postsData ){
-      let post = postsData[key]
-      let { id, post_title, url_friendly_name, excerpt, post_date, main_image } = post
-      let url = Site + '/blog/' + url_friendly_name
-
-      newPosts.push({
-        id,
-        title: post_title,
-        url,
-        text: excerpt,
-        date: post_date,
-        image: main_image || false,
-        facebookLink: getFacebookShareLink(url),
-        twitterLink: getTwitterShareLink(url),
-      })
-
-      // 인덱스가 전체 데이타 인덱스의 마지막의 경우 || 카운트의 마지막일 경우
-      if(postsDataCount-1 == index || nextCount-1 == index){
-        // 인덱스가 전체의 마지막일경우 뷰모어 안나오게 디스페치
-        if(postsDataCount-1 == index){
-          dispatch(setHotPostsAllLoaded(true))
+    for( let key in postsData ) {
+      if (postsData.hasOwnProperty(key)) {
+        let post = postsData[key]
+        let { id, post_title, url_friendly_name, excerpt, post_date } = post
+        let url = Site + '/blog/' + url_friendly_name
+        newPosts.push({
+          id,
+          title: excerptStr(post_title, 90),
+          url,
+          text: excerpt,
+          date: post_date,
+        })
+        // 인덱스가 전체 데이타 인덱스의 마지막의 경우 || 카운트의 마지막일 경우
+        if (postsDataCount - 1 == index || nextCount - 1 == index) {
+          // 인덱스가 전체의 마지막일경우 뷰모어 안나오게 디스페치
+          if (postsDataCount - 1 == index) {
+            dispatch(setHotPostsAllLoaded(true))
+          }
+          break
         }
-        break
+        index++
       }
-
-      index++
+      dispatch(setHotPostsList(newPosts))
     }
-
-    dispatch(setHotPostsList(newPosts))
   }
 }
 
@@ -145,7 +135,9 @@ export const getArtistsData = () => ( dispatch, getState ) => {
         dispatch(setMainMenuArtistList( toArray(json) ))
         let imagesToLoad = []
         for( let key in json ) {
-          imagesToLoad.push(json[key].bg)
+          if(json.hasOwnProperty(key)) {
+            imagesToLoad.push(json[key].bg)
+          }
         }
         loadImages(imagesToLoad, ()=>{
           dispatch(startApp())
