@@ -1,0 +1,33 @@
+@import '../../../variable';
+
+.page-grid .BlogTextLink {
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .title {
+    display: block;
+    font: 400 16px/22px 'Klavika', sans-serif;
+    color: rgba(0,0,0, $opacity--primary);
+    transition: color 0.3s ease;
+    will-change: color;
+    &:hover, &:active {
+      color: rgba(0,0,0, 1);
+    }
+  }
+
+  .date {
+    display: block;
+    font: 400 14px/22px 'Klavika', sans-serif;
+    color: rgba(0,0,0, $opacity--caption);
+  }
+
+}
+
+@media (max-width: $maxWidth--8-10) {
+.page-grid .BlogTextLink {
+  background: #fff;
+  box-shadow: $shadow2dp;
+  margin-bottom: 10px;
+}
+}

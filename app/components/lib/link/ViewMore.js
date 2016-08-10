@@ -14,8 +14,12 @@ class ViewMore extends Component {
   }
 
   render() {
+    let classes = 'ViewMore'
+    if(this.props.className) classes += ' ' + this.props.className
+    let text = this.props.text || 'VIEW MORE'
+
     return (
-      <a href="#" onClick={this.onClick.bind(this)}>VIEW MORE</a>
+      <a className={classes} href="#" onClick={this.onClick.bind(this)}>{text}</a>
     )
   }
 

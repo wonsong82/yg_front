@@ -13,8 +13,17 @@
 
     .title {
       display: block;
-      font: 400 18px/24px 'Klavika', sans-serif;
-      color: rgba(0,0,0, $opacity--primary);
+      h6 {
+        font: 400 18px/24px 'Klavika', sans-serif;
+        color: rgba(0,0,0, $opacity--primary);
+        transition: color 0.3s ease;
+        will-change: color;
+      }
+      &:hover, &:active {
+        h6 {
+          color: rgba(0,0,0,1);
+        }
+      }
     }
 
     .by {
@@ -102,37 +111,37 @@
 }
 
 @media (max-width: $maxWidth--4-10) {
-  .page-grid .BlogThumb {
-    width: getGridWidth(4);
+.page-grid .BlogThumb {
+  width: getGridWidth(4);
 
-    .images {
-      .image-2x1 {
-        display: block;
-        width: getGridWidth(4);
-        height: getGridWidth(2);
-      }
-      .image-1x1 {
-        display: none;
-      }
+  .images {
+    .image-2x1 {
+      display: block;
+      width: getGridWidth(4);
+      height: getGridWidth(2);
+    }
+    .image-1x1 {
+      display: none;
     }
   }
 }
+}
 
 @media (max-width: $maxWidth--2-10) {
-  .page-grid .BlogThumb {
-    width: getGridWidth(2);
+.page-grid .BlogThumb {
+  width: getGridWidth(2);
 
-    .images {
-      .image-2x1 {
-        display: none;
-        width: getGridWidth(2);
-        height: getGridWidth(1);
-      }
-      .image-1x1 {
-        display: block;
-        width: getGridWidth(2);
-        height: getGridWidth(2);
-      }
+  .images {
+    .image-2x1 {
+      display: none;
+      width: getGridWidth(2);
+      height: getGridWidth(1);
+    }
+    .image-1x1 {
+      display: block;
+      width: getGridWidth(2);
+      height: getGridWidth(2);
     }
   }
+}
 }
