@@ -4,7 +4,8 @@ const initialState = {
     textColor: '#000000',
     themeColor: '#f0f0f0',
     responsiveMode: 0,
-    startApp: false
+    startApp: false,
+    clickPosition: {x:undefined, y:undefined}
   },
   
   mainMenu: {

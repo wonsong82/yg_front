@@ -17,7 +17,7 @@ import ShopItem from './components/app/item/Shop'
 import MusicItem from './components/app/item/Music'
 import TourItem from './components/app/item/Tour'
 import EventItem from './components/app/item/Event'
-import BlogItem from './components/app/item/Blog'
+import BlogItem from './components/app/item/blog/BlogDetail'
 
 
 export default (
