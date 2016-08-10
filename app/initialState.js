@@ -121,6 +121,12 @@ export const blogInitState = {
   hotPostsAllLoaded: false
 }
 
+export const eventInitState = {
+  type: 'event',
+  events: [],
+  eventsAllLoaded: false
+}
+
 
 
 export default initialState
