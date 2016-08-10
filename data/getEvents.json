@@ -1,72 +1,372 @@
-[
-  {
-    "19" :
+{
+    "101" :
     {
-      "id": 19,
+      "id": 101,
       "post_title": "Lee Hi's first Event",
-      "post_content": "Lee Hi's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
       "post_date": "2016-07-18 22:31:47",
       "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
       "subtitle": "Lee Hi's First Event - Subtitle",
-      "short_description": "Lee Hi's First Event - Short Description",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "101",
       "artist_id": 1
     },
-    "20" :
+    "102" :
     {
-      "id": 20,
+      "id": 102,
       "post_title": "AKMU's first Event",
-      "post_content": "AKMU's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
       "post_date": "2016-07-18 22:31:47",
       "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
       "subtitle": "AKMU's First Event - Subtitle",
-      "short_description": "AKMU's First Event - Short Description",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
       "artist_id": 2
     },
-    "21" : {
-      "id": 21,
+    "103" : {
+      "id": 103,
       "post_title": "IKON's first Event",
-      "post_content": "IKON's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
       "post_date": "2016-07-18 22:31:47",
       "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
       "subtitle": "IKON's First Event - Subtitle",
-      "short_description": "IKON's First Event - Short Description",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
       "artist_id": 3
     },
-    "22" : {
-      "id": 22,
+    "104" : {
+      "id": 104,
       "post_title": "EPIK HIGH's first Event",
-      "post_content": "EPIK HIGH's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
       "post_date": "2016-07-18 22:31:47",
       "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
       "subtitle": "EPIK HIGH's First Event - Subtitle",
-      "short_description": "EPIK HIGH's First Event - Short Description",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
       "artist_id": 4
     },
-    "23" : {
-      "id": 23,
+    "105" : {
+      "id": 105,
       "post_title": "2NE1's first Event",
-      "post_content": "2NE1's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
       "post_date": "2016-07-18 22:31:47",
       "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
       "subtitle": "2NE1's First Event - Subtitle",
-      "short_description": "2NE1's First Event - Short Description",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
       "artist_id": 5
     },
-    "24" : {
-      "id": 24,
+    "106" : {
+      "id": 106,
       "post_title": "PSY's first Event",
-      "post_content": "PSY's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
       "post_date": "2016-07-18 22:31:47",
       "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
       "subtitle": "PSY's First Event - Subtitle",
-      "short_description": "PSY's First Event - Short Description",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 6
+    },
+    "107" :
+    {
+      "id": 107,
+      "post_title": "Lee Hi's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "Lee Hi's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 1
+    },
+    "108" :
+    {
+      "id": 108,
+      "post_title": "AKMU's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "AKMU's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 2
+    },
+    "109" : {
+      "id": 109,
+      "post_title": "IKON's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "IKON's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 3
+    },
+    "110" : {
+      "id": 110,
+      "post_title": "EPIK HIGH's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "EPIK HIGH's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 4
+    },
+    "111" : {
+      "id": 111,
+      "post_title": "2NE1's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "2NE1's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 5
+    },
+    "112" : {
+      "id": 112,
+      "post_title": "PSY's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "PSY's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 6
+    },
+    "113" :
+    {
+      "id": 113,
+      "post_title": "Lee Hi's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "Lee Hi's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 1
+    },
+    "114" :
+    {
+      "id": 114,
+      "post_title": "AKMU's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "AKMU's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 2
+    },
+    "115" : {
+      "id": 115,
+      "post_title": "IKON's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "IKON's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 3
+    },
+    "116" : {
+      "id": 116,
+      "post_title": "EPIK HIGH's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "EPIK HIGH's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 4
+    },
+    "117" : {
+      "id": 117,
+      "post_title": "2NE1's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "2NE1's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 5
+    },
+    "118" : {
+      "id": 118,
+      "post_title": "PSY's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "PSY's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 6
+    },
+    "119" :
+    {
+      "id": 119,
+      "post_title": "Lee Hi's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "Lee Hi's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 1
+    },
+    "120" :
+    {
+      "id": 120,
+      "post_title": "AKMU's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "AKMU's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 2
+    },
+    "121" : {
+      "id": 121,
+      "post_title": "IKON's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "IKON's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 3
+    },
+    "122" : {
+      "id": 122,
+      "post_title": "EPIK HIGH's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "EPIK HIGH's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 4
+    },
+    "123" : {
+      "id": 123,
+      "post_title": "2NE1's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "2NE1's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 5
+    },
+    "124" : {
+      "id": 124,
+      "post_title": "PSY's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "PSY's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 6
+    },
+    "125" :
+    {
+      "id": 125,
+      "post_title": "Lee Hi's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "Lee Hi's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 1
+    },
+    "126" :
+    {
+      "id": 126,
+      "post_title": "AKMU's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "AKMU's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 2
+    },
+    "127" : {
+      "id": 127,
+      "post_title": "IKON's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "IKON's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 3
+    },
+    "128" : {
+      "id": 128,
+      "post_title": "EPIK HIGH's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "EPIK HIGH's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 4
+    },
+    "129" : {
+      "id": 129,
+      "post_title": "2NE1's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "2NE1's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
+      "artist_id": 5
+    },
+    "130" : {
+      "id": 130,
+      "post_title": "PSY's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "PSY's First Event - Subtitle",
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "102",
       "artist_id": 6
     }
-  }
-]
+}

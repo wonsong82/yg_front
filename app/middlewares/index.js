@@ -121,6 +121,57 @@ export const loadHotPostsList = ( count ) => (dispatch, getState) => {
 }
 
 
+//PAGE:EVENT
+import { setEventsList , setEventsAllLoaded} from '../actions/'
+
+export const loadEventsList = ( count ) => (dispatch, getState) => {
+  const state = getState();
+  if(state.page.type = 'event'){
+
+    const events = state.page.events,
+        eventsData = state.data.events.contents.events,
+        eventsDataCount = state.data.events.contents.eventsCount,
+        artistsData = state.data.artists.contents.artists
+
+
+    let curCount = events.length
+    let nextCount = curCount + count
+
+    let newEvents = []
+    var index = 0;
+
+    for(let key in eventsData){
+      let event = eventsData[key]
+      let artistThemeColor = artistsData[event.artist_id].themeColor
+      let {id, post_title, subtitle, url_friendly_name, excerpt, post_date,thumb_2x2} = event
+      let url = Site + '/Event/' + url_friendly_name
+
+      newEvents.push({
+        id,
+        title: post_title,
+        subtitle,
+        url,
+        text: excerpt,
+        date: post_date,
+        image: thumb_2x2,
+        themeColor: artistThemeColor
+      })
+
+      if(eventsDataCount-1 == index || nextCount-1 == index){
+        if(eventsDataCount-1 == index){
+          console.log('NO MORE EVENTS COUNT')
+          dispatch(setEventsAllLoaded(true))
+        }
+        break
+      }
+      index++
+    }
+
+    dispatch(setEventsList(newEvents))
+  }
+}
+
+
 // DATA:ARTIST
 import { requestArtists, receiveArtists, setMainMenuArtistList, startApp } from '../actions/'
 export const getArtistsData = () => ( dispatch, getState ) => {

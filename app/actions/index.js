@@ -50,7 +50,12 @@ export const loadBlogsList = Middlewares.loadBlogsList
 export const loadHotPostsList = Middlewares.loadHotPostsList
 
 
-
+// PAGE:EVENT
+export const SET_EVENTS_LIST = 'set_events_list'
+export const SET_EVENTS_ALL_LOADED = 'set_events_all_loaded'
+export const setEventsList = events => ({ type: SET_EVENTS_LIST, events})
+export const setEventsAllLoaded = bool => ({ type: SET_EVENTS_ALL_LOADED, bool})
+export const loadEventsList = Middlewares.loadEventsList
 
 /**
  * DATA

@@ -87,11 +87,12 @@ const artists = ( state = initState.artists, action) => {
   }
 }
 
-
-
 // PAGE
-import { INIT_PAGE, SET_BLOGS_LIST, SET_HOT_POSTS_LIST, SET_POSTS_ALL_LOADED, SET_HOT_POSTS_ALL_LOADED } from '../actions/'
-import { blogInitState } from '../initialState'
+import { INIT_PAGE, SET_BLOGS_LIST, SET_HOT_POSTS_LIST, SET_POSTS_ALL_LOADED, SET_HOT_POSTS_ALL_LOADED,
+                    SET_EVENTS_LIST, SET_EVENTS_ALL_LOADED
+} from '../actions/'
+
+import { blogInitState , eventInitState} from '../initialState'
 const page = ( state = initState.page, action ) => {
   switch(action.type){
     case INIT_PAGE:
@@ -99,10 +100,14 @@ const page = ( state = initState.page, action ) => {
         case 'Blog':
           return Object.assign({}, state, blogInitState)
 
+        case 'Event':
+          return Object.assign({}, state, eventInitState)
+
         default:
           return state
       }
 
+    //BLOG
     case SET_BLOGS_LIST:
       return Object.assign({}, state, {
         posts: action.posts
@@ -113,7 +118,6 @@ const page = ( state = initState.page, action ) => {
         hotPosts: action.posts
       })
 
-
     case SET_POSTS_ALL_LOADED:
       return Object.assign({}, state, {
         postsAllLoaded: action.bool
@@ -123,6 +127,19 @@ const page = ( state = initState.page, action ) => {
       return Object.assign({}, state, {
         hotPostsAllLoaded: action.bool
       })
+
+    //EVENT
+    case SET_EVENTS_LIST:
+      return Object.assign({}, state, {
+        events: action.events
+      })
+
+    case SET_EVENTS_ALL_LOADED:
+      return Object.assign({}, state, {
+        eventsAllLoaded: action.bool
+      })
+
+    //TOUR
 
 
     default:
@@ -201,7 +218,7 @@ const data = ( state = initState.data , action) => {
           loaded: true,
           contents: {
             events,
-            total_events: events.length
+            eventsCount: Object.keys(events).length
           }
         })
       })
