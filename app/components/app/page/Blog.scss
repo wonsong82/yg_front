@@ -1,16 +1,12 @@
 @import '../../variable.scss';
 
-$gridWidth: 226px;
-$gridHeight: 195px;
-$gap: 10px;
+
 $pagePadding--top: 70px;
 $pagePadding--bottom: 100px;
-@function getGridWidth($size){
-  @return $gridWidth * $size + (($size - 1) * $gap);
-}
+
 
 .App .Page .BlogLayout {
-  width: getGridWidth(5);
+  width: getGridWidth(10);
   margin: $pagePadding--top auto $pagePadding--bottom;
   &:after {
     clear: both;
@@ -19,7 +15,7 @@ $pagePadding--bottom: 100px;
   }
 
   .main {
-    width: getGridWidth(3);
+    width: getGridWidth(6);
     float: left;
 
     h3 {
@@ -31,9 +27,7 @@ $pagePadding--bottom: 100px;
     .blog-list {
 
       li {
-        width: 698px;
-        height: 574px;
-        background: #f60;
+        width: 100%;
 
         &+li {
           margin-top: 8px;
@@ -43,14 +37,74 @@ $pagePadding--bottom: 100px;
   }
 
   .side {
-    width: getGridWidth(2);
+    width: getGridWidth(4);
     float: left;
-    margin-left: $gap;
+    margin-left: $gridGap;
 
     h3 {
       font: 400 22px/22px 'Klavika', sans-serif;
       color: (0,0,0, $opacity--primary);
       margin-bottom: 13px;
     }
+
+    .hot-post-list {
+
+      li {
+        width: 100%;
+
+        &+li {
+          margin-top: 8px;
+        }
+      }
+
+    }
   }
 }
+
+
+@media (max-width: 1279px) {
+.App .Page .BlogLayout {
+  width: getGridWidth(6);
+
+  .main {
+    width: getGridWidth(6);
+  }
+
+  .side {
+    margin-left: 0;
+    width: getGridWidth(6);
+  }
+}}
+
+@media (max-width: 1023px) {
+
+}
+
+@media (max-width: 767px) {
+.App .Page .BlogLayout {
+  width: getGridWidth(4);
+
+  .main {
+    width: getGridWidth(4);
+
+  }
+
+  .side {
+    width: getGridWidth(4);
+  }
+}}
+
+
+@media (max-width: 511px) {
+.App .Page .BlogLayout {
+  width: getGridWidth(2);
+
+  .main {
+    width: getGridWidth(2);
+  }
+
+  .side {
+    width: getGridWidth(2);
+  }
+
+}}

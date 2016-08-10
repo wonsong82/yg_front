@@ -1,5 +1,5 @@
-[
-  {
+{
+  "1": {
     "id": 1,
     "name": "Lee HI",
     "urlFriendlyName": "lee-hi",
@@ -7,7 +7,7 @@
     "themeColor": "#ff8197",
     "textColor": "#ffffff"
   },
-  {
+  "2": {
     "id": 2,
     "name": "AKMU",
     "urlFriendlyName": "akmu",
@@ -15,7 +15,7 @@
     "themeColor": "#367ed8",
     "textColor": "#ffffff"
   },
-  {
+  "3": {
     "id": 3,
     "name": "IKON",
     "urlFriendlyName": "ikon",
@@ -23,7 +23,7 @@
     "themeColor": "#e52429",
     "textColor": "#ffffff"
   },
-  {
+  "4": {
     "id": 4,
     "name": "EPIK HIGH",
     "urlFriendlyName": "epic-high",
@@ -31,7 +31,7 @@
     "themeColor": "#bee1d2",
     "textColor": "#ffffff"
   },
-  {
+  "5": {
     "id": 5,
     "name": "2NE1",
     "urlFriendlyName": "2ne1",
@@ -39,7 +39,7 @@
     "themeColor": "#ff3480",
     "textColor": "#ffffff"
   },
-  {
+  "6": {
     "id": 6,
     "name": "PSY",
     "urlFriendlyName": "psy",
@@ -47,4 +47,4 @@
     "themeColor": "#00943b",
     "textColor": "#ffffff"
   }
-]
+}

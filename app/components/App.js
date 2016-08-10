@@ -6,6 +6,7 @@ import Footer from '../components/app/Footer'
 import Frame from '../components/app/Frame'
 import Header from '../containers/app/Header'
 import Menu from '../containers/app/Menu'
+import SquareSpinner from '../components/lib/spinner/SquareSpinner'
 
 
 
@@ -25,39 +26,35 @@ class App extends Component {
 
 
   render(){
-    const { page, themeColor, textColor, dataLoaded } = this.props
+    const { page, themeColor, textColor, dataLoaded, startApp } = this.props
 
 
-    return (
-      <div className="App">
+    if( startApp ) {
+      return (
+        <div className="App">
+          <Page ready={dataLoaded} color={textColor}>{page}</Page>
+          <Footer color={textColor} bgColor={themeColor}/>
+          <Frame color={textColor} bgColor={themeColor}/>
+          <Menu />
+          <Header color={textColor}/>
+        </div>
+      )
+    }
 
-        <Page ready={dataLoaded} color={textColor}>{page}</Page>
-        <Footer color={textColor} bgColor={themeColor} />
-        <Frame color={textColor} bgColor={themeColor} />
-        <Menu />
-        <Header color={textColor} />
-      </div>
-    )
+    else {
+      return (
+        <div className="App">
+          <div className="Page">
+            <div className="loading">
+              <SquareSpinner color="#000000" />
+            </div>
+          </div>
+        </div>
+      )
+    }
   }
 }
 
-App.propTypes = {
-  isArtistLoading: PropTypes.bool.isRequired,
-  artistsList: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      bg: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      textColor: PropTypes.string.isRequired,
-      themeColor: PropTypes.string.isRequired
-    })
-  ).isRequired,
-  themeColor: PropTypes.string.isRequired,
-  textColor: PropTypes.oneOf(['#ffffff', '#000000']).isRequired,
-  mainMenuOpened: PropTypes.bool.isRequired,
-  page: PropTypes.element.isRequired,
-  popup: PropTypes.element
-}
 
 
 

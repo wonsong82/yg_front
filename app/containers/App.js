@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getArtistsList, setThemeColor, setTextColor, setResponsiveMode, handleResponsiveChange, setDataLoaded, getBlogsData} from '../actions/'
+import { setThemeColor, setResponsiveMode, handleResponsiveChange, setDataLoaded, getArtistsData, getBlogsData} from '../actions/'
 import { computeThemeColor } from '../functions/'
 import AppComponent from '../components/App'
 
@@ -14,7 +14,7 @@ class App extends Component {
     const { dispatch } = this.props
     dispatch(setResponsiveMode($(window).width()))
     dispatch(handleResponsiveChange())
-    dispatch(getArtistsList())
+    dispatch(getArtistsData())
     dispatch(getBlogsData())
     // todo: dispatch others
   }
@@ -24,13 +24,15 @@ class App extends Component {
     // 프레임과 텍스트 색
     if(nextProps.artistLoaded) {
       const { dispatch, page, popup, artistsList, params } = nextProps
+
       const { themeColor, textColor } = computeThemeColor(page, popup, artistsList, params)
+
 
       if(themeColor != this.props.themeColor)
         dispatch(setThemeColor(themeColor, textColor))
     }
 
-    // 로딩
+    // 데이타 로딩
     const { dispatch, dataLoaded, artistLoaded, blogsLoaded } = nextProps
     if(!dataLoaded){
       if(artistLoaded && blogsLoaded  )
@@ -44,20 +46,20 @@ class App extends Component {
   }
 
 }
-App.propTypes = {}
+
 
 
 const mapStateToProps = (state) => {
   return {
-    artistLoaded: state.artists.loaded,
-    isArtistLoading: state.artists.isFetching,
-    artistsList: state.artists.list,
-    textColor: state.theme.textColor,
-    themeColor: state.theme.themeColor,
-    mainMenuOpened: state.mainMenu.opened,
-
-    dataLoaded: state.data.loaded,
-    blogsLoaded: state.data.blogs.loaded
+    artistLoaded      : state.data.artists.loaded,
+    isArtistLoading   : state.data.artists.isFetching,
+    artistsList       : state.data.artists.contents.artists,
+    textColor         : state.app.textColor,
+    themeColor        : state.app.themeColor,
+    startApp          : state.app.startApp,
+    mainMenuOpened    : state.mainMenu.opened,
+    dataLoaded        : state.data.loaded,
+    blogsLoaded       : state.data.blogs.loaded
     //@todo other states than artist, for example blogs, tours, ..
   }
 }
