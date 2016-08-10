@@ -1,13 +1,13 @@
 require('./Blog.scss')
 import React from 'react'
-import BlogLink from '../../../components/app/item/BlogLink'
-import BlogTextLink from '../../../components/app/item/BlogTextLink'
+import BlogThumb from '../../../components/app/item/blog/BlogThumb'
+import BlogTextLink from '../../../components/app/item/blog/BlogTextLink'
 import ViewMore from '../../../components/lib/link/ViewMore'
 
 
 const Blog = ({ posts, hotPosts, onBlogViewMoreClick, onHotPostsViewMoreClick, postsAllLoaded, hotPostsAllLoaded }) => (
 
-  <div className="BlogLayout">
+  <div className="BlogLayout page-grid">
 
 
     <section className="main">
@@ -18,8 +18,8 @@ const Blog = ({ posts, hotPosts, onBlogViewMoreClick, onHotPostsViewMoreClick, p
       {
         posts &&
         posts.map( post => (
-          <li>
-            <BlogLink key={post.id} {...post}  />
+          <li key={post.id}>
+            <BlogThumb {...post}  />
           </li>
         ))
       }
@@ -41,8 +41,8 @@ const Blog = ({ posts, hotPosts, onBlogViewMoreClick, onHotPostsViewMoreClick, p
       {
         hotPosts &&
         hotPosts.map( post => (
-          <li>
-            <BlogTextLink key={post.id} {...post} />
+          <li key={post.id}>
+            <BlogTextLink {...post} />
           </li>
         ))
       }

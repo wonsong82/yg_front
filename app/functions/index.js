@@ -1,3 +1,5 @@
+export const toArray = obj => Object.keys(obj).map(key => obj[key])
+
 
 
 /***
@@ -13,8 +15,10 @@ export const computeThemeColor = ( page, popup, artistsList, params ) => {
   if (typeof popup === 'undefined') { // 팝업이 없을경우
     switch (page.props.pageType) {
       case 'Artist': // 페이지가 아티스트일경우
-        if (artistsList.length) {
-          let filtered = artistsList.filter(artist => {
+        console.log(artistsList)
+        if (toArray(artistsList).length) {
+
+          let filtered = toArray(artistsList).filter(artist => {
             return params.name === artist.urlFriendlyName
           })
           if (filtered.length) {
@@ -70,6 +74,21 @@ export const getFacebookShareLink = ( url ) => {
 
 export const getTwitterShareLink = ( url ) => {
   return 'https://twitter.com/home?status=' + encodeURIComponent(url)
+}
+
+
+export const loadImages = ( images, callback ) => {
+  images instanceof Array || (images = [images])
+  const count = images.length
+  var loaded = 0
+  for( let i=0; i<count; i++ ){
+    var img = document.createElement('img')
+    img.onload = () => {
+      loaded++
+      loaded >= count && typeof callback === 'function' && callback()
+    }
+    img.src = images[i]
+  }
 }
 
 

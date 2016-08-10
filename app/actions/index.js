@@ -1,12 +1,13 @@
-import fetch from 'isomorphic-fetch'
 const Middlewares = require('../middlewares/')
 
 
-// THEME
+// APP
 export const SET_THEME_COLOR = 'set_theme_color'
 export const SET_RESPONSIVE_MODE = 'set_responsive_mode'
+export const START_APP = 'start_app'
 export const setThemeColor = (themeColor, textColor) => ({ type: SET_THEME_COLOR, themeColor, textColor })
 export const setResponsiveMode = width => ({ type: SET_RESPONSIVE_MODE, width })
+export const startApp = () => ({ type: START_APP })
 export const handleResponsiveChange = Middlewares.handleResponsiveChange
 
 
@@ -15,22 +16,15 @@ export const OPEN_MAIN_MENU = 'open_main_menu'
 export const CLOSE_MAIN_MENU = 'close_main_menu'
 export const TOGGLE_MAIN_MENU = 'toggle_main_menu'
 export const ENABLE_MAIN_MENU = 'enable_main_menu'
-export const DISABLE_MAIN_MENU = 'disable_main_menu' 
+export const DISABLE_MAIN_MENU = 'disable_main_menu'
+export const SET_MAIN_MENU_ARTIST_LIST = 'set_main_menu_artist_list'
 export const openMainMenu = () => ({ type: OPEN_MAIN_MENU })
 export const closeMainMenu = () => ({ type: CLOSE_MAIN_MENU })
 export const enableMainMenu = () => ({ type: ENABLE_MAIN_MENU })
 export const disableMainMenu = () => ({ type: DISABLE_MAIN_MENU })
+export const setMainMenuArtistList = ( artists ) => ({ type: SET_MAIN_MENU_ARTIST_LIST, artists })
 export const toggleMainMenu = Middlewares.toggleMainMenu
 
-
-
-// ARTISTS
-export const REQUEST_ARTISTS = 'request_artists'
-export const RECEIVE_ARTISTS = 'receive_artists'
-export const requestArtists = () => ({ type: REQUEST_ARTISTS })
-export const receiveArtists = artistsList => ({ type: RECEIVE_ARTISTS, list: artistsList })
-export const fetchArtists = Middlewares.fetchArtists
-export const getArtistsList = Middlewares.getArtistsList
 
 
 
@@ -65,11 +59,20 @@ export const loadHotPostsList = Middlewares.loadHotPostsList
 export const SET_DATA_LOADED = 'set_data_loaded'
 export const setDataLoaded = state => ({ type: SET_DATA_LOADED, state })
 
+// DATA:ARTIST
+export const REQUEST_ARTISTS = 'request_artists'
+export const RECEIVE_ARTISTS = 'receive_artists'
+export const requestArtists = () => ({ type: REQUEST_ARTISTS })
+export const receiveArtists = json => ({ type: RECEIVE_ARTISTS, data: json })
+export const getArtistsData = Middlewares.getArtistsData
+
+
+
 // DATA:BLOG
 export const REQUEST_BLOGS = 'request_blogs'
 export const RECEIVE_BLOGS = 'receive_blogs'
-export const requestBlogs = ()      => ({type: REQUEST_BLOGS})
-export const receiveBlogs = (json)  => ({type: RECEIVE_BLOGS, data: json})
+export const requestBlogs = ()    => ({type: REQUEST_BLOGS})
+export const receiveBlogs = json  => ({type: RECEIVE_BLOGS, data: json})
 export const getBlogsData = Middlewares.getBlogsData
 
 // DATA:EVENT

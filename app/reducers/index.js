@@ -2,9 +2,9 @@ import { combineReducers } from 'redux'
 import initState from '../initialState'
 
 
-// THEME
-import { SET_THEME_COLOR, SET_RESPONSIVE_MODE } from '../actions/'
-const theme = ( state = initState.theme, action ) => {
+// APP
+import { SET_THEME_COLOR, SET_RESPONSIVE_MODE, START_APP } from '../actions/'
+const app = ( state = initState.app, action ) => {
   switch(action.type){
     case SET_THEME_COLOR:
       return Object.assign({}, state, {
@@ -21,6 +21,11 @@ const theme = ( state = initState.theme, action ) => {
           width >= 480  ? 480 :
                           320
       })
+    case START_APP:
+      return Object.assign({}, state, {
+        startApp: true
+      })
+
     default:
       return state
   }
@@ -28,7 +33,7 @@ const theme = ( state = initState.theme, action ) => {
 
 
 // MAIN MENU
-import { OPEN_MAIN_MENU, CLOSE_MAIN_MENU, ENABLE_MAIN_MENU, DISABLE_MAIN_MENU } from '../actions/'
+import { OPEN_MAIN_MENU, CLOSE_MAIN_MENU, ENABLE_MAIN_MENU, DISABLE_MAIN_MENU, SET_MAIN_MENU_ARTIST_LIST } from '../actions/'
 const mainMenu = ( state = initState.mainMenu, action) => {
   switch(action.type){
     case OPEN_MAIN_MENU:
@@ -51,6 +56,10 @@ const mainMenu = ( state = initState.mainMenu, action) => {
         {
           disabled: true
         })
+    case SET_MAIN_MENU_ARTIST_LIST:
+      return Object.assign({}, state, {
+        artistList: action.artists
+      })
     default:
       return state
   }
@@ -82,18 +91,13 @@ const artists = ( state = initState.artists, action) => {
 
 // PAGE
 import { INIT_PAGE, SET_BLOGS_LIST, SET_HOT_POSTS_LIST, SET_POSTS_ALL_LOADED, SET_HOT_POSTS_ALL_LOADED } from '../actions/'
+import { blogInitState } from '../initialState'
 const page = ( state = initState.page, action ) => {
   switch(action.type){
     case INIT_PAGE:
       switch(action.pageType) {
         case 'Blog':
-          return Object.assign({}, state, {
-            type: 'blog',
-            posts: [],
-            postsAllLoaded: false,
-            hotPosts: [],
-            hotPostsAllLoaded: false
-          })
+          return Object.assign({}, state, blogInitState)
 
         default:
           return state
@@ -142,12 +146,29 @@ const data = ( state = initState.data , action) => {
         loaded: action.state
       })
 
+    // ARTIST
+    case REQUEST_ARTISTS:
+      return Object.assign({}, state, {
+        artists: Object.assign({}, state.artists, {isFetching: true})
+      })
+    case RECEIVE_ARTISTS:
+      let artistsList = action.data
+      return Object.assign({}, state, {
+        artists: Object.assign({}, state.artists, {
+          isFetching: false,
+          loaded: true,
+          contents: {
+            artists: artistsList
+          }
+        })
+      })
+
+
     // BLOG
     case REQUEST_BLOGS:
       return Object.assign({}, state, {
         blogs: Object.assign({}, state.blogs, {isFetching: true})
       })
-
     case RECEIVE_BLOGS:
       console.log(action.data)
       let { posts, hot_posts, most_viewed_posts } = action.data
@@ -394,7 +415,7 @@ const signup = ( state = initState.signup, action ) => {
 
 
 
-const appReducer = combineReducers({ artists, mainMenu, theme, signup, data, page})
+const appReducer = combineReducers({ mainMenu, app, signup, data, page})
 export default appReducer
 
 

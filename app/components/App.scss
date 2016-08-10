@@ -11,7 +11,7 @@
 
 body {
   background-color: $bgColor;
-  min-height: 1000px;
+  min-width: 320px;
 }
 
 .page-loading {
@@ -78,7 +78,7 @@ body {
   }
 }}
 
-@media (max-width: 479px) {
+@media (max-width: 511px) {
 .App {
   .Page {
     padding: $frameSizeTop--xs $frameSize--xs $footerHeight--xs;

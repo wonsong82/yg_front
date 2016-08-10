@@ -6,8 +6,8 @@ import EmailSignup from '../../../components/app/footer/EmailSignup'
 
 const mapStateToProps = (state) => {
   return {
-    color: state.theme.textColor,
-    themeColor: state.theme.textColor == '#000000' ? 'light' : 'dark',
+    color: state.app.textColor,
+    themeColor: state.app.textColor == '#000000' ? 'light' : 'dark',
     isLoading: state.signup.isLoading
   }
 }

@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
   return {
     opened: state.mainMenu.opened,
     disabled: state.mainMenu.disabled,
-    artists: state.artists.list
+    artists: state.mainMenu.artistList
   }
 }
 

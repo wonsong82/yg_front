@@ -11,15 +11,15 @@ $opacity--line2: 0.08;
 
 // Frame Sizes for each sizes
 $frameSizeTop: 56px;
-$frameSize: 27px;
+$frameSize: 26px;
 $footerHeight: 270px;
 
 $frameSizeTop--lg: 56px;
-$frameSize--lg: 25px;
+$frameSize--lg: 20px;
 $footerHeight--lg: 270px;
 
 $frameSizeTop--md: 56px;
-$frameSize--md: 25px;
+$frameSize--md: 15px;
 $footerHeight--md: 313px;
 
 $frameSizeTop--sm: 56px;
@@ -32,11 +32,10 @@ $footerHeight--xs: 423px;
 
 
 
-
 // Shadows
-$shadowFocus  : 0 0 8px rgba(0,0,0,.18), 0 8px 16px rgba(0,0,0,.36);
+$shadowFocus  : 0 0 8px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.36);
 $shadow0dp    : 0 0 0 0 rgba(0,0,0,0), 0 0 0 0 rgba(0,0,0,0), 0 0 0 0 rgba(0,0,0,0);
-$shadow2dp    : 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+$shadow2dp    : 0 2px 2px 0 rgba(0,0,0,.05), 0 3px 1px -2px rgba(0,0,0,.05), 0 1px 5px 0 rgba(0,0,0,.05);
 $shadow3dp    : 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.2), 0 1px 8px 0 rgba(0,0,0,.12);
 $shadow4dp    : 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
 $shadow6dp    : 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
@@ -56,3 +55,27 @@ $easeOutExpo       : cubic-bezier(0.19, 1, 0.22, 1);
 
 
 // Grid
+$maxWidth--10-10  : 1280px;
+$maxWidth--8-10   : 1279px;
+$maxWidth--6-10   : 1023px;
+$maxWidth--4-10   :  767px;
+$maxWidth--2-10   :  511px;
+
+$maxWidth--7-7    : 1560px;
+$maxWidth--6-7    : 1559px;
+$maxWidth--5-7    : 1349px;
+$maxWidth--4-7    : 1119px;
+$maxWidth--3-7    :  889px;
+$maxWidth--2-7    :  673px;
+$maxWidth--1-7    :  463px;
+
+$gridWidth  : 108px;
+$gridGap    :  10px;
+@function getGridWidth($size){
+  @return $gridWidth * $size + (($size - 1) * $gridGap);
+}
+
+$gridWidthPromotion : 207px;
+@function getGridWidthPromotion($size){
+  @return $gridWidthPromotion * $size;
+}

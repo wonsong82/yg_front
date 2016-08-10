@@ -1,14 +1,15 @@
-import { getData, getFacebookShareLink, getTwitterShareLink } from '../functions/'
+import fetch from 'isomorphic-fetch'
+import { toArray, getData, getFacebookShareLink, getTwitterShareLink, loadImages } from '../functions/'
 import { Site } from '../../env'
 
 
-// THEME
+// APP
 import { setResponsiveMode } from '../actions/'
 
 export const handleResponsiveChange = () => (dispatch, getState) => {
   $(window).resize(function(){
     const width = $(window).width(),
-      currentMode = getState().theme.responsiveMode,
+      currentMode = getState().app.responsiveMode,
       mode = width >= 1280 ? 1280 : width >= 1024 ? 1024 : width >= 768 ? 768 : width >= 480 ? 480 : 320
     if(currentMode != mode) {
       dispatch(setResponsiveMode(mode))
@@ -16,6 +17,7 @@ export const handleResponsiveChange = () => (dispatch, getState) => {
     }
   })
 }
+
 
 
 // MAIN MENU
@@ -31,32 +33,6 @@ export const toggleMainMenu = () => {
   }
 }
 
-
-// ARTISTS
-import { requestArtists, receiveArtists } from '../actions/'
-
-export const fetchArtists = () => {
-  return function(dispatch){
-    dispatch(requestArtists())
-    return fetch('/api/getArtists')
-      .then(response => response.json())
-      .then(json => dispatch(receiveArtists(json)))
-  }
-}
-
-export const getArtistsList = () => {
-  return (dispatch, getState) => {
-    let state = getState()
-    let shouldFetch
-    const { artists } = state
-    shouldFetch = !(artists.loaded || (!artists.loaded && artists.isFetching))
-
-    if(shouldFetch)
-      return dispatch(fetchArtists())
-    else
-      return Promise.resolve() // polyfill
-  }
-}
 
 
 // PAGE:BLOG
@@ -76,7 +52,7 @@ export const loadBlogsList = ( count ) => (dispatch, getState) => {
     var index = 0
     for( let key in postsData ){
       let post = postsData[key]
-      let { id, post_title, url_friendly_name, excerpt, post_date, main_image } = post
+      let { id, post_title, url_friendly_name, excerpt, post_date, main_image, thumb_2x1, thumb_3x2 } = post
       let url = Site + '/blog/' + url_friendly_name
 
       newPosts.push({
@@ -86,8 +62,9 @@ export const loadBlogsList = ( count ) => (dispatch, getState) => {
         text: excerpt,
         date: post_date,
         image: main_image || false,
-        facebookLink: getFacebookShareLink(url),
-        twitterLink: getTwitterShareLink(url),
+        thumb_2x1: thumb_2x1 || main_image || false,
+        facebookShareLink: getFacebookShareLink(url),
+        twitterShareLink: getTwitterShareLink(url),
       })
 
       // 인덱스가 전체 데이타 인덱스의 마지막의 경우 || 카운트의 마지막일 경우
@@ -154,9 +131,36 @@ export const loadHotPostsList = ( count ) => (dispatch, getState) => {
 }
 
 
+// DATA:ARTIST
+import { requestArtists, receiveArtists, setMainMenuArtistList, startApp } from '../actions/'
+export const getArtistsData = () => ( dispatch, getState ) => {
+  const state = getState().data.artists
+  let shouldFetch = !( state.loaded || (!state.loaded && state.isFetching) )
+  if(shouldFetch){
+    dispatch(requestArtists())
+    return fetch('/api/getArtists')
+      .then(response => response.json())
+      .then(json => {
+        dispatch(receiveArtists(json))
+        dispatch(setMainMenuArtistList( toArray(json) ))
+        let imagesToLoad = []
+        for( let key in json ) {
+          imagesToLoad.push(json[key].bg)
+        }
+        loadImages(imagesToLoad, ()=>{
+          dispatch(startApp())
+        })
+      })
+  }
+  else {
+    return Promise.resolve()
+  }
+}
 
-// DATA
-import { requestBlogs, receiveBlogs, requestEvents, receiveEvents } from '../actions/'
+// DATA:BLOG
+import { requestBlogs, receiveBlogs } from '../actions/'
+export const getBlogsData = () => (dispatch, getState) => getData('/api/getBlogs', getState().data.blogs, requestBlogs, receiveBlogs, dispatch, fetch)
 
-export const getBlogsData =  () => (dispatch, getState) => getData('/api/getBlogs', getState().data.blogs, requestBlogs, receiveBlogs, dispatch, fetch)
+// DATA:EVENT
+import { requestEvents, receiveEvents } from '../actions/'
 export const getEventsData = () => (dispatch, getState) => getData('/api/getEvents', getState().data.events, requestEvents, receiveEvents, dispatch, fetch)
