@@ -132,7 +132,7 @@ const page = ( state = initState.page, action ) => {
 
 
 // DATA
-import { SET_DATA_LOADED, REQUEST_BLOGS, RECEIVE_BLOGS } from '../actions'
+import { SET_DATA_LOADED, REQUEST_BLOGS, RECEIVE_BLOGS , REQUEST_EVENTS, RECEIVE_EVENTS} from '../actions'
 const data = ( state = initState.data , action) => {
   switch(action.type){
 
@@ -149,6 +149,7 @@ const data = ( state = initState.data , action) => {
       })
 
     case RECEIVE_BLOGS:
+      console.log(action.data)
       let { posts, hot_posts, most_viewed_posts } = action.data
       return Object.assign({}, state, {
         blogs: Object.assign({}, state.blogs, {
@@ -165,6 +166,24 @@ const data = ( state = initState.data , action) => {
         })
       })
 
+    case REQUEST_EVENTS:
+
+      return Object.assign({}, state, {
+        events: Object.assign({}, state.events, {isFetching: true})
+      })
+
+    case RECEIVE_EVENTS:
+      let events  = action.data
+      return Object.assign({}, state, {
+        events: Object.assign({}, state.events, {
+          isFetching: false,
+          loaded: true,
+          contents: {
+            events,
+            total_events: events.length
+          }
+        })
+      })
 
     default:
       return state

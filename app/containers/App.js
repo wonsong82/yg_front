@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getArtistsList, setThemeColor, setTextColor, setResponsiveMode, handleResponsiveChange, setDataLoaded, getBlogsData} from '../actions/'
+import { getArtistsList, setThemeColor, setTextColor, setResponsiveMode, handleResponsiveChange, setDataLoaded, getBlogsData, getEventsData} from '../actions/'
 import { computeThemeColor } from '../functions/'
 import AppComponent from '../components/App'
 
@@ -16,11 +16,11 @@ class App extends Component {
     dispatch(handleResponsiveChange())
     dispatch(getArtistsList())
     dispatch(getBlogsData())
+    dispatch(getEventsData())
     // todo: dispatch others
   }
 
   componentWillReceiveProps(nextProps) {
-
     // 프레임과 텍스트 색
     if(nextProps.artistLoaded) {
       const { dispatch, page, popup, artistsList, params } = nextProps
@@ -31,9 +31,9 @@ class App extends Component {
     }
 
     // 로딩
-    const { dispatch, dataLoaded, artistLoaded, blogsLoaded } = nextProps
+    const { dispatch, dataLoaded, artistLoaded, blogsLoaded, eventsLoaded } = nextProps
     if(!dataLoaded){
-      if(artistLoaded && blogsLoaded  )
+      if(artistLoaded && blogsLoaded && eventsLoaded )
         dispatch(setDataLoaded(true))
     }
   }
@@ -57,7 +57,8 @@ const mapStateToProps = (state) => {
     mainMenuOpened: state.mainMenu.opened,
 
     dataLoaded: state.data.loaded,
-    blogsLoaded: state.data.blogs.loaded
+    blogsLoaded: state.data.blogs.loaded,
+    eventsLoaded: state.data.events.loaded
     //@todo other states than artist, for example blogs, tours, ..
   }
 }

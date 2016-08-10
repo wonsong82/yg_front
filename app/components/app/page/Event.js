@@ -2,7 +2,13 @@ import React from 'react'
 
 
 const Event = () => (
-    <div className="Event">Event</div>
+    <div className="EventLayout">
+
+      <h3>Event</h3>
+
+
+
+    </div>
 )
 
 Event.defaultProps = {

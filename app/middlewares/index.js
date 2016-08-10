@@ -156,7 +156,7 @@ export const loadHotPostsList = ( count ) => (dispatch, getState) => {
 
 
 // DATA
-import { requestBlogs, receiveBlogs } from '../actions/'
+import { requestBlogs, receiveBlogs, requestEvents, receiveEvents } from '../actions/'
 
-export const getBlogsData = () => (dispatch, getState) => getData('/api/getBlogs', getState().data.blogs, requestBlogs, receiveBlogs, dispatch, fetch)
-
+export const getBlogsData =  () => (dispatch, getState) => getData('/api/getBlogs', getState().data.blogs, requestBlogs, receiveBlogs, dispatch, fetch)
+export const getEventsData = () => (dispatch, getState) => getData('/api/getEvents', getState().data.events, requestEvents, receiveEvents, dispatch, fetch)

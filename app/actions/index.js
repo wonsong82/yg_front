@@ -72,8 +72,12 @@ export const requestBlogs = ()      => ({type: REQUEST_BLOGS})
 export const receiveBlogs = (json)  => ({type: RECEIVE_BLOGS, data: json})
 export const getBlogsData = Middlewares.getBlogsData
 
-
-
+// DATA:EVENT
+export const REQUEST_EVENTS = 'request_events'
+export const RECEIVE_EVENTS = 'receive_events'
+export const requestEvents = () => ({type: REQUEST_EVENTS})
+export const receiveEvents = (json) => ({type: RECEIVE_EVENTS, data: json})
+export const getEventsData = Middlewares.getEventsData
 
 
 

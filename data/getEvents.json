@@ -1,68 +1,72 @@
 [
   {
-    "id": 19,
-    "post_title": "Lee Hi's first Event",
-    "post_content": "Lee Hi's first Event",
-    "post_date": "2016-07-18 22:31:47",
-    "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "subtitle": "Lee Hi's First Event - Subtitle",
-    "short_description": "Lee Hi's First Event - Short Description",
-    "artist_id": 1
-  },
-  {
-    "id": 20,
-    "post_title": "AKMU's first Event",
-    "post_content": "AKMU's first Event",
-    "post_date": "2016-07-18 22:31:47",
-    "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "subtitle": "AKMU's First Event - Subtitle",
-    "short_description": "AKMU's First Event - Short Description",
-    "artist_id": 2
-  },
-  {
-    "id": 21,
-    "post_title": "IKON's first Event",
-    "post_content": "IKON's first Event",
-    "post_date": "2016-07-18 22:31:47",
-    "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "subtitle": "IKON's First Event - Subtitle",
-    "short_description": "IKON's First Event - Short Description",
-    "artist_id": 3
-  },
-  {
-    "id": 22,
-    "post_title": "EPIK HIGH's first Event",
-    "post_content": "EPIK HIGH's first Event",
-    "post_date": "2016-07-18 22:31:47",
-    "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "subtitle": "EPIK HIGH's First Event - Subtitle",
-    "short_description": "EPIK HIGH's First Event - Short Description",
-    "artist_id": 4
-  },
-  {
-    "id": 23,
-    "post_title": "2NE1's first Event",
-    "post_content": "2NE1's first Event",
-    "post_date": "2016-07-18 22:31:47",
-    "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "subtitle": "2NE1's First Event - Subtitle",
-    "short_description": "2NE1's First Event - Short Description",
-    "artist_id": 5
-  },
-  {
-    "id": 24,
-    "post_title": "PSY's first Event",
-    "post_content": "PSY's first Event",
-    "post_date": "2016-07-18 22:31:47",
-    "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "subtitle": "PSY's First Event - Subtitle",
-    "short_description": "PSY's First Event - Short Description",
-    "artist_id": 6
+    "19" :
+    {
+      "id": 19,
+      "post_title": "Lee Hi's first Event",
+      "post_content": "Lee Hi's first Event",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "Lee Hi's First Event - Subtitle",
+      "short_description": "Lee Hi's First Event - Short Description",
+      "artist_id": 1
+    },
+    "20" :
+    {
+      "id": 20,
+      "post_title": "AKMU's first Event",
+      "post_content": "AKMU's first Event",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "AKMU's First Event - Subtitle",
+      "short_description": "AKMU's First Event - Short Description",
+      "artist_id": 2
+    },
+    "21" : {
+      "id": 21,
+      "post_title": "IKON's first Event",
+      "post_content": "IKON's first Event",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "IKON's First Event - Subtitle",
+      "short_description": "IKON's First Event - Short Description",
+      "artist_id": 3
+    },
+    "22" : {
+      "id": 22,
+      "post_title": "EPIK HIGH's first Event",
+      "post_content": "EPIK HIGH's first Event",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "EPIK HIGH's First Event - Subtitle",
+      "short_description": "EPIK HIGH's First Event - Short Description",
+      "artist_id": 4
+    },
+    "23" : {
+      "id": 23,
+      "post_title": "2NE1's first Event",
+      "post_content": "2NE1's first Event",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "2NE1's First Event - Subtitle",
+      "short_description": "2NE1's First Event - Short Description",
+      "artist_id": 5
+    },
+    "24" : {
+      "id": 24,
+      "post_title": "PSY's first Event",
+      "post_content": "PSY's first Event",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumbnail_2x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "PSY's First Event - Subtitle",
+      "short_description": "PSY's First Event - Short Description",
+      "artist_id": 6
+    }
   }
 ]

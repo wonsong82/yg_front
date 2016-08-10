@@ -70,13 +70,13 @@ const initialState = {
       ],
     },
 
-
-
     events: {
       loaded: false,
       isFetching: false,
-      list: [
-      ]
+      contents: {
+        events: [],
+        eventsCount: 0,
+      }
     },
 
     musics: {
