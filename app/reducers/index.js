@@ -89,10 +89,11 @@ const artists = ( state = initState.artists, action) => {
 
 // PAGE
 import { INIT_PAGE, SET_BLOGS_LIST, SET_HOT_POSTS_LIST, SET_POSTS_ALL_LOADED, SET_HOT_POSTS_ALL_LOADED,
-                    SET_EVENTS_LIST, SET_EVENTS_ALL_LOADED, SET_TOURS_LIST, SET_TOURS_ALL_LOADED
+                    SET_EVENTS_LIST, SET_EVENTS_ALL_LOADED, SET_TOURS_LIST, SET_TOURS_ALL_LOADED,
+                    SET_ALBUMS_LIST, SET_ALBUMS_ALL_LOADED, SET_HOT_TRACKS_LIST, SET_HOT_TRACKS_ALL_LOADED
 } from '../actions/'
 
-import { blogInitState , eventInitState, tourInitState} from '../initialState'
+import { blogInitState , eventInitState, tourInitState, musicInitState} from '../initialState'
 const page = ( state = initState.page, action ) => {
   switch(action.type){
     case INIT_PAGE:
@@ -105,6 +106,9 @@ const page = ( state = initState.page, action ) => {
 
         case 'Tour':
           return Object.assign({}, state, tourInitState)
+
+        case 'Music':
+          return Object.assign({}, state, musicInitState)
 
         default:
           return state
@@ -151,6 +155,27 @@ const page = ( state = initState.page, action ) => {
     case SET_TOURS_ALL_LOADED:
       return Object.assign({}, state, {
         toursAllLoaded: action.bool
+      })
+
+    //MUSIC
+    case SET_ALBUMS_LIST:
+      return Object.assign({}, state,{
+        albums: action.albums
+      })
+
+    case SET_ALBUMS_ALL_LOADED:
+      return Object.assign({}, state, {
+        albumsAllLoaded: action.bool
+      })
+
+    case SET_HOT_TRACKS_LIST:
+      return Object.assign({}, state, {
+        hotTracks: action.hotTracks
+      })
+
+    case SET_HOT_TRACKS_ALL_LOADED:
+      return Object.assign({}, state, {
+        hotTracksAllLoaded: action.bool
       })
 
     default:

@@ -65,6 +65,20 @@ export const setToursList = tours => ({type: SET_TOURS_LIST, tours})
 export const setToursAllLoaded = bool => ({type: SET_TOURS_ALL_LOADED, bool})
 export const loadToursList = Middlewares.loadToursList
 
+//PAGE:MUSIC
+export const SET_ALBUMS_LIST = 'set_albums_list'
+export const SET_HOT_TRACKS_LIST = 'set_hot_tracks_list'
+export const SET_ALBUMS_ALL_LOADED = 'set_albums_all_loaded'
+export const SET_HOT_TRACKS_ALL_LOADED = 'set_hot_tracks_all_loaded'
+export const setAlbumsList = albums => ({type: SET_ALBUMS_LIST, albums})
+export const setHotTracksList = hotTracks => ({type: SET_HOT_TRACKS_LIST, hotTracks})
+export const setAlbumsAllLoaded = bool => ({type: SET_ALBUMS_ALL_LOADED, bool})
+export const setHotTracksAllLoaded = bool => ({type: SET_HOT_TRACKS_ALL_LOADED, bool})
+export const loadAlbumsList = Middlewares.loadAlbumsList
+export const loadHotTracksList = Middlewares.loadHotTracksList
+
+
+
 
 /**
  * DATA

@@ -218,6 +218,100 @@ export const loadToursList = ( count ) => (dispatch, getState) => {
   }
 }
 
+//PAGE:MUSIC
+import { setAlbumsList, setAlbumsAllLoaded } from '../actions'
+export const loadAlbumsList = (count) => (dispatch, getState) => {
+  const state = getState()
+  if(state.page.type = 'music'){
+    const albums = state.page.albums,
+        albumsData = state.data.musics.contents.albums,
+        albumsDataCount = state.data.musics.contents.albumsCount,
+        artistData = state.data.artists.contents.artists
+
+    let curCount = albums.length
+    let nextCount = curCount + count
+
+    let newAlbums = []
+    let index = 0
+
+    for(let key in albumsData){
+      let album = albumsData[key]
+      let artistName = artistData[album.artist_id].name
+
+      let {id, post_title, url_friendly_name, thumb_1x1 } = album
+      let url = Site + '/Music/' + url_friendly_name
+
+      newAlbums.push({
+        id,
+        title: post_title,
+        url,
+        image: thumb_1x1,
+        name: artistName
+      })
+
+      if(albumsDataCount-1 == index || nextCount-1 == index){
+        if(albumsDataCount-1 == index){
+
+          dispatch(setAlbumsAllLoaded(true))
+        }
+        break
+      }
+      index++
+    }
+    dispatch(setAlbumsList(newAlbums))
+  }
+}
+
+import {setHotTracksList, setHotTracksAllLoaded} from '../actions'
+export const loadHotTracksList = (count) => (dispatch, getState) => {
+  const state = getState()
+  if(state.page.type == 'music'){
+    const hotTracks = state.page.hotTracks,
+        hotTracksData = state.data.musics.contents.hotTracks.map( id =>
+          state.data.musics.contents.musics[id]
+        ),
+        hotTracksDataCount = state.data.musics.contents.hotTracksCount,
+        artistsData = state.data.artists.contents.artists,
+        albumsData = state.data.musics.contents.albums
+
+    let curCount = hotTracks.length
+    let nextCount = curCount + count
+
+    let newHotTracks = []
+    var index = 0
+    for (let key in hotTracksData) {
+          if(hotTracksData.hasOwnProperty(key)) {
+            let hotTrack = hotTracksData[key]
+            let album = albumsData[hotTrack.album_id]
+            let artistName = artistsData[album.artist_id].name
+            let image = album.thumb_1x1
+
+            const { id, post_title, subtitle, sample_link, duration} = hotTrack
+
+            newHotTracks.push({
+              id,
+              order: index+1,
+              title: post_title,
+              subtitle,
+              image,
+              duration,
+              artistName,
+              sample_link
+            })
+
+            if(hotTracksDataCount-1 == index || nextCount-1 == index ){
+              if(hotTracksDataCount-1 == index){
+                dispatch(setHotTracksAllLoaded(true))
+              }
+              break
+            }
+
+          }
+      index++
+    }
+    dispatch(setHotTracksList(newHotTracks))
+  }
+}
 
 
 

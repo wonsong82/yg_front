@@ -5,7 +5,7 @@ import App from './containers/App'
 
 import PromotionPage from './components/app/page/Promotion'
 import ShopPage from './components/app/page/Shop'
-import MusicPage from './components/app/page/Music'
+import MusicPage from './containers/app/page/Music'
 import TourPage from './containers/app/page/Tour'
 import EventPage from './containers/app/page/Event'
 import BlogPage from './containers/app/page/Blog'

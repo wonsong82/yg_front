@@ -122,6 +122,14 @@ export const tourInitState = {
   toursAllLoaded: false
 }
 
+export const musicInitState = {
+  type: 'music',
+  albums: [],
+  hotTracks: [],
+  albumsAllLoaded: false,
+  hotTracksAllLoaded: false
+}
+
 
 
 export default initialState
