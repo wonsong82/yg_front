@@ -1,6 +1,6 @@
 require('./BlogTextLink.scss')
 import React from 'react'
-import RouterLink from '../../../../components/lib/link/RouterLink'
+import RouterLink from '../../../../containers/lib/link/RouterLink'
 
 
 

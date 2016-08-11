@@ -1,7 +1,7 @@
 require('./BlogThumb.scss')
 import React from 'react'
 import AnchorLink from '../../../../components/lib/link/AnchorLink'
-import RouterLink from '../../../../components/lib/link/RouterLink'
+import RouterLink from '../../../../containers/lib/link/RouterLink'
 import Image from '../../../../components/lib/image/Image'
 
 

@@ -14,9 +14,9 @@ const initialState = {
     artistList: []
   },
 
-  page: {
+  page: {},
 
-  },
+  popup: {},
 
   signup: {
     isLoading: false
@@ -98,6 +98,8 @@ const initialState = {
   },
 }
 
+
+// 페이지에 들어갈
 export const blogInitState = {
   type: 'blog',
   posts: [
