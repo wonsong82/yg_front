@@ -5,9 +5,11 @@ const Middlewares = require('../middlewares/')
 export const SET_THEME_COLOR = 'set_theme_color'
 export const SET_RESPONSIVE_MODE = 'set_responsive_mode'
 export const START_APP = 'start_app'
+export const SET_CLICK_POSITION = 'set_click_position'
 export const setThemeColor = (themeColor, textColor) => ({ type: SET_THEME_COLOR, themeColor, textColor })
 export const setResponsiveMode = width => ({ type: SET_RESPONSIVE_MODE, width })
 export const startApp = () => ({ type: START_APP })
+export const setClickPosition = ( x, y ) => ({ type: SET_CLICK_POSITION, x, y })
 export const handleResponsiveChange = Middlewares.handleResponsiveChange
 
 
@@ -87,7 +89,8 @@ export const requestEvents = () => ({type: REQUEST_EVENTS})
 export const receiveEvents = (json) => ({type: RECEIVE_EVENTS, data: json})
 export const getEventsData = Middlewares.getEventsData
 
-
+// DATA:ALL
+export const getAllData = Middlewares.getAllData
 
 
 

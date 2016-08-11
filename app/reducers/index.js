@@ -3,7 +3,7 @@ import initState from '../initialState'
 
 
 // APP
-import { SET_THEME_COLOR, SET_RESPONSIVE_MODE, START_APP } from '../actions/'
+import { SET_THEME_COLOR, SET_RESPONSIVE_MODE, START_APP, SET_CLICK_POSITION } from '../actions/'
 const app = ( state = initState.app, action ) => {
   switch(action.type){
     case SET_THEME_COLOR:
@@ -24,6 +24,11 @@ const app = ( state = initState.app, action ) => {
     case START_APP:
       return Object.assign({}, state, {
         startApp: true
+      })
+    case SET_CLICK_POSITION:
+      const { x, y } = action
+      return Object.assign({}, state, {
+        clickPosition: { x, y }
       })
 
     default:
@@ -67,25 +72,6 @@ const mainMenu = ( state = initState.mainMenu, action) => {
 
 
 
-
-// ARTISTS
-import { REQUEST_ARTISTS, RECEIVE_ARTISTS } from '../actions/'
-const artists = ( state = initState.artists, action) => {
-  switch(action.type){
-    case REQUEST_ARTISTS:
-      return Object.assign({}, state, {        
-        isFetching: true
-      })
-    case RECEIVE_ARTISTS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        loaded: true,
-        list: action.list
-      })
-    default:
-      return state
-  }
-}
 
 // PAGE
 import { INIT_PAGE, SET_BLOGS_LIST, SET_HOT_POSTS_LIST, SET_POSTS_ALL_LOADED, SET_HOT_POSTS_ALL_LOADED,
@@ -153,7 +139,7 @@ const page = ( state = initState.page, action ) => {
 
 
 // DATA
-import { SET_DATA_LOADED, REQUEST_BLOGS, RECEIVE_BLOGS , REQUEST_EVENTS, RECEIVE_EVENTS} from '../actions'
+import { SET_DATA_LOADED, REQUEST_BLOGS, RECEIVE_BLOGS, REQUEST_ARTISTS, RECEIVE_ARTISTS, REQUEST_EVENTS, RECEIVE_EVENTS} from '../actions'
 const data = ( state = initState.data , action) => {
   switch(action.type){
 
@@ -187,7 +173,6 @@ const data = ( state = initState.data , action) => {
         blogs: Object.assign({}, state.blogs, {isFetching: true})
       })
     case RECEIVE_BLOGS:
-      console.log(action.data)
       let { posts, hot_posts, most_viewed_posts } = action.data
       return Object.assign({}, state, {
         blogs: Object.assign({}, state.blogs, {

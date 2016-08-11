@@ -2,6 +2,7 @@ require('./App.scss')
 import React, { Component, PropTypes } from 'react'
 
 import Page from '../components/app/Page'
+import Popup from '../components/app/Popup'
 import Footer from '../components/app/Footer'
 import Frame from '../components/app/Frame'
 import Header from '../containers/app/Header'
@@ -26,13 +27,15 @@ class App extends Component {
 
 
   render(){
-    const { page, themeColor, textColor, dataLoaded, startApp } = this.props
+    const { page, popup, themeColor, textColor, dataLoaded, startApp } = this.props
 
 
     if( startApp ) {
       return (
         <div className="App">
           <Page ready={dataLoaded} color={textColor}>{page}</Page>
+          { popup &&
+          <Popup>{popup}</Popup> }
           <Footer color={textColor} bgColor={themeColor}/>
           <Frame color={textColor} bgColor={themeColor}/>
           <Menu />

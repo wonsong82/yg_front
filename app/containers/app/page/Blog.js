@@ -20,6 +20,7 @@ class Blog extends Component {
     loadHotPostsList(4)
     // test
     //this.props.setThemeColor('#ff6600', '#000000')
+
   }
 
   onViewMoreClick() {

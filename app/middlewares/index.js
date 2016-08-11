@@ -19,6 +19,7 @@ export const handleResponsiveChange = () => (dispatch, getState) => {
 
 
 
+
 // MAIN MENU
 import { closeMainMenu, openMainMenu } from '../actions/'
 
@@ -172,6 +173,10 @@ export const loadEventsList = ( count ) => (dispatch, getState) => {
 }
 
 
+/***
+ * DATA SECTION
+ */
+
 // DATA:ARTIST
 import { requestArtists, receiveArtists, setMainMenuArtistList, startApp } from '../actions/'
 export const getArtistsData = () => ( dispatch, getState ) => {
@@ -207,3 +212,20 @@ export const getBlogsData = () => (dispatch, getState) => getData('/api/getBlogs
 // DATA:EVENT
 import { requestEvents, receiveEvents } from '../actions/'
 export const getEventsData = () => (dispatch, getState) => getData('/api/getEvents', getState().data.events, requestEvents, receiveEvents, dispatch, fetch)
+
+
+// DATA:ALL
+import { setDataLoaded } from '../actions/'
+export const getAllData = () => (dispatch, getState) => {
+  const datas = [ 'artists', 'blogs', 'events' ]
+  let timer = setInterval(()=>{
+    let state = getState().data
+    if(datas.filter( data => state[data].loaded ).length === datas.length){
+      dispatch(setDataLoaded(true))
+      clearInterval(timer)
+    }
+  }, 150)
+  datas.map( data => {
+    dispatch(eval('get' + data[0].toUpperCase() + data.slice(1) + 'Data')())
+  })
+}
