@@ -75,9 +75,9 @@ app.get([
 });
 
 app.get([
-  '/api/getProducts'
+  '/api/getShops'
 ], function (req, res) {
-  res.sendFile(path.resolve('../data/getProducts.json'));
+  res.sendFile(path.resolve('../data/getShops.json'));
 });
 
 app.get([
@@ -87,22 +87,11 @@ app.get([
 });
 
 app.get([
-  '/api/getHotTracks'
-], function (req, res) {
-  res.sendFile(path.resolve('../data/getHotTracks.json'));
-});
-
-app.get([
-  '/api/getProductCategories'
-], function (req, res) {
-  res.sendFile(path.resolve('../data/getProductCategories.json'));
-});
-
-app.get([
   '/api/getHotBlogs'
 ], function (req, res) {
   res.sendFile(path.resolve('../data/getHotBlogs.json'));
 });
+
 
 
 

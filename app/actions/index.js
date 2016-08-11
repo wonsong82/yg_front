@@ -59,6 +59,15 @@ export const setEventsList = events => ({ type: SET_EVENTS_LIST, events})
 export const setEventsAllLoaded = bool => ({ type: SET_EVENTS_ALL_LOADED, bool})
 export const loadEventsList = Middlewares.loadEventsList
 
+
+//PAGE:TOUR
+export const SET_TOURS_LIST = 'set_tours_list'
+export const SET_TOURS_ALL_LOADED = 'set_tours_all_loaded'
+export const setToursList = tours => ({type: SET_TOURS_LIST, tours})
+export const setToursAllLoaded = bool => ({type: SET_TOURS_ALL_LOADED, bool})
+export const loadToursList = Middlewares.loadToursList
+
+
 /**
  * DATA
  * : ajax data related
@@ -89,329 +98,30 @@ export const requestEvents = () => ({type: REQUEST_EVENTS})
 export const receiveEvents = (json) => ({type: RECEIVE_EVENTS, data: json})
 export const getEventsData = Middlewares.getEventsData
 
+// DATA:TOUR
+export const REQUEST_TOURS = 'request_tours'
+export const RECEIVE_TOURS = 'receive_tours'
+export const requestTours = () => ({type: REQUEST_TOURS})
+export const receiveTours = (json) => ({type: RECEIVE_TOURS, data: json})
+export const getToursData = Middlewares.getToursData
+
+// DATA:MUSIC
+export const REQUEST_MUSICS = 'request_musics'
+export const RECEIVE_MUSICS = 'receive_musics'
+export const requestMusics = () => ({type: REQUEST_MUSICS})
+export const receiveMusics = (json) => ({type: RECEIVE_MUSICS, data: json})
+export const getMusicsData = Middlewares.getMusicsData
+
+// DATA:SHOP
+export const REQUEST_SHOPS = 'request_shops'
+export const RECEIVE_SHOPS = 'receive_shops'
+export const requestShops = () => ({type: REQUEST_SHOPS})
+export const receiveShops = (json) => ({type: RECEIVE_SHOPS, data: json})
+export const getShopsData = Middlewares.getShopsData
+
 // DATA:ALL
 export const getAllData = Middlewares.getAllData
 
-
-
-
-
-
-
-/*
-//Events
-export const REQUEST_EVENTS = 'request_events';
-export const RECEIVE_EVENTS = 'receive_events';
-export const requestEvents = () => {
-  return{
-    type: REQUEST_EVENTS
-  }
-}
-export const receiveEvents = (eventsList) => {
-  return{
-    type: RECEIVE_EVENTS,
-    list: eventsList
-  }
-}
-export const getEventsList = () => {
-  return (dispatch, getState) => {
-    let state = getState()
-    let shouldFetch
-    const { events } = state
-
-    shouldFetch = !(events.loaded || (!events.loaded && events.isFetching))
-
-    if(shouldFetch){
-      dispatch(requestEvents())
-      return fetch('/api/getEvents')
-          .then(response => response.json())
-          .then(json => dispatch(receiveEvents(json)))
-    }else{
-      return Promise.resolve()
-    }
-  }
-}
-
-
-
-
-
-
-//Musics
-export const REQUEST_MUSICS = 'request_musics';
-export const RECEIVE_MUSICS = 'receive_musics';
-export const requestMusics = () => {
-    return{
-        type: REQUEST_MUSICS
-    }
-}
-export const receiveMusics = (musicsList) => {
-    return{
-        type: RECEIVE_MUSICS,
-        list: musicsList
-    }
-}
-export const getMusicsList = () => {
-    return (dispatch, getState) => {
-        let state = getState()
-        let shouldFetch
-        const { musics } = state
-
-        shouldFetch = !(musics.loaded || (!musics.loaded && musics.isFetching))
-
-        if(shouldFetch){
-            dispatch(requestMusics())
-            return fetch('/api/getMusics')
-                .then(response => response.json())
-                .then(json => dispatch(receiveMusics(json)))
-        }else{
-            return Promise.resolve()
-        }
-    }
-}
-
-
-//Products
-export const REQUEST_PRODUCTS = 'request_products';
-export const RECEIVE_PRODUCTS = 'receive_products';
-export const requestProducts = () => {
-    return{
-        type: REQUEST_PRODUCTS
-    }
-}
-export const receiveProducts = (productsList) => {
-    return{
-        type: RECEIVE_PRODUCTS,
-        list: productsList
-    }
-}
-export const getProductsList = () => {
-    return (dispatch, getState) => {
-        let state = getState()
-        let shouldFetch
-        const { products } = state
-
-        shouldFetch = !(products.loaded || (!products.loaded && products.isFetching))
-
-        if(shouldFetch){
-            dispatch(requestProducts())
-            return fetch('/api/getProducts')
-                .then(response => response.json())
-                .then(json => dispatch(receiveProducts(json)))
-        }else{
-            return Promise.resolve()
-        }
-    }
-}
-
-
-//Promotions
-export const REQUEST_PROMOTIONS = 'request_promotions';
-export const RECEIVE_PROMOTIONS = 'receive_promotions';
-export const requestPromotions = () => {
-    return{
-        type: REQUEST_PROMOTIONS
-    }
-}
-export const receivePromotions = (promotionsList) => {
-    return{
-        type: RECEIVE_PROMOTIONS,
-        list: promotionsList
-    }
-}
-export const getPromotionsList = () => {
-    return (dispatch, getState) => {
-        let state = getState()
-        let shouldFetch
-        const { promotions } = state
-
-        shouldFetch = !(promotions.loaded || (!promotions.loaded && promotions.isFetching))
-
-        if(shouldFetch){
-            dispatch(requestPromotions())
-            return fetch('/api/getPromotions')
-                .then(response => response.json())
-                .then(json => dispatch(receivePromotions(json)))
-        }else{
-            return Promise.resolve()
-        }
-    }
-}
-
-//HotTracks
-export const REQUEST_HOTTRACKS = 'request_hot_tracks';
-export const RECEIVE_HOTTRACKS = 'receive_hot_tracks';
-export const requestHotTracks = () => {
-    return{
-        type: REQUEST_HOTTRACKS
-    }
-}
-export const receiveHotTracks = (hotTracksList) => {
-    return{
-        type: RECEIVE_HOTTRACKS,
-        list: hotTracksList
-    }
-}
-export const getHotTracksList = () => {
-    return (dispatch, getState) => {
-        let state = getState()
-        let shouldFetch
-        const { hottracks } = state
-
-        shouldFetch = !(hottracks.loaded || (!hottracks.loaded && hottracks.isFetching))
-
-        if(shouldFetch){
-            dispatch(requestHotTracks())
-            return fetch('/api/getHotTracks')
-                .then(response => response.json())
-                .then(json => dispatch(receiveHotTracks(json)))
-        }else{
-            return Promise.resolve()
-        }
-    }
-}
-
-
-//Hot Blogs
-export const REQUEST_HOTBLOGS = 'request_hot_blogs';
-export const RECEIVE_HOTBLOGS = 'receive_hot_blogs';
-export const requestHotBlogs = () => {
-    return{
-        type: REQUEST_HOTBLOGS
-    }
-}
-export const receiveHotBlogs = (hotBlogsList) => {
-    return{
-        type: RECEIVE_HOTBLOGS,
-        list: hotBlogsList
-    }
-}
-export const getHotBlogsList = () => {
-    return (dispatch, getState) => {
-        let state = getState()
-        let shouldFetch
-        const { hotblogs } = state
-
-        shouldFetch = !(hotblogs.loaded || (!hotblogs.loaded && hotblogs.isFetching))
-
-        if(shouldFetch){
-            dispatch(requestHotBlogs())
-            return fetch('/api/getHotBlogs')
-                .then(response => response.json())
-                .then(json => dispatch(receiveHotBlogs(json)))
-        }else{
-            return Promise.resolve()
-        }
-    }
-}
-
-
-
-//Categories
-export const REQUEST_PRODUCT_CATEGORIES = 'request_product_categories';
-export const RECEIVE_PRODUCT_CATEGORIES = 'receive_product_categories';
-export const requestProductCategories = () => {
-    return{
-        type: REQUEST_PRODUCT_CATEGORIES
-    }
-}
-export const receiveProductCategories = (hotProductCategoriesList) => {
-    return{
-        type: RECEIVE_PRODUCT_CATEGORIES,
-        list: hotProductCategoriesList
-    }
-}
-export const getProductCategoriesList = () => {
-    return (dispatch, getState) => {
-        let state = getState()
-        let shouldFetch
-        const { product_categories } = state
-
-        shouldFetch = !(product_categories.loaded || (!product_categories.loaded && product_categories.isFetching))
-
-        if(shouldFetch){
-            dispatch(requestProductCategories())
-            return fetch('/api/getProductCategories')
-                .then(response => response.json())
-                .then(json => dispatch(receiveProductCategories(json)))
-        }else{
-            return Promise.resolve()
-        }
-    }
-}
-*/
-
-/*
- // TOUR
- export const REQUEST_TOURS = 'request_tours'
- export const RECEIVE_TOURS = 'receive_tours'
- export const requestTours = () => {
- return {
- type : REQUEST_TOURS
- }
- }
- export const receiveTours = (toursList) => {
- return {
- type : RECEIVE_TOURS,
- list : toursList
- }
- }
- export const getToursList = () => {
- return (dispatch, getState) => {
- let state = getState()
- let shouldFetch
- const { tours } = state
- //var tours = state.tours
-
- shouldFetch = !(tours.loaded || (!tours.loaded && tours.isFetching))
-
- if(shouldFetch){
- dispatch(requestTours())
- return fetch('/api/getTours')
- .then(response => response.json())
- .then(json =>
- {
- dispatch(receiveTours(json))
- })
- }else{
- return Promise.resolve()
- }
- }
- }
-
-
- //Albums
- export const REQUEST_ALBUMS = 'request_albums';
- export const RECEIVE_ALBUMS = 'receive_albums';
- export const requestAlbums = () => {
- return{
- type: REQUEST_ALBUMS
- }
- }
- export const receiveAlbums = (albumsList) => {
- return{
- type: RECEIVE_ALBUMS,
- list: albumsList
- }
- }
- export const getAlbumsList = () => {
- return (dispatch, getState) => {
- let state = getState()
- let shouldFetch
- const { albums } = state
-
- shouldFetch = !(albums.loaded || (!albums.loaded && albums.isFetching))
-
- if(shouldFetch){
- dispatch(requestAlbums())
- return fetch('/api/getAlbums')
- .then(response => response.json())
- .then(json => dispatch(receiveAlbums(json)))
- }else{
- return Promise.resolve()
- }
- }
- }*/
 
 
 

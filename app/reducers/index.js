@@ -75,10 +75,10 @@ const mainMenu = ( state = initState.mainMenu, action) => {
 
 // PAGE
 import { INIT_PAGE, SET_BLOGS_LIST, SET_HOT_POSTS_LIST, SET_POSTS_ALL_LOADED, SET_HOT_POSTS_ALL_LOADED,
-                    SET_EVENTS_LIST, SET_EVENTS_ALL_LOADED
+                    SET_EVENTS_LIST, SET_EVENTS_ALL_LOADED, SET_TOURS_LIST, SET_TOURS_ALL_LOADED
 } from '../actions/'
 
-import { blogInitState , eventInitState} from '../initialState'
+import { blogInitState , eventInitState, tourInitState} from '../initialState'
 const page = ( state = initState.page, action ) => {
   switch(action.type){
     case INIT_PAGE:
@@ -88,6 +88,9 @@ const page = ( state = initState.page, action ) => {
 
         case 'Event':
           return Object.assign({}, state, eventInitState)
+
+        case 'Tour':
+          return Object.assign({}, state, tourInitState)
 
         default:
           return state
@@ -126,7 +129,15 @@ const page = ( state = initState.page, action ) => {
       })
 
     //TOUR
+    case SET_TOURS_LIST:
+      return Object.assign({}, state, {
+        tours: action.tours
+      })
 
+    case SET_TOURS_ALL_LOADED:
+      return Object.assign({}, state, {
+        toursAllLoaded: action.bool
+      })
 
     default:
       return state
@@ -139,7 +150,7 @@ const page = ( state = initState.page, action ) => {
 
 
 // DATA
-import { SET_DATA_LOADED, REQUEST_BLOGS, RECEIVE_BLOGS, REQUEST_ARTISTS, RECEIVE_ARTISTS, REQUEST_EVENTS, RECEIVE_EVENTS} from '../actions'
+import { SET_DATA_LOADED, REQUEST_ARTISTS, RECEIVE_ARTISTS, REQUEST_BLOGS, RECEIVE_BLOGS , REQUEST_EVENTS, RECEIVE_EVENTS, REQUEST_TOURS, RECEIVE_TOURS , REQUEST_MUSICS, RECEIVE_MUSICS, REQUEST_SHOPS, RECEIVE_SHOPS } from '../actions'
 const data = ( state = initState.data , action) => {
   switch(action.type){
 
@@ -189,6 +200,7 @@ const data = ( state = initState.data , action) => {
         })
       })
 
+    //EVENT
     case REQUEST_EVENTS:
 
       return Object.assign({}, state, {
@@ -204,6 +216,68 @@ const data = ( state = initState.data , action) => {
           contents: {
             events,
             eventsCount: Object.keys(events).length
+          }
+        })
+      })
+
+    //TOUR
+    case REQUEST_TOURS:
+      return Object.assign({}, state, {
+        tours: Object.assign({}, state.tours, {isFetching: true})
+      })
+
+    case RECEIVE_TOURS:
+      let tours = action.data
+      return Object.assign({}, state, {
+        tours: Object.assign({}, state.tours,{
+          isFetching: false,
+          loaded: true,
+          contents: {
+            tours,
+            toursCount: Object.keys(tours).length
+          }
+        })
+      })
+
+    //MUSIC
+    case REQUEST_MUSICS:
+      return Object.assign({}, state, {
+        musics: Object.assign({}, state.musics, {isFetching: true})
+      })
+
+    case RECEIVE_MUSICS:
+      let { albums, musics, hotTracks } = action.data
+      return Object.assign({}, state, {
+        musics: Object.assign({}, state.musics, {
+          isFetching: false,
+          loaded: true,
+          contents: {
+            albums,
+            albumsCount: Object.keys(albums).length,
+            musics,
+            musicsCount: Object.keys(musics).length,
+            hotTracks,
+            hotTracksCount: Object.keys(hotTracks).length
+          }
+        })
+      })
+
+    case REQUEST_SHOPS:
+      return Object.assign({}, state, {
+        shops: Object.assign({}, state.shops, {isFetching: true})
+      })
+
+    case RECEIVE_SHOPS:
+      let { shops, categories } = action.data
+      return Object.assign({}, state, {
+        shops: Object.assign({}, state.shops, {
+          isFetching: false,
+          loaded: true,
+          contents: {
+            shops,
+            shopsCount: Object.keys(shops).length,
+            categories,
+            categoriesCount: Object.keys(categories).length,
           }
         })
       })
