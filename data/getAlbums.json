@@ -1,68 +1,295 @@
-[
-  {
-    "id": 7,
-    "post_title": "LEE HI First Album",
-    "post_content": "LEE HI First Album",
-    "post_date": "2016-07-18 23:33:38",
-    "subtitle": "LEE HI First Album - subtitle",
-    "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "album_url": "www.albumurl.com",
-    "album_release_date": "20160717",
-    "artist_id": 1
+{
+  "albums": {
+    "401": {
+      "id": 401,
+      "post_title": "LEE HI First Album",
+      "post_content": "his is the discography of the South Korean idol Psy. He is well known for his humorous videos and stage performances, and for his hit single Gangnam Style/ a song about where he came from and which talks about the life of the people of Gangnam, which is a neighborhood in Seoul, South Korea.",
+      "post_date": "2016-07-18 23:33:38",
+      "url_friendly_name": "album-401",
+      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "album_url": "www.albumurl.com",
+      "album_release_date": "20160717",
+      "artist_id": 1,
+      "related_album": [
+        402,
+        403,
+        404
+      ]
+    },
+    "402": {
+      "id": 402,
+      "post_title": "AKMU First Album",
+      "post_content": "his is the discography of the South Korean idol Psy. He is well known for his humorous videos and stage performances, and for his hit single Gangnam Style/ a song about where he came from and which talks about the life of the people of Gangnam, which is a neighborhood in Seoul, South Korea.",
+      "post_date": "2016-07-18 23:33:38",
+      "url_friendly_name": "album-402",
+      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "album_url": "www.albumurl.com",
+      "album_release_date": "20160717",
+      "artist_id": 2,
+      "related_album": [
+        401,
+        404,
+        405
+      ]
+    },
+    "403": {
+      "id": 403,
+      "post_title": "IKON First Album",
+      "post_content": "his is the discography of the South Korean idol Psy. He is well known for his humorous videos and stage performances, and for his hit single Gangnam Style/ a song about where he came from and which talks about the life of the people of Gangnam, which is a neighborhood in Seoul, South Korea.",
+      "post_date": "2016-07-18 23:33:38",
+      "url_friendly_name": "album-403",
+      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "album_url": "www.albumurl.com",
+      "album_release_date": "20160717",
+      "artist_id": 3,
+      "related_album": [
+      ]
+    },
+    "404": {
+      "id": 404,
+      "post_title": "EPIC HIGH First Album",
+      "post_content": "his is the discography of the South Korean idol Psy. He is well known for his humorous videos and stage performances, and for his hit single Gangnam Style/ a song about where he came from and which talks about the life of the people of Gangnam, which is a neighborhood in Seoul, South Korea.",
+      "post_date": "2016-07-18 23:33:38",
+      "url_friendly_name": "album-404",
+      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "album_url": "www.albumurl.com",
+      "album_release_date": "20160717",
+      "artist_id": 4,
+      "related_album": [
+        402,
+        403,
+        405
+      ]
+    },
+    "405": {
+      "id": 405,
+      "post_title": "2 NE 1 First Album",
+      "post_content": "his is the discography of the South Korean idol Psy. He is well known for his humorous videos and stage performances, and for his hit single Gangnam Style/ a song about where he came from and which talks about the life of the people of Gangnam, which is a neighborhood in Seoul, South Korea.",
+      "post_date": "2016-07-18 23:33:38",
+      "url_friendly_name": "album-405",
+      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "album_url": "www.albumurl.com",
+      "album_release_date": "20160717",
+      "artist_id": 5,
+      "related_album": [
+        402,
+        403
+      ]
+    },
+    "406": {
+      "id": 406,
+      "post_title": "PSY First Album",
+      "post_content": "his is the discography of the South Korean idol Psy. He is well known for his humorous videos and stage performances, and for his hit single Gangnam Style/ a song about where he came from and which talks about the life of the people of Gangnam, which is a neighborhood in Seoul, South Korea.",
+      "post_date": "2016-07-18 23:33:38",
+      "url_friendly_name": "album-406",
+      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "album_url": "www.albumurl.com",
+      "album_release_date": "20160717",
+      "artist_id": 6,
+      "related_album": [
+        402,
+        403,
+        404
+      ]
+    },
+    "407": {
+      "id": 407,
+      "post_title": "PSY First Album",
+      "post_content": "his is the discography of the South Korean idol Psy. He is well known for his humorous videos and stage performances, and for his hit single Gangnam Style/ a song about where he came from and which talks about the life of the people of Gangnam, which is a neighborhood in Seoul, South Korea.",
+      "post_date": "2016-07-18 23:33:38",
+      "url_friendly_name": "album-407",
+      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "album_url": "www.albumurl.com",
+      "album_release_date": "20160717",
+      "artist_id": 6,
+      "related_album": [
+        402,
+        403,
+        404
+      ]
+    }
   },
+  "musics":
   {
-    "id": 8,
-    "post_title": "AKMU First Album",
-    "post_content": "AKMU First Album",
-    "post_date": "2016-07-18 23:33:38",
-    "subtitle": "AKMU First Album - subtitle",
-    "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "album_url": "www.albumurl.com",
-    "album_release_date": "20160717",
-    "artist_id": 2
+    "501" : {
+      "id": 501,
+      "post_title": "Lee Hi Song",
+      "post_content": "Lee Hi Song",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "1.99",
+      "album_id": 401,
+      "sample_link": "http://yg.testroo.com/wp-content/uploads/woocommerce_uploads/2016/07/default.png",
+      "youtube_link": "https://www.youtube.com/watch?v=FrG4TEcSuRg",
+      "product_type": "music"
+    },
+    "502" : {
+      "id": 502,
+      "post_title": "Lee Hi Album",
+      "post_content": "Lee Hi Song",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "",
+      "album_id": 401,
+      "sample_link": "http://yg.testroo.com/wp-content/uploads/woocommerce_uploads/2016/07/default.png",
+      "youtube_link": "https://www.youtube.com/watch?v=FrG4TEcSuRg",
+      "product_type": "album"
+    },
+    "503" : {
+      "id": 503,
+      "post_title": "AKMU Song",
+      "post_content": "AKMU Song",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "",
+      "album_id": 402,
+      "sample_link": "http://yg.testroo.com/wp-content/uploads/woocommerce_uploads/2016/07/default.png",
+      "youtube_link": "youtubelink",
+      "product_type": "music"
+    },
+    "504" : {
+      "id": 504,
+      "post_title": "AKMU Album",
+      "post_content": "AKMU Album",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "1.99",
+      "album_id": 402,
+      "sample_link": "http://yg.testroo.com/wp-content/uploads/woocommerce_uploads/2016/07/default.png",
+      "youtube_link": "https://www.youtube.com/watch?v=FrG4TEcSuRg",
+      "product_type": "album"
+    },
+
+    "505" : {
+      "id": 505,
+      "post_title": "IKON Song",
+      "post_content": "IKON Song",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "1.99",
+      "album_id": 403,
+      "sample_link": "http://yg.testroo.com/wp-content/uploads/woocommerce_uploads/2016/07/default.png",
+      "youtube_link": "https://www.youtube.com/watch?v=FrG4TEcSuRg",
+      "product_type": "music"
+    },
+    "506" : {
+      "id": 506,
+      "post_title": "IKON Album",
+      "post_content": "IKON Album",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "1.99",
+      "album_id": 403,
+      "sample_link": "",
+      "youtube_link": "https://www.youtube.com/watch?v=FrG4TEcSuRg",
+      "product_type": "album"
+    },
+    "507" : {
+      "id": 507,
+      "post_title": "EPIK HIGH Song",
+      "post_content": "EPIK HIGH Song",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "1.99",
+      "album_id": 404,
+      "sample_link": "http://yg.testroo.com/wp-content/uploads/woocommerce_uploads/2016/07/default.png",
+      "youtube_link": "https://www.youtube.com/watch?v=FrG4TEcSuRg",
+      "product_type": "music"
+    },
+    "508" : {
+      "id": 508,
+      "post_title": "EPIK HIGH Album",
+      "post_content": "EPIK HIGH album",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "1.99",
+      "album_id": 404,
+      "sample_link": "",
+      "youtube_link": "https://www.youtube.com/watch?v=FrG4TEcSuRg",
+      "product_type": "album"
+    },
+    "509" : {
+      "id": 509,
+      "post_title": "2 NE 1 Song",
+      "post_content": "2 NE 1 Song",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "1.99",
+      "album_id": 405,
+      "sample_link": "http://yg.testroo.com/wp-content/uploads/woocommerce_uploads/2016/07/default.png",
+      "youtube_link": "https://www.youtube.com/watch?v=FrG4TEcSuRg",
+      "product_type": "music"
+    },
+    "510" : {
+      "id": 510,
+      "post_title": "2 NE 1 Album",
+      "post_content": "2 NE 1 album",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "1.99",
+      "album_id": 405,
+      "sample_link": "",
+      "youtube_link": "https://www.youtube.com/watch?v=FrG4TEcSuRg",
+      "product_type": "album"
+    },
+    "511" : {
+      "id": 511,
+      "post_title": "PSY Song",
+      "post_content": "PSY Song",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "1.99",
+      "album_id": 406,
+      "sample_link": "http://yg.testroo.com/wp-content/uploads/woocommerce_uploads/2016/07/default.png",
+      "youtube_link": "https://www.youtube.com/watch?v=FrG4TEcSuRg",
+      "product_type": "music"
+    },
+    "512" : {
+      "id": 512,
+      "post_title": "PSY Album",
+      "post_content": "PSY Album",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "1.99",
+      "album_id": 406,
+      "sample_link": "",
+      "youtube_link": "https://www.youtube.com/watch?v=FrG4TEcSuRg",
+      "product_type": "album"
+    },
+    "513" : {
+      "id": 513,
+      "post_title": "PSY Song",
+      "post_content": "PSY Song",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "1.99",
+      "album_id": 407,
+      "sample_link": "http://yg.testroo.com/wp-content/uploads/woocommerce_uploads/2016/07/default.png",
+      "youtube_link": "https://www.youtube.com/watch?v=FrG4TEcSuRg",
+      "product_type": "music"
+    },
+    "514" : {
+      "id": 514,
+      "post_title": "PSY Album",
+      "post_content": "PSY Album",
+      "post_date": "2016-07-31 19:37:40",
+      "_regular_price": "3.99",
+      "_sale_price": "1.99",
+      "album_id": 407,
+      "sample_link": "",
+      "youtube_link": "https://www.youtube.com/watch?v=FrG4TEcSuRg",
+      "product_type": "album"
+    }
   },
-  {
-    "id": 9,
-    "post_title": "IKON First Album",
-    "post_content": "IKON First Album",
-    "post_date": "2016-07-18 23:33:38",
-    "subtitle": "IKON First Album - subtitle",
-    "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "album_url": "www.albumurl.com",
-    "album_release_date": "20160717",
-    "artist_id": 3
-  },
-  {
-    "id": 10,
-    "post_title": "EPIC HIGH First Album",
-    "post_content": "EPIC HIGH First Album",
-    "post_date": "2016-07-18 23:33:38",
-    "subtitle": "EPIC HIGH First Album - subtitle",
-    "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "album_url": "www.albumurl.com",
-    "album_release_date": "20160717",
-    "artist_id": 4
-  },
-  {
-    "id": 11,
-    "post_title": "2 NE 1 First Album",
-    "post_content": "2 NE 1 First Album",
-    "post_date": "2016-07-18 23:33:38",
-    "subtitle": "2 NE 1 First Album - subtitle",
-    "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "album_url": "www.albumurl.com",
-    "album_release_date": "20160717",
-    "artist_id": 5
-  },
-  {
-    "id": 12,
-    "post_title": "PSY First Album",
-    "post_content": "PSY First Album",
-    "post_date": "2016-07-18 23:33:38",
-    "subtitle": "PSY First Album - subtitle",
-    "cover_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "album_url": "www.albumurl.com",
-    "album_release_date": "20160717",
-    "artist_id": 6
-  }
-]
+  "hotTracks":
+  [
+    501,503,505,507,509,511,513
+  ]
+}

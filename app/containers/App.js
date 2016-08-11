@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { setThemeColor, setResponsiveMode, handleResponsiveChange, setDataLoaded, getArtistsData, getBlogsData, getEventsData} from '../actions/'
+import { setThemeColor, setResponsiveMode, handleResponsiveChange, setDataLoaded, getArtistsData, getBlogsData, getEventsData, getToursData, getMusicsData, getShopsData} from '../actions/'
 
 import { computeThemeColor } from '../functions/'
 import AppComponent from '../components/App'
@@ -18,6 +18,9 @@ class App extends Component {
     dispatch(getArtistsData())
     dispatch(getBlogsData())
     dispatch(getEventsData())
+    dispatch(getToursData())
+    dispatch(getMusicsData())
+    dispatch(getShopsData())
     // todo: dispatch others
   }
 
@@ -34,10 +37,10 @@ class App extends Component {
     }
 
 
-    const { dispatch, dataLoaded, artistLoaded, blogsLoaded, eventsLoaded } = nextProps
+    const { dispatch, dataLoaded, artistLoaded, blogsLoaded, eventsLoaded, toursLoaded, musicsLoaded , shopsLoaded} = nextProps
 
     if(!dataLoaded){
-      if(artistLoaded && blogsLoaded && eventsLoaded )
+      if(artistLoaded && blogsLoaded && eventsLoaded && toursLoaded && musicsLoaded && shopsLoaded)
         dispatch(setDataLoaded(true))
     }
   }
@@ -63,7 +66,10 @@ const mapStateToProps = (state) => {
     mainMenuOpened    : state.mainMenu.opened,
     dataLoaded        : state.data.loaded,
     blogsLoaded       : state.data.blogs.loaded,
-    eventsLoaded: state.data.events.loaded
+    eventsLoaded: state.data.events.loaded,
+    toursLoaded: state.data.tours.loaded,
+    musicsLoaded: state.data.musics.loaded,
+    shopsLoaded: state.data.shops.loaded,
     //@todo other states than artist, for example blogs, tours, ..
   }
 }

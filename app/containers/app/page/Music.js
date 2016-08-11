@@ -20,9 +20,10 @@ class Tour extends Component{
         onViewMoreClick(4)
     }
 
+
     render(){
         return <TourComponent {...this.props}
-                onViewMoreClick={this.onViewMoreClick.bind(this)}
+                              onViewMoreClick={this.onViewMoreClick.bind(this)}
         />
     }
 }

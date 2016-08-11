@@ -50,15 +50,10 @@ const initialState = {
     tours: {
       loaded: false,
       isFetching: false,
-      list: [
-      ],
-    },
-
-    albums: {
-      loaded: false,
-      isFetching: false,
-      list: [
-      ],
+      contents: {
+        tours: [],
+        toursCount: 0,
+      }
     },
 
     events: {
@@ -73,39 +68,28 @@ const initialState = {
     musics: {
       loaded: false,
       isFetching: false,
-      list: [
-      ]
+      contents: {
+        albums: {},
+        albumsCount: 0,
+        musics: {},
+        musicsCount: 0,
+        hotTracks: {},
+        hotTracksCount: 0,
+      }
     },
 
-    products: {
+    shops: {
       loaded: false,
       isFetching: false,
-      list: [
-      ]
+      contents: {
+        shops: {},
+        shopsCount: 0,
+        categories: {},
+        categoriesCount: 0
+      }
     },
 
     promotions: {
-      loaded: false,
-      isFetching: false,
-      list: [
-      ]
-    },
-
-    hottracks: {
-      loaded: false,
-      isFetching: false,
-      list: [
-      ]
-    },
-
-    hotblogs: {
-      loaded: false,
-      isFetching: false,
-      list: [
-      ]
-    },
-
-    product_categories: {
       loaded: false,
       isFetching: false,
       list: [
@@ -130,6 +114,12 @@ export const eventInitState = {
   type: 'event',
   events: [],
   eventsAllLoaded: false
+}
+
+export const tourInitState = {
+  type: 'tour',
+  tours: [],
+  toursAllLoaded: false
 }
 
 

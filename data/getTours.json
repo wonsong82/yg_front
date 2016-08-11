@@ -1,19 +1,21 @@
-[
+
   {
-    "id": 25,
+    "201" :
+    {
+    "id": 201,
+    "url_friendly_name": "tour-201",
     "post_title": "Lee Hi KOREA TOUR",
     "post_content": "Lee Hi KOREA TOUR",
     "post_date": "2016-07-19 15:15:00",
     "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image_3x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+    "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+    "thumb_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+    "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
     "subtitle": "Lee Hi KOREA TOUR - subtitle",
     "start_date": "20160708",
     "end_date": "20160708",
     "tour_url": "www.toururl.com",
-    "guest": "",
-    "artist": 1,
+    "artist_id": 1,
     "tour_schedule": [
       {
         "tour_date": "20160708",
@@ -23,201 +25,205 @@
         "ticket_availability": true
       }
     ]
-  },
-  {
-    "id": 26,
-    "post_title": "AKMU USA Tour",
-    "post_conten": "AKMU USA Tour",
-    "post_date": "2016-07-18 22:11:16",
-    "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image_3x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "subtitle": "AKMU USA Tour - subtitle",
-    "start_date": "20160801",
-    "end_date": "20160810",
-    "tour_url": "www.tour.com",
-    "guest": "",
-    "artist": 2,
-    "tour_schedule": [
-      {
-        "tour_date": "20160801",
-        "location": "LA",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": true
-      },
-      {
-        "tour_date": "20160803",
-        "location": "NY",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": true
-      },
-      {
-        "tour_date": "20160810",
-        "location": "FL",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": false
-      }
-    ]
-  },
-  {
-    "id": 27,
-    "post_title": "IKON USA Tour",
-    "post_conten": "IKON USA Tour",
-    "post_date": "2016-07-18 22:11:16",
-    "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image_3x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "subtitle": "IKON USA Tour - subtitle",
-    "start_date": "20160901",
-    "end_date": "20160910",
-    "tour_url": "www.tour.com",
-    "guest": "",
-    "artist": 3,
-    "tour_schedule": [
-      {
-        "tour_date": "20160901",
-        "location": "LA",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": true
-      },
-      {
-        "tour_date": "20160904",
-        "location": "NY",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": false
-      },
-      {
-        "tour_date": "20160910",
-        "location": "FL",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": true
-      }
-    ]
-  },
-  {
-    "id": 28,
-    "post_title": "EPIK HIGH USA Tour",
-    "post_conten": "EPIK HIGH USA Tour",
-    "post_date": "2016-07-18 22:11:16",
-    "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image_3x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "subtitle": "EPIK HIGH USA Tour - subtitle",
-    "start_date": "20161008",
-    "end_date": "20161010",
-    "tour_url": "www.tour.com",
-    "guest": "",
-    "artist": 4,
-    "tour_schedule": [
-      {
-        "tour_date": "20161008",
-        "location": "LA",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": true
-      },
-      {
-        "tour_date": "20161009",
-        "location": "NY",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": true
-      },
-      {
-        "tour_date": "20161010",
-        "location": "FL",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": false
-      }
-    ]
-  },
-  {
-    "id": 29,
-    "post_title": "2NE1 USA Tour",
-    "post_conten": "2NE1 USA Tour",
-    "post_date": "2016-07-18 22:11:16",
-    "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image_3x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "subtitle": "2NE1 USA Tour - subtitle",
-    "start_date": "20161101",
-    "end_date": "20161112",
-    "tour_url": "www.tour.com",
-    "guest": "",
-    "artist": 5,
-    "tour_schedule": [
-      {
-        "tour_date": "20161101",
-        "location": "LA",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": true
-      },
-      {
-        "tour_date": "20161107",
-        "location": "NY",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": true
-      },
-      {
-        "tour_date": "20161112",
-        "location": "FL",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": true
-      }
-    ]
-  },
-  {
-    "id": 30,
-    "post_title": "PSY USA Tour",
-    "post_conten": "PSY USA Tour",
-    "post_date": "2016-07-18 22:11:16",
-    "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image_3x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumbnail_image_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "subtitle": "PSY USA Tour - subtitle",
-    "start_date": "20161201",
-    "end_date": "20161209",
-    "tour_url": "www.tour.com",
-    "guest": "",
-    "artist": 6,
-    "tour_schedule": [
-      {
-        "tour_date": "20161201",
-        "location": "LA",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": true
-      },
-      {
-        "tour_date": "20161206",
-        "location": "NY",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": true
-      },
-      {
-        "tour_date": "20161209",
-        "location": "FL",
-        "event_time": "19:00",
-        "ticket_link": "www.ticket.com",
-        "ticket_availability": true
-      }
-    ]
+    },
+    "202" :
+    {
+      "id": 202,
+      "url_friendly_name": "tour-202",
+      "post_title": "AKMU USA Tour",
+      "post_content": "AKMU USA Tour",
+      "post_date": "2016-07-18 22:11:16",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "AKMU USA Tour - subtitle",
+      "start_date": "20160801",
+      "end_date": "20160810",
+      "tour_url": "www.tour.com",
+      "artist_id": 2,
+      "tour_schedule": [
+        {
+          "tour_date": "20160801",
+          "location": "LA",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": true
+        },
+        {
+          "tour_date": "20160803",
+          "location": "NY",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": true
+        },
+        {
+          "tour_date": "20160810",
+          "location": "FL",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": false
+        }
+      ]
+    },
+    "203" :
+    {
+      "id": 203,
+      "url_friendly_name": "tour-203",
+      "post_title": "IKON USA Tour",
+      "post_content": "IKON USA Tour",
+      "post_date": "2016-07-18 22:11:16",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "IKON USA Tour - subtitle",
+      "start_date": "20160901",
+      "end_date": "20160910",
+      "tour_url": "www.tour.com",
+      "artist_id": 3,
+      "tour_schedule": [
+        {
+          "tour_date": "20160901",
+          "location": "LA",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": true
+        },
+        {
+          "tour_date": "20160904",
+          "location": "NY",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": false
+        },
+        {
+          "tour_date": "20160910",
+          "location": "FL",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": true
+        }
+      ]
+    },
+    "204" :
+    {
+      "id": 204,
+      "url_friendly_name": "tour-204",
+      "post_title": "EPIK HIGH USA Tour",
+      "post_content": "EPIK HIGH USA Tour",
+      "post_date": "2016-07-18 22:11:16",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "EPIK HIGH USA Tour - subtitle",
+      "start_date": "20161008",
+      "end_date": "20161010",
+      "tour_url": "www.tour.com",
+      "artist_id": 4,
+      "tour_schedule": [
+        {
+          "tour_date": "20161008",
+          "location": "LA",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": true
+        },
+        {
+          "tour_date": "20161009",
+          "location": "NY",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": true
+        },
+        {
+          "tour_date": "20161010",
+          "location": "FL",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": false
+        }
+      ]
+    },
+    "205" :
+    {
+      "id": 205,
+      "url_friendly_name": "tour-205",
+      "post_title": "2NE1 USA Tour",
+      "post_content": "2NE1 USA Tour",
+      "post_date": "2016-07-18 22:11:16",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "2NE1 USA Tour - subtitle",
+      "start_date": "20161101",
+      "end_date": "20161112",
+      "tour_url": "www.tour.com",
+      "artist_id": 5,
+      "tour_schedule": [
+        {
+          "tour_date": "20161101",
+          "location": "LA",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": true
+        },
+        {
+          "tour_date": "20161107",
+          "location": "NY",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": true
+        },
+        {
+          "tour_date": "20161112",
+          "location": "FL",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": true
+        }
+      ]
+    },
+    "206":
+    {
+      "id": 206,
+      "url_friendly_name": "tour-206",
+      "post_title": "PSY USA Tour",
+      "post_content": "PSY USA Tour",
+      "post_date": "2016-07-18 22:11:16",
+      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "subtitle": "PSY USA Tour - subtitle",
+      "start_date": "20161201",
+      "end_date": "20161209",
+      "tour_url": "www.tour.com",
+      "artist_id": 6,
+      "tour_schedule": [
+        {
+          "tour_date": "20161201",
+          "location": "LA",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": true
+        },
+        {
+          "tour_date": "20161206",
+          "location": "NY",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": true
+        },
+        {
+          "tour_date": "20161209",
+          "location": "FL",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": true
+        }
+      ]
+    }
   }
-
-]

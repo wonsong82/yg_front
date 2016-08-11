@@ -159,7 +159,6 @@ export const loadEventsList = ( count ) => (dispatch, getState) => {
 
       if(eventsDataCount-1 == index || nextCount-1 == index){
         if(eventsDataCount-1 == index){
-          console.log('NO MORE EVENTS COUNT')
           dispatch(setEventsAllLoaded(true))
         }
         break
@@ -170,6 +169,56 @@ export const loadEventsList = ( count ) => (dispatch, getState) => {
     dispatch(setEventsList(newEvents))
   }
 }
+
+//PAGE: EVENT
+import { setToursList, setToursAllLoaded } from '../actions'
+export const loadToursList = ( count ) => (dispatch, getState) => {
+  const state = getState();
+  if(state.page.type = 'tour'){
+
+    const tours = state.page.tours,
+        toursData = state.data.tours.contents.tours,
+        toursDataCount = state.data.tours.contents.toursCount,
+        artistsData = state.data.artists.contents.artists
+
+    let curCount = tours.length
+    let nextCount = curCount + count
+
+    let newTours = []
+    var index = 0;
+
+    for(let key in toursData){
+      let tour = toursData[key]
+      let artistThemeColor = artistsData[tour.artist_id].themeColor
+      let artistName = artistsData[tour.artist_id].name
+
+      let {id, post_title, subtitle, url_friendly_name, tour_schedule, thumb_3x2} = tour
+      let url = Site + '/Tour/' + url_friendly_name
+
+      newTours.push({
+        id,
+        title: post_title,
+        subtitle,
+        url,
+        schedule: tour_schedule,
+        image: thumb_3x2,
+        name: artistName,
+        themeColor: artistThemeColor
+      })
+
+      if(toursDataCount-1 == index || nextCount-1 == index){
+        if(toursDataCount-1 == index){
+          dispatch(setToursAllLoaded(true))
+        }
+        break
+      }
+      index++
+    }
+    dispatch(setToursList(newTours))
+  }
+}
+
+
 
 
 // DATA:ARTIST
@@ -207,3 +256,15 @@ export const getBlogsData = () => (dispatch, getState) => getData('/api/getBlogs
 // DATA:EVENT
 import { requestEvents, receiveEvents } from '../actions/'
 export const getEventsData = () => (dispatch, getState) => getData('/api/getEvents', getState().data.events, requestEvents, receiveEvents, dispatch, fetch)
+
+// DATA:TOUR
+import {requestTours, receiveTours} from '../actions'
+export const getToursData = () => (dispatch, getState) =>getData('/api/getTours', getState().data.tours, requestTours, receiveTours, dispatch, fetch)
+
+// DATA:MUSIC
+import {requestMusics, receiveMusics} from '../actions'
+export const getMusicsData = () => (dispatch, getState) =>getData('/api/getMusics', getState().data.musics, requestMusics, receiveMusics, dispatch, fetch)
+
+// DATA:MUSIC
+import {requestShops, receiveShops} from '../actions'
+export const getShopsData = () => (dispatch, getState) =>getData('/api/getShops', getState().data.shops, requestShops, receiveShops, dispatch, fetch)

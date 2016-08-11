@@ -57,6 +57,15 @@ export const setEventsList = events => ({ type: SET_EVENTS_LIST, events})
 export const setEventsAllLoaded = bool => ({ type: SET_EVENTS_ALL_LOADED, bool})
 export const loadEventsList = Middlewares.loadEventsList
 
+
+//PAGE:TOUR
+export const SET_TOURS_LIST = 'set_tours_list'
+export const SET_TOURS_ALL_LOADED = 'set_tours_all_loaded'
+export const setToursList = tours => ({type: SET_TOURS_LIST, tours})
+export const setToursAllLoaded = bool => ({type: SET_TOURS_ALL_LOADED, bool})
+export const loadToursList = Middlewares.loadToursList
+
+
 /**
  * DATA
  * : ajax data related
@@ -87,9 +96,26 @@ export const requestEvents = () => ({type: REQUEST_EVENTS})
 export const receiveEvents = (json) => ({type: RECEIVE_EVENTS, data: json})
 export const getEventsData = Middlewares.getEventsData
 
+// DATA:TOUR
+export const REQUEST_TOURS = 'request_tours'
+export const RECEIVE_TOURS = 'receive_tours'
+export const requestTours = () => ({type: REQUEST_TOURS})
+export const receiveTours = (json) => ({type: RECEIVE_TOURS, data: json})
+export const getToursData = Middlewares.getToursData
 
+// DATA:MUSIC
+export const REQUEST_MUSICS = 'request_musics'
+export const RECEIVE_MUSICS = 'receive_musics'
+export const requestMusics = () => ({type: REQUEST_MUSICS})
+export const receiveMusics = (json) => ({type: RECEIVE_MUSICS, data: json})
+export const getMusicsData = Middlewares.getMusicsData
 
-
+// DATA:SHOP
+export const REQUEST_SHOPS = 'request_shops'
+export const RECEIVE_SHOPS = 'receive_shops'
+export const requestShops = () => ({type: REQUEST_SHOPS})
+export const receiveShops = (json) => ({type: RECEIVE_SHOPS, data: json})
+export const getShopsData = Middlewares.getShopsData
 
 
 
