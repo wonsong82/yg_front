@@ -40,6 +40,7 @@ import { setBlogsList, setHotPostsList, setPostsAllLoaded, setHotPostsAllLoaded 
 
 export const loadBlogsList = ( count ) => (dispatch, getState) => {
   const state = getState()
+
   if(state.page.type == 'blog'){
     const posts = state.page.posts,
       postsData = state.data.blogs.contents.posts,
@@ -72,10 +73,10 @@ export const loadBlogsList = ( count ) => (dispatch, getState) => {
           }
           break
         }
-        index++
       }
-      dispatch(setBlogsList(newPosts))
+      index++
     }
+    dispatch(setBlogsList(newPosts))
   }
 }
 
@@ -114,10 +115,10 @@ export const loadHotPostsList = ( count ) => (dispatch, getState) => {
           }
           break
         }
-        index++
       }
-      dispatch(setHotPostsList(newPosts))
+      index++
     }
+    dispatch(setHotPostsList(newPosts))
   }
 }
 
@@ -142,31 +143,32 @@ export const loadEventsList = ( count ) => (dispatch, getState) => {
     var index = 0;
 
     for(let key in eventsData){
-      let event = eventsData[key]
-      let artistThemeColor = artistsData[event.artist_id].themeColor
-      let {id, post_title, subtitle, url_friendly_name, excerpt, post_date,thumb_2x2} = event
-      let url = Site + '/Event/' + url_friendly_name
+      if(eventsData.hasOwnProperty(key)){
+        let event = eventsData[key]
+        let artistThemeColor = artistsData[event.artist_id].themeColor
+        let {id, post_title, subtitle, url_friendly_name, excerpt, post_date,thumb_2x2} = event
+        let url = Site + '/Event/' + url_friendly_name
 
-      newEvents.push({
-        id,
-        title: post_title,
-        subtitle,
-        url,
-        text: excerpt,
-        date: post_date,
-        image: thumb_2x2,
-        themeColor: artistThemeColor
-      })
+        newEvents.push({
+          id,
+          title: post_title,
+          subtitle,
+          url,
+          text: excerpt,
+          date: post_date,
+          image: thumb_2x2,
+          themeColor: artistThemeColor
+        })
 
-      if(eventsDataCount-1 == index || nextCount-1 == index){
-        if(eventsDataCount-1 == index){
-          dispatch(setEventsAllLoaded(true))
+        if(eventsDataCount-1 == index || nextCount-1 == index){
+          if(eventsDataCount-1 == index){
+            dispatch(setEventsAllLoaded(true))
+          }
+          break
         }
-        break
       }
       index++
     }
-
     dispatch(setEventsList(newEvents))
   }
 }
@@ -189,29 +191,31 @@ export const loadToursList = ( count ) => (dispatch, getState) => {
     var index = 0;
 
     for(let key in toursData){
-      let tour = toursData[key]
-      let artistThemeColor = artistsData[tour.artist_id].themeColor
-      let artistName = artistsData[tour.artist_id].name
+      if(toursData.hasOwnProperty(key)){
+        let tour = toursData[key]
+        let artistThemeColor = artistsData[tour.artist_id].themeColor
+        let artistName = artistsData[tour.artist_id].name
 
-      let {id, post_title, subtitle, url_friendly_name, tour_schedule, thumb_3x2} = tour
-      let url = Site + '/Tour/' + url_friendly_name
+        let {id, post_title, subtitle, url_friendly_name, tour_schedule, thumb_3x2} = tour
+        let url = Site + '/Tour/' + url_friendly_name
 
-      newTours.push({
-        id,
-        title: post_title,
-        subtitle,
-        url,
-        schedule: tour_schedule,
-        image: thumb_3x2,
-        name: artistName,
-        themeColor: artistThemeColor
-      })
+        newTours.push({
+          id,
+          title: post_title,
+          subtitle,
+          url,
+          schedule: tour_schedule,
+          image: thumb_3x2,
+          name: artistName,
+          themeColor: artistThemeColor
+        })
 
-      if(toursDataCount-1 == index || nextCount-1 == index){
-        if(toursDataCount-1 == index){
-          dispatch(setToursAllLoaded(true))
+        if(toursDataCount-1 == index || nextCount-1 == index){
+          if(toursDataCount-1 == index){
+            dispatch(setToursAllLoaded(true))
+          }
+          break
         }
-        break
       }
       index++
     }
@@ -236,26 +240,28 @@ export const loadAlbumsList = (count) => (dispatch, getState) => {
     let index = 0
 
     for(let key in albumsData){
-      let album = albumsData[key]
-      let artistName = artistData[album.artist_id].name
+      if(albumsData.hasOwnProperty(key)){
+        let album = albumsData[key]
+        let artistName = artistData[album.artist_id].name
 
-      let {id, post_title, url_friendly_name, thumb_1x1 } = album
-      let url = Site + '/Music/' + url_friendly_name
+        let {id, post_title, url_friendly_name, thumb_1x1 } = album
+        let url = Site + '/Music/' + url_friendly_name
 
-      newAlbums.push({
-        id,
-        title: post_title,
-        url,
-        image: thumb_1x1,
-        name: artistName
-      })
+        newAlbums.push({
+          id,
+          title: post_title,
+          url,
+          image: thumb_1x1,
+          name: artistName
+        })
 
-      if(albumsDataCount-1 == index || nextCount-1 == index){
-        if(albumsDataCount-1 == index){
+        if(albumsDataCount-1 == index || nextCount-1 == index){
+          if(albumsDataCount-1 == index){
 
-          dispatch(setAlbumsAllLoaded(true))
+            dispatch(setAlbumsAllLoaded(true))
+          }
+          break
         }
-        break
       }
       index++
     }
@@ -306,7 +312,6 @@ export const loadHotTracksList = (count) => (dispatch, getState) => {
               }
               break
             }
-
           }
       index++
     }
