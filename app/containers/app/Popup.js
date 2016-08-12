@@ -1,7 +1,28 @@
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
 import { redirect } from '../../actions/'
-import Popup from '../../transitions/app/Popup'
+import PopupComponent from '../../transitions/app/Popup'
+
+class Popup extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      key: 0
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(typeof nextProps.children !== 'undefined' && typeof this.props.children !== 'undefined' && typeof nextProps.children.props !== 'undefined' && typeof this.props.children.props !== 'undefined' && nextProps.children.props.params.item != this.props.children.props.params.item){
+      this.setState({key: this.state.key+1})
+    }
+  }
+
+
+  render() {
+    return <PopupComponent reloadKey={this.state.key} {...this.props} />
+  }
+}
 
 
 const mapStateToProps = (state) => {

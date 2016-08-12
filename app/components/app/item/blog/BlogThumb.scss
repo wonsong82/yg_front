@@ -1,10 +1,12 @@
 @import '../../../variable';
 
-.page-grid .BlogThumb {
+@mixin blog-thumb {
   width: getGridWidth(6);
-  box-shadow: $shadow2dp;
   background: #fff;
   position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  @include card;
 
   .header {
     padding: 20px;
@@ -18,6 +20,7 @@
         color: rgba(0,0,0, $opacity--primary);
         transition: color 0.3s ease;
         will-change: color;
+        overflow: hidden;
       }
       &:hover, &:active {
         h6 {
@@ -107,14 +110,23 @@
 
 }
 
-@media (max-width: $maxWidth--6-10) {
-.page-grid .BlogThumb {
-
+@mixin blog-thumb--xl {
+  @include blog-thumb;
+  width: getGridWidth(6);
 }
+
+@mixin blog-thumb--lg {
+  @include blog-thumb;
+  width: getGridWidth(6);
 }
 
-@media (max-width: $maxWidth--4-10) {
-.page-grid .BlogThumb {
+@mixin blog-thumb--md {
+  @include blog-thumb;
+  width: getGridWidth(6);
+}
+
+@mixin blog-thumb--sm {
+  @include blog-thumb;
   width: getGridWidth(4);
 
   .images {
@@ -128,23 +140,81 @@
     }
   }
 }
-}
 
-@media (max-width: $maxWidth--2-10) {
-.page-grid .BlogThumb {
+
+@mixin blog-thumb--xs {
+  @include blog-thumb;
+  $height: 235px;
+  $imgHeight: 157px;
   width: getGridWidth(2);
-
+  height: $height;
+  .header {
+    position: absolute;
+    padding: 15px;
+    width: getGridWidth(2);
+    height: $height - $imgHeight;
+    bottom: 0;
+    left: 0;
+    .title {
+      height: 36px;
+      overflow: hidden;
+      h6 {
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+    .by, .socialLinks {
+      display: none;
+    }
+    .date {
+      line-height: 18px;
+    }
+  }
   .images {
+    .image-3x2 {
+      display: block;
+      width: getGridWidth(2);
+      height: $imgHeight;
+    }
     .image-2x1 {
       display: none;
       width: getGridWidth(2);
       height: getGridWidth(1);
     }
     .image-1x1 {
-      display: block;
+      display: none;
       width: getGridWidth(2);
       height: getGridWidth(2);
     }
   }
-}
+  .text, .read-more {
+    display: none;
+  }
+
+  &.no-image {
+    border-bottom: 20px solid #fff;
+    overflow: hidden;
+    .header {
+      position: relative;
+      height: auto;
+      bottom: auto;
+      left: auto;
+      .title {
+        height: auto;
+      }
+    }
+    .spacer {
+      display: none;
+    }
+    .text {
+      word-break: break-all;
+      display: block;
+      overflow: hidden;
+      padding: 15px;
+      padding-top: 13px;
+      position: relative;
+    }
+
+
+  }
 }

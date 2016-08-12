@@ -1,0 +1,150 @@
+@import '../../variable.scss';
+@import '../item/blog/BlogThumb.scss';
+
+.App .Popup .BlogLayout {
+  padding-bottom: 100px;
+
+  .Blog {
+    width: getGridWidth(6);
+    margin: 0 auto 45px;
+    .header {
+      position: relative;
+      margin-bottom: 25px;
+      .title {
+        font: 400 20px/30px 'Klavika', sans-serif;
+        opacity: $opacity--primary;
+        margin-bottom: 20px;
+      }
+      .by {
+        display: block;
+        font: 400 18px/24px 'Klavika', sans-serif;
+        opacity: $opacity--title;
+        margin-bottom: 20px;
+      }
+      .date {
+        display: block;
+        font: 400 14px/24px 'Klavika', sans-serif;
+        opacity: $opacity--caption;
+      }
+      .socialLinks {
+        position: absolute;
+        display: block;
+        bottom: 0;
+        right: 0;
+        a {
+          display: inline-block;
+          padding-left: 15px;
+          margin-left: 15px;
+          position: relative;
+          line-height: 24px;
+          span {
+            font-size: 14px;
+            line-height: 18px;
+            vertical-align: middle;
+            opacity: $opacity--caption;
+            transition: color 0.3s ease;
+            will-change: color;
+            &:hover, &:active {
+              opacity: $opacity--sub;
+            }
+          }
+          & + a:before {
+            content: " ";
+            background: rgba(0,0,0, $opacity--line1);
+            display: block;
+            width: 1px;
+            height: 90%;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+      }
+    }
+    .images {
+      .image-1x1 {
+        display: block;
+        width: getGridWidth(6);
+        height: getGridWidth(6);
+      }
+      margin-bottom: 25px;
+    }
+    .spacer {
+      background: rgba(0,0,0, $opacity--line1);
+      display: block;
+      box-sizing: border-box;
+      height: 1px;
+      margin: 45px 0;
+    }
+    .content {
+      p {
+        font: 400 16px/28px 'Klavika', sans-serif;
+        opacity: $opacity--caption;
+      }
+    }
+  }
+
+  .related-container {
+    border-top: 1px solid rgba(0,0,0, $opacity--line1);
+    display: block;
+    padding-top: 45px;
+    width: getGridWidth(6) + $gridGap;
+    margin: 0 auto;
+    > h6 {
+      font: 500 16px/24px 'Klavika', sans-serif;
+      opacity: $opacity--primary;
+      margin: 0 5px 20px;
+    }
+    .posts {
+      &:after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+      li {
+        float: left;
+        margin: 5px;
+        .BlogThumb {
+          @include blog-thumb--xs;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:  $width--sm) {
+  .App .Popup .BlogLayout {
+    .Blog {
+      width: getGridWidth(4);
+      .images {
+        .image-1x1 {
+          display: block;
+          width: getGridWidth(4);
+          height: getGridWidth(4);
+        }
+      }
+    }
+    .related-container {
+      width: getGridWidth(4) + $gridGap;
+    }
+  }
+}
+
+@media (max-width: $width--xs) {
+  .App .Popup .BlogLayout {
+    .Blog {
+      width: getGridWidth(2);
+      .images {
+        .image-1x1 {
+          display: block;
+          width: getGridWidth(2);
+          height: getGridWidth(2);
+        }
+      }
+    }
+    .related-container {
+      width: getGridWidth(2) + $gridGap;
+    }
+  }
+}
+

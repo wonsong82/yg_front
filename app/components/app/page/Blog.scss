@@ -1,5 +1,5 @@
 @import '../../variable.scss';
-
+@import '../item/blog/BlogThumb.scss';
 
 $pagePadding--top: 70px;
 $pagePadding--bottom: 100px;
@@ -28,6 +28,9 @@ $pagePadding--bottom: 100px;
 
       li {
         width: 100%;
+        .BlogThumb {
+          @include blog-thumb--xl;
+        }
 
         &+li {
           margin-top: 8px;
@@ -101,6 +104,14 @@ $pagePadding--bottom: 100px;
   .main {
     width: getGridWidth(4);
 
+    .blog-list {
+      li {
+        .BlogThumb {
+          @include blog-thumb--sm;
+        }
+      }
+    }
+
   }
 
   .side {
@@ -115,6 +126,14 @@ $pagePadding--bottom: 100px;
 
   .main {
     width: getGridWidth(2);
+
+    .blog-list {
+      li {
+        .BlogThumb {
+          @include blog-thumb--xs;
+        }
+      }
+    }
   }
 
   .side {
