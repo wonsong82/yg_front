@@ -22,7 +22,7 @@ class SearchBox extends Component {
   }
 
   render() {
-    
+
     return (
       <div className={"SearchBox"}>
         <h3>searchBox</h3>

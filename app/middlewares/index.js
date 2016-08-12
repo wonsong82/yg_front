@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import { browserHistory } from 'react-router'
 import { toArray, excerptStr, getData, getFacebookShareLink, getTwitterShareLink, loadImages } from '../functions/'
 import { Site } from '../../env'
 
@@ -15,6 +16,10 @@ export const handleResponsiveChange = () => (dispatch, getState) => {
       dispatch(setResponsiveMode(mode))
     }
   })
+}
+
+export const redirect = to => () => {
+  to && browserHistory.push(to)
 }
 
 
@@ -34,7 +39,9 @@ export const toggleMainMenu = () => {
 }
 
 
-
+/***
+ * PAGE
+ */
 // PAGE:BLOG
 import { setBlogsList, setHotPostsList, setPostsAllLoaded, setHotPostsAllLoaded } from '../actions/'
 
@@ -52,15 +59,17 @@ export const loadBlogsList = ( count ) => (dispatch, getState) => {
     for( let key in postsData ) {
       if (postsData.hasOwnProperty(key)) {
         let post = postsData[key]
-        let {id, post_title, url_friendly_name, excerpt, post_date, main_image, thumb_2x1} = post
+        let {id, post_title, url_friendly_name, excerpt, post_date, main_image, thumb_2x1, thumb_3x2} = post
         let url = Site + '/blog/' + url_friendly_name
+        let path = '/blog/' + url_friendly_name
         newPosts.push({
           id,
           title: excerptStr(post_title),
-          url,
+          url: path,
           text: excerpt,
           date: post_date,
           image: main_image || false,
+          thumb_3x2: thumb_3x2 || main_image || false,
           thumb_2x1: thumb_2x1 || main_image || false,
           facebookShareLink: getFacebookShareLink(url),
           twitterShareLink: getTwitterShareLink(url),
@@ -99,7 +108,7 @@ export const loadHotPostsList = ( count ) => (dispatch, getState) => {
       if (postsData.hasOwnProperty(key)) {
         let post = postsData[key]
         let { id, post_title, url_friendly_name, excerpt, post_date } = post
-        let url = Site + '/blog/' + url_friendly_name
+        let url = '/blog/' + url_friendly_name
         newPosts.push({
           id,
           title: excerptStr(post_title, 90),
@@ -174,7 +183,7 @@ export const loadEventsList = ( count ) => (dispatch, getState) => {
 }
 
 //PAGE: TOUR
-import { setToursList, setToursAllLoaded } from '../actions'
+import { setToursList, setToursAllLoaded } from '../actions/'
 export const loadToursList = ( count ) => (dispatch, getState) => {
   const state = getState();
   if(state.page.type = 'tour'){
@@ -319,6 +328,50 @@ export const loadHotTracksList = (count) => (dispatch, getState) => {
   }
 }
 
+/***
+ * POPUP
+ */
+// POPUP:BLOG
+import { setBlogPopup } from '../actions/'
+export const loadBlogPopup = ( name ) => (dispatch, getState) => {
+  const state = getState()
+  if(state.popup.type === 'blog'){
+    let thisBlog = toArray(state.data.blogs.contents.posts)
+      .filter( e => e.url_friendly_name == name )
+    if(thisBlog.length){
+      let {id, post_title, url_friendly_name, post_date, main_image, post_content, related_blog } = thisBlog[0]
+      let url = Site + '/blog/' + url_friendly_name
+      const blog = {
+        title: post_title,
+        date: post_date,
+        image: main_image || false,
+        content: post_content,
+        facebookShareLink: getFacebookShareLink(url),
+        twitterShareLink: getTwitterShareLink(url)
+      }
+      const related = related_blog.map( id => {
+        let e = state.data.blogs.contents.posts[id]
+        let path = '/blog/' + e.url_friendly_name
+        return {
+          id: e.id,
+          title: e.post_title,
+          url: path,
+          text: excerptStr(e.post_title),
+          date: e.post_date,
+          image: e.main_image || false,
+          thumb_2x1: e.thumb_2x1 || e.main_image || false,
+          thumb_3x2: e.thumb_3x2 || e.main_image || false,
+          facebookShareLink: getFacebookShareLink(Site + path),
+          twitterShareLink: getTwitterShareLink(Site + path)
+        }
+      })
+      dispatch(setBlogPopup(blog, related))
+    }
+  }
+}
+
+
+
 
 import {setProductsList , setProductsAllLoaded} from '../actions/'
 export const loadProductsList = (count) => (dispatch, getState) => {
@@ -461,7 +514,7 @@ export const getToursData = () => (dispatch, getState) =>getData('/api/getTours'
 import {requestMusics, receiveMusics} from '../actions'
 export const getMusicsData = () => (dispatch, getState) =>getData('/api/getMusics', getState().data.musics, requestMusics, receiveMusics, dispatch, fetch)
 
-// DATA:MUSIC
+// DATA:SHOP
 import {requestShops, receiveShops} from '../actions'
 export const getShopsData = () => (dispatch, getState) =>getData('/api/getShops', getState().data.shops, requestShops, receiveShops, dispatch, fetch)
 

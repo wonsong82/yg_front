@@ -141,4 +141,20 @@ export const shopInitState = {
 }
 
 
+
+// 팝업
+export const blogPopupInitState = {
+  type: 'blog',
+  title: '',
+  date: '',
+  facebookShareLink: '',
+  twitterShareLink: '',
+  image: false,
+  content: '',
+  related: []
+}
+
+
+
+
 export default initialState

@@ -157,26 +157,26 @@ class MainMenu extends Component {
         </TransitionGroup>
 
 
-          <ScrollArea className="links"
-            speed={0.8}
-            horizontal={false}
-            smoothScrolling={true}
-            contentClassName="content">
+        <ScrollArea className="links"
+          speed={0.8}
+          horizontal={false}
+          smoothScrolling={true}
+          contentClassName="content">
 
-            <div className="static" ref="static">
-              {staticLinks}
-            </div>
+          <div className="static" ref="static">
+            {staticLinks}
+          </div>
 
-            <div className="artists" ref="artists"
-                 onMouseEnter={this.onArtistsEnter.bind(this)}
-                 onMouseLeave={this.onArtistsLeave.bind(this)}
-                 onMouseMove={this.onArtistsOver.bind(this)} >
-              {artistLinks}
-            </div>
+          <div className="artists" ref="artists"
+               onMouseEnter={this.onArtistsEnter.bind(this)}
+               onMouseLeave={this.onArtistsLeave.bind(this)}
+               onMouseMove={this.onArtistsOver.bind(this)} >
+            {artistLinks}
+          </div>
 
 
 
-          </ScrollArea>
+        </ScrollArea>
 
 
 

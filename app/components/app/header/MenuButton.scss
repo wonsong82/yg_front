@@ -1,4 +1,4 @@
-.App .Header .MenuButton {
+.MenuButton {
   position:relative;
   width: 28px;
   height: 28px;
@@ -54,6 +54,10 @@
       width: 14px;
       transform-origin: 50% 50%;
       transform: rotate(-90deg) translate(1px, 3px);
+    }
+
+    &:hover {
+      transform: rotate(-225deg);
     }
   }
 }

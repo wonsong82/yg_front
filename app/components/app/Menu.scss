@@ -107,7 +107,7 @@
   }
 }
 
-@media (max-width: 1279px) {
+@media (max-width: $maxWidth--8-10) {
 .App .Menu {
   .menu-bg, .links {
     position: absolute;
@@ -118,7 +118,7 @@
   }
 }}
 
-@media (max-width: 1023px) {
+@media (max-width: $maxWidth--6-10) {
 .App .Menu {
   .menu-bg, .links {
     position: absolute;
@@ -129,7 +129,7 @@
   }
 }}
 
-@media (max-width: 767px) {
+@media (max-width: $maxWidth--4-10) {
 .App .Menu {
   .menu-bg, .links {
     position: absolute;
@@ -168,7 +168,7 @@
   }
 }}
 
-@media (max-width: 479px) {
+@media (max-width: 511px) {
 .App .Menu {
   .menu-bg, .links {
     position: absolute;

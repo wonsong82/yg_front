@@ -3,21 +3,21 @@ import { Route, IndexRoute } from 'react-router'
 
 import App from './containers/App'
 
+import StaticPage from './components/app/page/Static'
 import PromotionPage from './components/app/page/Promotion'
+
 import ShopPage from './containers/app/page/Shop'
 import MusicPage from './containers/app/page/Music'
 import TourPage from './containers/app/page/Tour'
 import EventPage from './containers/app/page/Event'
 import BlogPage from './containers/app/page/Blog'
 import ArtistPage from './components/app/page/Artist'
-import StaticPage from './components/app/page/Static'
 
-
-import ShopItem from './components/app/item/Shop'
-import MusicItem from './components/app/item/Music'
-import TourItem from './components/app/item/Tour'
-import EventItem from './components/app/item/Event'
-import BlogItem from './components/app/item/blog/BlogDetail'
+import BlogPopup from './containers/app/popup/Blog'
+import EventPopup from './components/app/popup/Event'
+import TourPopup from './components/app/popup/Tour'
+import MusicPopup from './components/app/popup/Music'
+import ShopPopup from './components/app/popup/Shop'
 
 
 export default (
@@ -29,59 +29,59 @@ export default (
     
     {/*Promotion*/}
     <Route path="promotion/shop/:item"
-           components={{page: PromotionPage, popup: ShopItem}} />
+           components={{page: PromotionPage, popup: ShopPopup}} />
     <Route path="promotion/music/:item"
-           components={{page: PromotionPage, popup: MusicItem}} />
+           components={{page: PromotionPage, popup: MusicPopup}} />
     <Route path="promotion/tour/:item"
-           components={{page: PromotionPage, popup: TourItem}} />
+           components={{page: PromotionPage, popup: TourPopup}} />
     <Route path="promotion/event/:item"
-           components={{page: PromotionPage, popup: EventItem}} />
+           components={{page: PromotionPage, popup: EventPopup}} />
     <Route path="promotion/blog/:item"
-           components={{page: PromotionPage, popup: BlogItem}} />
+           components={{page: PromotionPage, popup: BlogPopup}} />
 
     {/*Shop*/}
     <Route path="shop"
            components={{page: ShopPage}} />
     <Route path="shop/:item"
-           components={{page: ShopPage, popup: ShopItem}} />
+           components={{page: ShopPage, popup: ShopPopup}} />
 
     {/*Music*/}
     <Route path="music"
            components={{page: MusicPage}} />
     <Route path="music/:item"
-           components={{page: MusicPage, popup: MusicItem}} />
+           components={{page: MusicPage, popup: MusicPopup}} />
 
     {/*Tour*/}
     <Route path="tour"
            components={{page: TourPage}} />
     <Route path="tour/:item"
-           components={{page: TourPage, popup: TourItem}} />
+           components={{page: TourPage, popup: TourPopup}} />
 
     {/*Event*/}
     <Route path="event"
            components={{page: EventPage}} />
     <Route path="event/:item"
-           components={{page: EventPage, popup: EventItem}} />
+           components={{page: EventPage, popup: EventPopup}} />
 
     {/*Blog*/}
     <Route path="blog"
            components={{page: BlogPage}} />
     <Route path="blog/:item"
-           components={{page: BlogPage, popup: BlogItem}} />
+           components={{page: BlogPage, popup: BlogPopup}} />
 
     {/*artist*/}
     <Route path="artist/:name"
            components={{page: ArtistPage}} />
     <Route path="artist/:name/shop/:item"
-           components={{page: ArtistPage, popup: ShopItem}} />
+           components={{page: ArtistPage, popup: ShopPopup}} />
     <Route path="artist/:name/music/:item"
-           components={{page: ArtistPage, popup: MusicItem}} />
+           components={{page: ArtistPage, popup: MusicPopup}} />
     <Route path="artist/:name/tour/:item"
-           components={{page: ArtistPage, popup: TourItem}} />
+           components={{page: ArtistPage, popup: TourPopup}} />
     <Route path="artist/:name/event/:item"
-           components={{page: ArtistPage, popup: EventItem}} />
+           components={{page: ArtistPage, popup: EventPopup}} />
     <Route path="artist/:name/blog/:item"
-           components={{page: ArtistPage, popup: BlogItem}} />
+           components={{page: ArtistPage, popup: BlogPopup}} />
 
     <Route path="*"
            components={{page: StaticPage}} />

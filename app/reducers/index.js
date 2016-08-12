@@ -81,7 +81,9 @@ import { INIT_PAGE, SET_BLOGS_LIST, SET_HOT_POSTS_LIST, SET_POSTS_ALL_LOADED, SE
                     SET_PRODUCTS_LIST_ON_SEARCH, SEARCHING_REQUEST
 } from '../actions/'
 
+
 import { blogInitState , eventInitState, tourInitState, musicInitState, shopInitState} from '../initialState'
+
 const page = ( state = initState.page, action ) => {
   switch(action.type){
     case INIT_PAGE:
@@ -201,6 +203,33 @@ const page = ( state = initState.page, action ) => {
   }
 }
 
+
+
+// POPUP
+import { INIT_POPUP, SET_BLOG_POPUP } from '../actions/'
+import { blogPopupInitState } from '../initialState'
+const popup = ( state = initState.popup, action ) => {
+  switch(action.type){
+
+    case INIT_POPUP:
+      switch(action.popupType){
+        case 'Blog':
+          return Object.assign({}, state, blogPopupInitState)
+        default:
+          return state
+      }
+
+    case SET_BLOG_POPUP:
+      const { title, date, image, content, facebookShareLink, twitterShareLink } = action.blog
+      return Object.assign({}, state, {
+        title, date, image, content, facebookShareLink, twitterShareLink,
+        related: action.related
+      })
+
+    default:
+      return state
+  }
+}
 
 
 
@@ -349,184 +378,7 @@ const data = ( state = initState.data , action) => {
 
 
 
-/*// Tours
- import { REQUEST_TOURS, RECEIVE_TOURS } from '../actions/'
- const tours = ( state = initState.data.tours, action) => {
- switch(action.type){
- case REQUEST_TOURS:
- return Object.assign({}, state, {
- isFetching: true
- })
- case RECEIVE_TOURS:
- return Object.assign({}, state, {
- isFetching: false,
- loaded: true,
- list: action.list
- })
- default:
- return state
- }
- }
 
- //Albums
- import { REQUEST_ALBUMS, RECEIVE_ALBUMS} from '../actions'
- const albums = ( state = initState.albums , action) => {
- switch(action.type){
- case REQUEST_ALBUMS:
- return Object.assign({}, state, {
- isFetching: true
- })
- case RECEIVE_ALBUMS:
- return Object.assign({}, state, {
- isFetching: false,
- loaded: true,
- list: action.list
- })
- default:
- return state
- }
- }*/
-
-
-/*
-//Events
-import { REQUEST_EVENTS, RECEIVE_EVENTS} from '../actions'
-const events = ( state = initState.events , action) => {
-  switch(action.type){
-    case REQUEST_EVENTS:
-      return Object.assign({}, state, {
-        isFetching: true
-      })
-    case RECEIVE_EVENTS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        loaded: true,
-        list: action.list
-      })
-    default:
-      return state
-  }
-}
-
-
-//MUSICS
-import { REQUEST_MUSICS, RECEIVE_MUSICS} from '../actions'
-const musics = ( state = initState.musics , action) => {
-  switch(action.type){
-    case REQUEST_MUSICS:
-      return Object.assign({}, state, {
-        isFetching: true
-      })
-    case RECEIVE_MUSICS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        loaded: true,
-        list: action.list
-      })
-    default:
-      return state
-  }
-}
-
-
-//Products
-import { REQUEST_PRODUCTS, RECEIVE_PRODUCTS} from '../actions'
-const products = ( state = initState.products , action) => {
-  switch(action.type){
-    case REQUEST_PRODUCTS:
-      return Object.assign({}, state, {
-        isFetching: true
-      })
-    case RECEIVE_PRODUCTS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        loaded: true,
-        list: action.list
-      })
-    default:
-      return state
-  }
-}
-
-//Promotions
-import { REQUEST_PROMOTIONS, RECEIVE_PROMOTIONS} from '../actions'
-const promotions = ( state = initState.promotions , action) => {
-  switch(action.type){
-    case REQUEST_PROMOTIONS:
-      return Object.assign({}, state, {
-        isFetching: true
-      })
-    case RECEIVE_PROMOTIONS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        loaded: true,
-        list: action.list
-      })
-    default:
-      return state
-  }
-}
-
-
-//Hot Tracks
-import { REQUEST_HOTTRACKS, RECEIVE_HOTTRACKS} from '../actions'
-const hottracks = ( state = initState.hottracks , action) => {
-  switch(action.type){
-    case REQUEST_HOTTRACKS:
-      return Object.assign({}, state, {
-        isFetching: true
-      })
-    case RECEIVE_HOTTRACKS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        loaded: true,
-        list: action.list
-      })
-    default:
-      return state
-  }
-}
-
-//Hot Blogs
-import { REQUEST_HOTBLOGS, RECEIVE_HOTBLOGS} from '../actions'
-const hotblogs = ( state = initState.hotblogs , action) => {
-  switch(action.type){
-    case REQUEST_HOTBLOGS:
-      return Object.assign({}, state, {
-        isFetching: true
-      })
-    case RECEIVE_HOTBLOGS:
-      return Object.assign({}, state, {
-        isFetching: false,
-        loaded: true,
-        list: action.list
-      })
-    default:
-      return state
-  }
-}
-
-
-
-//Categories
-import { REQUEST_PRODUCT_CATEGORIES, RECEIVE_PRODUCT_CATEGORIES} from '../actions'
-const product_categories = ( state = initState.product_categories , action) => {
-  switch(action.type){
-    case REQUEST_PRODUCT_CATEGORIES:
-      return Object.assign({}, state, {
-        isFetching: true
-      })
-    case RECEIVE_PRODUCT_CATEGORIES:
-      return Object.assign({}, state, {
-        isFetching: false,
-        loaded: true,
-        list: action.list
-      })
-    default:
-      return state
-  }
-}
-*/
 
 
 
@@ -551,7 +403,7 @@ const signup = ( state = initState.signup, action ) => {
 
 
 
-const appReducer = combineReducers({ mainMenu, app, signup, data, page})
+const appReducer = combineReducers({ mainMenu, app, signup, data, page, popup})
 export default appReducer
 
 

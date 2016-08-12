@@ -1,0 +1,87 @@
+@import '../variable';
+
+.App .Popup {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  .popup-container {
+    position: absolute;
+    top: $frameSizeTop;
+    left: $frameSize;
+    right: $frameSize;
+    bottom: $frameSize;
+    background: #ff6600;
+
+    .header {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 20px;
+      text-align: right;
+
+      .close-button {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    .contents {
+      position: absolute;
+      top: 48px + 34px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+@media (max-width: $maxWidth--8-10) {
+.App .Popup {
+
+  .popup-container {
+    top: $frameSizeTop--lg;
+    left: $frameSize--lg;
+    right: $frameSize--lg;
+    bottom: $frameSize--lg;
+  }
+}}
+
+@media (max-width: $maxWidth--6-10) {
+.App .Popup {
+
+  .popup-container {
+    top: $frameSizeTop--md;
+    left: $frameSize--md;
+    right: $frameSize--md;
+    bottom: $frameSize--md;
+  }
+}}
+
+@media (max-width: $maxWidth--4-10) {
+.App .Popup {
+
+  .popup-container {
+    top: $frameSizeTop--sm;
+    left: $frameSize--sm;
+    right: $frameSize--sm;
+    bottom: $frameSize--sm;
+  }
+}}
+
+@media (max-width: $maxWidth--2-10) {
+.App .Popup {
+
+  .popup-container {
+    top: $frameSizeTop--xs;
+    left: $frameSize--xs;
+    right: $frameSize--xs;
+    bottom: $frameSize--xs;
+  }
+}}
+

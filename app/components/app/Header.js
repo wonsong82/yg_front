@@ -1,7 +1,7 @@
 require('./Header.scss')
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
-import MenuButton from '../../components/app/header/MenuButton'
+import MenuButton from '../../components/lib/button/MenuButton'
 
 
 
