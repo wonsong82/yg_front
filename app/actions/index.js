@@ -11,6 +11,7 @@ export const setResponsiveMode = width => ({ type: SET_RESPONSIVE_MODE, width })
 export const startApp = () => ({ type: START_APP })
 export const setClickPosition = ( x, y ) => ({ type: SET_CLICK_POSITION, x, y })
 export const handleResponsiveChange = Middlewares.handleResponsiveChange
+export const redirect = Middlewares.redirect
 
 
 // MAIN MENU
@@ -66,6 +67,21 @@ export const SET_TOURS_ALL_LOADED = 'set_tours_all_loaded'
 export const setToursList = tours => ({type: SET_TOURS_LIST, tours})
 export const setToursAllLoaded = bool => ({type: SET_TOURS_ALL_LOADED, bool})
 export const loadToursList = Middlewares.loadToursList
+
+
+/***
+ * POPUP
+ */
+// POPUP
+export const INIT_POPUP = 'init_popup'
+export const initPopup = popupType => ({ type: INIT_POPUP, popupType })
+
+// POPUP:BLOG
+export const SET_BLOG_POPUP = 'set_blog_popup'
+export const setBlogPopup = ( blog, related ) => ({type: SET_BLOG_POPUP, blog, related})
+export const loadBlogPopup = Middlewares.loadBlogPopup
+
+
 
 
 /**

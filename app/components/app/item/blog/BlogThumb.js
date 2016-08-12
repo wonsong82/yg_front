@@ -5,7 +5,7 @@ import RouterLink from '../../../../containers/lib/link/RouterLink'
 import Image from '../../../../components/lib/image/Image'
 
 
-const BlogThumb = ({ title, url, text, date, image, facebookShareLink, twitterShareLink, thumb_2x1 }) => (
+const BlogThumb = ({ title, url, text, date, image, facebookShareLink, twitterShareLink, thumb_3x2, thumb_2x1 }) => (
 
 
   <div className="BlogThumb">
@@ -20,7 +20,7 @@ const BlogThumb = ({ title, url, text, date, image, facebookShareLink, twitterSh
         <AnchorLink href={facebookShareLink} target="_blank">
           <span className="icon-facebook" />
         </AnchorLink>
-        <AnchorLink href={facebookShareLink} target="_blank">
+        <AnchorLink href={twitterShareLink} target="_blank">
           <span className="icon-twitter" />
         </AnchorLink>
       </div>
@@ -30,6 +30,7 @@ const BlogThumb = ({ title, url, text, date, image, facebookShareLink, twitterSh
     <div className="images">
       <Image className="image-1x1" color="rgba(0,0,0,.30)" src={image}/>
       <Image className="image-2x1" color="rgba(0,0,0,.30)" src={thumb_2x1}/>
+      <Image className="image-3x2" color="rgba(0,0,0,.30)" src={thumb_3x2}/>
     </div>
     :
     <span className="spacer" />

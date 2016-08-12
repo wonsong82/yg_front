@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
 
-import { initPage, loadBlogsList, loadHotPostsList, setThemeColor } from '../../../actions/'
+import { initPage, loadBlogsList, loadHotPostsList } from '../../../actions/'
 import BlogComponent from '../../../components/app/page/Blog'
 
 
@@ -18,9 +18,6 @@ class Blog extends Component {
     initPage('Blog')
     loadBlogsList(4)
     loadHotPostsList(4)
-    // test
-    //this.props.setThemeColor('#ff6600', '#000000')
-
   }
 
   onViewMoreClick() {
@@ -58,10 +55,7 @@ const mapDispatchToProps = (dispatch) => {
     onHotPostsViewMoreClick: count => { dispatch(loadHotPostsList(count)) },
     initPage: pageType => { dispatch(initPage(pageType)) },
     loadBlogsList: count => { dispatch(loadBlogsList(count)) },
-    loadHotPostsList: count => { dispatch(loadHotPostsList(count)) },
-    // test
-    //setThemeColor: ( bgColor, textColor ) => { dispatch(setThemeColor(bgColor, textColor)) }
-
+    loadHotPostsList: count => { dispatch(loadHotPostsList(count)) }
   }
 }
 
