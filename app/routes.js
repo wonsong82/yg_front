@@ -5,11 +5,12 @@ import App from './containers/App'
 
 import StaticPage from './components/app/page/Static'
 import PromotionPage from './components/app/page/Promotion'
-import BlogPage from './containers/app/page/Blog'
-import EventPage from './containers/app/page/Event'
-import TourPage from './containers/app/page/Tour'
-import MusicPage from './components/app/page/Music'
+
 import ShopPage from './components/app/page/Shop'
+import MusicPage from './containers/app/page/Music'
+import TourPage from './containers/app/page/Tour'
+import EventPage from './containers/app/page/Event'
+import BlogPage from './containers/app/page/Blog'
 import ArtistPage from './components/app/page/Artist'
 
 import BlogPopup from './containers/app/popup/Blog'

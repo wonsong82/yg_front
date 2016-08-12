@@ -1,51 +1,57 @@
 import { connect } from 'react-redux'
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes} from 'react'
 
-import {initPage, loadToursList} from '../../../actions/'
-import TourComponent from '../../../components/app/page/Tour'
+import MusicComponent from '../../../components/app/page/Music'
+import {initPage, loadAlbumsList, loadHotTracksList} from '../../../actions'
 
-class Tour extends Component{
+class Music extends Component{
     constructor(props){
         super(props)
     }
 
-    componentDidMount(){
-        const {initPage, loadToursList} = this.props
-        initPage('Tour')
-        loadToursList(4)
+    componentDidMount() {
+        const { initPage , loadAlbumsList , loadHotTracksList} = this.props
+        initPage('Music')
+        loadAlbumsList(6)
+        loadHotTracksList(6)
     }
 
-    onViewMoreClick(){
-        const { onViewMoreClick } = this.props
-        onViewMoreClick(4)
+    onAlbumViewMoreClick() {
+        const { onAlbumViewMoreClick } = this.props
+        onAlbumViewMoreClick(6)
     }
 
+    onHotTrackViewMoreClick() {
+        const { onHotTrackViewMoreClick } = this.props
+        onHotTrackViewMoreClick(6)
+    }
 
     render(){
-        return <TourComponent {...this.props}
-                              onViewMoreClick={this.onViewMoreClick.bind(this)}
+        return <MusicComponent
+            {...this.props}
+            onAlbumViewMoreClick={this.onAlbumViewMoreClick.bind(this)}
+            onHotTrackViewMoreClick={this.onHotTrackViewMoreClick.bind(this)}
         />
     }
 }
 
 
-const mapStateToProps = (state) => {
-    const { tours , toursAllLoaded} = state.page
-
+const mapStateProps = state => {
+    const { albums, hotTracks, albumsAllLoaded, hotTracksAllLoaded } = state.page
     return {
-        tours,
-        toursAllLoaded
+        albums,
+        hotTracks,
+        albumsAllLoaded,
+        hotTracksAllLoaded
     }
 }
 
-
-const mapDispatchToProps = (dispatch) =>({
-    initPage: pageType => { dispatch(initPage(pageType))},
-    loadToursList: count => { dispatch(loadToursList(count))},
-    onViewMoreClick: count => { dispatch(loadToursList(count))}
+const mapDispatchToProps = dispatch => ({
+    initPage: pageType => {dispatch(initPage(pageType))},
+    loadAlbumsList: count => {dispatch(loadAlbumsList(count))},
+    loadHotTracksList: count => {dispatch(loadHotTracksList(count))},
+    onAlbumViewMoreClick: count => {dispatch(loadAlbumsList(count))},
+    onHotTrackViewMoreClick: count => {dispatch(loadHotTracksList(count))}
 })
 
-
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Tour)
+export default connect(mapStateProps, mapDispatchToProps)(Music)
