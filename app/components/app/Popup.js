@@ -10,6 +10,20 @@ class Popup extends Component {
   }
 
 
+  preventOtherScrolls(e){
+    e.preventDefault()
+  }
+
+
+  componentDidMount() {
+    $(this.refs.popup).on('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
+  }
+  componentWillUnmount() {
+    $(this.refs.popup).off('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
+  }
+
+
+
   onCloseClick(e){
     e.preventDefault()
     this.props.onCloseClick()
@@ -20,7 +34,7 @@ class Popup extends Component {
     const { children } = this.props
 
     return (
-      <div className="Popup">
+      <div className="Popup" ref="popup">
 
         <div className="popup-container">
           <div className="header">

@@ -13,7 +13,7 @@ class Popup extends Component {
     return (
       <TransitionGroup>
         {this.props.children &&
-        <Transition {...this.props} />
+        <Transition key={this.props.reloadKey} {...this.props} />
         }
       </TransitionGroup>
     )
@@ -48,14 +48,18 @@ class Transition extends Component {
       })
       .velocity('stop', true)
       .velocity({
-        scaleX: 0,
-        scaleY: 0
+        scaleX: [ 0, 'easeInOutQuart' ],
+        scaleY: [ 0, 'easeInOutQuart' ],
+        opacity: [ 0, 'easeOutQuart' ]
       })
       .velocity('finish')
-      .velocity('reverse', {
-        duration: 500,
-        queue: false,
-        easing: 'easeInOutQuart'
+      .velocity({
+        scaleX: [ 1, 'easeInOutQuart' ],
+        scaleY: [ 1, 'easeInOutQuart' ],
+        opacity: [ 1, 'easeOutQuart' ]
+      }, {
+        duration: 600,
+        queue: false
       })
   }
 
@@ -64,12 +68,11 @@ class Transition extends Component {
     $(findDOMNode(popup))
       .velocity('stop', true)
       .velocity({
-        scaleX: 0,
-        scaleY: 0
+        opacity: 0
       },{
         duration: 500,
         queue: false,
-        easing: 'easeInOutQuart',
+        easing: 'easeOutQuart',
         complete: () => callback()
       })
   }

@@ -14,9 +14,9 @@
     left: $frameSize;
     right: $frameSize;
     bottom: $frameSize;
-    background: #ff6600;
+    background: $bgColor;
 
-    .header {
+    > .header {
       position: relative;
       display: block;
       box-sizing: border-box;
@@ -31,7 +31,7 @@
       }
     }
 
-    .contents {
+    > .contents {
       position: absolute;
       top: 48px + 34px;
       left: 0;

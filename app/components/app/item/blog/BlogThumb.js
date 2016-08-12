@@ -8,7 +8,7 @@ import Image from '../../../../components/lib/image/Image'
 const BlogThumb = ({ title, url, text, date, image, facebookShareLink, twitterShareLink, thumb_3x2, thumb_2x1 }) => (
 
 
-  <div className="BlogThumb">
+  <RouterLink className={image? 'BlogThumb': 'BlogThumb no-image'} to={url}>
 
     <div className="header">
       <RouterLink className="title" to={url}>
@@ -43,7 +43,7 @@ const BlogThumb = ({ title, url, text, date, image, facebookShareLink, twitterSh
     <RouterLink to={url} className="read-more">Read More</RouterLink>
 
 
-  </div>
+  </RouterLink>
 )
 
 

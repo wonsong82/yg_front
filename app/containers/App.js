@@ -30,6 +30,9 @@ class App extends Component {
         })
         this.props.setThemeColor(themeColor, textColor)
     }
+
+    // 팝업 라우트 핸들러
+    console.log(nextProps)
   }
 
 
@@ -48,7 +51,8 @@ const mapStateToProps = (state) => {
     startApp          : state.app.startApp,
     mainMenuOpened    : state.mainMenu.opened,
     dataLoaded        : state.data.loaded,
-    data              : state.data
+    data              : state.data,
+
   }
 }
 

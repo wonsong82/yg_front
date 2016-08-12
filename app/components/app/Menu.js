@@ -63,6 +63,7 @@ class MainMenu extends Component {
   }
 
   onESCPressed(e){
+    e.stopPropagation()
     if(e.keyCode == 27){
       this.props.onESCPressed()
     }
@@ -144,7 +145,7 @@ class MainMenu extends Component {
 
 
     return (
-      <div className="Menu">
+      <div className="Menu" ref="menu">
 
         <div className="menu-bg"></div>
 
