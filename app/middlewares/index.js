@@ -582,9 +582,8 @@ export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
       return foundInTitle || foundInContent
     })
 
-    setTimeout(function(){
-      dispatch(setProductsListOnSearch(productsData))
-    },1)
+    dispatch(setProductsListOnSearch(productsData))
+
   }
 }
 
