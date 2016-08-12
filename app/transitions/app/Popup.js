@@ -49,15 +49,15 @@ class Transition extends Component {
       })
       .velocity('stop', true)
       .velocity({
-        scaleX: 0,
-        scaleY: 0
+        scaleX: 0.5,
+        scaleY: 0.5
       })
       .velocity('finish')
       .velocity({
         scaleX: 1,
         scaleY: 1
       }, {
-        easing: 'easeInOutQuart',
+        easing: 'easeOutQuart',
         duration: 600,
         queue: false,
         complete: () => {
@@ -71,7 +71,7 @@ class Transition extends Component {
               opacity: 1,
               translateY: 0
             }, {
-              duration: 500,
+              duration: 700,
               easing: 'easeOutQuart'
             })
         }
@@ -79,8 +79,17 @@ class Transition extends Component {
   }
 
   hide( callback ) {
-    const popup = this.refs.popup
-    $(findDOMNode(popup))
+    const popup = $(findDOMNode(this.refs.popup))
+    const contents = $('.contents', popup)
+    contents
+      .velocity('stop', true)
+      .velocity({
+        opacity: 0
+      },{
+        duration: 150,
+        queue: false
+      })
+    popup
       .velocity('stop', true)
       .velocity({
         opacity: 0
