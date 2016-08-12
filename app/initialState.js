@@ -154,7 +154,46 @@ export const blogPopupInitState = {
   related: []
 }
 
+export const eventPopupInitState = {
+  type: 'event',
+  title: '',
+  date: '',
+  facebookShareLink: '',
+  twitterShareLink: '',
+  image: false,
+  content:'',
+  related: []
+}
 
+export const tourPopupInitState = {
+  type: 'tour',
+  startDate: '',
+  endDate: '',
+  name: '',
+  themeColor: '',
+  title: '',
+  subtitle: '',
+  content: '',
+  image: false,
+  facebookShareLink: '',
+  twitterShareLink: '',
+  tourSchedule: []
+}
+
+export const musicPopupInitState = {
+  type: 'music',
+  image: false,
+  title: '',
+  albumPrice: '',
+  salePrice: '',
+  albumProductId: '',
+  name: '',
+  content: '',
+  facebookShareLink: '',
+  twitterShareLink: '',
+  music: [],
+  related: []
+}
 
 
 export default initialState

@@ -1,5 +1,7 @@
 import React from 'react'
 import ViewMore from '../../../components/lib/link/ViewMore'
+import EventThumb from '../../../components/app/item/event/EventThumb'
+
 
 const Event = ({events, eventsAllLoaded, onViewMoreClick}) => (
     <div className="EventLayout">
@@ -11,7 +13,7 @@ const Event = ({events, eventsAllLoaded, onViewMoreClick}) => (
                 events &&
                 events.map( event => (
                     <li key={event.id}>
-                        {event.id}
+                        <EventThumb {...event} />
                     </li>
                 ))
             }

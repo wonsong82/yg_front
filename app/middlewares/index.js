@@ -370,6 +370,139 @@ export const loadBlogPopup = ( name ) => (dispatch, getState) => {
   }
 }
 
+//POPUP:EVENT
+import { setEventPopup }  from '../actions/'
+export const loadEventPopup = (name) => (dispatch, getState) => {
+  const state = getState()
+  if(state.popup.type === 'event'){
+    let thisEvent = toArray(state.data.events.contents.events)
+      .filter( event => event.url_friendly_name == name)
+
+    if(thisEvent.length){
+      let {post_title, url_friendly_name, post_date, main_image, post_content, related_event } = thisEvent[0]
+      let url = Site + '/event/' + url_friendly_name
+      const event = {
+        title: post_title,
+        date: post_date,
+        image: main_image,
+        content: post_content,
+        facebookShareLink: getFacebookShareLink(url),
+        twitterShareLink: getTwitterShareLink(url)
+      }
+
+      const related = related_event.map ( id => {
+        let e = state.data.events.contents.events[id]
+        let themeColor = state.data.artists.contents.artists[e.artist_id].themeColor
+        let path = '/blog/' + e.url_friendly_name
+        return {
+          id: e.id,
+          title: e.post_title,
+          subtitle: e.subtitle,
+          url: path,
+          text: e.excerpt,
+          themeColor: themeColor,
+          image: e.main_image || false,
+          thumb_2x2: e.thumb_2x2 || e.main_image || false
+        }
+      })
+      dispatch(setEventPopup(event, related))
+    }
+  }
+}
+
+
+//POPUP:TOUR
+import { setTourPopup }  from '../actions/'
+export const loadTourPopup = (name) => (dispatch, getState) => {
+  const state = getState()
+  if(state.popup.type === 'tour'){
+    let thisTour = toArray(state.data.tours.contents.tours)
+      .filter( tour => tour.url_friendly_name == name)
+
+    if(thisTour.length){
+      let {start_date, end_date, post_title, subtitle, post_content, main_image, url_friendly_name, tour_schedule} = thisTour[0]
+      let artist = state.data.artists.contents.artists[thisTour[0].artist_id]
+      let {themeColor, name} = artist
+
+      let url = Site + '/tour/' + url_friendly_name
+      const tour = {
+        startData: start_date,
+        endDate: end_date,
+        title: post_title,
+        subtitle: subtitle,
+        image: main_image,
+        content: post_content,
+        facebookShareLink: getFacebookShareLink(url),
+        twitterShareLink: getTwitterShareLink(url),
+        tourSchedule: tour_schedule,
+        themeColor: themeColor,
+        name: name
+      }
+
+      dispatch(setTourPopup(tour))
+    }
+  }
+}
+
+
+//POPUP:MUSIC
+import { setMusicPopup }  from '../actions/'
+export const loadMusicPopup = (name) => (dispatch, getState) => {
+  const state = getState()
+  if(state.popup.type === 'music'){
+    let thisMusic = toArray(state.data.musics.contents.albums)
+      .filter( album => album.url_friendly_name == name)
+
+    if(thisMusic.length){
+      let {id, post_title, cover_image, post_content, url_friendly_name , related_album } = thisMusic[0]
+      let name = state.data.artists.contents.artists[thisMusic[0].artist_id].name
+      let products = toArray(state.data.musics.contents.musics)
+        .filter( product => product.album_id == id)
+
+
+      let albumProduct = products.filter(product => product.product_type == 'album')
+      let musicsProduct = products.filter(product => product.product_type == 'music')
+
+
+      let albumPrice = albumProduct.length > 0 ? albumProduct[0]._regular_price : ''
+      let albumSalePrice = albumProduct.length > 0 ? albumProduct[0]._sale_price : ''
+      let albumProductId = albumProduct.length > 0 ? albumProduct[0].id : ''
+
+      let url = Site + '/music/' + url_friendly_name
+      const music = {
+        image: cover_image,
+        title: post_title,
+        albumPrice,
+        albumSalePrice,
+        albumProductId,
+        name,
+        content: post_content,
+        facebookShareLink: getFacebookShareLink(url),
+        twitterShareLink: getTwitterShareLink(url),
+        music: musicsProduct
+      }
+
+      const related = related_album.map ( id => {
+        let e = state.data.musics.contents.albums[id]
+        let artistName = state.data.artists.contents.artists[e.artist_id].name
+        let path = '/music/' + e.url_friendly_name
+          return {
+            id: e.id,
+            title: e.post_title,
+            url: path,
+            image: e.cover_image || false,
+            thumb_1x1: e.thumb_1x1 || e.cover_image || false,
+            name: artistName
+          }
+        })
+
+      dispatch(setMusicPopup(music,related))
+    }
+  }
+}
+
+
+
 
 
 

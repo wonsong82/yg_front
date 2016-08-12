@@ -121,6 +121,20 @@ export const setBlogPopup = ( blog, related ) => ({type: SET_BLOG_POPUP, blog, r
 export const loadBlogPopup = Middlewares.loadBlogPopup
 
 
+// POPUP:EVENT
+export const SET_EVENT_POPUP = 'set_event_popup'
+export const setEventPopup = ( event, related) => ({type: SET_EVENT_POPUP, event, related})
+export const loadEventPopup = Middlewares.loadEventPopup
+
+// POPUP:TOUR
+export const SET_TOUR_POPUP = 'set_tour_popup'
+export const setTourPopup = ( tour) => ({type: SET_TOUR_POPUP, tour})
+export const loadTourPopup = Middlewares.loadTourPopup
+
+// POPUP:MUSIC
+export const SET_MUSIC_POPUP = 'set_music_popup'
+export const setMusicPopup = ( music, related ) => ({type: SET_MUSIC_POPUP, music, related})
+export const loadMusicPopup = Middlewares.loadMusicPopup
 
 
 /**

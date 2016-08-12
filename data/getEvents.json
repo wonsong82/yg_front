@@ -10,7 +10,8 @@
       "subtitle": "Lee Hi's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-101",
-      "artist_id": 1
+      "artist_id": 1,
+      "related_event": [102,103,104]
     },
     "102" :
     {
@@ -23,7 +24,8 @@
       "subtitle": "AKMU's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-102",
-      "artist_id": 2
+      "artist_id": 2,
+      "related_event": [101,103,104]
     },
     "103" : {
       "id": 103,
@@ -35,7 +37,8 @@
       "subtitle": "IKON's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-103",
-      "artist_id": 3
+      "artist_id": 3,
+      "related_event": [101,104,105]
     },
     "104" : {
       "id": 104,
@@ -47,7 +50,8 @@
       "subtitle": "EPIK HIGH's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-104",
-      "artist_id": 4
+      "artist_id": 4,
+      "related_event": [101,102,103]
     },
     "105" : {
       "id": 105,
@@ -59,7 +63,8 @@
       "subtitle": "2NE1's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-105",
-      "artist_id": 5
+      "artist_id": 5,
+      "related_event": [101,102,103]
     },
     "106" : {
       "id": 106,
@@ -71,7 +76,8 @@
       "subtitle": "PSY's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-106",
-      "artist_id": 6
+      "artist_id": 6,
+      "related_event": [101,102,103]
     },
     "107" :
     {
@@ -84,7 +90,8 @@
       "subtitle": "Lee Hi's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-107",
-      "artist_id": 1
+      "artist_id": 1,
+      "related_event": [101,102,103]
     },
     "108" :
     {
@@ -97,7 +104,8 @@
       "subtitle": "AKMU's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-108",
-      "artist_id": 2
+      "artist_id": 2,
+      "related_event": [101,102,103]
     },
     "109" : {
       "id": 109,
@@ -109,7 +117,8 @@
       "subtitle": "IKON's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-109",
-      "artist_id": 3
+      "artist_id": 3,
+      "related_event": [101,102,103]
     },
     "110" : {
       "id": 110,
@@ -121,7 +130,8 @@
       "subtitle": "EPIK HIGH's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-110",
-      "artist_id": 4
+      "artist_id": 4,
+      "related_event": [101,102,103]
     },
     "111" : {
       "id": 111,
@@ -133,7 +143,8 @@
       "subtitle": "2NE1's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-111",
-      "artist_id": 5
+      "artist_id": 5,
+      "related_event": [101,102,103]
     },
     "112" : {
       "id": 112,
@@ -145,7 +156,8 @@
       "subtitle": "PSY's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-112",
-      "artist_id": 6
+      "artist_id": 6,
+      "related_event": [101,102,103]
     },
     "113" :
     {
@@ -158,7 +170,8 @@
       "subtitle": "Lee Hi's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-113",
-      "artist_id": 1
+      "artist_id": 1,
+      "related_event": [101,102,103]
     },
     "114" :
     {
@@ -171,7 +184,8 @@
       "subtitle": "AKMU's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-114",
-      "artist_id": 2
+      "artist_id": 2,
+      "related_event": [101,102,103]
     },
     "115" : {
       "id": 115,
@@ -183,7 +197,8 @@
       "subtitle": "IKON's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-115",
-      "artist_id": 3
+      "artist_id": 3,
+      "related_event": [101,102,103]
     },
     "116" : {
       "id": 116,
@@ -195,7 +210,8 @@
       "subtitle": "EPIK HIGH's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-116",
-      "artist_id": 4
+      "artist_id": 4,
+      "related_event": [101,102,103]
     },
     "117" : {
       "id": 117,
@@ -207,7 +223,8 @@
       "subtitle": "2NE1's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-117",
-      "artist_id": 5
+      "artist_id": 5,
+      "related_event": [101,102,103]
     },
     "118" : {
       "id": 118,
@@ -219,7 +236,8 @@
       "subtitle": "PSY's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-118",
-      "artist_id": 6
+      "artist_id": 6,
+      "related_event": [101,102,103]
     },
     "119" :
     {
@@ -232,7 +250,8 @@
       "subtitle": "Lee Hi's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-119",
-      "artist_id": 1
+      "artist_id": 1,
+      "related_event": [101,102,103]
     },
     "120" :
     {
@@ -245,7 +264,8 @@
       "subtitle": "AKMU's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-120",
-      "artist_id": 2
+      "artist_id": 2,
+      "related_event": [101,102,103]
     },
     "121" : {
       "id": 121,
@@ -257,7 +277,8 @@
       "subtitle": "IKON's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-121",
-      "artist_id": 3
+      "artist_id": 3,
+      "related_event": [101,102,103]
     },
     "122" : {
       "id": 122,
@@ -269,7 +290,8 @@
       "subtitle": "EPIK HIGH's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-122",
-      "artist_id": 4
+      "artist_id": 4,
+      "related_event": [101,102,103]
     },
     "123" : {
       "id": 123,
@@ -281,7 +303,8 @@
       "subtitle": "2NE1's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-123",
-      "artist_id": 5
+      "artist_id": 5,
+      "related_event": [101,102,103]
     },
     "124" : {
       "id": 124,
@@ -293,7 +316,8 @@
       "subtitle": "PSY's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-124",
-      "artist_id": 6
+      "artist_id": 6,
+      "related_event": [101,102,103]
     },
     "125" :
     {
@@ -306,7 +330,8 @@
       "subtitle": "Lee Hi's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-125",
-      "artist_id": 1
+      "artist_id": 1,
+      "related_event": [101,102,103]
     },
     "126" :
     {
@@ -319,7 +344,8 @@
       "subtitle": "AKMU's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-126",
-      "artist_id": 2
+      "artist_id": 2,
+      "related_event": [101,102,103]
     },
     "127" : {
       "id": 127,
@@ -331,7 +357,8 @@
       "subtitle": "IKON's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-127",
-      "artist_id": 3
+      "artist_id": 3,
+      "related_event": [101,102,103]
     },
     "128" : {
       "id": 128,
@@ -343,7 +370,8 @@
       "subtitle": "EPIK HIGH's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-128",
-      "artist_id": 4
+      "artist_id": 4,
+      "related_event": [101]
     },
     "129" : {
       "id": 129,
@@ -355,7 +383,8 @@
       "subtitle": "2NE1's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-129",
-      "artist_id": 5
+      "artist_id": 5,
+      "related_event": []
     },
     "130" : {
       "id": 130,
@@ -367,6 +396,7 @@
       "subtitle": "PSY's First Event - Subtitle",
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-130",
-      "artist_id": 6
+      "artist_id": 6,
+      "related_event": [101,102]
     }
 }
