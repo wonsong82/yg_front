@@ -15,26 +15,7 @@ class Blog extends Component {
     const { initPopup, loadBlogPopup } = this.props
     initPopup('Blog')
     loadBlogPopup( this.props.params.item )
-    console.log("will mount")
   }
-
-  /*componentWillReceiveProps(nextProps) {
-    if (this.props.params.item != nextProps.params.item){
-      /!*const { initPopup, loadBlogPopup } = this.props
-      initPopup('Blog')
-      loadBlogPopup( nextProps.params.item )*!/
-      unmountComponentAtNode(findDOMNode(this.refs.mount))
-    }
-  }
-*/
-
-  /*componentDidUpdate(prevProps, prevState, prevContext) {
-    if (this.props.params.item != prevProps.params.item){
-      console.log(this.refs.mount)
-      //unmountComponentAtNode(findDOMNode(this.refs.mount))
-    }
-  }*/
-
 
   render() {
     return <BlogComponent ref="mount" {...this.props} />

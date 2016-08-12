@@ -38,9 +38,10 @@ class Transition extends Component {
     callback()
     let x = this.props.clickPosition.x || $(window).width() * 0.5
     let y = this.props.clickPosition.y || $(window).height() * 0.5
-    const popup = this.refs.popup
-    $(findDOMNode(popup))
-      .css({
+    const popup = $(findDOMNode(this.refs.popup))
+    const contents = $('.contents', popup)
+    contents.css('display','none')
+    popup.css({
         '-webkit-transform-origin': x + 'px ' + y + 'px',
         '-moz-transform-origin': x + 'px ' + y + 'px',
         '-ms-transform-origin': x + 'px ' + y + 'px',
@@ -48,18 +49,32 @@ class Transition extends Component {
       })
       .velocity('stop', true)
       .velocity({
-        scaleX: [ 0, 'easeInOutQuart' ],
-        scaleY: [ 0, 'easeInOutQuart' ],
-        opacity: [ 0, 'easeOutQuart' ]
+        scaleX: 0,
+        scaleY: 0
       })
       .velocity('finish')
       .velocity({
-        scaleX: [ 1, 'easeInOutQuart' ],
-        scaleY: [ 1, 'easeInOutQuart' ],
-        opacity: [ 1, 'easeOutQuart' ]
+        scaleX: 1,
+        scaleY: 1
       }, {
+        easing: 'easeInOutQuart',
         duration: 600,
-        queue: false
+        queue: false,
+        complete: () => {
+          contents.css({display:'block', opacity:0})
+            .velocity('stop', true)
+            .velocity({
+              translateY: '30px'
+            })
+            .velocity('finish')
+            .velocity({
+              opacity: 1,
+              translateY: 0
+            }, {
+              duration: 500,
+              easing: 'easeOutQuart'
+            })
+        }
       })
   }
 
