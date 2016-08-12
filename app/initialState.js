@@ -82,8 +82,8 @@ const initialState = {
       loaded: false,
       isFetching: false,
       contents: {
-        shops: {},
-        shopsCount: 0,
+        products: {},
+        productsCount: 0,
         categories: {},
         categoriesCount: 0
       }
@@ -132,6 +132,13 @@ export const musicInitState = {
   hotTracksAllLoaded: false
 }
 
+export const shopInitState = {
+  type: 'shop',
+  categories: [],
+  products: [],
+  productsAllLoaded: false,
+  selectedCategory: null
+}
 
 
 export default initialState

@@ -79,6 +79,31 @@ export const setHotTracksAllLoaded = bool => ({type: SET_HOT_TRACKS_ALL_LOADED, 
 export const loadAlbumsList = Middlewares.loadAlbumsList
 export const loadHotTracksList = Middlewares.loadHotTracksList
 
+//PAGE:SHOP
+
+
+export const SET_CATEGORIES_LIST = 'set_categories_list'
+export const SET_PRODUCTS_LIST = 'set_products_list'
+export const SET_PRODUCTS_LIST_ON_SEARCH = 'set_products_list_on_search'
+export const SET_PRODUCTS_ALL_LOADED = 'set_products_all_loaded'
+export const SET_CATEGORY = 'set_category'
+export const SEARCHING_REQUEST = 'searching_request'
+export const setCategoriesList = categories => ({type: SET_CATEGORIES_LIST, categories})
+export const setProductsList = products => ({type: SET_PRODUCTS_LIST, products})
+export const setProductsListOnSearch = products => ({type: SET_PRODUCTS_LIST_ON_SEARCH, products})
+export const setProductsAllLoaded = bool => ({type:SET_PRODUCTS_ALL_LOADED, bool})
+export const setCategory = categoryId => ({type: SET_CATEGORY, categoryId})
+
+export const loadProductsList = Middlewares.loadProductsList
+export const loadCategoriesList = Middlewares.loadCategoriesList
+export const loadProductsListOnSearch = Middlewares.loadProductsListOnSearch
+
+
+
+
+
+
+
 
 
 

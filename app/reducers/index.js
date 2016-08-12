@@ -76,10 +76,12 @@ const mainMenu = ( state = initState.mainMenu, action) => {
 // PAGE
 import { INIT_PAGE, SET_BLOGS_LIST, SET_HOT_POSTS_LIST, SET_POSTS_ALL_LOADED, SET_HOT_POSTS_ALL_LOADED,
                     SET_EVENTS_LIST, SET_EVENTS_ALL_LOADED, SET_TOURS_LIST, SET_TOURS_ALL_LOADED,
-                    SET_ALBUMS_LIST, SET_ALBUMS_ALL_LOADED, SET_HOT_TRACKS_LIST, SET_HOT_TRACKS_ALL_LOADED
+                    SET_ALBUMS_LIST, SET_ALBUMS_ALL_LOADED, SET_HOT_TRACKS_LIST, SET_HOT_TRACKS_ALL_LOADED,
+                    SET_PRODUCTS_LIST, SET_PRODUCTS_ALL_LOADED, SET_CATEGORY, SET_CATEGORIES_LIST,
+                    SET_PRODUCTS_LIST_ON_SEARCH, SEARCHING_REQUEST
 } from '../actions/'
 
-import { blogInitState , eventInitState, tourInitState, musicInitState} from '../initialState'
+import { blogInitState , eventInitState, tourInitState, musicInitState, shopInitState} from '../initialState'
 const page = ( state = initState.page, action ) => {
   switch(action.type){
     case INIT_PAGE:
@@ -95,6 +97,9 @@ const page = ( state = initState.page, action ) => {
 
         case 'Music':
           return Object.assign({}, state, musicInitState)
+
+        case 'Shop':
+          return Object.assign({}, state, shopInitState)
 
         default:
           return state
@@ -162,6 +167,33 @@ const page = ( state = initState.page, action ) => {
     case SET_HOT_TRACKS_ALL_LOADED:
       return Object.assign({}, state, {
         hotTracksAllLoaded: action.bool
+      })
+
+    //SHOP
+    case SET_PRODUCTS_LIST:
+      return Object.assign({}, state, {
+        products: action.products
+      })
+
+    case SET_PRODUCTS_LIST_ON_SEARCH:
+      return Object.assign({}, state, {
+        products: action.products,
+        productsAllLoaded: true
+      })
+
+    case SET_PRODUCTS_ALL_LOADED:
+      return Object.assign({}, state, {
+        productsAllLoaded: action.bool
+      })
+
+    case SET_CATEGORIES_LIST:
+      return Object.assign({}, state, {
+        categories: action.categories
+      })
+
+    case SET_CATEGORY:
+      return Object.assign({}, state, {
+        selectedCategory: action.categoryId
       })
 
     default:
@@ -293,14 +325,17 @@ const data = ( state = initState.data , action) => {
       })
 
     case RECEIVE_SHOPS:
-      let { shops, categories } = action.data
+      let { products, categories } = action.data
+
+        console.log(action.data)
+
       return Object.assign({}, state, {
         shops: Object.assign({}, state.shops, {
           isFetching: false,
           loaded: true,
           contents: {
-            shops,
-            shopsCount: Object.keys(shops).length,
+            products,
+            productsCount: Object.keys(products).length,
             categories,
             categoriesCount: Object.keys(categories).length,
           }

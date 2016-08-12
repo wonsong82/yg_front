@@ -269,7 +269,7 @@ export const loadAlbumsList = (count) => (dispatch, getState) => {
   }
 }
 
-import {setHotTracksList, setHotTracksAllLoaded} from '../actions'
+import {setHotTracksList, setHotTracksAllLoaded} from '../actions/'
 export const loadHotTracksList = (count) => (dispatch, getState) => {
   const state = getState()
   if(state.page.type == 'music'){
@@ -318,6 +318,98 @@ export const loadHotTracksList = (count) => (dispatch, getState) => {
     dispatch(setHotTracksList(newHotTracks))
   }
 }
+
+
+import {setProductsList , setProductsAllLoaded} from '../actions/'
+export const loadProductsList = (count) => (dispatch, getState) => {
+  const state = getState()
+
+  if(state.page.type == 'shop'){
+    const curCategory = state.page.selectedCategory
+    let productsData = state.data.shops.contents.products
+
+    if(curCategory != null){
+      productsData = toArray(productsData).filter( product => {
+        return product.cat_IDs.indexOf(curCategory) != -1
+      })
+    }
+
+    const products = state.page.products,
+        productsDataCount = Object.keys(productsData).length,//productsData.legnth
+        artistsData = state.data.artists.contents.artists
+
+    let curCount = products.length
+    let nextCount = curCount + count
+
+    let newProducts = []
+    var index = 0
+
+    for (let key in productsData){
+      if(productsData.hasOwnProperty(key)) {
+        let product = productsData[key]
+        let artistName = artistsData[product.artist_id].name
+        let {id, post_title, url_friendly_name,thumb_1x1, thumb_2x1, thumb_1x2} = product
+
+        let price = product.product_type == "simple" ?
+            product._regular_price :
+            product.variation[0].display_price
+
+        let url = Site + '/Shop/' + url_friendly_name
+
+        newProducts.push({
+          id,
+          title: post_title,
+          url,
+          name: artistName,
+          thumb_1x1,
+          thumb_2x1,
+          thumb_1x2,
+          price
+        })
+
+        if(productsDataCount-1 == index || nextCount-1 == index){
+          if(productsDataCount-1 == index){
+            dispatch(setProductsAllLoaded(true))
+          }
+          break
+        }
+      }
+      index++
+    }
+    dispatch(setProductsList(newProducts))
+  }
+}
+
+import { searchingRequest, setProductsListOnSearch } from '../actions/'
+export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
+
+  const state = getState()
+  if(state.page.type == 'shop'){
+    let productsData = state.data.shops.contents.products
+
+    productsData = toArray(productsData).filter (product => {
+      let foundInTitle = true, foundInContent = true
+      keyword.split(' ').forEach( e => {
+        if(product.post_title.toLowerCase().indexOf(e.trim().toLowerCase()) == -1) foundInTitle = false
+        if(product.post_content.toLowerCase().indexOf(e.trim().toLowerCase()) == -1) foundInContent = false
+      })
+      return foundInTitle || foundInContent
+    })
+
+    setTimeout(function(){
+      dispatch(setProductsListOnSearch(productsData))
+    },1)
+  }
+}
+
+
+import { setCategoriesList } from '../actions/'
+export const loadCategoriesList = () => (dispatch, getState) => {
+  dispatch(setCategoriesList(toArray(getState().data.shops.contents.categories)))
+}
+
+
+
 
 
 
