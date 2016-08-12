@@ -14,9 +14,9 @@ import BlogPage from './containers/app/page/Blog'
 import ArtistPage from './components/app/page/Artist'
 
 import BlogPopup from './containers/app/popup/Blog'
-import EventPopup from './components/app/popup/Event'
-import TourPopup from './components/app/popup/Tour'
-import MusicPopup from './components/app/popup/Music'
+import EventPopup from './containers/app/popup/Event'
+import TourPopup from './containers/app/popup/Tour'
+import MusicPopup from './containers/app/popup/Music'
 import ShopPopup from './components/app/popup/Shop'
 
 

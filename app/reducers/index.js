@@ -206,8 +206,8 @@ const page = ( state = initState.page, action ) => {
 
 
 // POPUP
-import { INIT_POPUP, SET_BLOG_POPUP } from '../actions/'
-import { blogPopupInitState } from '../initialState'
+import { INIT_POPUP, SET_BLOG_POPUP , SET_EVENT_POPUP, SET_TOUR_POPUP, SET_MUSIC_POPUP} from '../actions/'
+import { blogPopupInitState, eventPopupInitState, tourPopupInitState , musicPopupInitState} from '../initialState'
 const popup = ( state = initState.popup, action ) => {
   switch(action.type){
 
@@ -215,6 +215,12 @@ const popup = ( state = initState.popup, action ) => {
       switch(action.popupType){
         case 'Blog':
           return Object.assign({}, state, blogPopupInitState)
+        case 'Event':
+          return Object.assign({}, state, eventPopupInitState)
+        case 'Tour':
+          return Object.assign({}, state, tourPopupInitState)
+        case 'Music':
+          return Object.assign({}, state, musicPopupInitState)
         default:
           return state
       }
@@ -223,6 +229,31 @@ const popup = ( state = initState.popup, action ) => {
       const { title, date, image, content, facebookShareLink, twitterShareLink } = action.blog
       return Object.assign({}, state, {
         title, date, image, content, facebookShareLink, twitterShareLink,
+        related: action.related
+      })
+
+
+    case SET_EVENT_POPUP:
+      const { event } = action
+     return Object.assign({}, state, {
+       title: event.title, date: event.date, image: event.image, content: event.content, facebookShareLink: event.facebookShareLink, twitterShareLink: event.twitterShareLink,
+       related: action.related
+     })
+
+    case SET_TOUR_POPUP:
+      const { tour } = action
+      return Object.assign({}, state, {
+        startDate: tour.startData, endDate: tour.endDate, name: tour.name, themeColor: tour.themeColor, title: tour.title, subtitle: tour.subtitle,
+        content: tour.content, image: tour.image, facebookShareLink: tour.facebookShareLink, twitterShareLink: tour.twitterShareLink,
+        tourSchedule: tour.tourSchedule
+      })
+
+    case SET_MUSIC_POPUP:
+      const { music } = action
+      return Object.assign({}, state, {
+        image: music.image, title: music.title, albumPrice: music.albumPrice, albumSalePrice: music.albumSalePrice, albumProductId: music.albumProductId,
+        name: music.name, content: music.content, facebookShareLink: music.facebookShareLink, twitterShareLink: music.twitterShareLink,
+        music: music.music,
         related: action.related
       })
 

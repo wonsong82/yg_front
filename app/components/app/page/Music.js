@@ -1,5 +1,6 @@
 import React from 'react'
 import ViewMore from '../../../components/lib/link/ViewMore'
+import MusicThumbs from '../../../components/app/item/music/MusicThumb'
 
 const Music = ({albums, hotTracks, albumsAllLoaded, hotTracksAllLoaded, onAlbumViewMoreClick, onHotTrackViewMoreClick}) => (
     <div className="MusicLayout">
@@ -10,7 +11,7 @@ const Music = ({albums, hotTracks, albumsAllLoaded, hotTracksAllLoaded, onAlbumV
                     albums &&
                     albums.map( album => (
                         <li key={album.id}>
-                            {album.id}
+                          <MusicThumbs {...album} />
                         </li>
                     ))
                 }

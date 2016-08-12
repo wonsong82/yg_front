@@ -1,5 +1,6 @@
 import React from 'react'
 import ViewMore from '../../../components/lib/link/ViewMore'
+import TourThumb from '../../../components/app/item/tour/TourThumb'
 
 const Tour = ({tours, toursAllLoaded, onViewMoreClick}) => (
     <div className="TourLayout">
@@ -9,7 +10,7 @@ const Tour = ({tours, toursAllLoaded, onViewMoreClick}) => (
           tours &&
           tours.map( tour => (
               <li key={tour.id}>
-                {tour.id}
+                <TourThumb {...tour} />
               </li>
           ))
         }
