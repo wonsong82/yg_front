@@ -2,6 +2,7 @@ import React from 'react'
 import ViewMore from '../../../components/lib/link/ViewMore'
 import CategoryFilter from '../../../components/app/item/shop/CategoryFilter'
 import SearchBox from '../../../components/app/item/shop/SearchBox'
+import ShopThumb from '../../../components/app/item/shop/ShopThumb'
 
 const Shop = ({products, productsAllLoaded, categories, isLoading, onViewMoreClick,onCategoryClick, onSearchSubmit}) => (
   <div className="Shop">
@@ -23,7 +24,7 @@ const Shop = ({products, productsAllLoaded, categories, isLoading, onViewMoreCli
         products &&
         products.map( product => (
             <li key={product.id}>
-              {product.id}
+              <ShopThumb {...product} />
             </li>
         ))
       }

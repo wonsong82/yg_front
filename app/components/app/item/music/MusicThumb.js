@@ -3,7 +3,7 @@ import RouterLink from '../../../../containers/lib/link/RouterLink'
 
 
 const MusicThumb = ({ title, url, image, name}) => (
-  <div className="TourThumb">
+  <div className="MusicThumb">
 
     <RouterLink className="title" to={url}>
       <h3>{title}</h3>

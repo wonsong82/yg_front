@@ -11,6 +11,8 @@ const Music = ( {image, title, albumPrice, salePrice, albumProductId, name, cont
       <h5>name: {name}</h5>
       <h5>content: {content}</h5>
 
+      <span className="spacer" />
+
       <div className="musics-list">
         <h6>Music List</h6>
         {
@@ -23,18 +25,19 @@ const Music = ( {image, title, albumPrice, salePrice, albumProductId, name, cont
         }
       </div>
 
+      <span className="spacer" />
+
       <div className="related-container">
         <h6>Related Album</h6>
         {
           related &&
           related.map( album => (
-            <li key={'album' + album.id}>
-              album.title
+            <li>
+              {album.title}
             </li>
           ))
         }
       </div>
-
     </div>
 )
 
