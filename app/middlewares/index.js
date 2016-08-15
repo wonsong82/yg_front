@@ -513,6 +513,77 @@ export const loadMusicPopup = (name) => (dispatch, getState) => {
 import { setShopPopup }  from '../actions/'
 export const loadShopPopup = (name) => (dispatch, getState) => {
 
+  const state = getState();
+
+  if(state.popup.type === 'shop'){
+     let thisShop = toArray(state.data.shops.contents.products)
+       .filter( product => product.url_friendly_name == name)
+
+    if(thisShop.length){
+
+      let { id, post_title, post_content, url_friendly_name, images } = thisShop[0]
+      let related_products = thisShop[0].related
+      let name = state.data.artists.contents.artists[thisShop[0].artist_id].name
+      let url = Site + '/shop/' + url_friendly_name
+
+
+      console.log(images)
+
+
+      let productType = ''
+      let price = null
+      let salePrice = null
+      let variation = []
+
+      if(thisShop[0].product_type == 'variable'){
+        productType = 'variable'
+        variation = toArray(thisShop[0].variation)
+
+      }else if(thisShop[0].product_type == 'simple'){
+        productType = 'simple'
+        price = thisShop[0]._regular_price
+        salePrice = thisShop[0]._sale_price
+      }
+
+      const product = {
+        id,
+        title: post_title,
+        content: post_content,
+        images,
+        name,
+        facebookShareLink: getFacebookShareLink(url),
+        twitterShareLink: getTwitterShareLink(url),
+        type: productType,
+        price,
+        salePrice,
+        variation
+      }
+
+      const related = related_products.map ( id => {
+
+        let e = state.data.shops.contents.products[id]
+        let path = '/shop/' + e.url_friendly_name
+
+        const { name } = state.data.artists.contents.artists[e.artist_id]
+        return {
+          id : e.id,
+          title: e.post_title,
+          url: path,
+          name,
+          thumb_1x1: e.thumb_1x1 || false ,
+          thumb_2x1: e.thumb_2x1 || e.thumb1x1 || false,
+          thumb_1x2: e.thumb_1x2 || e.thumb1x1 || false,
+          price: e._regular_price,
+          facebookShareLink: getFacebookShareLink(Site + path),
+          twitterShareLink: getTwitterShareLink(Site + path)
+        }
+      })
+
+
+      dispatch(setShopPopup(product, related))
+    }
+  }
+
 }
 
 

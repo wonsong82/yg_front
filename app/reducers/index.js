@@ -207,7 +207,7 @@ const page = ( state = initState.page, action ) => {
 
 // POPUP
 import { INIT_POPUP, SET_BLOG_POPUP , SET_EVENT_POPUP, SET_TOUR_POPUP, SET_MUSIC_POPUP, SET_SHOP_POPUP} from '../actions/'
-import { blogPopupInitState, eventPopupInitState, tourPopupInitState , musicPopupInitState} from '../initialState'
+import { blogPopupInitState, eventPopupInitState, tourPopupInitState , musicPopupInitState, shopPopupInitState} from '../initialState'
 const popup = ( state = initState.popup, action ) => {
   switch(action.type){
 
@@ -221,6 +221,8 @@ const popup = ( state = initState.popup, action ) => {
           return Object.assign({}, state, tourPopupInitState)
         case 'Music':
           return Object.assign({}, state, musicPopupInitState)
+        case 'Shop' :
+          return Object.assign({}, state, shopPopupInitState)
         default:
           return state
       }
@@ -260,7 +262,9 @@ const popup = ( state = initState.popup, action ) => {
     case SET_SHOP_POPUP:
       const { product } = action
       return Object.assign({}, state, {
-        
+        id: product.id, title: product.title, price: product.price, salePrice: product.salePrice, name: product.name, content:product.content, facebookShareLink: product.facebookShareLink,
+        twitterShareLink: product.twitterShareLink, type:product.type, variation: product.variation, images: product.images,
+        related: action.related
       })
 
     default:

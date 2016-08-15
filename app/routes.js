@@ -17,7 +17,7 @@ import BlogPopup from './containers/app/popup/Blog'
 import EventPopup from './containers/app/popup/Event'
 import TourPopup from './containers/app/popup/Tour'
 import MusicPopup from './containers/app/popup/Music'
-import ShopPopup from './components/app/popup/Shop'
+import ShopPopup from './containers/app/popup/Shop'
 
 
 export default (

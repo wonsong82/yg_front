@@ -21,13 +21,13 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 1,
-      "default_att": {
-        "attribute_pa_color": "black",
-        "attribute_pa_size": "l"
-      },
+      "related": [
+        602,603,604
+      ],
       "variation": [
         {
           "variation_id": 230,
+          "id_default": true,
           "display_regular_price": 9.99,
           "display_price": 8.99,
           "sku": "bigbang-black-l-01",
@@ -44,6 +44,7 @@
         },
         {
           "variation_id": 231,
+          "id_default": false,
           "display_regular_price": 11.99,
           "display_price": 10.99,
           "sku": "bigbang-black-m-01",
@@ -60,6 +61,7 @@
         },
         {
           "variation_id": 232,
+          "id_default": false,
           "display_regular_price": 10.99,
           "display_price": 10.99,
           "sku": "bigbang-green-l-01",
@@ -76,6 +78,7 @@
         },
         {
           "variation_id": 233,
+          "id_default": false,
           "display_regular_price": 9.99,
           "display_price": 9.99,
           "sku": "bigbang-green-m-01",
@@ -112,6 +115,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 2,
+      "related": [
+        603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -136,6 +142,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 3,
+      "related": [
+        604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -160,6 +169,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 4,
+      "related": [
+        602,603
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -184,6 +196,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 5,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -208,6 +223,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 6,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -232,6 +250,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 6,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01__1"
@@ -256,6 +277,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 1,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01__2"
@@ -280,6 +304,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 2,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -304,6 +331,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 3,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -328,6 +358,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 4,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -352,6 +385,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 5,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -376,6 +412,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 6,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -400,6 +439,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 1,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -424,6 +466,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 2,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -448,6 +493,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 3,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -472,6 +520,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 4,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -496,6 +547,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 5,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -520,6 +574,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 6,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -544,6 +601,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 1,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -568,6 +628,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 2,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -592,6 +655,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 3,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -616,6 +682,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 4,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -640,6 +709,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 5,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -664,6 +736,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 6,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -688,6 +763,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 1,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -712,6 +790,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 2,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -736,6 +817,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 3,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -760,6 +844,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 4,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
@@ -784,6 +871,9 @@
         "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
       ],
       "artist_id": 5,
+      "related": [
+        602,603,604
+      ],
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01"
