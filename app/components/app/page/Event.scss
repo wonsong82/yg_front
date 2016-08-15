@@ -13,6 +13,12 @@
   .EventGroup {
     @include event-group--xl;
   }
+
+  .view-more {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
 }
 
 @media (max-width: $width--lg) {

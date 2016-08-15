@@ -19,7 +19,7 @@ const Event = ({eventGroups, eventsAllLoaded, onViewMoreClick}) => (
 
         {
           !eventsAllLoaded &&
-          <ViewMore onClick={onViewMoreClick} />
+          <ViewMore className="view-more" onClick={onViewMoreClick} />
         }
       </div>
 
