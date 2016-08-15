@@ -135,49 +135,54 @@ export const loadHotPostsList = ( count ) => (dispatch, getState) => {
 //PAGE:EVENT
 import { setEventsList , setEventsAllLoaded} from '../actions/'
 
-export const loadEventsList = ( count ) => (dispatch, getState) => {
+export const loadEventsList = ( layoutStyle='random' ) => (dispatch, getState) => {
   const state = getState();
   if(state.page.type = 'event'){
 
     const events = state.page.events,
-        eventsData = state.data.events.contents.events,
-        eventsDataCount = state.data.events.contents.eventsCount,
-        artistsData = state.data.artists.contents.artists
+          eventsData = toArray(state.data.events.contents.events),
+          eventsDataCount = state.data.events.contents.eventsCount,
+          artistsData = state.data.artists.contents.artists
 
-
-    let curCount = events.length
+    const count = 9
+    let curCount = events.length * count
     let nextCount = curCount + count
 
     let newEvents = []
-    var index = 0;
+    layoutStyle = layoutStyle == 'random' ?
+      Math.floor(Math.random() * 6) + 1 : layoutStyle;
 
-    for(let key in eventsData){
-      if(eventsData.hasOwnProperty(key)){
-        let event = eventsData[key]
-        let artistThemeColor = artistsData[event.artist_id].themeColor
-        let {id, post_title, subtitle, url_friendly_name, excerpt, post_date,thumb_2x2} = event
-        let url = Site + '/Event/' + url_friendly_name
+    let layoutNum = 1
+    for(let i=curCount; i<nextCount; i++){
+      const { id, post_title, post_content, url_friendly_name, excerpt, post_date, main_image, thumb_3x2, thumb_1x1, artist_id } = eventsData[i]
+      const { themeColor, textColor } = artistsData[artist_id]
+      const url = '/event/' + url_friendly_name
 
-        newEvents.push({
-          id,
-          title: post_title,
-          subtitle,
-          url,
-          text: excerpt,
-          date: post_date,
-          image: thumb_2x2,
-          themeColor: artistThemeColor
-        })
+      newEvents.push({
+        id,
+        title:  excerptStr(post_title, 90),
+        url,
+        text: post_content,
+        excerpt,
+        date: post_date,
+        image: main_image,
+        thumb3x2: thumb_3x2 || main_image || false,
+        thumb1x1: thumb_1x1 || main_image || false,
+        themeColor,
+        textColor,
+        layoutStyle,
+        layoutNum
+      })
+      layoutNum++;
 
-        if(eventsDataCount-1 == index || nextCount-1 == index){
-          if(eventsDataCount-1 == index){
-            dispatch(setEventsAllLoaded(true))
-          }
-          break
+      if(eventsDataCount-1 == i || nextCount-1 == i){
+        if(eventsDataCount-1 == i){
+          dispatch(setEventsAllLoaded(true))
         }
+        break
       }
-      index++
     }
+
     dispatch(setEventsList(newEvents))
   }
 }
@@ -392,17 +397,18 @@ export const loadEventPopup = (name) => (dispatch, getState) => {
 
       const related = related_event.map ( id => {
         let e = state.data.events.contents.events[id]
-        let themeColor = state.data.artists.contents.artists[e.artist_id].themeColor
+        const { themeColor, textColor } = state.data.artists.contents.artists[e.artist_id]
         let path = '/blog/' + e.url_friendly_name
         return {
           id: e.id,
-          title: e.post_title,
-          subtitle: e.subtitle,
+          title: excerptStr(e.post_title, 90),
           url: path,
-          text: e.excerpt,
+          text: e.post_content,
+          date: post_date,
           themeColor: themeColor,
+          textColor: textColor,
           image: e.main_image || false,
-          thumb_2x2: e.thumb_2x2 || e.main_image || false
+          thumb3x2: e.thumb_3x2 || e.main_image || false
         }
       })
       dispatch(setEventPopup(event, related))

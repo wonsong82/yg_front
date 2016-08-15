@@ -11,7 +11,7 @@ class Menu extends Component {
   }
   render() {
     return (
-      <TransitionGroup>
+      <TransitionGroup component="div" className="MenuTransition">
         {this.props.opened &&
         <Transition {...this.props} />
         }

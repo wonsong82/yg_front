@@ -1,28 +1,30 @@
+require('./Event.scss')
 import React from 'react'
 import ViewMore from '../../../components/lib/link/ViewMore'
-import EventThumb from '../../../components/app/item/event/EventThumb'
+import EventGroup from '../../../transitions/app/item/event/EventGroup'
 
 
-const Event = ({events, eventsAllLoaded, onViewMoreClick}) => (
+const Event = ({eventGroups, eventsAllLoaded, onViewMoreClick}) => (
     <div className="EventLayout">
 
       <h3>Event</h3>
 
-        <ul className="events-list">
-            {
-                events &&
-                events.map( event => (
-                    <li key={event.id}>
-                        <EventThumb {...event} />
-                    </li>
-                ))
-            }
-        </ul>
+      <div className="events-list">
+        {
+          eventGroups &&
+          eventGroups.map( (events, i) => (
+            <EventGroup name={'eventGroup-'+i} events={events} />
+          ))
+        }
 
         {
-            !eventsAllLoaded &&
-            <ViewMore onClick={onViewMoreClick} />
+          !eventsAllLoaded &&
+          <ViewMore className="view-more" onClick={onViewMoreClick} />
         }
+      </div>
+
+
+
 
     </div>
 )

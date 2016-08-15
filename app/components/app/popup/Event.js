@@ -1,33 +1,68 @@
+require('./Event.scss')
 import React from 'react'
+import AnchorLink from '../../../components/lib/link/AnchorLink'
+import Image from '../../../components/lib/image/Image'
+import EventThumb from '../../../components/app/item/event/EventThumb'
 
 
 const Event = ({ title, date, image, content, facebookShareLink, twitterShareLink, related }) => (
-    <div className="Event page-grid">
-      <h1>TITLE: {title}</h1>
-      <h5>DATE: {date}</h5>
-      <h5>IMAGE: {image}</h5>
-      <h5>Content: {content}</h5>
-      <h5>FacebookShareLink: {facebookShareLink}</h5>
-      <h5>TwitterShareLink: {twitterShareLink}</h5>
 
+  <div className="EventLayout">
 
-        <span className="spacer" />
+    <div className="Event">
 
-        <div className="related-container">
-            <h6>Related Event</h6>
-            {
-                related &&
-                related.map( event => (
-                  <li key={'event' + event.id}>
-                      {event.id}
-                  </li>
-                ))
-            }
-
+      { image &&
+        <div className="images">
+          <Image className="main-image" src={image}/>
         </div>
+      }
 
+      <div className="header">
+        <h1 className="title">{title && title}</h1>
+        <span className="by">By YGPRESENTS</span>
+        <span className="date">{date}</span>
+        <div className="socialLinks">
+          <AnchorLink href={facebookShareLink} target="_blank">
+            <span className="icon-facebook" />
+          </AnchorLink>
+          <AnchorLink href={twitterShareLink} target="_blank">
+            <span className="icon-twitter" />
+          </AnchorLink>
+        </div>
+      </div>
+
+      <span className="spacer" />
+
+      <div className="content">
+        <p>
+          {content}
+        </p>
+      </div>
 
     </div>
+
+
+    {
+      (related && related.length) ?
+      <div className="related-container">
+
+        <h6>Related Posts</h6>
+        <ul className="posts">
+          {
+            related.map(post => (
+              <li key={'event' + post.id}>
+                <EventThumb {...post} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      :null
+    }
+
+
+  </div>
+
 
 
 

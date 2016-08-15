@@ -30,9 +30,6 @@ class App extends Component {
         })
         this.props.setThemeColor(themeColor, textColor)
     }
-
-    // 팝업 라우트 핸들러
-    console.log(nextProps)
   }
 
 

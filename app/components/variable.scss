@@ -94,6 +94,18 @@ $gridWidthPromotion : 207px;
 }
 
 
+// Page
+$pagePadding--top: 70px;
+$pagePadding--bottom: 100px;
+
+@mixin page-title {
+  font: 400 22px/22px 'Klavika', sans-serif;
+  color: (0,0,0, $opacity--primary);
+  margin-bottom: 15px;
+}
+
+
+
 
 @mixin card {
   box-shadow: $shadow2dp;
@@ -102,5 +114,16 @@ $gridWidthPromotion : 207px;
   user-select: none;
   &:hover, &:active {
     box-shadow: $shadow8dp;
+  }
+}
+
+@mixin read-more {
+  display: inline-block;
+  font: 400 14px/20px 'klavika', sans-serif;
+  opacity: $opacity--title;
+  transition: color 0.3s ease;
+  will-change: color;
+  &:hover, &:active {
+    opacity: $opacity--primary;
   }
 }

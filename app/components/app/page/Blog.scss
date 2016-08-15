@@ -1,8 +1,6 @@
 @import '../../variable.scss';
 @import '../item/blog/BlogThumb.scss';
 
-$pagePadding--top: 70px;
-$pagePadding--bottom: 100px;
 
 
 .App .Page .BlogLayout {
@@ -19,9 +17,7 @@ $pagePadding--bottom: 100px;
     float: left;
 
     h3 {
-      font: 400 22px/22px 'Klavika', sans-serif;
-      color: (0,0,0, $opacity--primary);
-      margin-bottom: 15px;
+      @include page-title;
     }
 
     .blog-list {
