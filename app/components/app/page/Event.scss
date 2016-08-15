@@ -1,0 +1,55 @@
+@import '../../variable.scss';
+@import '../item/event/EventGroup.scss';
+
+
+.App .Page .EventLayout {
+  width: getGridWidth(10) + $gridGap;
+  margin: $pagePadding--top auto $pagePadding--bottom;
+
+  > h3 {
+    @include page-title;
+  }
+
+  .EventGroup {
+    @include event-group--xl;
+  }
+}
+
+@media (max-width: $width--lg) {
+  .App .Page .EventLayout {
+    width: getGridWidth(8) + $gridGap;
+    .EventGroup {
+      @include event-group--lg;
+    }
+  }
+}
+
+@media (max-width: $width--md) {
+  .App .Page .EventLayout {
+    width: getGridWidth(6) + $gridGap;
+    .EventGroup {
+      @include event-group--md;
+    }
+  }
+}
+
+@media (max-width: $width--sm) {
+  .App .Page .EventLayout {
+    width: getGridWidth(4) + $gridGap;
+    .EventGroup {
+      @include event-group--sm;
+    }
+  }
+}
+
+@media (max-width: $width--xs) {
+  .App .Page .EventLayout {
+    width: getGridWidth(2) + $gridGap;
+    .EventGroup {
+      @include event-group--xs;
+    }
+  }
+}
+
+
+

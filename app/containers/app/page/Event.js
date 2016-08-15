@@ -10,14 +10,18 @@ class Event extends Component{
     }
 
     componentDidMount(){
-        const { initPage , loadEventsList} = this.props
-        initPage('Event')
-        loadEventsList(27)
+      const { initPage , loadEventsList} = this.props
+      initPage('Event')
+      loadEventsList(6)
+      loadEventsList()
+      loadEventsList()
     }
 
     onViewMoreClick(){
-        const { onViewMoreClick } = this.props
-        onViewMoreClick(27)
+      const { onViewMoreClick } = this.props
+      onViewMoreClick()
+      onViewMoreClick()
+      onViewMoreClick()
     }
 
     render(){
@@ -32,7 +36,7 @@ const mapStateToProps = (state) => {
     const { events, eventsAllLoaded } = state.page
 
     return {
-        events,
+        eventGroups: events,
         eventsAllLoaded
     }
 }
@@ -41,8 +45,8 @@ const mapDispatchToProps = (dispatch) => {
 
     return {
         initPage: pageType => { dispatch(initPage(pageType)) },
-        loadEventsList: count => { dispatch(loadEventsList(count)) },
-        onViewMoreClick: count => { dispatch(loadEventsList(count))}
+        loadEventsList: ( layoutType ) => { dispatch(loadEventsList( layoutType )) },
+        onViewMoreClick: ( layoutType ) => { dispatch(loadEventsList( layoutType ))}
     }
 }
 

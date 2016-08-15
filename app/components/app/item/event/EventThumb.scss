@@ -1,0 +1,108 @@
+@import '../../../variable.scss';
+
+@mixin event-thumb {
+  $height: 480px;
+  $imgHeight: 320px;
+  width: getGridWidth(4);
+  height: $height;
+  // backgroud from element
+  display: block;
+  box-sizing: border-box;
+  @include card;
+  .images {
+    .image-1x1 {
+      display: none;
+    }
+    .image-3x2 {
+      display: block;
+      width: getGridWidth(4);
+      height: $imgHeight;
+    }
+  }
+  .title {
+    display: block;
+    padding: 20px 20px 0 20px;
+    max-height: 48px;
+    overflow: hidden;
+    h3 {
+      display: block;
+      word-break: break-all;
+      font: 400 18px/24px 'Klavika', sans-serif;
+      opacity: $opacity--primary;
+    }
+  }
+  .date {
+    display: block;
+    margin-left: 20px;
+    font: 400 14px/24px 'Klavika', sans-serif;
+    opacity: $opacity--title
+  }
+  .text {
+    display: none;
+    font: 400 14px/20px 'Klavika', sans-serif;
+    max-height: 280px;
+    margin: 70px 20px 0;
+    word-break: break-all;
+    overflow: hidden;
+    opacity: $opacity--caption;
+  }
+  .read-more {
+    @include read-more;
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  &.no-image {
+    .images {
+      display: none;
+    }
+    .text {
+      display: block;
+    }
+  }
+}
+
+@mixin event-thumb--sm {
+  @include event-thumb;
+}
+@mixin event-thumb--xs {
+  @include event-thumb;
+  width: getGridWidth(2);
+  $height: 235px;
+  $imgHeight: 156px;
+  height: $height;
+  .images {
+    .image-3x2 {
+      width: getGridWidth(2);
+      height: $imgHeight;
+    }
+  }
+  .title {
+    padding: 15px 15px 0 15px;
+    max-height: 36px;
+    h3 {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+  .date {
+    margin-left: 15px;
+    line-height: 18px;
+  }
+  .text {
+    margin: 20px 15px 0;
+    max-height: 80px;
+  }
+  .read-more {
+    display: none;
+  }
+
+  &.no-image {
+    .title {
+      max-height: 72px;
+    }
+
+  }
+}

@@ -131,7 +131,7 @@ const page = ( state = initState.page, action ) => {
     //EVENT
     case SET_EVENTS_LIST:
       return Object.assign({}, state, {
-        events: action.events
+        events: [...state.events, action.events]
       })
 
     case SET_EVENTS_ALL_LOADED:

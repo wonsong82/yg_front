@@ -11,7 +11,7 @@ class Popup extends Component {
 
   render() {
     return (
-      <TransitionGroup>
+      <TransitionGroup component="div" className="PopupTransition">
         {this.props.children &&
         <Transition key={this.props.reloadKey} {...this.props} />
         }

@@ -114,7 +114,9 @@ export const blogInitState = {
 
 export const eventInitState = {
   type: 'event',
-  events: [],
+  events: [
+    /* [{ id, title, subtitle, url, text, date, image, themeColor}] */
+  ],
   eventsAllLoaded: false
 }
 
