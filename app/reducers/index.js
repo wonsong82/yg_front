@@ -206,7 +206,7 @@ const page = ( state = initState.page, action ) => {
 
 
 // POPUP
-import { INIT_POPUP, SET_BLOG_POPUP , SET_EVENT_POPUP, SET_TOUR_POPUP, SET_MUSIC_POPUP} from '../actions/'
+import { INIT_POPUP, SET_BLOG_POPUP , SET_EVENT_POPUP, SET_TOUR_POPUP, SET_MUSIC_POPUP, SET_SHOP_POPUP} from '../actions/'
 import { blogPopupInitState, eventPopupInitState, tourPopupInitState , musicPopupInitState} from '../initialState'
 const popup = ( state = initState.popup, action ) => {
   switch(action.type){
@@ -255,6 +255,12 @@ const popup = ( state = initState.popup, action ) => {
         name: music.name, content: music.content, facebookShareLink: music.facebookShareLink, twitterShareLink: music.twitterShareLink,
         music: music.music,
         related: action.related
+      })
+
+    case SET_SHOP_POPUP:
+      const { product } = action
+      return Object.assign({}, state, {
+        
       })
 
     default:

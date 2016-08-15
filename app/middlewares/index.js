@@ -503,6 +503,13 @@ export const loadMusicPopup = (name) => (dispatch, getState) => {
 
 
 
+//POPUP:SHOP
+import { setShopPopup }  from '../actions/'
+export const loadShopPopup = (name) => (dispatch, getState) => {
+
+}
+
+
 
 
 

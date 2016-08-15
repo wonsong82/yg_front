@@ -136,6 +136,11 @@ export const SET_MUSIC_POPUP = 'set_music_popup'
 export const setMusicPopup = ( music, related ) => ({type: SET_MUSIC_POPUP, music, related})
 export const loadMusicPopup = Middlewares.loadMusicPopup
 
+// POPUP:SHOP
+export const SET_SHOP_POPUP = 'set_shop_popup'
+export const setShopPopup = ( product, related ) => ({type: SET_SHOP_POPUP, product, related})
+export const loadShopPopup = Middlewares.loadMusicPopup
+
 
 /**
  * DATA

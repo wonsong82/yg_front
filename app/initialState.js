@@ -195,5 +195,21 @@ export const musicPopupInitState = {
   related: []
 }
 
+export const shopPopupInitState = {
+  type: 'shop',
+  id: '',
+  title: '',
+  price: '',
+  salePrice: '',
+  name: '',
+  content: '',
+  facebookShareLink: '',
+  twitterShareLink: '',
+  productType: '',
+  variation: [],
+  images: [],
+  related: []
+}
+
 
 export default initialState
