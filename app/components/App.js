@@ -17,14 +17,6 @@ class App extends Component {
     super(props)
   }
 
-  componentDidMount(){
-    const { page } = this.props
-    if(page.props.pageType == 'Static'){
-      $('.App .Page').empty()
-      $('.StaticPage').detach().appendTo('.App .Page').removeClass('StaticPage').addClass('Static')
-    }
-  }
-
 
   render(){
     const { page, popup, themeColor, textColor, dataLoaded, startApp } = this.props
@@ -33,7 +25,7 @@ class App extends Component {
     if( startApp ) {
       return (
         <div className="App">
-          <Page ready={dataLoaded} color={textColor}>{page}</Page>
+          <Page ready={page.props.pageType == 'Static' ? true : dataLoaded} color={textColor} page={page}>{page}</Page>
           <Footer color={textColor} bgColor={themeColor}/>
           <Frame color={textColor} bgColor={themeColor}/>
           <Popup color={textColor} bgColor={themeColor}>{popup}</Popup>
