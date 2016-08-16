@@ -8,25 +8,9 @@ class Page extends Component {
     super(props)
   }
 
-  componentDidMount() {
-    const { page } = this.props
-    if(page.props.pageType == 'Static'){
-      $('.App .Page').empty()
-      $('.StaticPage').detach().appendTo('.App .Page').removeClass('StaticPage').addClass('Static')
-    }
-  }
-
-
-  shouldComponentUpdate(nextProps) {
-    const { page } = nextProps
-    return page.props.pageType!='Static'
-  }
-
-
   render() {
-    const { ready, color, children, page } = this.props
+    const { ready, color, children } = this.props
 
-    if(page.props.pageType!='Static') {
       return (
         <div className="Page">
           { ready ?
@@ -37,13 +21,7 @@ class Page extends Component {
           }
         </div>
       )
-    }
-    else {
-      return (
-        <div className="Page">
-        </div>
-      )
-    }
+
   }
 }
 
