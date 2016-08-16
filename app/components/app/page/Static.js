@@ -9,6 +9,7 @@ class Static extends Component {
 
   componentDidMount() {
     $('.StaticPage .static-content').detach().appendTo($(this.refs.static))
+    $('.StaticPage').detach()
   }
 
 
