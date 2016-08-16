@@ -311,18 +311,16 @@ const data = ( state = initState.data , action) => {
         blogs: Object.assign({}, state.blogs, {isFetching: true})
       })
     case RECEIVE_BLOGS:
-      let { posts, hot_posts, most_viewed_posts } = action.data
+      let { posts, hot_posts} = action.data
       return Object.assign({}, state, {
         blogs: Object.assign({}, state.blogs, {
           isFetching: false,
           loaded: true,
           contents: {
             posts,
-            total_posts: posts.length,
+            total_posts: Object.keys(posts).length,
             hot_posts,
-            total_hot_posts: hot_posts.length,
-            most_viewed_posts,
-            total_most_viewed_posts: most_viewed_posts.length
+            total_hot_posts: hot_posts.length
           }
         })
       })
