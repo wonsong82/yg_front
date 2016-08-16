@@ -137,7 +137,9 @@ export const musicInitState = {
 export const shopInitState = {
   type: 'shop',
   categories: [],
-  products: [],
+  products: [
+    /* [{ id, title, url, artistName, thumb1x1, thumb2x1, thumb1x2 }] */
+  ],
   productsAllLoaded: false,
   selectedCategory: null
 }
