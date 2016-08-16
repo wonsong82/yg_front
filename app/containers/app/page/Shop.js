@@ -9,38 +9,39 @@ class Shop extends Component{
       super(props)
     }
 
-    componentWillReceiveProps(props, state){
-
-    }
 
     componentDidMount() {
-      const e = this.props
-
-      e.initPage('Shop')
-      e.loadCategoriesList()
-      e.loadProductsList(18)
+      const { initPage, loadCategoriesList, loadProductsList } = this.props
+      initPage('Shop')
+      loadCategoriesList()
+      loadProductsList(1)
+      loadProductsList()
+      loadProductsList()
     }
 
     onViewMoreClick(){
-      const e = this.props
-      e.loadProductsList(6)
+      const { onViewMoreClick } = this.props
+      onViewMoreClick()
+      onViewMoreClick()
+      onViewMoreClick()
     }
 
     onCategoryClick(catID){
-      const e = this.props
-      e.initPage('Shop')
-      e.loadCategoriesList()
-      e.setCategory(catID)
-      e.loadProductsList(18)
+      const { initPage, loadCategoriesList, setCategory, loadProductsList } = this.props
+      initPage('Shop')
+      loadCategoriesList()
+      setCategory(catID)
+      loadProductsList(1)
+      loadProductsList()
+      loadProductsList()
     }
 
     onSearchSubmit(keyword){
-      const e = this.props
-
-      e.initPage('Shop')
-      e.loadCategoriesList()
-      e.setCategory(null)
-      e.loadProductsListOnSearch(keyword)
+      const { initPage, loadCategoriesList, setCategory, loadProductsListOnSearch } = this.props
+      initPage('Shop')
+      loadCategoriesList()
+      setCategory(null)
+      loadProductsListOnSearch(keyword)
     }
 
 
@@ -59,7 +60,7 @@ const mapStateToProps = (state) => {
   return {
     categories,
     selectedCategory,
-    products,
+    productGroups: products,
     productsAllLoaded,
     isLoading
   }
@@ -67,10 +68,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
     initPage: pageType => { dispatch(initPage(pageType)) },
-    loadCategoriesList: () => { dispatch (loadCategoriesList())},
-    loadProductsList: (count) => { dispatch (loadProductsList(count))},
-    setCategory: (categoryId) => { dispatch(setCategory(categoryId))},
-    loadProductsListOnSearch: (keyword) => {dispatch(loadProductsListOnSearch(keyword)) }
+    loadCategoriesList: () => { dispatch(loadCategoriesList())},
+    loadProductsList: ( layoutType ) => { dispatch(loadProductsList( layoutType ))},
+    setCategory: (categoryId) => { dispatch(setCategory( categoryId ))},
+    loadProductsListOnSearch: ( keyword ) => { dispatch(loadProductsListOnSearch( keyword )) },
+    onViewMoreClick: ( layoutType ) => { dispatch(loadProductsList( layoutType ))}
 })
 
 

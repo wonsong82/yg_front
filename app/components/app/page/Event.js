@@ -13,7 +13,7 @@ const Event = ({eventGroups, eventsAllLoaded, onViewMoreClick}) => (
         {
           eventGroups &&
           eventGroups.map( (events, i) => (
-            <EventGroup name={'eventGroup-'+i} events={events} />
+            <EventGroup key={'eventGroup-'+i} events={events} />
           ))
         }
 

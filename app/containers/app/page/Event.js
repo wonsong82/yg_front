@@ -12,7 +12,7 @@ class Event extends Component{
     componentDidMount(){
       const { initPage , loadEventsList} = this.props
       initPage('Event')
-      loadEventsList(6)
+      loadEventsList(1)
       loadEventsList()
       loadEventsList()
     }

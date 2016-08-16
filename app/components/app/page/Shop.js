@@ -1,37 +1,40 @@
+require('./Shop.scss')
 import React from 'react'
 import ViewMore from '../../../components/lib/link/ViewMore'
 import CategoryFilter from '../../../components/app/item/shop/CategoryFilter'
 import SearchBox from '../../../components/app/item/shop/SearchBox'
-import ShopThumb from '../../../components/app/item/shop/ShopThumb'
+import ProductGroup from '../../../transitions/app/item/shop/ProductGroup'
 
-const Shop = ({products, productsAllLoaded, categories, isLoading, onViewMoreClick,onCategoryClick, onSearchSubmit}) => (
+
+const Shop = ({ productGroups, productsAllLoaded, categories, isLoading, onViewMoreClick,onCategoryClick, onSearchSubmit }) => (
   <div className="Shop">
+
     <h3>Shop</h3>
 
-    {
-      categories &&
-      <CategoryFilter categories={categories} onCategoryClick={onCategoryClick} />
-    }
+    <div className="header">
+      {
+        categories &&
+        <CategoryFilter categories={categories} onCategoryClick={onCategoryClick} />
+      }
 
-    {
-      categories &&
-      <SearchBox isLoading={isLoading} onSearchSubmit={onSearchSubmit} />
-    }
+      {
+        categories &&
+        <SearchBox isLoading={isLoading} onSearchSubmit={onSearchSubmit} />
+      }
+    </div>
 
 
     <ul className="products-list">
       {
-        products &&
-        products.map( product => (
-            <li key={product.id}>
-              <ShopThumb {...product} />
-            </li>
+        productGroups &&
+        productGroups.map( (products, i) => (
+          <ProductGroup key={'productGroup-'+i} products={products} />
         ))
       }
     </ul>
     {
       !productsAllLoaded &&
-      <ViewMore onClick={onViewMoreClick} />
+      <ViewMore className="view-more" onClick={onViewMoreClick} />
     }
 
   </div>

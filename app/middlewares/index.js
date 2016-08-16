@@ -42,6 +42,8 @@ export const toggleMainMenu = () => {
 /***
  * PAGE
  */
+import { LAYOUT_STYLE, getLayoutStyle } from '../functions/'
+
 // PAGE:BLOG
 import { setBlogsList, setHotPostsList, setPostsAllLoaded, setHotPostsAllLoaded } from '../actions/'
 
@@ -135,7 +137,7 @@ export const loadHotPostsList = ( count ) => (dispatch, getState) => {
 //PAGE:EVENT
 import { setEventsList , setEventsAllLoaded} from '../actions/'
 
-export const loadEventsList = ( layoutStyle='random' ) => (dispatch, getState) => {
+export const loadEventsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch, getState) => {
   const state = getState();
   if(state.page.type = 'event'){
 
@@ -149,8 +151,7 @@ export const loadEventsList = ( layoutStyle='random' ) => (dispatch, getState) =
     let nextCount = curCount + count
 
     let newEvents = []
-    layoutStyle = layoutStyle == 'random' ?
-      Math.floor(Math.random() * 6) + 1 : layoutStyle;
+    layoutStyle = getLayoutStyle(layoutStyle, 6)
 
     let layoutNum = 1
     for(let i=curCount; i<nextCount; i++){
@@ -173,7 +174,7 @@ export const loadEventsList = ( layoutStyle='random' ) => (dispatch, getState) =
         layoutStyle,
         layoutNum
       })
-      layoutNum++;
+      layoutNum++
 
       if(eventsDataCount-1 == i || nextCount-1 == i){
         if(eventsDataCount-1 == i){
@@ -186,6 +187,102 @@ export const loadEventsList = ( layoutStyle='random' ) => (dispatch, getState) =
     dispatch(setEventsList(newEvents))
   }
 }
+
+
+// PAGE:SHOP
+import {setProductsList , setProductsAllLoaded} from '../actions/'
+
+export const loadProductsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch, getState) => {
+  const state = getState()
+  if(state.page.type == 'shop'){
+
+    const curCategory = state.page.selectedCategory
+    let productsData = toArray(state.data.shops.contents.products)
+
+    if(curCategory != null){
+      productsData = productsData.filter( product => {
+        return product.cat_IDs.indexOf(curCategory) != -1
+      })
+    }
+
+    const products = state.page.products,
+          productsDataCount = productsData.length,//productsData.legnth
+          artistsData = state.data.artists.contents.artists
+
+    const count = 6
+    let curCount = products.length * count
+    let nextCount = curCount + count
+
+    let newProducts = []
+    layoutStyle = getLayoutStyle(layoutStyle, 8)
+
+    let layoutNum = 1
+
+
+    for(let i=curCount; i<nextCount; i++){
+
+      const product = productsData[i]
+      const { id, post_title, url_friendly_name, thumb_1x1, thumb_2x1, thumb_1x2, artist_id } = product
+      const artistName = artistsData[artist_id].name
+      const price = product.product_type == "simple" ?
+        product._regular_price :
+        product.variation[0].display_price
+      const url = '/Shop/' + url_friendly_name
+
+      newProducts.push({
+        id,
+        title: excerptStr(post_title, 90),
+        url,
+        artistName,
+        thumb1x1: thumb_1x1 || false,
+        thumb2x1: thumb_2x1 || false,
+        thumb1x2: thumb_1x2 || false,
+        price,
+        layoutStyle,
+        layoutNum
+      })
+
+      layoutNum++
+
+      if(productsDataCount-1 == i || nextCount-1 == i){
+        if(productsDataCount-1 == i){
+          dispatch(setProductsAllLoaded(true))
+        }
+        break
+      }
+    }
+
+    dispatch(setProductsList(newProducts))
+  }
+}
+
+import { setProductsListOnSearch } from '../actions/'
+export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
+
+  const state = getState()
+  if(state.page.type == 'shop'){
+    let productsData = state.data.shops.contents.products
+
+    productsData = toArray(productsData).filter (product => {
+      let foundInTitle = true, foundInContent = true
+      keyword.split(' ').forEach( e => {
+        if(product.post_title.toLowerCase().indexOf(e.trim().toLowerCase()) == -1) foundInTitle = false
+        if(product.post_content.toLowerCase().indexOf(e.trim().toLowerCase()) == -1) foundInContent = false
+      })
+      return foundInTitle || foundInContent
+    })
+
+    dispatch(setProductsListOnSearch(productsData))
+
+  }
+}
+
+import { setCategoriesList } from '../actions/'
+export const loadCategoriesList = () => (dispatch, getState) => {
+  dispatch(setCategoriesList(toArray(getState().data.shops.contents.categories)))
+}
+
+
 
 //PAGE: TOUR
 import { setToursList, setToursAllLoaded } from '../actions/'
@@ -586,96 +683,6 @@ export const loadShopPopup = (name) => (dispatch, getState) => {
 
 }
 
-
-
-
-
-import {setProductsList , setProductsAllLoaded} from '../actions/'
-export const loadProductsList = (count) => (dispatch, getState) => {
-  const state = getState()
-
-  if(state.page.type == 'shop'){
-    const curCategory = state.page.selectedCategory
-    let productsData = state.data.shops.contents.products
-
-    if(curCategory != null){
-      productsData = toArray(productsData).filter( product => {
-        return product.cat_IDs.indexOf(curCategory) != -1
-      })
-    }
-
-    const products = state.page.products,
-        productsDataCount = Object.keys(productsData).length,//productsData.legnth
-        artistsData = state.data.artists.contents.artists
-
-    let curCount = products.length
-    let nextCount = curCount + count
-
-    let newProducts = []
-    var index = 0
-
-    for (let key in productsData){
-      if(productsData.hasOwnProperty(key)) {
-        let product = productsData[key]
-        let artistName = artistsData[product.artist_id].name
-        let {id, post_title, url_friendly_name,thumb_1x1, thumb_2x1, thumb_1x2} = product
-
-        let price = product.product_type == "simple" ?
-            product._regular_price :
-            product.variation[0].display_price
-
-        let url = Site + '/Shop/' + url_friendly_name
-
-        newProducts.push({
-          id,
-          title: post_title,
-          url,
-          name: artistName,
-          thumb_1x1,
-          thumb_2x1,
-          thumb_1x2,
-          price
-        })
-
-        if(productsDataCount-1 == index || nextCount-1 == index){
-          if(productsDataCount-1 == index){
-            dispatch(setProductsAllLoaded(true))
-          }
-          break
-        }
-      }
-      index++
-    }
-    dispatch(setProductsList(newProducts))
-  }
-}
-
-import { searchingRequest, setProductsListOnSearch } from '../actions/'
-export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
-
-  const state = getState()
-  if(state.page.type == 'shop'){
-    let productsData = state.data.shops.contents.products
-
-    productsData = toArray(productsData).filter (product => {
-      let foundInTitle = true, foundInContent = true
-      keyword.split(' ').forEach( e => {
-        if(product.post_title.toLowerCase().indexOf(e.trim().toLowerCase()) == -1) foundInTitle = false
-        if(product.post_content.toLowerCase().indexOf(e.trim().toLowerCase()) == -1) foundInContent = false
-      })
-      return foundInTitle || foundInContent
-    })
-
-    dispatch(setProductsListOnSearch(productsData))
-
-  }
-}
-
-
-import { setCategoriesList } from '../actions/'
-export const loadCategoriesList = () => (dispatch, getState) => {
-  dispatch(setCategoriesList(toArray(getState().data.shops.contents.categories)))
-}
 
 
 

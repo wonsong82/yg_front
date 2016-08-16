@@ -174,12 +174,12 @@ const page = ( state = initState.page, action ) => {
     //SHOP
     case SET_PRODUCTS_LIST:
       return Object.assign({}, state, {
-        products: action.products
+        products: [...state.products, action.products]
       })
 
     case SET_PRODUCTS_LIST_ON_SEARCH:
       return Object.assign({}, state, {
-        products: action.products,
+        products: [...state.products, action.products],
         productsAllLoaded: true
       })
 
