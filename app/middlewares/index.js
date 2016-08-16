@@ -57,7 +57,8 @@ export const loadBlogsList = ( count ) => (dispatch, getState) => {
     let curCount  = posts.length
     let nextCount = curCount + count
     let newPosts = []
-    var index = 0
+    var index = 0          
+
     for( let key in postsData ) {
       if (postsData.hasOwnProperty(key)) {
         let post = postsData[key]
@@ -154,37 +155,41 @@ export const loadEventsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch, 
     layoutStyle = getLayoutStyle(layoutStyle, 6)
 
     let layoutNum = 1
-    for(let i=curCount; i<nextCount; i++){
-      const { id, post_title, post_content, url_friendly_name, excerpt, post_date, main_image, thumb_3x2, thumb_1x1, artist_id } = eventsData[i]
-      const { themeColor, textColor } = artistsData[artist_id]
-      const url = '/event/' + url_friendly_name
 
-      newEvents.push({
-        id,
-        title:  excerptStr(post_title, 90),
-        url,
-        text: post_content,
-        excerpt,
-        date: post_date,
-        image: main_image,
-        thumb3x2: thumb_3x2 || main_image || false,
-        thumb1x1: thumb_1x1 || main_image || false,
-        themeColor,
-        textColor,
-        layoutStyle,
-        layoutNum
-      })
-      layoutNum++
+    if(eventsDataCount > 0 && eventsDataCount > curCount){
+      for(let i=curCount; i<nextCount; i++){
 
-      if(eventsDataCount-1 == i || nextCount-1 == i){
-        if(eventsDataCount-1 == i){
-          dispatch(setEventsAllLoaded(true))
+        const { id, post_title, post_content, url_friendly_name, excerpt, post_date, main_image, thumb_3x2, thumb_1x1, artist_id } = eventsData[i]
+        const { themeColor, textColor } = artistsData[artist_id]
+        const url = '/event/' + url_friendly_name
+
+        newEvents.push({
+          id,
+          title:  excerptStr(post_title, 90),
+          url,
+          text: post_content,
+          excerpt,
+          date: post_date,
+          image: main_image,
+          thumb3x2: thumb_3x2 || main_image || false,
+          thumb1x1: thumb_1x1 || main_image || false,
+          themeColor,
+          textColor,
+          layoutStyle,
+          layoutNum
+        })
+        layoutNum++
+
+        if(eventsDataCount-1 == i || nextCount-1 == i){
+          if(eventsDataCount-1 == i){
+            dispatch(setEventsAllLoaded(true))
+          }
+          console.log('break')
+          break
         }
-        break
       }
+      dispatch(setEventsList(newEvents))
     }
-
-    dispatch(setEventsList(newEvents))
   }
 }
 
