@@ -382,7 +382,7 @@ const data = ( state = initState.data , action) => {
             musics,
             musicsCount: Object.keys(musics).length,
             hotTracks,
-            hotTracksCount: Object.keys(hotTracks).length
+            hotTracksCount: hotTracks.length
           }
         })
       })
