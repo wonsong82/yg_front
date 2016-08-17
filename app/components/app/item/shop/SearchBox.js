@@ -52,13 +52,19 @@ class SearchBox extends Component {
     }
   }
 
+  onIconClick(e){
+    e.preventDefault()
+    this.toggleInput()
+  }
+
+
   render() {
 
     return (
       <div className='SearchBox'>
         <form action="#" onSubmit={this.onSubmit.bind(this)}>
 
-        <a className="icon" ref="icon" href="#" onClick={this.toggleInput.bind(this)}>
+        <a className="icon" ref="icon" href="#" onClick={this.onIconClick.bind(this)}>
           <span className="icon-search" />
         </a>
 
