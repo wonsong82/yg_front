@@ -1,14 +1,27 @@
+require('./ProductThumb.scss')
 import React from 'react'
 import RouterLink from '../../../../containers/lib/link/RouterLink'
+import Image from '../../../../components/lib/image/Image'
 
 
-const ProductThumb = ({ title, url, name, price, thumb_1x1, thumb_2x1, thumb_1x2 }) => (
-  <div className="ShopThumb">
+const ProductThumb = ({ title, url, artistName, price, thumb1x1, thumb2x1, thumb1x2, layoutStyle, layoutNum }) => (
 
-    <RouterLink className="title" to={ url }>
-      <h3>{title}</h3>
+
+  <RouterLink className={ `ProductThumb style-${layoutStyle}-${layoutNum}` } to={url}>
+
+    <div className="images">
+      <Image className="image-1x1" color="rgba(0,0,0,.30)" src={thumb1x1} />
+      <Image className="image-2x1" color="rgba(0,0,0,.30)" src={thumb2x1} />
+      <Image className="image-1x2" color="rgba(0,0,0,.30)" src={thumb1x2} />
+    </div>
+
+    <RouterLink className="title" to={url}>
+      <h3>{`${artistName.replace(' ','')} - ${title}`}</h3>
     </RouterLink>
-  </div>
+
+    <span className="price">{`$${price}`}</span>
+
+  </RouterLink>
 
 )
 

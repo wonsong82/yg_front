@@ -11,7 +11,7 @@ class Shop extends Component{
 
 
     componentDidMount() {
-      const { initPage, loadCategoriesList, loadProductsList } = this.props
+      let { initPage, loadCategoriesList, loadProductsList } = this.props
       initPage('Shop')
       loadCategoriesList()
       loadProductsList(1)
@@ -20,14 +20,14 @@ class Shop extends Component{
     }
 
     onViewMoreClick(){
-      const { onViewMoreClick } = this.props
+      let { onViewMoreClick } = this.props
       onViewMoreClick()
       onViewMoreClick()
       onViewMoreClick()
     }
 
     onCategoryClick(catID){
-      const { initPage, loadCategoriesList, setCategory, loadProductsList } = this.props
+      let { initPage, loadCategoriesList, setCategory, loadProductsList } = this.props
       initPage('Shop')
       loadCategoriesList()
       setCategory(catID)
@@ -37,7 +37,7 @@ class Shop extends Component{
     }
 
     onSearchSubmit(keyword){
-      const { initPage, loadCategoriesList, setCategory, loadProductsListOnSearch } = this.props
+      let { initPage, loadCategoriesList, setCategory, loadProductsListOnSearch } = this.props
       initPage('Shop')
       loadCategoriesList()
       setCategory(null)
@@ -56,10 +56,14 @@ class Shop extends Component{
 }
 
 const mapStateToProps = (state) => {
-  const { categories, products, productsAllLoaded, selectedCategory, isLoading} = state.page
+  const { products, productsAllLoaded, selectedCategory, isLoading} = state.page
+  const categories = state.page.categories ?
+    [ {cat_ID:0, name:'All'}, ...state.page.categories ] : []
+
+
   return {
     categories,
-    selectedCategory,
+    selectedCategory: selectedCategory || 0,
     productGroups: products,
     productsAllLoaded,
     isLoading

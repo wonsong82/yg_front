@@ -1,0 +1,104 @@
+@import '../../../variable.scss';
+
+@mixin product-thumb {
+  width: getGridWidth(4);
+  height: 400px;
+  background: #fff;
+  display: block;
+  box-sizing: border-box;
+  @include card;
+
+  .images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    .image-1x1 {
+      display: none;
+    }
+    .image-2x1 {
+      display: none;
+    }
+    .image-1x2 {
+      display: none;
+    }
+  }
+
+  .title {
+    position: relative;
+    display: block;
+    padding: 20px 20px 0 20px;
+    max-height: 44px;
+    overflow: hidden;
+    h3 {
+      display: block;
+      word-break: break-all;
+      color: #000;
+      font: 400 16px/22px 'Klavika', sans-serif;
+      opacity: $opacity--primary;
+      text-transform: uppercase;
+    }
+  }
+
+  .price {
+    position: relative;
+    display: block;
+    margin-left: 20px;
+    color: #000;
+    font: 400 16px/22px 'Klavika', sans-serif;
+    opacity: $opacity--caption;
+  }
+}
+
+
+@mixin product-thumb--sm {
+  @include product-thumb;
+  width: getGridWidth(4);
+  height: 400px;
+  .images {
+    .image-1x1 {
+      display: block;
+      width: getGridWidth(4);
+      height: 400px;
+    }
+  }
+
+}
+
+@mixin product-thumb--vt {
+  @include product-thumb;
+  width: getGridWidth(2);
+  height: 400px;
+  .images {
+    .image-1x2 {
+      display: block;
+      width: getGridWidth(2);
+      height: 400px;
+    }
+  }
+}
+
+@mixin product-thumb--hr {
+  @include product-thumb;
+  width: getGridWidth(4);
+  height: 195px;
+  .images {
+    .image-2x1 {
+      display: block;
+      width: getGridWidth(4);
+      height: 195px;
+    }
+  }
+}
+
+@mixin product-thumb--xs {
+  @include product-thumb;
+  width: getGridWidth(2);
+  height: 195px;
+  .images {
+    .image-1x1 {
+      display: block;
+      width: getGridWidth(2);
+      height: 195px;
+    }
+  }
+}

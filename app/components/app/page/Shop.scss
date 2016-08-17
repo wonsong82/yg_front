@@ -1,0 +1,85 @@
+@import '../../variable.scss';
+@import '../item/shop/ProductGroup.scss';
+@import '../item/shop/CategoryFilter.scss';
+
+.App .Page .ShopLayout {
+  width: getGridWidth(10) + $gridGap;
+  margin: $pagePadding--top auto $pagePadding--bottom;
+
+  .header {
+    width: getGridWidth(10);
+    margin: 0 auto 20px;
+
+    h3 {
+      @include page-title;
+    }
+
+    .CategoryFilter {
+      display: block;
+      @include category-filter--xl;
+    }
+
+    .SearchBox {
+      display: none;
+    }
+  }
+
+  .ProductGroup {
+    @include product-group--xl;
+  }
+
+  .view-more {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+
+@media (max-width: $width--lg) {
+  .App .Page .ShopLayout {
+    width: getGridWidth(8) + $gridGap;
+    .header {
+      width: getGridWidth(8);
+    }
+    .ProductGroup {
+      @include product-group--lg;
+    }
+  }
+}
+
+@media (max-width: $width--md) {
+  .App .Page .ShopLayout {
+    width: getGridWidth(6) + $gridGap;
+    .header {
+      width: getGridWidth(6);
+    }
+    .ProductGroup {
+      @include product-group--md;
+    }
+  }
+}
+
+@media (max-width: $width--sm) {
+  .App .Page .ShopLayout {
+    width: getGridWidth(4) + $gridGap;
+    .header {
+      width: getGridWidth(4);
+    }
+    .ProductGroup {
+      @include product-group--sm;
+    }
+  }
+}
+
+@media (max-width: $width--xs) {
+  .App .Page .ShopLayout {
+    width: getGridWidth(2) + $gridGap;
+    .header {
+      width: getGridWidth(2);
+    }
+    .ProductGroup {
+      @include product-group--xs;
+    }
+  }
+}

@@ -11,14 +11,14 @@
       "cat_IDs": [
         1
       ],
-      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_1x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_1x1": "/images/product1x1.png",
+      "thumb_2x1": "/images/product1x1.png",
+      "thumb_1x2": "/images/product1x1.png",
       "images": [
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png"
       ],
       "artist_id": 1,
       "default_att": {
@@ -102,14 +102,14 @@
         2,
         5
       ],
-      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_1x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_1x1": "/images/product1x1.png",
+      "thumb_2x1": "/images/product1x1.png",
+      "thumb_1x2": "/images/product1x1.png",
       "images": [
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png"
       ],
       "artist_id": 2,
       "_regular_price": "89.99",
@@ -125,14 +125,14 @@
       "cat_IDs": [
         4
       ],
-      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_1x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_1x1": "/images/product1x1.png",
+      "thumb_2x1": "/images/product1x1.png",
+      "thumb_1x2": "/images/product1x1.png",
       "images": [
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png"
       ],
       "artist_id": 3,
       "_regular_price": "89.99",
@@ -148,14 +148,14 @@
       "cat_IDs": [
         5
       ],
-      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_1x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_1x1": "/images/product1x1.png",
+      "thumb_2x1": "/images/product1x1.png",
+      "thumb_1x2": "/images/product1x1.png",
       "images": [
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png"
       ],
       "artist_id": 4,
       "_regular_price": "89.99",
@@ -171,14 +171,14 @@
       "cat_IDs": [
         6
       ],
-      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_1x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_1x1": "/images/product1x1.png",
+      "thumb_2x1": "/images/product1x1.png",
+      "thumb_1x2": "/images/product1x1.png",
       "images": [
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png"
       ],
       "artist_id": 5,
       "_regular_price": "89.99",
@@ -195,14 +195,14 @@
         1,
         6
       ],
-      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_1x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "thumb_1x1": "/images/product1x1.png",
+      "thumb_2x1": "/images/product1x1.png",
+      "thumb_1x2": "/images/product1x1.png",
       "images": [
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-        "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg"
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png"
       ],
       "artist_id": 6,
       "_regular_price": "89.99",

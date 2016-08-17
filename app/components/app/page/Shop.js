@@ -6,15 +6,15 @@ import SearchBox from '../../../components/app/item/shop/SearchBox'
 import ProductGroup from '../../../transitions/app/item/shop/ProductGroup'
 
 
-const Shop = ({ productGroups, productsAllLoaded, categories, isLoading, onViewMoreClick,onCategoryClick, onSearchSubmit }) => (
-  <div className="Shop">
-
-    <h3>Shop</h3>
+const Shop = ({ productGroups, productsAllLoaded, categories, isLoading, onViewMoreClick,onCategoryClick, onSearchSubmit, selectedCategory }) => (
+  <div className="ShopLayout">
 
     <div className="header">
+      <h3>Shop</h3>
+
       {
         categories &&
-        <CategoryFilter categories={categories} onCategoryClick={onCategoryClick} />
+        <CategoryFilter categories={categories} onCategoryClick={onCategoryClick} selectedCategory={selectedCategory} />
       }
 
       {
@@ -28,7 +28,7 @@ const Shop = ({ productGroups, productsAllLoaded, categories, isLoading, onViewM
       {
         productGroups &&
         productGroups.map( (products, i) => (
-          <ProductGroup key={'productGroup-'+i} products={products} />
+          <ProductGroup key={`productGroup-${selectedCategory}-${i}`} products={products} />
         ))
       }
     </ul>

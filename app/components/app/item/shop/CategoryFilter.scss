@@ -1,0 +1,49 @@
+@import '../../../variable.scss';
+
+@mixin category-filter--xl {
+  border-top: 1px solid rgba(0,0,0, $opacity--line1);
+  border-bottom: 1px solid rgba(0,0,0, $opacity--line1);
+
+  ul {
+    font-size: 0;
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    li {
+      display: block;
+      float: left;
+      a {
+        display: inline-block;
+        padding: 0 50px;
+        height: 65px;
+        text-align: center;
+        font: 400 18px/65px 'Klavika', sans-serif;
+        color: rgba(0,0,0, $opacity--caption);
+        transition: color 0.3s ease, background-color 0.3s ease;
+        will-change: color, background-color;
+      }
+
+      &:hover {
+        a {
+          color: rgba(0,0,0, $opacity--title);
+        }
+      }
+
+      &.selected {
+        a {
+          background: rgba(0,0,0, $opacity--caption);
+          color: $bgColor;
+        }
+        &:hover {
+          a {
+            color: $bgColor;
+          }
+        }
+      }
+    }
+  }
+}

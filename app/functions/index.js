@@ -107,7 +107,7 @@ export const LAYOUT_STYLE = {
   RANDOM: 'layout_style_random'
 }
 export const getLayoutStyle = ( style, numOfLayouts ) => {
-  return LAYOUT_STYLE.RANDOM ?
+  return style == LAYOUT_STYLE.RANDOM ?
     Math.floor(Math.random() * numOfLayouts) + 1 : style
 }
 
