@@ -1,0 +1,84 @@
+@import '../../../variable.scss';
+
+@mixin search-box {
+  height: 64px;
+  font-size: 0;
+  line-height: 64px;
+
+  .icon {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    vertical-align: middle;
+
+    span {
+      color: #000;
+      opacity: $opacity--sub;
+      font-size: 32px;
+      line-height:32px;
+      vertical-align: middle;
+      transition: opacity 0.3s ease;
+      will-change: opacity;
+      &:before {
+        vertical-align: middle;
+      }
+    }
+    &:hover, &:active {
+      span {
+        opacity: $opacity--primary;
+      }
+    }
+  }
+
+  .input {
+    display: inline-block;
+    vertical-align: middle;
+    border: none;
+    width: 226px;
+    height: 40px;
+    box-sizing: border-box;
+    background: transparent;
+    padding: 5px 0;
+    font: 500 20px/24px 'Klavika', sans-serif;
+    color: rgba(0,0,0, $opacity--title);
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    outline: 0;
+    transition: width 0.5s $easeOutQuart;
+    will-change: width;
+    opacity: 0;
+
+    &.hidden {
+      width: 0;
+    }
+    &::-webkit-input-placeholder,
+    &:-moz-placeholder,
+    &::-moz-placeholder,
+    &:-ms-input-placeholder {
+      color: rgba(0,0,0, $opacity--caption);
+    }
+  }
+}
+
+@mixin search-box--xl {
+  @include search-box;
+}
+
+@mixin search-box--md {
+  .input {
+    width: getGridWidth(6) - 84px;
+  }
+}
+
+@mixin search-box--sm {
+  .input {
+    width: getGridWidth(4) - 84px;
+  }
+}
+
+@mixin search-box--xs {
+  .input {
+    width: getGridWidth(2) - 84px;
+  }
+}

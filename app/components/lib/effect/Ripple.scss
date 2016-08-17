@@ -1,0 +1,27 @@
+.Ripple {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  .diameter {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    pointer-events: none;
+    overflow: hidden;
+
+    .bg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+}
+

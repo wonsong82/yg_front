@@ -13,10 +13,10 @@
 $w: (getGridWidth(10) + $gridGap) / 5;
 $h: (400 + $gridGap) / 2;
 @function x($num){
-  @return $w * ($num - 1);
+  @return ($w * ($num - 1)) + ($gridGap / 2);
 }
 @function y($num){
-  @return $h * ($num - 1);
+  @return ($h * ($num - 1)) + ($gridGap  /2);
 }
 
 

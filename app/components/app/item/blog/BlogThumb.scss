@@ -9,6 +9,7 @@
   @include card;
 
   .header {
+    z-index: 2;
     padding: 20px;
     box-sizing: border-box;
     position: relative;
@@ -66,7 +67,12 @@
     }
   }
 
+  .Ripple {
+    z-index: 1;
+  }
+
   .images {
+    z-index: 0;
     .image-2x1 {
       display: block;
       width: getGridWidth(6);
@@ -97,6 +103,8 @@
   }
 
   .read-more {
+    position: relative;
+    z-index: 3;
     display: inline-block;
     font: 400 14px/20px 'klavika', sans-serif;
     color: rgba(0,0,0, $opacity--title);

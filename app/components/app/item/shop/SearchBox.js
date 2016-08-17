@@ -11,7 +11,11 @@ class SearchBox extends Component {
 
   onSubmit(e){
     e.preventDefault()
-    this.props.onSearchSubmit(this.state.keywordValue)
+    const { onSearchSubmit } = this.props
+    onSearchSubmit(this.state.keywordValue)
+    this.setState({keywordValue: ''})
+    this.toggleInput()
+
   }
 
 
@@ -21,19 +25,48 @@ class SearchBox extends Component {
     })
   }
 
+  toggleInput(){
+    const input = $(this.refs.input)
+    if(input.hasClass('hidden')){
+      input.removeClass('hidden')
+      input
+        .velocity('stop')
+        .velocity({
+          opacity: 1
+        }, {
+          duration: 300,
+          delay: 500
+        })
+      input.focus()
+    }
+    else {
+      input.addClass('hidden')
+      input
+        .velocity('stop')
+        .velocity({
+          opacity: 0
+        }, {
+          duration: 300
+        })
+      input.blur()
+    }
+  }
+
   render() {
 
     return (
-      <div className={"SearchBox"}>
-        <h3>searchBox</h3>
-        <p>keyword</p>
-
+      <div className='SearchBox'>
         <form action="#" onSubmit={this.onSubmit.bind(this)}>
-          <input type="text" value={this.state.keywordValue} onChange={this.onKeywordInputChange.bind(this)} />
-          <button type="submit">FIND
-          </button>
+
+        <a className="icon" ref="icon" href="#" onClick={this.toggleInput.bind(this)}>
+          <span className="icon-search" />
+        </a>
+
+        <input type="text" className="input hidden" ref="input" value={this.state.keywordValue} onChange={this.onKeywordInputChange.bind(this)} placeholder="Search products" />
+
         </form>
       </div>
+
     )
   }
 

@@ -8,6 +8,7 @@
     transition: background-color 1s ease;
     will-change: background-color;
     transition-delay: 300ms;
+    z-index: $z-frame;
   }
 
   .top {
@@ -16,6 +17,7 @@
     left: 0;
     right: 0;
     height: $frameSizeTop;
+    z-index: $z-frame;
   }
 
   .left {
@@ -24,6 +26,7 @@
     left: 0;
     width: $frameSize;
     bottom: 0;
+    z-index: $z-frame;
   }
 
   .right {
@@ -32,6 +35,7 @@
     right: 0;
     width: $frameSize;
     bottom: 0;
+    z-index: $z-frame;
   }
 
   .bottom {
@@ -40,6 +44,7 @@
     height: $frameSize;
     left: 0;
     right: 0;
+    z-index: $z-frame;
 
     .copyright {
       font: 400 12px/25px 'Klavika', sans-serif;

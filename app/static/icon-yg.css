@@ -92,3 +92,6 @@
 .icon-email:before {
 	content: "\72";
 }
+.icon-search:before {
+	content: "\74";
+}

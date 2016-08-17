@@ -2,6 +2,7 @@ require('./EventThumb.scss')
 import React from 'react'
 import RouterLink from '../../../../containers/lib/link/RouterLink'
 import Image from '../../../../components/lib/image/Image'
+import Ripple from '../../../../components/lib/effect/Ripple'
 
 
 const EventThumb = ({ title, url, text, date, image, thumb1x1, thumb3x2, textColor, themeColor, layoutStyle, layoutNum }) => (
@@ -19,6 +20,8 @@ const EventThumb = ({ title, url, text, date, image, thumb1x1, thumb3x2, textCol
           <Image className="image-3x2" color="rgba(0,0,0,.30)" src={thumb3x2} />
         </div>
       }
+
+      <Ripple color={ image ? 'rgba(0,0,0,.5)' : 'rgba(255,255,255,.8)' } />
 
       <RouterLink className="title" to={url}>
         <h3 style={ image ? {color:'#000000'} : {color:textColor}}>{title}</h3>

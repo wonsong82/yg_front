@@ -1,5 +1,8 @@
+@import '../variable';
+
 .App .Page {
   width: 100%;
+  z-index: $z-page;
 
   .loading {
     height: 300px;

@@ -1,6 +1,6 @@
 @import '../../../variable.scss';
 
-@mixin category-filter--xl {
+@mixin category-filter {
   border-top: 1px solid rgba(0,0,0, $opacity--line1);
   border-bottom: 1px solid rgba(0,0,0, $opacity--line1);
 
@@ -16,12 +16,13 @@
     li {
       display: block;
       float: left;
+      font-size: 0;
       a {
         display: inline-block;
-        padding: 0 50px;
-        height: 65px;
+        padding: 0 46px;
+        height: 64px;
         text-align: center;
-        font: 400 18px/65px 'Klavika', sans-serif;
+        font: 400 18px/64px 'Klavika', sans-serif;
         color: rgba(0,0,0, $opacity--caption);
         transition: color 0.3s ease, background-color 0.3s ease;
         will-change: color, background-color;
@@ -43,6 +44,73 @@
             color: $bgColor;
           }
         }
+      }
+    }
+  }
+}
+
+@mixin category-filter--xl {
+  @include category-filter;
+}
+
+@mixin category-filter--lg {
+  @include category-filter;
+  ul {
+    li {
+      a {
+        padding: 0 28px;
+      }
+    }
+  }
+}
+
+@mixin category-filter--md {
+  @include category-filter;
+  ul {
+    padding: 5px 0;
+    width: getGridWidth(6);
+    li {
+      a {
+        padding: 0;
+        width: getGridWidth(6) / 3;
+      }
+    }
+  }
+}
+
+@mixin category-filter--sm {
+  @include category-filter;
+  ul {
+    font-size: 0;
+    padding: 5px 0;
+    width: getGridWidth(4);
+    text-align: center;
+    li {
+      display: inline-block;
+      float: none;
+      a {
+        padding: 0;
+        width: getGridWidth(4) / 3;
+      }
+    }
+  }
+}
+
+@mixin category-filter--xs {
+  @include category-filter;
+  ul {
+    font-size: 0;
+    padding: 5px 0;
+    width: getGridWidth(2);
+    text-align: center;
+    li {
+      display: inline-block;
+      float: none;
+      a {
+        padding: 0;
+        height: 40px;
+        line-height: 40px;
+        width: getGridWidth(2) / 2;
       }
     }
   }

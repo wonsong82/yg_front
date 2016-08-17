@@ -1,6 +1,7 @@
 @import '../../variable.scss';
 @import '../item/shop/ProductGroup.scss';
 @import '../item/shop/CategoryFilter.scss';
+@import '../item/shop/SearchBox.scss';
 
 .App .Page .ShopLayout {
   width: getGridWidth(10) + $gridGap;
@@ -9,6 +10,7 @@
   .header {
     width: getGridWidth(10);
     margin: 0 auto 20px;
+    position: relative;
 
     h3 {
       @include page-title;
@@ -20,7 +22,11 @@
     }
 
     .SearchBox {
-      display: none;
+      display: block;
+      position: absolute;
+      bottom: 1px;
+      right: 0;
+      @include search-box--xl;
     }
   }
 
@@ -41,6 +47,9 @@
     width: getGridWidth(8) + $gridGap;
     .header {
       width: getGridWidth(8);
+      .CategoryFilter {
+        @include category-filter--lg;
+      }
     }
     .ProductGroup {
       @include product-group--lg;
@@ -53,6 +62,16 @@
     width: getGridWidth(6) + $gridGap;
     .header {
       width: getGridWidth(6);
+      .CategoryFilter {
+        @include category-filter--md;
+      }
+      .SearchBox {
+        display: block;
+        position: relative;
+        bottom: auto;
+        right: auto;
+        @include search-box--md;
+      }
     }
     .ProductGroup {
       @include product-group--md;
@@ -65,6 +84,12 @@
     width: getGridWidth(4) + $gridGap;
     .header {
       width: getGridWidth(4);
+      .CategoryFilter {
+        @include category-filter--sm;
+      }
+      .SearchBox {
+        @include search-box--sm;
+      }
     }
     .ProductGroup {
       @include product-group--sm;
@@ -77,6 +102,12 @@
     width: getGridWidth(2) + $gridGap;
     .header {
       width: getGridWidth(2);
+      .CategoryFilter {
+        @include category-filter--xs;
+      }
+      .SearchBox {
+        @include search-box--xs;
+      }
     }
     .ProductGroup {
       @include product-group--xs;

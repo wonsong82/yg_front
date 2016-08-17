@@ -3,12 +3,14 @@ import React from 'react'
 import AnchorLink from '../../../../components/lib/link/AnchorLink'
 import RouterLink from '../../../../containers/lib/link/RouterLink'
 import Image from '../../../../components/lib/image/Image'
-
+import Ripple from '../../../../components/lib/effect/Ripple'
 
 const BlogThumb = ({ title, url, text, date, image, facebookShareLink, twitterShareLink, thumb_3x2, thumb_2x1 }) => (
 
 
   <RouterLink className={image? 'BlogThumb': 'BlogThumb no-image'} to={url}>
+
+    <Ripple color='rgba(0,0,0,.5)' />
 
     <div className="header">
       <RouterLink className="title" to={url}>
