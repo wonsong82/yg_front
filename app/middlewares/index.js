@@ -57,7 +57,7 @@ export const loadBlogsList = ( count ) => (dispatch, getState) => {
     let curCount  = posts.length
     let nextCount = curCount + count
     let newPosts = []
-    var index = 0          
+    var index = 0
 
     for( let key in postsData ) {
       if (postsData.hasOwnProperty(key)) {
@@ -500,7 +500,7 @@ export const loadEventPopup = (name) => (dispatch, getState) => {
       const related = related_event.map ( id => {
         let e = state.data.events.contents.events[id]
         const { themeColor, textColor } = state.data.artists.contents.artists[e.artist_id]
-        let path = '/blog/' + e.url_friendly_name
+        let path = '/event/' + e.url_friendly_name
         return {
           id: e.id,
           title: excerptStr(e.post_title, 90),
