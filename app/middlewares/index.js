@@ -273,7 +273,8 @@ export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
     })
 
     let layoutStyle = null,
-        layoutNum = 1
+        layoutNum = 1,
+        count = 6
 
     productsData = productsData.map( product => {
       const { id, post_title, url_friendly_name, thumb_1x1, thumb_2x1, thumb_1x2, artist_id } = product
@@ -282,7 +283,7 @@ export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
         product._regular_price :
         product.variation[0].display_price
       const url = '/Shop/' + url_friendly_name
-      if(!layoutStyle || layoutNum > 8){
+      if(!layoutStyle || layoutNum > count){
         layoutStyle = getLayoutStyle(LAYOUT_STYLE.RANDOM, 8)
         layoutNum = 1
       }
@@ -301,9 +302,9 @@ export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
       }
     })
 
-
-    dispatch(setProductsListOnSearch(productsData))
-
+    while (productsData.length){
+      dispatch(setProductsListOnSearch(productsData.splice(0, count)))
+    }
   }
 }
 

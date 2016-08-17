@@ -40,7 +40,7 @@ class Shop extends Component{
       let { initPage, loadCategoriesList, setCategory, loadProductsListOnSearch } = this.props
       initPage('Shop')
       loadCategoriesList()
-      setCategory(null)
+      setCategory(keyword.replace(' ','_'))
       loadProductsListOnSearch(keyword)
     }
 

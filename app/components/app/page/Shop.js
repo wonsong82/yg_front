@@ -31,10 +31,14 @@ const Shop = ({ productGroups, productsAllLoaded, categories, isLoading, onViewM
           <ProductGroup key={`productGroup-${selectedCategory}-${i}`} products={products} />
         ))
       }
+      {
+        productGroups && !productGroups.length ?
+          <h6 className="not-found">Sorry, that didn't match any product</h6> : ''
+      }
     </ul>
     {
-      !productsAllLoaded &&
-      <ViewMore className="view-more" onClick={onViewMoreClick} />
+      !productsAllLoaded && productGroups && productGroups.length ?
+      <ViewMore className="view-more" onClick={onViewMoreClick} /> : ''
     }
 
   </div>
