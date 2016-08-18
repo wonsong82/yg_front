@@ -19,14 +19,14 @@
       font: 500 14px/22px 'Klavika', sans-serif;
       vertical-align: bottom;
       text-transform: uppercase;
-      opacity: 0.80;
+      opacity: $opacity--title;
       transition: color 1000ms ease, opacity 300ms ease;
       will-change: color, opacity;
       & + a {
         margin-left: 70px;
       }
       &:hover, &:active {
-        opacity: 1;
+        opacity: $opacity--primary;
       }
     }
   }
@@ -41,7 +41,7 @@
         font-size: 22px;
         line-height: 22px;
         vertical-align: bottom;
-        opacity: 0.80;
+        opacity: $opacity--title;
         transition: color 1000ms ease, opacity 300ms ease;
         will-change: color, opacity;
       }
@@ -49,7 +49,7 @@
         margin-left: 10px;
       }
       &:hover span, &:active span {
-        opacity: 1;
+        opacity: $opacity--primary;
       }
     }
   }

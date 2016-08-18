@@ -1,3 +1,4 @@
+require('./Static.scss')
 import React, { Component, PropTypes } from 'react'
 
 
