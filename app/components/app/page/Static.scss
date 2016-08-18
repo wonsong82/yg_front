@@ -1,9 +1,40 @@
 @import '../../variable.scss';
-
 @import './static/AboutUs.scss';
 
+
 .App .Page .Static {
+  position: relative;
+  width: getGridWidth(6);
+  padding: $pagePadding--top 0 $pagePadding--bottom;
+
+  .about-us {
+    @include about-us--md;
+  }
+
 
 
 
 }
+
+@media( max-width: $width--sm ){
+  .App .Page .Static {
+    width: getGridWidth(4);
+
+    .about-us {
+      @include about-us--sm;
+    }
+  }
+
+}
+
+@media( max-width: $width--xs ){
+  .App .Page .Static {
+    width: getGridWidth(2);
+
+    .about-us {
+      @include about-us--xs;
+    }
+  }
+
+}
+

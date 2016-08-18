@@ -1,0 +1,22 @@
+@import '../../../variable.scss';
+
+
+@mixin about-us--base {
+
+}
+
+@mixin about-us--md {
+  @include about-us--base;
+  width: getGridWidth(6);
+}
+
+@mixin about-us--sm {
+  @include about-us--base;
+  width: getGridWidth(4);
+}
+
+
+@mixin about-us--xs {
+  @include about-us--base;
+  width: getGridWidth(2);
+}
