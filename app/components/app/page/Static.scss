@@ -1,5 +1,5 @@
 @import '../../variable.scss';
-@import './static/AboutUs.scss';
+
 
 .StaticPage {
   display: none;
@@ -52,7 +52,7 @@
         display: block;
         margin: auto;
         font: 400 16px/22px $font-family;
-        color: #ffffff;    
+        color: #ffffff;
         background: rgba(0,0,0, $opacity--primary);
         width: 337px;
         padding: 7px 0;
@@ -67,21 +67,25 @@
         border: 1px solid rgba(0,0,0, $opacity--caption);
         font: 400 16px/22px $font-family;
         color: rgba(0,0,0, $opacity--caption);
+        box-sizing: border-box;
       }
     }
-    &.about-us {
-      @include about-us--md;
-    }
+
   }
 
 }
 
 @media( max-width: $width--sm ){
   .App .Page .Static {
-    width: getGridWidth(4);
-
-    .about-us {
-      @include about-us--sm;
+    width: 460px;
+    padding: 70px 0 70px;
+    .static-content {
+      .grid-2 {
+        + .grid-2 {
+          margin-left: 0px;
+          float: none;
+        }
+      }
     }
   }
 
@@ -89,12 +93,15 @@
 
 @media( max-width: $width--xs ){
   .App .Page .Static {
-    width: getGridWidth(2);
-
-    .about-us {
-      @include about-us--xs;
+    width: 350px;
+    padding: 40px 0 40px;
+    .static-content {
+      .grid-2 {
+        + .grid-2 {
+          margin-left: 0px;
+          float: none;
+        }
+      }
     }
   }
-
 }
-
