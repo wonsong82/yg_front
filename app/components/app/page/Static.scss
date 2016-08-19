@@ -43,6 +43,32 @@
         color: rgba(0,0,0, $opacity--caption);
       }
     }
+    form.wpcf7-form {
+      input[type=text], input[type=email] {
+        height: 42px;
+        padding: 0 5px;
+      }
+      input[type=submit] {
+        display: block;
+        margin: auto;
+        font: 400 16px/22px $font-family;
+        color: #ffffff;    
+        background: rgba(0,0,0, $opacity--primary);
+        width: 337px;
+        padding: 7px 0;
+      }
+      textarea {
+        height: 370px;
+        padding: 5px;
+      }
+      input[type=text], input[type=email], textarea {
+        width: 100%;
+        background-color: $bgColor;
+        border: 1px solid rgba(0,0,0, $opacity--caption);
+        font: 400 16px/22px $font-family;
+        color: rgba(0,0,0, $opacity--caption);
+      }
+    }
     &.about-us {
       @include about-us--md;
     }
