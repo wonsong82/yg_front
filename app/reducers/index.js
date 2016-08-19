@@ -247,7 +247,7 @@ const popup = ( state = initState.popup, action ) => {
       return Object.assign({}, state, {
         startDate: tour.startData, endDate: tour.endDate, name: tour.name, themeColor: tour.themeColor, title: tour.title, subtitle: tour.subtitle,
         content: tour.content, image: tour.image, facebookShareLink: tour.facebookShareLink, twitterShareLink: tour.twitterShareLink,
-        tourSchedule: tour.tourSchedule
+        tourSchedule: tour.tourSchedule, tourCalendar: tour.tourCalendar
       })
 
     case SET_MUSIC_POPUP:
