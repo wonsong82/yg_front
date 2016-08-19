@@ -12,7 +12,7 @@ class Static extends Component {
     $('.StaticPage .static-content').detach().appendTo($(this.refs.static))
     $('.StaticPage').detach()
 
-    require('./static/AboutUs.js')
+    //require('./static/AboutUs.js')
 
   }
 

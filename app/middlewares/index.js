@@ -554,7 +554,7 @@ export const loadTourPopup = (name) => (dispatch, getState) => {
       .filter( tour => tour.url_friendly_name == name)
 
     if(thisTour.length){
-      let {start_date, end_date, post_title, subtitle, post_content, main_image, url_friendly_name, tour_schedule} = thisTour[0]
+      let {start_date, end_date, post_title, subtitle, post_content, main_image, url_friendly_name, tour_schedule, tour_calendar} = thisTour[0]
       let artist = state.data.artists.contents.artists[thisTour[0].artist_id]
       let {themeColor, name} = artist
 
@@ -569,6 +569,7 @@ export const loadTourPopup = (name) => (dispatch, getState) => {
         facebookShareLink: getFacebookShareLink(url),
         twitterShareLink: getTwitterShareLink(url),
         tourSchedule: tour_schedule,
+        tourCalendar: tour_calendar,
         themeColor: themeColor,
         name: name
       }

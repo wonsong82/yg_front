@@ -1,18 +1,52 @@
 @import '../../variable.scss';
 @import './static/AboutUs.scss';
 
+.StaticPage {
+  display: none;
+}
+
 
 .App .Page .Static {
   position: relative;
   width: getGridWidth(6);
   padding: $pagePadding--top 0 $pagePadding--bottom;
+  margin: auto;
 
-  .about-us {
-    @include about-us--md;
+  .static-content {
+    .page-title {
+      @include page-title;
+    }
+    .sub {
+      @include sub;
+    }
+    .sub-2 {
+      @include sub-2
+    }
+    .line1 {
+      @include line1;
+    }
+    .line2 {
+      @include line2;
+    }
+    .line2-2 {
+      @include line2-2;
+    }
+    .grid-2 {
+      @include grid-2;
+      + .grid-2 {
+        margin-left: $gridGap;
+      }
+    }
+    p {
+      @include caption;
+      a {
+        color: rgba(0,0,0, $opacity--caption);
+      }
+    }
+    &.about-us {
+      @include about-us--md;
+    }
   }
-
-
-
 
 }
 
