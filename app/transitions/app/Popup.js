@@ -101,9 +101,9 @@ class Transition extends Component {
       })
   }
 
-  componentWillAppear(callback) {
+  /*componentWillAppear(callback) {
     this.show(callback)
-  }
+  }*/
 
   componentWillEnter(callback) {
     this.show(callback)

@@ -1,56 +1,156 @@
-import React from 'react'
+require('./Shop.scss')
+import React, { Component, PropTypes } from 'react'
+import ProductThumb from '../../../components/app/item/shop/ProductThumb'
+import ProductImageSwiper from '../../../components/app/item/shop/ProductImageSwiper'
+import AnchorLink from '../../../components/lib/link/AnchorLink'
 
 
-const Shop = ({
-  id, title, price, salePrice, name, content, facebookShareLink,
-  twitterShareLink, type, variation, images, related
-}) => (
+class Shop extends Component {
 
-    <div className="Shop page-grid">
-
-      {
-        console.log(images)
-      }
-      <h1>id: {id}</h1>
-      <h1>title: {title}</h1>
-
-      <h1>name: {name}</h1>
-      <h1>content: {content}</h1>
-
-      <h1>twitterShareLink: {twitterShareLink}</h1>
-      <h1>type: {type}</h1>
-      <h1>images: {images}</h1>
+  constructor(props) {
+    super(props)
+  }
 
 
-      { (variation && variation.length) ?
-        <div className="variation-container">
+  onOptionChange(e) {
+    const select = $(`select[name="${e.target.name}"]`)
+    const selectedOption = $(`option[value="${e.target.value}"]`, select)
+    const enabled = selectedOption.attr('data-enabled')
 
-          {
-            variation.map(e => (
-              <li>
-                { e.variation_id }
-              </li>
-            ))
-          }
+    this.props.changeProductOption(e.target.name, e.target.value, enabled)
+  }
+
+  onAddCartClick(e) {
+    e.preventDefault()
+  }
+
+  onMouseEnter(e) {
+    const { textColor, themeColor } = this.props
+    $(e.target)
+      .velocity('stop')
+      .velocity({
+        color:  textColor,
+        backgroundColor: themeColor
+      }, {
+        easing: 'easeOutQuad',
+        duration: 300
+      })
+  }
+
+  onMouseLeave(e) {
+    $(e.target)
+      .velocity('stop')
+      .velocity('reverse', {
+        duration: 300,
+        easing: 'easeOutQuad'
+      })
+  }
+
+
+  render() {
+    const { id, title, price, originalPrice, artistName, content, facebookShareLink,
+      twitterShareLink, type, options, selectedOptions, images, related } = this.props
+
+    return (
+      <div className="ShopLayout">
+
+        <div className="Product">
+
+          {images && images.length ?
+          <div className="images">
+            <ProductImageSwiper className="image-swiper" images={images} />
+          </div>
+          : null}
+
+          <div className="header">
+
+            <h1 className="title">{`${artistName} - ${title}`}</h1>
+
+            <div className="price">{price && `$${price}`}</div>
+
+            <div className="socialLinks">
+              <AnchorLink href={facebookShareLink} target="_blank">
+                <span className="icon-facebook" />
+              </AnchorLink>
+              <AnchorLink href={twitterShareLink} target="_blank">
+                <span className="icon-twitter" />
+              </AnchorLink>
+            </div>
+
+
+
+            <div className="controls">
+
+              {options && options.length ? options.map( ({ name, values }) => { return (
+                <select
+                  key={name}
+                  name={name}
+                  value={selectedOptions[name]||'select'}
+                  onChange={this.onOptionChange.bind(this)}>
+
+                  {values.map( (e, i) => (
+                    <option
+                      className={e.enabled?'enabled':'disabled'}
+                      data-enabled={e.enabled?'enabled':'disabled'}
+                      key={`${name}-${i}`}
+                      value={e.value}
+                    >
+                      {e.value}
+                    </option>
+                  ))}
+
+                </select>
+              )}) : null }
+
+              <a href="#"
+                className="add-to-cart"
+                onClick={this.onAddCartClick.bind(this)}
+                onMouseEnter={this.onMouseEnter.bind(this)}
+                onMouseLeave={this.onMouseLeave.bind(this)}
+              >
+                ADD TO CART
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div className="content">
+            <h3>Description</h3>
+            <p>
+              {content}
+            </p>
+          </div>
+
+
         </div>
-        :null}
 
 
-      { (related && related.length) ?
+        {(related && related.length) ?
         <div className="related-container">
 
-            {
-              related.map(product => (
-                <li>
-                  { product.id }
-                </li>
-              ))
-            }
+          <h6>Related Products</h6>
+          <ul className="items">
+
+            {related.map(item => (
+            <li key={'event' + item.id}>
+              <ProductThumb {...item} />
+            </li>
+            ))}
+
+          </ul>
         </div>
         :null}
 
-    </div>
-)
+
+      </div>
+    )
+  }
+
+}
+
+
 
 
 export default Shop

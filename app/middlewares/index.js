@@ -224,21 +224,25 @@ export const loadProductsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch
     for(let i=curCount; i<nextCount; i++){
 
       const product = productsData[i]
-      const { id, post_title, url_friendly_name, thumb_1x1, thumb_2x1, thumb_1x2, artist_id } = product
+      const { id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id } = product
       const artistName = artistsData[artist_id].name
-      const price = product.product_type == "simple" ?
-        product._regular_price :
-        product.variation[0].display_price
+      let price = null
+      if(product.product_type == 'variable' && product.variation && product.variation.length){
+        price = getProductPrice(product, product.variation[0]).price
+      } else {
+        price = getProductPrice(product).price
+      }
       const url = '/Shop/' + url_friendly_name
+      const image = images && images.length ? images[0] : false
 
       newProducts.push({
         id,
         title: excerptStr(post_title, 90),
         url,
         artistName,
-        thumb1x1: thumb_1x1 || false,
-        thumb2x1: thumb_2x1 || false,
-        thumb1x2: thumb_1x2 || false,
+        thumb1x1: thumb_1x1 || image || false,
+        thumb2x1: thumb_2x1 || image || false,
+        thumb1x2: thumb_1x2 || image || false,
         price,
         layoutStyle,
         layoutNum
@@ -277,11 +281,12 @@ export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
         count = 6
 
     productsData = productsData.map( product => {
-      const { id, post_title, url_friendly_name, thumb_1x1, thumb_2x1, thumb_1x2, artist_id } = product
+      const { id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id } = product
       const artistName = artistsData[artist_id].name
       const price = product.product_type == "simple" ?
         product._regular_price :
         product.variation[0].display_price
+      const image = images && images.length ? images[0] : false
       const url = '/Shop/' + url_friendly_name
       if(!layoutStyle || layoutNum > count){
         layoutStyle = getLayoutStyle(LAYOUT_STYLE.RANDOM, 8)
@@ -293,9 +298,9 @@ export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
         title: excerptStr(post_title, 90),
         url,
         artistName,
-        thumb1x1: thumb_1x1 || false,
-        thumb2x1: thumb_2x1 || false,
-        thumb1x2: thumb_1x2 || false,
+        thumb1x1: thumb_1x1 || image || false,
+        thumb2x1: thumb_2x1 || image || false,
+        thumb1x2: thumb_1x2 || image || false,
         price,
         layoutStyle,
         layoutNum: layoutNum++
@@ -638,7 +643,8 @@ export const loadMusicPopup = (name) => (dispatch, getState) => {
 
 
 //POPUP:SHOP
-import { setShopPopup }  from '../actions/'
+import { setShopPopup, setSelectedOption, setSelectedOptions, setOptions, setProductImages, setProductPrice }  from '../actions/'
+import { getDefaultOptions, getProductOptions, findProductVariation, getProductImages, getProductPrice } from '../functions/'
 export const loadShopPopup = (name) => (dispatch, getState) => {
 
   const state = getState();
@@ -648,60 +654,64 @@ export const loadShopPopup = (name) => (dispatch, getState) => {
        .filter( product => product.url_friendly_name == name)
 
     if(thisShop.length){
-
-      let { id, post_title, post_content, url_friendly_name, images } = thisShop[0]
-      let related_products = thisShop[0].related
-      let name = state.data.artists.contents.artists[thisShop[0].artist_id].name
-      let url = Site + '/shop/' + url_friendly_name
-
-
-      console.log(images)
-
-
+      const productData = thisShop[0]
+      let { id, post_title:title, post_content:content, url_friendly_name, related } = productData
+      let artistName = state.data.artists.contents.artists[productData.artist_id].name
+      let url = '/shop/' + url_friendly_name
       let productType = ''
-      let price = null
-      let salePrice = null
-      let variation = []
+      let selectedOptions = getDefaultOptions(productData)
+      let options = getProductOptions(productData, selectedOptions)
+      let variation = false
 
-      if(thisShop[0].product_type == 'variable'){
+      if(productData.product_type == 'variable' && productData.variation){
         productType = 'variable'
-        variation = toArray(thisShop[0].variation)
-
-      }else if(thisShop[0].product_type == 'simple'){
-        productType = 'simple'
-        price = thisShop[0]._regular_price
-        salePrice = thisShop[0]._sale_price
+        variation = findProductVariation(productData.variation, selectedOptions)
       }
+      else if(productData.product_type == 'simple'){
+        productType = 'simple'
+      }
+
+      let images = getProductImages( productData, variation )
+      let { price, originalPrice } = getProductPrice( productData, variation )
 
       const product = {
         id,
-        title: post_title,
-        content: post_content,
+        title,
+        content,
         images,
-        name,
-        facebookShareLink: getFacebookShareLink(url),
-        twitterShareLink: getTwitterShareLink(url),
+        artistName,
+        facebookShareLink: getFacebookShareLink(Site + url),
+        twitterShareLink: getTwitterShareLink(Site + url),
         type: productType,
         price,
-        salePrice,
-        variation
+        originalPrice,
+        options,
+        selectedOptions
       }
 
-      const related = related_products.map ( id => {
+
+      related = related.map ( id => {
 
         let e = state.data.shops.contents.products[id]
         let path = '/shop/' + e.url_friendly_name
+        let { name } = state.data.artists.contents.artists[e.artist_id]
+        let image = e.images && e.images.length ? e.images[0] : false
+        let price = null
+        if(e.product_type == 'variable' && e.variation && e.variation.length){
+          price = getProductPrice(e, e.variation[0]).price
+        } else {
+          price = getProductPrice(e).price
+        }
 
-        const { name } = state.data.artists.contents.artists[e.artist_id]
         return {
           id : e.id,
-          title: e.post_title,
+          title: excerptStr(e.post_title, 90),
           url: path,
-          name,
-          thumb_1x1: e.thumb_1x1 || false ,
-          thumb_2x1: e.thumb_2x1 || e.thumb1x1 || false,
-          thumb_1x2: e.thumb_1x2 || e.thumb1x1 || false,
-          price: e._regular_price,
+          artistName: name,
+          thumb1x1: e.thumb_1x1 || image || false,
+          thumb2x1: e.thumb_2x1 || image || false,
+          thumb1x2: e.thumb_1x2 || image || false,
+          price,
           facebookShareLink: getFacebookShareLink(Site + path),
           twitterShareLink: getTwitterShareLink(Site + path)
         }
@@ -710,6 +720,45 @@ export const loadShopPopup = (name) => (dispatch, getState) => {
 
       dispatch(setShopPopup(product, related))
     }
+  }
+}
+
+export const changeProductOption = ( optionName, optionValue, optionEnabled ) => (dispatch, getState) => {
+  const { popup, data } = getState()
+  const product = data.shops.contents.products[popup.id]
+
+  if( optionValue == 'select' ){
+    let { selectedOptions } = getState().popup
+    let newSelectedOptions = { ...selectedOptions }
+    delete newSelectedOptions[optionName]
+    dispatch( setSelectedOptions( newSelectedOptions ))
+    let options = getProductOptions( product, getState().popup.selectedOptions )
+    dispatch( setOptions( options ))
+  }
+
+  else if( optionEnabled == 'enabled' ){
+    dispatch( setSelectedOption(optionName, optionValue) )
+    let { selectedOptions } = getState().popup
+    let options = getProductOptions( product, selectedOptions )
+    dispatch( setOptions( options ))
+  }
+
+  else {
+    let newSelectedOptions = {}
+    newSelectedOptions[optionName] = optionValue
+    dispatch( setSelectedOptions( newSelectedOptions ))
+    let options = getProductOptions( product, getState().popup.selectedOptions )
+    dispatch( setOptions( options ))
+  }
+
+
+  if(product.variation){
+    let variation = findProductVariation(product.variation, getState().popup
+      .selectedOptions )
+
+    dispatch( setProductImages( getProductImages(product, variation) ))
+    let { price, originalPrice } = getProductPrice(product, variation)
+    dispatch( setProductPrice( price, originalPrice ) )
   }
 
 }

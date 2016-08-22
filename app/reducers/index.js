@@ -206,7 +206,7 @@ const page = ( state = initState.page, action ) => {
 
 
 // POPUP
-import { INIT_POPUP, SET_BLOG_POPUP , SET_EVENT_POPUP, SET_TOUR_POPUP, SET_MUSIC_POPUP, SET_SHOP_POPUP} from '../actions/'
+import { INIT_POPUP, SET_BLOG_POPUP , SET_EVENT_POPUP, SET_TOUR_POPUP, SET_MUSIC_POPUP, SET_SHOP_POPUP, SET_SELECTED_OPTION, SET_SELECTED_OPTIONS, SET_OPTIONS, SET_PRODUCT_IMAGES, SET_PRODUCT_PRICE } from '../actions/'
 import { blogPopupInitState, eventPopupInitState, tourPopupInitState , musicPopupInitState, shopPopupInitState} from '../initialState'
 const popup = ( state = initState.popup, action ) => {
   switch(action.type){
@@ -214,58 +214,53 @@ const popup = ( state = initState.popup, action ) => {
     case INIT_POPUP:
       switch(action.popupType){
         case 'Blog':
-          return Object.assign({}, state, blogPopupInitState)
+          return { ...state, ...blogPopupInitState }
         case 'Event':
-          return Object.assign({}, state, eventPopupInitState)
+          return { ...state, ...eventPopupInitState }
         case 'Tour':
-          return Object.assign({}, state, tourPopupInitState)
+          return { ...state, ...tourPopupInitState }
         case 'Music':
-          return Object.assign({}, state, musicPopupInitState)
+          return { ...state, ...musicPopupInitState }
         case 'Shop' :
-          return Object.assign({}, state, shopPopupInitState)
+          return { ...state, ...shopPopupInitState }
         default:
           return state
       }
 
     case SET_BLOG_POPUP:
-      const { title, date, image, content, facebookShareLink, twitterShareLink } = action.blog
-      return Object.assign({}, state, {
-        title, date, image, content, facebookShareLink, twitterShareLink,
-        related: action.related
-      })
-
+      return { ...state, ...action.blog, related: action.related }
 
     case SET_EVENT_POPUP:
-      const { event } = action
-     return Object.assign({}, state, {
-       title: event.title, date: event.date, image: event.image, content: event.content, facebookShareLink: event.facebookShareLink, twitterShareLink: event.twitterShareLink,
-       related: action.related
-     })
+      return { ...state, ...action.event, related: action.related }
 
     case SET_TOUR_POPUP:
-      const { tour } = action
-      return Object.assign({}, state, {
-        startDate: tour.startData, endDate: tour.endDate, name: tour.name, themeColor: tour.themeColor, title: tour.title, subtitle: tour.subtitle,
-        content: tour.content, image: tour.image, facebookShareLink: tour.facebookShareLink, twitterShareLink: tour.twitterShareLink,
-        tourSchedule: tour.tourSchedule
-      })
+      return { ...state, ...action.tour }
 
     case SET_MUSIC_POPUP:
-      const { music } = action
-      return Object.assign({}, state, {
-        image: music.image, title: music.title, albumPrice: music.albumPrice, albumSalePrice: music.albumSalePrice, albumProductId: music.albumProductId,
-        name: music.name, content: music.content, facebookShareLink: music.facebookShareLink, twitterShareLink: music.twitterShareLink,
-        music: music.music,
-        related: action.related
-      })
+      return { ...state, ...action.music, related: action.related }
 
+
+    // SHOP
     case SET_SHOP_POPUP:
-      const { product } = action
-      return Object.assign({}, state, {
-        id: product.id, title: product.title, price: product.price, salePrice: product.salePrice, name: product.name, content:product.content, facebookShareLink: product.facebookShareLink,
-        twitterShareLink: product.twitterShareLink, type:product.type, variation: product.variation, images: product.images,
-        related: action.related
-      })
+      return { ...state, ...action.product, related: action.related }
+
+    case SET_SELECTED_OPTION:
+      let newValue = {}
+      newValue[action.name] = action.value
+      return { ...state, selectedOptions: { ...state.selectedOptions, ...newValue }}
+
+    case SET_SELECTED_OPTIONS:
+      return { ...state, selectedOptions: action.options }
+
+    case SET_OPTIONS:
+      return { ...state, options: action.options }
+
+    case SET_PRODUCT_IMAGES:
+      return { ...state, images: action.images }
+
+    case SET_PRODUCT_PRICE:
+      return { ...state, price: action.price, originalPrice: action.originalPrice }
+
 
     default:
       return state
@@ -394,8 +389,6 @@ const data = ( state = initState.data , action) => {
 
     case RECEIVE_SHOPS:
       let { products, categories } = action.data
-
-        console.log(action.data)
 
       return Object.assign({}, state, {
         shops: Object.assign({}, state.shops, {

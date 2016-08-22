@@ -24,13 +24,19 @@
       "related": [
         602,603,604
       ],
+      "attributes": {
+        "attribute_pa_color": ["green", "black"],
+        "attribute_pa_size": ["s", "m", "l", "xl"],
+        "attribute_pa_type": ["stripe", "plain"]
+      },
       "variation": [
         {
           "variation_id": 230,
-          "id_default": true,
+          "id_default": false,
           "display_regular_price": 9.99,
           "display_price": 8.99,
           "sku": "bigbang-black-l-01",
+          "image": "/images/leehi.jpg",
           "attribute": [
             {
               "key": "attribute_pa_color",
@@ -39,6 +45,10 @@
             {
               "key": "attribute_pa_size",
               "value": "l"
+            },
+            {
+              "key": "attribute_pa_type",
+              "value": "plain"
             }
           ]
         },
@@ -48,6 +58,7 @@
           "display_regular_price": 11.99,
           "display_price": 10.99,
           "sku": "bigbang-black-m-01",
+          "image": "/images/akmu.jpg",
           "attribute": [
             {
               "key": "attribute_pa_color",
@@ -55,7 +66,11 @@
             },
             {
               "key": "attribute_pa_size",
-              "value": "m"
+              "value": "s"
+            },
+            {
+              "key": "attribute_pa_type",
+              "value": "plain"
             }
           ]
         },
@@ -64,15 +79,19 @@
           "id_default": false,
           "display_regular_price": 10.99,
           "display_price": 10.99,
-          "sku": "bigbang-green-l-01",
+          "sku": "bigbang-green-s-01",
           "attribute": [
             {
               "key": "attribute_pa_color",
-              "value": "green"
+              "value": "black"
             },
             {
               "key": "attribute_pa_size",
               "value": "l"
+            },
+            {
+              "key": "attribute_pa_type",
+              "value": "stripe"
             }
           ]
         },
@@ -81,7 +100,7 @@
           "id_default": false,
           "display_regular_price": 9.99,
           "display_price": 9.99,
-          "sku": "bigbang-green-m-01",
+          "sku": "bigbang-green-xl-01",
           "attribute": [
             {
               "key": "attribute_pa_color",
@@ -89,7 +108,11 @@
             },
             {
               "key": "attribute_pa_size",
-              "value": "m"
+              "value": "xl"
+            },
+            {
+              "key": "attribute_pa_type",
+              "value": "stripe"
             }
           ]
         }

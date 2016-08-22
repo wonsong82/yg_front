@@ -203,15 +203,21 @@ export const shopPopupInitState = {
   type: 'shop',
   id: '',
   title: '',
+  originalPrice: '',
   price: '',
-  salePrice: '',
-  name: '',
+  images: [],
+  artistName: '',
   content: '',
   facebookShareLink: '',
   twitterShareLink: '',
   productType: '',
-  variation: [],
-  images: [],
+  options: [
+    /*{name:''  ,  values:[ {value, enabled} ] }*/
+  ],
+  selectedOptions: {
+    /* key : value */
+  },
+  cartLink: '',
   related: []
 }
 

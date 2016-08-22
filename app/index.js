@@ -3,7 +3,11 @@ require('./static/icon-yg.css')
 window.$ = window.jQuery = require('jquery')
 require('velocity-animate/velocity')
 require('velocity-animate/velocity.ui')
+require('./static/swiper/css/swiper.css')
+require('./static/swiper/js/swiper.js')
+
 import 'babel-polyfill'
+
 
 import React from 'react'
 import { render } from 'react-dom'

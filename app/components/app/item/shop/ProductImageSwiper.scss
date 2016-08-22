@@ -1,0 +1,83 @@
+@import '../../../variable.scss';
+.ProductImageSwiper {
+
+  .gallery-top {
+    width: getGridWidth(6);
+    height: getGridWidth(6);
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  .gallery-thumb {
+    width: getGridWidth(6);
+    height: 160px;
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+
+    .swiper-slide {
+      cursor: pointer;
+      background-size: cover;
+      background-position: center;
+      width: 20%;
+      height: 100%;
+      opacity: 0.4;
+    }
+
+    .swiper-slide-active {
+      opacity: 1;
+    }
+
+  }
+}
+
+@media (max-width: $width--sm) {
+  .ProductImageSwiper {
+    .gallery-top {
+      width: getGridWidth(4);
+      height: getGridWidth(4);
+    }
+    .gallery-thumb {
+      width: getGridWidth(4);
+      height: 135px;
+      .swiper-slide {
+        width: 25%;
+      }
+    }
+  }
+}
+
+@media (max-width: $width--xs) {
+  .ProductImageSwiper {
+    .gallery-top {
+      width: getGridWidth(2);
+      height: getGridWidth(2);
+      .swiper-button-next, .swiper-button-prev {
+        display: none;
+      }
+    }
+    .gallery-thumb {
+      width: getGridWidth(2);
+      height: 133px;
+      .swiper-slide {
+        width: 50%;
+      }
+    }
+  }
+}

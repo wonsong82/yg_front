@@ -135,8 +135,19 @@ export const loadMusicPopup = Middlewares.loadMusicPopup
 
 // POPUP:SHOP
 export const SET_SHOP_POPUP = 'set_shop_popup'
+export const SET_SELECTED_OPTION = 'set_selected_option'
+export const SET_SELECTED_OPTIONS = 'set_selected_options'
+export const SET_OPTIONS = 'set_options'
+export const SET_PRODUCT_IMAGES = 'set_product_images'
+export const SET_PRODUCT_PRICE = 'set_product_price'
 export const setShopPopup = ( product, related ) => ({type: SET_SHOP_POPUP, product, related})
+export const setSelectedOption = ( name, value ) => ({type: SET_SELECTED_OPTION, name, value})
+export const setSelectedOptions = ( options ) => ({type: SET_SELECTED_OPTIONS, options})
+export const setOptions = options => ({ type: SET_OPTIONS, options })
+export const setProductImages = images => ({ type: SET_PRODUCT_IMAGES, images })
+export const setProductPrice = ( price, originalPrice)  => ({ type: SET_PRODUCT_PRICE, price, originalPrice })
 export const loadShopPopup = Middlewares.loadShopPopup
+export const changeProductOption = Middlewares.changeProductOption
 
 
 /**
