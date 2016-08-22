@@ -181,7 +181,8 @@ export const tourPopupInitState = {
   image: false,
   facebookShareLink: '',
   twitterShareLink: '',
-  tourSchedule: []
+  tourSchedule: [],
+  tourCalendar: []
 }
 
 export const musicPopupInitState = {

@@ -12,13 +12,22 @@
     "thumb_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
     "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
     "subtitle": "Lee Hi KOREA TOUR - subtitle",
-    "start_date": "20160708",
-    "end_date": "20160708",
+    "start_date": "20160802",
+    "end_date": "20160802",
     "tour_url": "www.toururl.com",
     "artist_id": 1,
+    "tour_calendar": {
+      "07/31": false,
+      "08/01": false,
+      "08/02": true,
+      "08/03": false,
+      "08/04": false,
+      "08/05": false,
+      "08/06": false
+    },
     "tour_schedule": [
       {
-        "tour_date": "20160708",
+        "tour_date": "20160802",
         "location": "SEOUL",
         "event_time": "19:00",
         "ticket_link": "www.ticket.com",
@@ -42,6 +51,22 @@
       "end_date": "20160810",
       "tour_url": "www.tour.com",
       "artist_id": 2,
+      "tour_calendar": {
+        "07/31": false,
+        "08/01": true,
+        "08/02": false,
+        "08/03": true,
+        "08/04": false,
+        "08/05": false,
+        "08/06": false,
+        "08/07": false,
+        "08/08": false,
+        "08/09": false,
+        "08/10": true,
+        "08/11": false,
+        "08/12": false,
+        "08/13": false
+      },
       "tour_schedule": [
         {
           "tour_date": "20160801",
@@ -82,23 +107,39 @@
       "end_date": "20160910",
       "tour_url": "www.tour.com",
       "artist_id": 3,
+      "tour_calendar": {
+        "07/31": false,
+        "08/01": true,
+        "08/02": false,
+        "08/03": false,
+        "08/04": true,
+        "08/05": false,
+        "08/06": false,
+        "08/07": false,
+        "08/08": false,
+        "08/09": false,
+        "08/10": true,
+        "08/11": false,
+        "08/12": false,
+        "08/13": false
+      },
       "tour_schedule": [
         {
-          "tour_date": "20160901",
+          "tour_date": "20160801",
           "location": "LA",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20160904",
+          "tour_date": "20160804",
           "location": "NY",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
           "ticket_availability": false
         },
         {
-          "tour_date": "20160910",
+          "tour_date": "20160810",
           "location": "FL",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
@@ -122,23 +163,39 @@
       "end_date": "20161010",
       "tour_url": "www.tour.com",
       "artist_id": 4,
+      "tour_calendar": {
+        "07/31": false,
+        "08/01": true,
+        "08/02": false,
+        "08/03": false,
+        "08/04": true,
+        "08/05": false,
+        "08/06": false,
+        "08/07": false,
+        "08/08": false,
+        "08/09": false,
+        "08/10": true,
+        "08/11": false,
+        "08/12": false,
+        "08/13": false
+      },
       "tour_schedule": [
         {
-          "tour_date": "20161008",
+          "tour_date": "20160801",
           "location": "LA",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20161009",
+          "tour_date": "20160804",
           "location": "NY",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20161010",
+          "tour_date": "20160810",
           "location": "FL",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
@@ -162,23 +219,39 @@
       "end_date": "20161112",
       "tour_url": "www.tour.com",
       "artist_id": 5,
+      "tour_calendar": {
+        "07/31": false,
+        "08/01": true,
+        "08/02": false,
+        "08/03": false,
+        "08/04": true,
+        "08/05": false,
+        "08/06": false,
+        "08/07": false,
+        "08/08": false,
+        "08/09": false,
+        "08/10": true,
+        "08/11": false,
+        "08/12": false,
+        "08/13": false
+      },
       "tour_schedule": [
         {
-          "tour_date": "20161101",
+          "tour_date": "20160801",
           "location": "LA",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20161107",
+          "tour_date": "20160804",
           "location": "NY",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20161112",
+          "tour_date": "20160810",
           "location": "FL",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
@@ -202,23 +275,39 @@
       "end_date": "20161209",
       "tour_url": "www.tour.com",
       "artist_id": 6,
+      "tour_calendar": {
+        "07/31": false,
+        "08/01": false,
+        "08/02": true,
+        "08/03": true,
+        "08/04": false,
+        "08/05": false,
+        "08/06": false,
+        "08/07": false,
+        "08/08": false,
+        "08/09": false,
+        "08/10": false,
+        "08/11": false,
+        "08/12": true,
+        "08/13": false
+      },
       "tour_schedule": [
         {
-          "tour_date": "20161201",
+          "tour_date": "20160802",
           "location": "LA",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20161206",
+          "tour_date": "20160803",
           "location": "NY",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20161209",
+          "tour_date": "20160812",
           "location": "FL",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
