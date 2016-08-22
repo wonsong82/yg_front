@@ -35,7 +35,6 @@ class Transition extends Component {
   }
 
   show( callback ) {
-    callback()
     let x = this.props.clickPosition.x || $(window).width() * 0.5
     let y = this.props.clickPosition.y || $(window).height() * 0.5
     const popup = $(findDOMNode(this.refs.popup))
@@ -74,6 +73,9 @@ class Transition extends Component {
               duration: 700,
               easing: 'easeOutQuart'
             })
+
+          $('.App .Popup').trigger('popupShowed')
+          callback()
         }
       })
   }
@@ -101,9 +103,10 @@ class Transition extends Component {
       })
   }
 
-  /*componentWillAppear(callback) {
+  componentWillAppear(callback) {
     this.show(callback)
-  }*/
+  }
+
 
   componentWillEnter(callback) {
     this.show(callback)
