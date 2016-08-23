@@ -1,0 +1,101 @@
+
+@mixin footer {
+  @include footer--md;
+  position: relative;
+  margin: auto;
+  .static-content {
+    .page-title {
+      @include page-title;
+    }
+    .sub {
+      @include sub;
+    }
+    .sub-2 {
+      @include sub-2
+    }
+    .line1 {
+      @include line1;
+    }
+    .line2 {
+      @include line2;
+    }
+    .line2-2 {
+      @include line2-2;
+    }
+    p {
+      @include caption;
+      a {
+        color: rgba(0,0,0, $opacity--caption);
+      }
+    }
+    form.wpcf7-form {
+      input[type=text], input[type=email] {
+        height: 42px;
+        padding: 0 5px;
+      }
+      input[type=submit] {
+        display: block;
+        margin: auto;
+        font: 400 16px/22px $font-family;
+        color: #ffffff;
+        background: rgba(0,0,0, $opacity--primary);
+        width: 337px;
+        padding: 7px 0;
+      }
+      textarea {
+        height: 370px;
+        padding: 5px;
+      }
+      input[type=text], input[type=email], textarea {
+        width: 100%;
+        background-color: $bgColor;
+        border: 1px solid rgba(0,0,0, $opacity--caption);
+        font: 400 16px/22px $font-family;
+        color: rgba(0,0,0, $opacity--caption);
+        box-sizing: border-box;
+      }
+    }
+
+  }
+}
+
+
+@mixin footer--md {
+  width: getGridWidth(6);
+  padding: $pagePadding--top 0 $pagePadding--bottom;
+  .static-content {
+    .grid-2 {
+      @include grid-2;
+      + .grid-2 {
+        margin-left: $gridGap;
+      }
+    }
+  }
+
+}
+
+@mixin footer--sm {
+  width: 460px;
+  padding: 70px 0 70px;
+  .static-content {
+    .grid-2 {
+      + .grid-2 {
+        margin-left: 0px;
+        float: none;
+      }
+    }
+  }
+}
+
+@mixin footer--xs {
+  width: 350px;
+  padding: 40px 0 40px;
+  .static-content {
+    .grid-2 {
+      + .grid-2 {
+        margin-left: 0px;
+        float: none;
+      }
+    }
+  }
+}

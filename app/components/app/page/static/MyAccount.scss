@@ -1,0 +1,122 @@
+
+@mixin my_account {
+  @include my_account--md;
+  position: relative;
+  margin: auto;
+  .static-content {
+    .woocommerce {
+      margin-top: 0;
+      .myaccount_user {
+        & + h2 {
+          display: none;
+        }
+      }
+      .shop_table {
+        display: none;
+      }
+      h2 {
+        @include page-title-myaccount;
+      }
+      h3 {
+        @include sub-myaccount;
+      }
+      p, address {
+        @include caption;
+      }
+      .addresses {
+        a {
+          @include a_btn-edit;
+          position: absolute;
+          bottom: 80px;
+        }
+        address {
+          position: relative;
+        }
+      }
+    }
+    .menu-bar {
+      position: absolute;
+      left: -130px;
+      top: $pagePadding--top;
+      width: 107px;
+      .menu-title {
+        @include page-title-myaccount;
+      }
+      .menu-body {
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid rgba(0,0,0, $opacity--line1);;
+        ul {
+          display: inline-block;
+          width: 100%;
+          li {
+            margin: 0;
+            float: none;
+            text-align: left;
+            width: 100%;
+            a {
+              font: 400 14px/22px $font-family;
+              color: rgba(0,0,0, $opacity--caption);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@mixin my_account--md {
+  width: getGridWidth(6);
+  padding: $pagePadding--top 0 $pagePadding--bottom;
+  .static-content {
+    .woocommerce {
+      margin-top: 180px;
+      .col2-set {
+        display: inline-block;
+        .col-1, .col-2 {
+          @include grid-2;
+        }
+        .col-2 {
+          margin-left: $gridGap;
+        }
+      }
+    }
+    .menu-bar {
+      position: absolute;
+      left: 0px;
+      width: 100%;
+      .menu-title {
+        text-align: center;
+      }
+      .menu-body {
+        padding: 0 20px 20px 20px;
+        ul li {
+          float: left;
+          text-align: center;
+          width: 25%;
+        }
+      }
+    }
+  }
+
+}
+
+@mixin my_account--sm {
+  width: 460px;
+  padding: 70px 0 70px;
+  .static-content {
+    .woocommerce {
+      background-color: blue;
+    }
+  }
+}
+
+@mixin my_account--xs {
+  width: 350px;
+  padding: 40px 0 40px;
+  .static-content {
+    .woocommerce {
+      background-color: yellow;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+
+$width-my_account--sm        : 1034px;
+
+/******* Footer ********
+************************/
+@mixin sub {
+  font: 400 18px/22px $font-family;
+  color: rgba(0,0,0, $opacity--sub);
+  margin-bottom: 10px;
+}
+
+@mixin sub-2 {
+  font: 400 18px/22px $font-family;
+  color: rgba(0,0,0, $opacity--sub);
+  width: getGridWidth(3);
+  margin-bottom: 10px;
+}
+
+@mixin line1 {
+  height: 1px;
+  background-color: rgba(0,0,0, $opacity--line1);
+  margin-bottom: 20px;
+}
+
+@mixin line2 {
+  height: 1px;
+  background-color: rgba(0,0,0, $opacity--line2);
+  margin-bottom: 20px;
+}
+
+@mixin line2-2 {
+  height: 1px;
+  background-color: rgba(0,0,0, $opacity--line2);
+  width: getGridWidth(3);
+  margin-bottom: 20px;
+}
+
+@mixin caption {
+  font: 400 14px/22px $font-family;
+  color: rgba(0,0,0, $opacity--caption);
+  margin-bottom: 36px;
+}
+
+@mixin grid-2 {
+  width: getGridWidth(3);
+  float: left;
+}
+
+
+/******* MyAccount ******
+*************************/
+@mixin page-title-myaccount {
+  font: 400 22px/22px $font-family;
+  color: rgba(0,0,0, $opacity--primary);
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0,0,0, $opacity--line1);
+  margin-bottom: 20px;
+}
+
+@mixin sub-myaccount {
+  font: 400 18px/22px $font-family;
+  color: rgba(0,0,0, $opacity--sub);
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0, $opacity--line2);
+  margin-bottom: 20px;
+}
+
+@mixin a_btn-edit {
+  padding: 6px 17px;
+  font: 600 12px/22px $font-family;
+  color: rgba(0,0,0, $opacity--primary);
+  border: 2px solid rgba(0,0,0, $opacity--primary);
+}
