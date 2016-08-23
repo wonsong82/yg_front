@@ -46,10 +46,49 @@ $width-my_account--sm        : 1034px;
   float: left;
 }
 
+@mixin input-text {
+  height: 42px;
+  padding: 0 5px;
+  width: 100%;
+  background-color: $bgColor;
+  border: 1px solid rgba(0,0,0, $opacity--caption);
+  font: 400 16px/22px $font-family;
+  color: rgba(0,0,0, $opacity--caption);
+  box-sizing: border-box;
+}
 
-/******* MyAccount ******
+@mixin input-email {
+  @include input-text;
+}
+
+@mixin input-password {
+  @include input-text;
+}
+
+@mixin input-submit {
+  display: block;
+  margin: auto;
+  font: 400 16px/22px $font-family;
+  color: #ffffff;
+  background: rgba(0,0,0, $opacity--primary);
+  width: 337px;
+  padding: 7px 0;
+}
+
+@mixin textarea {
+  height: 370px;
+  padding: 5px;
+  width: 100%;
+  background-color: $bgColor;
+  border: 1px solid rgba(0,0,0, $opacity--caption);
+  font: 400 16px/22px $font-family;
+  color: rgba(0,0,0, $opacity--caption);
+  box-sizing: border-box;
+}
+
+/******* my_account ******
 *************************/
-@mixin page-title-myaccount {
+@mixin page-title-my_account {
   font: 400 22px/22px $font-family;
   color: rgba(0,0,0, $opacity--primary);
   padding-bottom: 15px;
@@ -57,7 +96,7 @@ $width-my_account--sm        : 1034px;
   margin-bottom: 20px;
 }
 
-@mixin sub-myaccount {
+@mixin sub-my_account {
   font: 400 18px/22px $font-family;
   color: rgba(0,0,0, $opacity--sub);
   padding-bottom: 10px;

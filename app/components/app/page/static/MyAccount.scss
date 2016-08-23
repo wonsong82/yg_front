@@ -4,9 +4,12 @@
   position: relative;
   margin: auto;
   .static-content {
+    p:first-child {
+      display: none;
+    }
     .woocommerce {
       margin-top: 0;
-      .myaccount_user {
+      .my_account_user {
         & + h2 {
           display: none;
         }
@@ -15,10 +18,10 @@
         display: none;
       }
       h2 {
-        @include page-title-myaccount;
+        @include page-title-my_account;
       }
       h3 {
-        @include sub-myaccount;
+        @include sub-my_account;
       }
       p, address {
         @include caption;
@@ -33,6 +36,86 @@
           position: relative;
         }
       }
+      form {
+        .static-content-title {
+          @include page-title-my_account;
+        }
+        .static-content-h2 {
+          @include sub-my_account;
+        }
+        .form-row {
+          @include caption;
+          label {
+            display: block;
+            margin-bottom: 10px;
+          }
+          br {
+            display: none;
+          }
+        }
+        input[type=text] {
+          @include input-text;
+        }
+        input[type=email] {
+          @include input-email;
+        }
+        input[type=password] {
+          @include input-password;
+        }
+        input[type=submit] {
+          @include input-submit;
+        }
+      }
+      #profile-form {
+        .profile-menu {
+          display: none;
+        }
+        form.edit-account {
+          #password-change {
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(0,0,0, $opacity--line1);
+            margin-bottom: 20px;
+            .static-content-h2 {
+              @include sub-my_account;
+            }
+          }
+        }
+      }
+    }
+    &.my-orders {
+      h2 {
+        @include sub-my_account;
+      }
+    }
+    table {
+      width: 100%;
+      thead {
+        tr {
+          th {
+            @include sub-my_account;
+            padding-bottom: 20px;
+            text-align: left;
+            font: 400 14px/22px $font-family;
+            color: rgba(0,0,0, $opacity--caption);
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            @include sub-my_account;
+            padding: 20px 0;
+            &, a {
+              font: 600 14px/22px $font-family;
+              color: rgba(0,0,0, $opacity--sub);
+            }
+            a[class='button view'] {
+              padding: 6px 17px;
+              border: 2px solid rgba(0,0,0, $opacity--sub);
+            }
+          }
+        }
+      }
     }
     .menu-bar {
       position: absolute;
@@ -40,7 +123,7 @@
       top: $pagePadding--top;
       width: 107px;
       .menu-title {
-        @include page-title-myaccount;
+        @include page-title-my_account;
       }
       .menu-body {
         padding: 0 0 20px 0;
@@ -80,6 +163,16 @@
           margin-left: $gridGap;
         }
       }
+      form {
+        .form-row {
+          &.form-row-first, &.form-row-last {
+            @include grid-2;
+          }
+          &.form-row-last {
+            margin-left: $gridGap;
+          }
+        }
+      }
     }
     .menu-bar {
       position: absolute;
@@ -106,7 +199,7 @@
   padding: 70px 0 70px;
   .static-content {
     .woocommerce {
-      background-color: blue;
+
     }
   }
 }
@@ -116,7 +209,7 @@
   padding: 40px 0 40px;
   .static-content {
     .woocommerce {
-      background-color: yellow;
+
     }
   }
 }
