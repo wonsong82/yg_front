@@ -7,13 +7,13 @@
     "post_title": "Lee Hi KOREA TOUR",
     "post_content": "Lee Hi KOREA TOUR",
     "post_date": "2016-07-19 15:15:00",
-    "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumb_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-    "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+    "main_image": "/images/epichigh.jpg",
+    "thumb_1x1": "/images/epichigh.jpg",
+    "thumb_3x2": "/images/leehi.jpg",
+    "thumb_2x1": "/images/epichigh.jpg",
     "subtitle": "Lee Hi KOREA TOUR - subtitle",
-    "start_date": "20160802",
-    "end_date": "20160802",
+    "start_date": "2016-08-02",
+    "end_date": "2016-08-02",
     "tour_url": "www.toururl.com",
     "artist_id": 1,
     "tour_calendar": {
@@ -27,7 +27,8 @@
     },
     "tour_schedule": [
       {
-        "tour_date": "20160802",
+        "tour_date": "2016-08-02",
+        "place": "Carnegie Hall",
         "location": "SEOUL",
         "event_time": "19:00",
         "ticket_link": "www.ticket.com",
@@ -42,13 +43,13 @@
       "post_title": "AKMU USA Tour",
       "post_content": "AKMU USA Tour",
       "post_date": "2016-07-18 22:11:16",
-      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "main_image": "/images/epichigh.jpg",
+      "thumb_1x1": "/images/epichigh.jpg",
+      "thumb_3x2": "/images/epichigh.jpg",
+      "thumb_2x1": "/images/epichigh.jpg",
       "subtitle": "AKMU USA Tour - subtitle",
-      "start_date": "20160801",
-      "end_date": "20160810",
+      "start_date": "2016-08-01",
+      "end_date": "2016-08-10",
       "tour_url": "www.tour.com",
       "artist_id": 2,
       "tour_calendar": {
@@ -69,22 +70,41 @@
       },
       "tour_schedule": [
         {
-          "tour_date": "20160801",
+          "tour_date": "2016-08-01",
           "location": "LA",
+          "place": "Carnegie Hall",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20160803",
+          "tour_date": "2016-08-03",
           "location": "NY",
+          "place": "Carnegie Hall",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20160810",
+          "tour_date": "2016-08-10",
           "location": "FL",
+          "place": "Carnegie Hall",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": false
+        },
+        {
+          "tour_date": "2016-08-10",
+          "location": "FL",
+          "place": "Carnegie Hall",
+          "event_time": "19:00",
+          "ticket_link": "www.ticket.com",
+          "ticket_availability": false
+        },
+        {
+          "tour_date": "2016-08-10",
+          "location": "FL",
+          "place": "Carnegie Hall",
           "event_time": "19:00",
           "ticket_link": "www.ticket.com",
           "ticket_availability": false
@@ -98,13 +118,13 @@
       "post_title": "IKON USA Tour",
       "post_content": "IKON USA Tour",
       "post_date": "2016-07-18 22:11:16",
-      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "main_image": "/images/epichigh.jpg",
+      "thumb_1x1": "/images/epichigh.jpg",
+      "thumb_3x2": "/images/epichigh.jpg",
+      "thumb_2x1": "/images/epichigh.jpg",
       "subtitle": "IKON USA Tour - subtitle",
-      "start_date": "20160901",
-      "end_date": "20160910",
+      "start_date": "2016-09-01",
+      "end_date": "2016-09-10",
       "tour_url": "www.tour.com",
       "artist_id": 3,
       "tour_calendar": {
@@ -125,23 +145,26 @@
       },
       "tour_schedule": [
         {
-          "tour_date": "20160801",
+          "tour_date": "2016-08-01",
           "location": "LA",
           "event_time": "19:00",
+          "place": "Carnegie Hall",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20160804",
+          "tour_date": "2016-08-04",
           "location": "NY",
           "event_time": "19:00",
+          "place": "Carnegie Hall",
           "ticket_link": "www.ticket.com",
           "ticket_availability": false
         },
         {
-          "tour_date": "20160810",
+          "tour_date": "2016-08-10",
           "location": "FL",
           "event_time": "19:00",
+          "place": "Carnegie Hall",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         }
@@ -154,13 +177,13 @@
       "post_title": "EPIK HIGH USA Tour",
       "post_content": "EPIK HIGH USA Tour",
       "post_date": "2016-07-18 22:11:16",
-      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "main_image": "/images/epichigh.jpg",
+      "thumb_1x1": "/images/epichigh.jpg",
+      "thumb_3x2": "/images/epichigh.jpg",
+      "thumb_2x1": "/images/epichigh.jpg",
       "subtitle": "EPIK HIGH USA Tour - subtitle",
-      "start_date": "20161008",
-      "end_date": "20161010",
+      "start_date": "2016-10-08",
+      "end_date": "2016-10-10",
       "tour_url": "www.tour.com",
       "artist_id": 4,
       "tour_calendar": {
@@ -181,23 +204,26 @@
       },
       "tour_schedule": [
         {
-          "tour_date": "20160801",
+          "tour_date": "2016-08-01",
           "location": "LA",
           "event_time": "19:00",
+          "place": "Carnegie Hall",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20160804",
+          "tour_date": "2016-08-04",
           "location": "NY",
           "event_time": "19:00",
+          "place": "Carnegie Hall",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20160810",
+          "tour_date": "2016-08-10",
           "location": "FL",
           "event_time": "19:00",
+          "place": "Carnegie Hall",
           "ticket_link": "www.ticket.com",
           "ticket_availability": false
         }
@@ -210,13 +236,13 @@
       "post_title": "2NE1 USA Tour",
       "post_content": "2NE1 USA Tour",
       "post_date": "2016-07-18 22:11:16",
-      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "main_image": "/images/epichigh.jpg",
+      "thumb_1x1": "/images/epichigh.jpg",
+      "thumb_3x2": "/images/epichigh.jpg",
+      "thumb_2x1": "/images/epichigh.jpg",
       "subtitle": "2NE1 USA Tour - subtitle",
-      "start_date": "20161101",
-      "end_date": "20161112",
+      "start_date": "2016-11-01",
+      "end_date": "2016-11-12",
       "tour_url": "www.tour.com",
       "artist_id": 5,
       "tour_calendar": {
@@ -237,23 +263,26 @@
       },
       "tour_schedule": [
         {
-          "tour_date": "20160801",
+          "tour_date": "2016-08-01",
           "location": "LA",
           "event_time": "19:00",
+          "place": "Carnegie Hall",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20160804",
+          "tour_date": "2016-08-04",
           "location": "NY",
           "event_time": "19:00",
+          "place": "Carnegie Hall",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20160810",
+          "tour_date": "2016-08-10",
           "location": "FL",
           "event_time": "19:00",
+          "place": "Carnegie Hall",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         }
@@ -266,13 +295,13 @@
       "post_title": "PSY USA Tour",
       "post_content": "PSY USA Tour",
       "post_date": "2016-07-18 22:11:16",
-      "main_image": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_1x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_3x2": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
-      "thumb_2x1": "http://yg.testroo.com/wp-content/uploads/2016/07/download.jpg",
+      "main_image": "/images/epichigh.jpg",
+      "thumb_1x1": "/images/epichigh.jpg",
+      "thumb_3x2": "/images/epichigh.jpg",
+      "thumb_2x1": "/images/epichigh.jpg",
       "subtitle": "PSY USA Tour - subtitle",
-      "start_date": "20161201",
-      "end_date": "20161209",
+      "start_date": "2016-12-01",
+      "end_date": "2016-12-09",
       "tour_url": "www.tour.com",
       "artist_id": 6,
       "tour_calendar": {
@@ -293,23 +322,26 @@
       },
       "tour_schedule": [
         {
-          "tour_date": "20160802",
+          "tour_date": "2016-08-02",
           "location": "LA",
           "event_time": "19:00",
+          "place": "Carnegie Hall",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20160803",
+          "tour_date": "2016-08-03",
           "location": "NY",
           "event_time": "19:00",
+          "place": "Carnegie Hall",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         },
         {
-          "tour_date": "20160812",
+          "tour_date": "2016-08-12",
           "location": "FL",
           "event_time": "19:00",
+          "place": "Carnegie Hall",
           "ticket_link": "www.ticket.com",
           "ticket_availability": true
         }

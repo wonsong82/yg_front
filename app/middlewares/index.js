@@ -320,7 +320,7 @@ export const loadCategoriesList = () => (dispatch, getState) => {
 
 
 
-//PAGE: TOUR
+//PAGE:TOUR
 import { setToursList, setToursAllLoaded } from '../actions/'
 export const loadToursList = ( count ) => (dispatch, getState) => {
   const state = getState();
@@ -340,21 +340,26 @@ export const loadToursList = ( count ) => (dispatch, getState) => {
     for(let key in toursData){
       if(toursData.hasOwnProperty(key)){
         let tour = toursData[key]
-        let artistThemeColor = artistsData[tour.artist_id].themeColor
+        let { themeColor, textColor } = artistsData[tour.artist_id]
         let artistName = artistsData[tour.artist_id].name
 
-        let {id, post_title, subtitle, url_friendly_name, tour_schedule, thumb_3x2} = tour
-        let url = Site + '/Tour/' + url_friendly_name
+        let {id, post_title, subtitle, url_friendly_name, tour_schedule, start_date:startDate, end_date:endDate, thumb_3x2, thumb_1x1, thumb_2x1, main_image:image} = tour
+        let url = '/Tour/' + url_friendly_name
 
         newTours.push({
           id,
           title: post_title,
           subtitle,
           url,
+          thumb1x1: thumb_1x1 || image || false,
+          thumb2x1: thumb_2x1 || image || false,
+          thumb3x2: thumb_3x2 || image || false,
           schedule: tour_schedule,
-          image: thumb_3x2,
-          name: artistName,
-          themeColor: artistThemeColor
+          startDate,
+          endDate,
+          artistName,
+          themeColor,
+          textColor
         })
 
         if(toursDataCount-1 == index || nextCount-1 == index){

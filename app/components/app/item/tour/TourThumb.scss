@@ -1,0 +1,122 @@
+@import '../../../variable';
+
+@mixin tour-thumb-base {
+  @include card;
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  background: #fff;
+  width: getGridWidth(6);
+  height: 414px;
+  padding: 30px;
+  overflow: hidden;
+
+  .images {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .image-1x1, .image-2x1, .image-3x2 {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+    .film {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,.15);
+    }
+  }
+
+  .artist {
+    position: relative;
+    font: 500 80px/80px 'Klavika', sans-serif;
+    margin-bottom: 10px;
+    //text-shadow: $textShadow;
+  }
+
+  .title {
+    position: relative;
+    font: 400 30px/34px 'Klavika', sans-serif;
+    width: 250px;
+    word-break: normal;
+    opacity: $opacity--primary;
+    display: block;
+    text-shadow: $textShadow;
+  }
+
+  .subtitle {
+    position: relative;
+    font: 400 22px/34px 'Klavika', sans-serif;
+    width: 250px;
+    word-break: normal;
+    opacity: $opacity--sub;
+    display: block;
+    text-shadow: $textShadow;
+  }
+
+  .date {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    font: 400 18px/18px 'Klavika', sans-serif;
+    opacity: $opacity--sub;
+    display: block;
+    text-shadow: $textShadow;
+  }
+}
+
+@mixin tour-thumb--md {
+  @include tour-thumb-base;
+  .images {
+    .image-3x2 {
+      display: block;
+    }
+  }
+}
+
+@mixin tour-thumb--sm {
+  @include tour-thumb-base;
+  padding: 20px;
+  width: getGridWidth(4);
+  height: getGridWidth(2.5);
+  .images {
+    .image-3x2 {
+      display: block;
+    }
+  }
+  .artist {
+    font: 500 60px/60px 'Klavika', sans-serif;
+  }
+  .title {
+    font: 400 24px/26px 'Klavika', sans-serif;
+  }
+  .subtitle {
+    font: 400 18px/26px 'Klavika', sans-serif;
+  }
+}
+
+@mixin tour-thumb--xs {
+  @include tour-thumb-base;
+  padding: 15px;
+  width: getGridWidth(2);
+  height: getGridWidth(1.4);
+  .images {
+    .image-3x2 {
+      display: block;
+    }
+  }
+  .artist {
+    font: 500 34px/34px 'Klavika', sans-serif;
+  }
+  .title {
+    font: 400 18px/26px 'Klavika', sans-serif;
+  }
+  .subtitle, .date {
+    display: none;
+  }
+}

@@ -35,8 +35,6 @@ class ProductImageSwiper extends Component {
   }
 
 
-
-
   render() {
     const { className, images } = this.props
     let classes = 'ProductImageSwiper'
