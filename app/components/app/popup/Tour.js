@@ -1,73 +1,115 @@
 require('./Tour.scss')
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
 import AnchorLink from '../../../components/lib/link/AnchorLink'
 import Image from '../../../components/lib/image/Image'
-
-const Tour = ({startDate, endDate, name, themeColor, title, subtitle,
-  content, image, facebookShareLink, twitterShareLink, tourSchedule}) => (
-
-
-    <div className="TourLayout">
-
-      <div className="Tour">
-
-        { image &&
-        <div className="images">
-          <Image className="main-image" src={image}/>
-        </div>
-        }
-
-        <div className="header">
-          <h1 className="title">{title && title}</h1>
-          <span className="subtitle">{subtitle && subtitle}</span>
-          <span className="date">{startDate} - {endDate}</span>
-          <div className="socialLinks">
-            <AnchorLink href={facebookShareLink} target="_blank">
-              <span className="icon-facebook" />
-            </AnchorLink>
-            <AnchorLink href={twitterShareLink} target="_blank">
-              <span className="icon-twitter" />
-            </AnchorLink>
-          </div>
-        </div>
+import dateformat from 'dateformat'
+import ScrollArea from 'react-scrollbar/dist/no-css'
+import TourSchedule from '../../../components/app/item/tour/TourSchedule'
+import TourCalendar from '../../../components/app/item/tour/TourCalendar'
 
 
-        <div>
-          <ul className="schedule-list">
-            {
-              tourSchedule &&
-              tourSchedule.map( schedule => (
-               <li>
+class Tour extends Component {
 
-                 { schedule.event_time }
-                 
+  constructor(props) {
+    super(props)
+  }
 
-               </li>
-              ))
+  preventOtherScrolls(e){
+    e.preventDefault()
+
+  }
+  componentDidMount() {
+    $('.schedules', this.refs.tour).off('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
+    $('.schedules', this.refs.tour).on('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
+  }
+  componentWillUnmount() {
+    $('.schedules', this.refs.tour).off('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
+  }
+  componentDidUpdate() {
+    $('.schedules', this.refs.tour).off('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
+    $('.schedules', this.refs.tour).on('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
+  }
 
 
+  render() {
+    const {startDate, endDate, artistName, themeColor, textColor, title, subtitle,
+      content, image, facebookShareLink, twitterShareLink, schedule:schedules, calendar, calendarMonth} = this.props
+
+    return (
+      <div className="TourLayout">
+
+        <div className="Tour" ref="tour">
+
+          <div className="main">
+            <TourCalendar calendar={calendar} themeColor={themeColor} textColor={textColor} calendarMonth={calendarMonth} />
+
+            { image &&
+            <div className="images">
+              <Image className="main-image" src={image}/>
+              <span className="film"/>
+              <h6 className="artist" style={{color:themeColor}}>{artistName}</h6>
+              <h6 className="title" style={{color:textColor}}>{title}</h6>
+              <span className="subtitle" style={{color:textColor}}>{subtitle}</span>
+              <span className="date" style={{color:textColor}}>
+              { dateformat(startDate, 'ddmmm(ddd)') }&nbsp;-&nbsp;
+                        { dateformat(endDate,   'ddmmm(ddd)') }
+            </span>
+            </div>
             }
-          </ul>
 
-        </div>
+            <div className="header">
+              <h1 className="title">{title}</h1>
+              <span className="subtitle">{subtitle}</span>
+              <span className="date">
+              { dateformat(startDate, 'ddmmm(ddd)') }&nbsp;-&nbsp;
+                { dateformat(endDate,   'ddmmm(ddd)') }
+            </span>
+              <div className="socialLinks">
+                <AnchorLink href={facebookShareLink} target="_blank">
+                  <span className="icon-facebook" />
+                </AnchorLink>
+                <AnchorLink href={twitterShareLink} target="_blank">
+                  <span className="icon-twitter" />
+                </AnchorLink>
+              </div>
+            </div>
+
+          </div>
 
 
-        <div className="content">
-          <h2 className="title">Description</h2>
-          <span className="spacer" />
-          <p>
-            {content}
-          </p>
+
+          <ScrollArea className="schedules" speed={0.8} horizontal={false} smoothScrolling={true} contentClassName="content" >
+
+            {schedules && schedules.map( (schedule, i) => (
+              <div className="schedule-con">
+                <TourSchedule key={`tour-detail-popup-${i}`} {...schedule} textColor={textColor} themeColor={themeColor} />
+              </div>
+            ))}
+
+          </ScrollArea>
+
+
+
+          <div className="content">
+            <h2 className="title">Description</h2>
+            <p>
+              {content}
+            </p>
+          </div>
+
+
+
         </div>
 
 
 
       </div>
+    )
+  }
+
+}
 
 
-
-    </div>
-)
 
 
 export default Tour

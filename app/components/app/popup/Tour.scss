@@ -1,19 +1,87 @@
 @import '../../variable.scss';
+@import '../../../components/app/item/tour/TourSchedule';
+@import '../../../components/app/item/tour/TourCalendar';
+
 
 .App .Popup .TourLayout {
   padding-bottom: 100px;
 
   .Tour {
-    width: getGridWidth(6);
+    width: getGridWidth(6) + $gridGap;
     margin: 0 auto 45px;
 
+    .main {
+      width: getGridWidth(6);
+      margin: 0 auto;
+    }
+
+    .TourCalendar {
+      margin: 0 auto;
+      position: relative;
+      @include tour-calendar--md;
+
+    }
+
     .images {
-      margin-top: 72px;
       margin-bottom: 25px;
+      width: getGridWidth(6);
+      height: getGridWidth(6);
+      padding: 30px;
+      box-sizing: border-box;
+      position: relative;
+      display: block;
       .main-image {
         display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: getGridWidth(6);
         height: getGridWidth(6);
+      }
+      .film {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,.15);
+      }
+      .artist {
+        position: relative;
+        font: 500 80px/80px 'Klavika', sans-serif;
+        margin-bottom: 10px;
+        //text-shadow: $textShadow;
+      }
+
+      .title {
+        position: relative;
+        font: 400 30px/34px 'Klavika', sans-serif;
+        width: 250px;
+        word-break: normal;
+        opacity: $opacity--primary;
+        display: block;
+        text-shadow: $textShadow;
+      }
+
+      .subtitle {
+        position: relative;
+        font: 400 22px/34px 'Klavika', sans-serif;
+        width: 250px;
+        word-break: normal;
+        opacity: $opacity--sub;
+        display: block;
+        text-shadow: $textShadow;
+      }
+
+      .date {
+        position: absolute;
+        bottom: 20px;
+        left: 30px;
+        font: 400 18px/18px 'Klavika', sans-serif;
+        opacity: $opacity--sub;
+        display: block;
+        text-transform: uppercase;
+        text-shadow: $textShadow;
       }
     }
 
@@ -24,20 +92,19 @@
         font: 400 20px/30px 'Klavika', sans-serif;
         color: #000;
         opacity: $opacity--primary;
-        margin-bottom: 20px;
       }
       .subtitle {
         display: block;
-        font: 400 18px/24px 'Klavika', sans-serif;
+        font: 400 18px/20px 'Klavika', sans-serif;
         color: #000;
-        opacity: $opacity--title;
-        margin-bottom: 20px;
+        opacity: $opacity--caption;
       }
       .date {
         display: block;
         color: #000;
-        font: 400 14px/24px 'Klavika', sans-serif;
-        opacity: $opacity--caption;
+        font: 400 18px/30px 'Klavika', sans-serif;
+        opacity: $opacity--sub;
+        text-transform: uppercase;
       }
       .socialLinks {
         position: absolute;
@@ -76,21 +143,40 @@
       }
     }
 
+    .schedules {
+      $num: 3;
+      max-height: (96px * $num) + (($num - 1) * $gridGap) + $gridGap;
+      margin-bottom: 40px;
+      &.scrollarea .scrollbar-container.vertical {
+        right: 5px;
+        top: 5px;
+        bottom: 5px;
+        overflow: hidden;
+        height: auto;
+      }
+      .schedule-con {
+        padding: 5px;
+        .TourSchedule {
+          @include tour-schedule--md;
+        }
+      }
+    }
+
     .content {
+      width: getGridWidth(6);
+      margin: 0 auto 60px;
+      border-bottom: 1px solid rgba(0,0,0, $opacity--line2);
+
       .title {
-        font: 400 18px/24px 'Klavika', sans-serif;
+        font: 500 16px/24px 'Klavika', sans-serif;
         color: #000;
-        opacity: $opacity--primary;
-        margin-bottom: 15px;
+        opacity: $opacity--sub;
+        border-bottom: 1px solid rgba(0,0,0, $opacity--line2);
+        padding-bottom: 10px;
       }
-      .spacer{
-        background: rgba(0,0,0, $opacity--line1);
-        display: block;
-        box-sizing: border-box;
-        height: 1px;
-        margin: 15px 0;
-      }
+
       p {
+        padding: 20px;
         font: 400 16px/28px 'Klavika', sans-serif;
         opacity: $opacity--caption;
         color: #000;
@@ -103,12 +189,62 @@
 @media (max-width:  $width--sm) {
   .App .Popup .TourLayout {
     .Tour {
-      width: getGridWidth(4);
+      width: getGridWidth(4) + $gridGap;
+      .main {
+        width: getGridWidth(4);
+      }
+      .TourCalendar {
+        @include tour-calendar--sm;
+      }
       .images {
+        padding: 20px;
+        width: getGridWidth(4);
+        height: getGridWidth(4);
         .main-image {
           display: block;
           width: getGridWidth(4);
           height: getGridWidth(4);
+        }
+        .artist {
+          font: 500 60px/60px 'Klavika', sans-serif;
+        }
+        .title {
+          font: 400 24px/26px 'Klavika', sans-serif;
+        }
+        .subtitle {
+          font: 400 18px/26px 'Klavika', sans-serif;
+        }
+      }
+      .header {
+        margin-bottom: 20px;
+        .socialLinks {
+          position: relative;
+          top: auto;
+          right: auto;
+          a {
+            padding-left: 0;
+            margin-left: 0;
+            &+a {
+              margin-left: 15px;
+            }
+            &+a:before {
+              width: 0;
+            }
+          }
+          margin-bottom: 20px;
+        }
+      }
+      .schedules {
+        .schedule-con {
+          .TourSchedule {
+            @include tour-schedule--sm;
+          }
+        }
+      }
+      .content {
+        width: getGridWidth(4);
+        p {
+          padding: 20px 0;
         }
       }
     }
@@ -118,13 +254,43 @@
 @media (max-width: $width--xs) {
   .App .Popup .TourLayout {
     .Tour {
-      width: getGridWidth(2);
+      width: getGridWidth(2) + $gridGap;
+      .main {
+        width: getGridWidth(2);
+      }
+      .TourCalendar {
+        @include tour-calendar--xs;
+      }
       .images {
+        padding: 15px;
+        width: getGridWidth(2);
+        height: getGridWidth(2);
         .main-image {
           display: block;
           width: getGridWidth(2);
           height: getGridWidth(2);
         }
+        .artist {
+          font: 500 34px/34px 'Klavika', sans-serif;
+        }
+        .title {
+          font: 400 18px/26px 'Klavika', sans-serif;
+        }
+        .subtitle, .date {
+          display: none;
+        }
+      }
+      .schedules {
+        $num: 2;
+        max-height: ((74px + 36px) * $num) + (($num - 1) * $gridGap) + $gridGap;
+        .schedule-con {
+          .TourSchedule {
+            @include tour-schedule--xs;
+          }
+        }
+      }
+      .content {
+        width: getGridWidth(2);
       }
     }
   }

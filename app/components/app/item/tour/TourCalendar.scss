@@ -1,0 +1,123 @@
+@import '../../../variable.scss';
+
+@mixin tour-calendar-base {
+  width: getGridWidth(6);
+  position: relative;
+
+  .title {
+    font: 500 28px/28px 'Klavika', sans-serif;
+    color: #000;
+    opacity: $opacity--primary;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .day-names {
+    width: 100%;
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-size: 0;
+    li {
+      text-align: center;
+      text-transform: uppercase;
+      width: getGridWidth(6) / 7;
+      display: inline-block;
+      font: 400 14px/18px 'Klavika', sans-serif;
+      color: #000;
+      opacity: $opacity--title;
+    }
+  }
+
+  .days {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 0;
+
+    li {
+      width: getGridWidth(6) / 7;
+      height: 70px;
+      display: inline-block;
+      position: relative;
+
+      .c {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .text {
+          display: block;
+          text-align: center;
+          text-transform: uppercase;
+          font: 400 14px/18px 'Klavika', sans-serif;
+          opacity: $opacity--sub;
+        }
+        .num {
+          display: block;
+          text-align: center;
+          text-transform: uppercase;
+          font: 400 28px/28px 'Klavika', sans-serif;
+          opacity: $opacity--primary;
+        }
+      }
+    }
+  }
+}
+
+@mixin tour-calendar--md {
+  @include tour-calendar-base;
+  .day-names {
+    display: none;
+  }
+}
+
+@mixin tour-calendar--sm {
+  @include tour-calendar-base;
+  width: getGridWidth(4);
+  .day-names {
+    display: block;
+    li {
+      width: getGridWidth(4) / 7;
+    }
+  }
+  .days {
+    li {
+      width: getGridWidth(4) / 7;
+      height: 60px;
+      .c {
+        .text {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@mixin tour-calendar--xs {
+  @include tour-calendar-base;
+  width: getGridWidth(2);
+  .day-names {
+    display: block;
+    li {
+      width: getGridWidth(2) / 7;
+    }
+  }
+  .days {
+    li {
+      width: getGridWidth(2) / 7;
+      height: 32px;
+      .c {
+        .text {
+          display: none;
+        }
+        .num {
+          font: 400 16px/16px 'Klavika', sans-serif;
+        }
+      }
+    }
+  }
+}
+
+

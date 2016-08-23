@@ -234,12 +234,7 @@ const popup = ( state = initState.popup, action ) => {
       return { ...state, ...action.event, related: action.related }
 
     case SET_TOUR_POPUP:
-      const { tour } = action
-      return Object.assign({}, state, {
-        startDate: tour.startData, endDate: tour.endDate, name: tour.name, themeColor: tour.themeColor, title: tour.title, subtitle: tour.subtitle,
-        content: tour.content, image: tour.image, facebookShareLink: tour.facebookShareLink, twitterShareLink: tour.twitterShareLink,
-        tourSchedule: tour.tourSchedule, tourCalendar: tour.tourCalendar
-      })
+      return { ...state, ...action.tour }
 
     case SET_MUSIC_POPUP:
       return { ...state, ...action.music, related: action.related }
