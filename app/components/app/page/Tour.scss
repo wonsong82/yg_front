@@ -1,0 +1,130 @@
+@import '../../variable.scss';
+@import '../../../components/app/item/tour/TourThumb';
+@import '../../../components/app/item/tour/TourSchedule';
+
+.App .Page .TourLayout {
+  width: getGridWidth(10) + 10px;
+  margin: $pagePadding--top auto $pagePadding--bottom;
+
+  > h3 {
+    @include page-title;
+  }
+
+  .tours-list {
+
+    li {
+      width: 100%;
+      position: relative;
+      margin-bottom: 60px;
+      &:after {
+        clear: both;
+        content: "";
+        display: block;
+      }
+
+      .thumb-con {
+        float: left;
+        padding: 5px;
+        .TourThumb {
+          @include tour-thumb--md;
+        }
+      }
+
+      .schedules {
+        $num: 4;
+        max-height: (96px * $num) + (($num - 1) * $gridGap) + $gridGap;
+        float: left;
+        &.scrollarea .scrollbar-container.vertical {
+          right: 5px;
+          top: 5px;
+          bottom: 5px;
+          overflow: hidden;
+          height: auto;
+        }
+        .schedule-con {
+          padding: 5px;
+          .TourSchedule {
+            @include tour-schedule--sm;
+          }
+
+        }
+
+      }
+    }
+  }
+
+  .view-more {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: $width--lg){
+  .App .Page .TourLayout {
+    width: getGridWidth(6) + $gridGap;
+    .tours-list {
+      li {
+        .thumb-con {
+          .TourThumb {
+          }
+        }
+        .schedules {
+          $num: 3;
+          max-height: (96px * $num) + (($num - 1) * $gridGap) + $gridGap;
+          .schedule-con {
+            .TourSchedule {
+              @include tour-schedule--md;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $width--sm){
+  .App .Page .TourLayout {
+    width: getGridWidth(4) + 10px;
+    .tours-list {
+      li {
+        .thumb-con {
+          .TourThumb {
+            @include tour-thumb--sm;
+          }
+        }
+        .schedules {
+          .schedule-con {
+            .TourSchedule {
+              @include tour-schedule--sm;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $width--xs){
+  .App .Page .TourLayout {
+    width: getGridWidth(2) + 10px;
+    .tours-list {
+      li {
+        .thumb-con {
+          .TourThumb {
+            @include tour-thumb--xs;
+          }
+        }
+        .schedules {
+          $num: 2;
+          max-height: ((74px + 36px) * $num) + (($num - 1) * $gridGap) + $gridGap;
+          .schedule-con {
+            .TourSchedule {
+              @include tour-schedule--xs;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -74,7 +74,7 @@
 }
 
 
-@media (max-width: $maxWidth--8-10) {
+@media (max-width: $width--lg) {
 .App .Page .BlogLayout {
   width: getGridWidth(6);
 
@@ -93,7 +93,7 @@
 }}
 
 
-@media (max-width: $maxWidth--4-10) {
+@media (max-width: $width--sm) {
 .App .Page .BlogLayout {
   width: getGridWidth(4);
 
@@ -116,7 +116,7 @@
 }}
 
 
-@media (max-width: $maxWidth--2-10) {
+@media (max-width: $width--xs) {
 .App .Page .BlogLayout {
   width: getGridWidth(2);
 

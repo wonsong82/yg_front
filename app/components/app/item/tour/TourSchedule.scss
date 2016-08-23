@@ -1,0 +1,176 @@
+@import '../../../variable';
+
+@mixin tour-schedule-base {
+  @include card;
+  display: block;
+  width: getGridWidth(4);
+  background: #fff;
+  height: 96px;
+  position: relative;
+
+  .info {
+    position: absolute;
+    height: 96px;
+    top: 0;
+    left: 0;
+    right: 96px;
+    font-size: 0;
+
+    .date {
+      position: absolute;
+      width: 96px;
+      height: 96px;
+      .wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        div {
+          color: #000000;
+          text-align: center;
+          font: 400 14px/20px 'Klavika', sans-serif;
+          opacity: $opacity--sub;
+          text-transform: uppercase;
+          &.d {
+            font: 500 28px/24px 'Klavika', sans-serif;
+            opacity: $opacity--title;
+          }
+        }
+      }
+    }
+
+    .con {
+      height: 76px;
+      position: relative;
+      padding: 6px 20px;
+      margin: 10px 0 10px 96px;
+      box-sizing: border-box;
+      border-left: 1px solid rgba(0,0,0, $opacity--line2);
+      .place {
+        font: 400 18px/20px 'Klavika', sans-serif;
+        color: #000;
+        opacity: $opacity--primary;
+        text-transform: capitalize;
+      }
+      .loc {
+        font: 400 14px/24px 'Klavika', sans-serif;
+        color: #000;
+        opacity: $opacity--caption;
+        text-transform: capitalize;
+      }
+      .time {
+        font: 400 14px/20px 'Klavika', sans-serif;
+        color: #000;
+        opacity: $opacity--title;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .link {
+    width: 96px;
+    height: 96px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    .text-wrapper {
+      display: block;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .text1 {
+      font: 600 16px/18px 'Klavika', sans-serif;
+      display: block;
+      text-align: center;
+    }
+    .text2 {
+      font: 600 18px/18px 'Klavika', sans-serif;
+      font-size: 18px;
+      display: block;
+      text-align: center;
+    }
+    &.ticket-link {
+      cursor: pointer;
+      .text1 {
+        opacity: $opacity--caption;
+      }
+      .text2 {
+        opacity: $opacity--primary;
+      }
+    }
+    &.disabled-link {
+      background: #c8c8c8;
+      .text1, .text2 {
+        color: #a3a3a3;
+      }
+    }
+  }
+}
+
+@mixin tour-schedule--md {
+  @include tour-schedule-base;
+  width: getGridWidth(6);
+}
+
+@mixin tour-schedule--sm {
+  @include tour-schedule-base;
+}
+
+@mixin tour-schedule--xs {
+  @include tour-schedule-base;
+  width: getGridWidth(2);
+  height: 110px;
+  .info {
+    height: 74px;
+    right: 0;
+    .date {
+      width: 74px;
+      height: 74px;
+      .wrapper {
+        div {
+          font: 400 12px/18px 'Klavika', sans-serif;
+          &.d {
+            font: 500 24px/20px 'Klavika', sans-serif;
+          }
+        }
+      }
+    }
+    .con {
+      height: 58px;
+      padding: 1px 15px;
+      margin: 8px 0 8px 89px;
+      .place {
+        font-size: 16px;
+        line-height: 18px;
+      }
+      .loc {
+        font-size: 12px;
+        line-height: 20px;
+      }
+      .time {
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+  }
+
+  .link {
+    width: getGridWidth(2);
+    height: 36px;
+    top: auto;
+    bottom: 0;
+    right: 0;
+    .text1, .text2 {
+      display: inline-block;
+      line-height: 36px;
+    }
+    .text2 {
+      margin-left: 5px;
+    }
+
+  }
+
+}

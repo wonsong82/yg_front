@@ -29,7 +29,6 @@
   ],
   "author": "Won Song",
   "license": "ISC",
-
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.10.4",
@@ -63,6 +62,7 @@
   "dependencies": {
     "babel-polyfill": "^6.13.0",
     "connect-with-transition-group": "^0.1.0",
+    "dateformat": "^1.0.12",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "latest",
