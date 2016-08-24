@@ -8,25 +8,38 @@ class Image extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      loaded: false
+      imgLoaded: false,
+      showLoading: true
     }
   }
 
   componentDidMount() {
     const { src } = this.props
-    if( src!='' && src!=false ) {
-      this.loadImages(src, this.showImage.bind(this))
+
+    if( src ) {
+      this.loadImages(src, () => {
+        this.showImage.bind(this)
+        this.stopLoading.bind(this)
+      })
     }
+    
     else {
-      this.showImage()
+      this.stopLoading.bind(this)
     }
   }
 
   showImage() {
     this.setState({
-      loaded: true
+      imgLoaded: true
     })
   }
+
+  stopLoading() {
+    this.setState({
+      showLoading: false
+    })
+  }
+
 
   loadImages( images, callback ) {
     images instanceof Array || (images = [images])
@@ -49,14 +62,14 @@ class Image extends Component {
     if(this.props.className) classes += ' ' + this.props.className
 
     let css = {backgroundColor: color}
-    if(this.state.loaded){
+    if(this.state.imgLoaded){
       css.backgroundImage = 'url(' + src + ')'
     }
 
 
     return (
       <span className={classes} style={ css }>
-        { !this.state.loaded && <div className="spinner"><SquareSpinner color="rgba(255,255,255,.5)" /></div> }
+        { this.state.showLoading && <div className="spinner"><SquareSpinner color="rgba(255,255,255,.5)" /></div> }
       </span>
     )
   }
