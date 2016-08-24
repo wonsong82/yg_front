@@ -14,7 +14,12 @@ class Image extends Component {
 
   componentDidMount() {
     const { src } = this.props
-    this.loadImages( src, this.showImage.bind(this) )
+    if( src ) {
+      this.loadImages(src, this.showImage.bind(this))
+    }
+    else {
+      this.showImage()
+    }
   }
 
   showImage() {
