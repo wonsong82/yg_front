@@ -394,14 +394,19 @@ export const loadAlbumsList = (count) => (dispatch, getState) => {
 
     let newAlbums = []
 
-    for(let i=curCount; i<nextCount; i++){
-      newAlbums.push( createAlbumThumb( albumsData[i], artistData ) )
-      if(albumsDataCount-1 == i){
-        dispatch(setAlbumsAllLoaded(true))
-        break
+
+    console.log(curCount);
+
+    if(albumsDataCount > 0 && albumsDataCount > curCount){
+      for(let i=curCount; i<nextCount; i++){
+        console.log(albumsData[i]);
+        newAlbums.push( createAlbumThumb( albumsData[i], artistData ) )
+        if(albumsDataCount-1 == i){
+          dispatch(setAlbumsAllLoaded(true))
+          break
+        }
       }
     }
-
     dispatch(setAlbumsList(newAlbums))
 
 
