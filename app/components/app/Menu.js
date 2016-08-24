@@ -99,7 +99,6 @@ class MainMenu extends Component {
 
 
   render() {
-    {console.log('what')}
     const { artists, disabled } = this.props
 
     // Static Links

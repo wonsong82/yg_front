@@ -9,12 +9,12 @@ const ProductThumb = ({ title, url, artistName, price, thumb1x1, thumb2x1, thumb
 
   <RouterLink className={ `ProductThumb style-${layoutStyle}-${layoutNum}` } to={url} style={{color:'#000'}}>
 
-    <div className="images">
+    {/*<div className="images">
       <Image className="image-1x1" color="rgba(0,0,0,.30)" src={thumb1x1} />
       <Image className="image-2x1" color="rgba(0,0,0,.30)" src={thumb2x1} />
       <Image className="image-1x2" color="rgba(0,0,0,.30)" src={thumb1x2} />
     </div>
-
+*/}
     <Ripple color='rgba(0,0,0,.5)' />
 
     <div className="title" to={url}>
