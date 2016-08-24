@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { setThemeColor, setResponsiveMode, handleResponsiveChange, getAllData } from '../actions/'
+import { setThemeColor, setResponsiveMode, handleResponsiveChange, getAllData, getProductsInCart } from '../actions/'
 import { computeThemeColor } from '../functions/'
 import AppComponent from '../components/App'
 
@@ -14,10 +14,11 @@ class App extends Component {
   }
 
   componentDidMount(){
-    const { setResponsiveMode, handleResponsiveChange, getAllData } = this.props
+    const { setResponsiveMode, handleResponsiveChange, getAllData, getProductsInCart } = this.props
     setResponsiveMode($(window).width())
     handleResponsiveChange()
     getAllData()
+    // getProductsInCart()
   }
 
   componentWillReceiveProps(nextProps) {
@@ -58,7 +59,8 @@ const mapDispatchToProps = dispatch => {
     setThemeColor: ( themeColor, textColor ) => { dispatch(setThemeColor(themeColor, textColor) )},
     setResponsiveMode: ( width ) => { dispatch(setResponsiveMode(width)) },
     handleResponsiveChange: () => { dispatch(handleResponsiveChange()) },
-    getAllData: () => { dispatch(getAllData()) }
+    getAllData: () => { dispatch(getAllData()) },
+    getProductsInCart: () => { dispatch(getProductsInCart()) }
   }
 }
 

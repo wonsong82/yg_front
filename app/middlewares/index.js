@@ -692,7 +692,7 @@ export const loadMusicPopup = (name) => (dispatch, getState) => {
 
 
 //POPUP:SHOP
-import { setShopPopup, setSelectedOption, setSelectedOptions, setOptions, setProductImages, setProductPrice }  from '../actions/'
+import { setShopPopup, setSelectedOption, setSelectedOptions, setOptions, setProductImages, setProductPrice, setVariationId }  from '../actions/'
 import { getDefaultOptions, getProductOptions, findProductVariation, getProductImages, getProductPrice } from '../functions/'
 export const loadShopPopup = (name) => (dispatch, getState) => {
 
@@ -804,10 +804,12 @@ export const changeProductOption = ( optionName, optionValue, optionEnabled ) =>
   if(product.variation){
     let variation = findProductVariation(product.variation, getState().popup
       .selectedOptions )
+    let variationId = variation.variation_id
 
     dispatch( setProductImages( getProductImages(product, variation) ))
     let { price, originalPrice } = getProductPrice(product, variation)
     dispatch( setProductPrice( price, originalPrice ) )
+    dispatch( setVariationId (variationId))
   }
 
 }
@@ -870,6 +872,8 @@ export const getMusicsData = () => (dispatch, getState) =>getData('/api/getMusic
 import {requestShops, receiveShops} from '../actions'
 export const getShopsData = () => (dispatch, getState) =>getData('/api/getShops', getState().data.shops, requestShops, receiveShops, dispatch, fetch)
 
+
+
 // DATA:ALL
 import { setDataLoaded } from '../actions/'
 export const getAllData = () => (dispatch, getState) => {
@@ -877,11 +881,101 @@ export const getAllData = () => (dispatch, getState) => {
   let timer = setInterval(()=>{
     let state = getState().data
     if(datas.filter( data => state[data].loaded ).length === datas.length){
+      console.log(12314);
       dispatch(setDataLoaded(true))
       clearInterval(timer)
+
+      dispatch(getProductsInCart())
     }
   }, 150)
+
   datas.map( data => {
     dispatch(eval('get' + data[0].toUpperCase() + data.slice(1) + 'Data')())
   })
 }
+
+
+import {requestGetCarts, receiveGetCarts, requestAddToCart, receiveAddToCart, getProductsInCart, requestRemoveCart, receiveRemoveCart } from '../actions'
+export const _getProductsInCart = () => (dispatch, getState) =>getData('/api/getProductsInCart', getState().cart, requestGetCarts, receiveGetCarts, dispatch, fetch)
+export const _addProductsToCart = (productId, variationId, qty) => (dispatch, getState) => {
+
+  let state = getState()
+  let shouldFetch = !state.cart.isFetching
+  if(shouldFetch){
+    dispatch(requestAddToCart())
+    fetch('/api/addProductsToCart', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        'product_id' : productId,
+        'variation_id' : variationId,
+        'qty': qty
+      })
+    }).then(response => {
+        dispatch(receiveAddToCart())
+      if(response.status == 200){
+        dispatch(getProductsInCart())
+      }
+    })
+  }
+}
+
+
+export const _removeProductInCart = (productId, variationId) => (dispatch, getState) => {
+
+  let state = getState()
+  let shouldFetch = !state.cart.isFetching
+  if(shouldFetch){
+    dispatch(requestRemoveCart())
+    fetch('/api/deleteProductsInCart', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        'product_id' : productId,
+        'variation_id' : variationId
+      })
+    }).then(response => {
+      dispatch(receiveRemoveCart())
+      console.log(response.status)
+      if(response.status == 200){
+        dispatch(getProductsInCart())
+      }
+    })
+  }
+}
+
+
+
+// export const getProductsInCart = () => ( dispatch, getState ) => {
+//   const state = getState().cart
+//   let shouldFetch = !( state.loaded || (!state.loaded && state.isFetching) )
+//   if(shouldFetch){
+//     dispatch(getCarts())
+//     return fetch('/api/getProductsInCart')
+//       .then(response => response.json())
+//       .then(json => {
+//         dispatch(receiveArtists(json))
+//
+//         let imagesToLoad = []
+//         for( let key in json ) {
+//           if(json.hasOwnProperty(key)) {
+//             imagesToLoad.push(json[key].bg)
+//           }
+//         }
+//         loadImages(imagesToLoad, ()=>{
+//           dispatch(startApp())
+//         })
+//       })
+//   }
+//   else {
+//     return Promise.resolve()
+//   }
+// }

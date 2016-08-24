@@ -206,7 +206,7 @@ const page = ( state = initState.page, action ) => {
 
 
 // POPUP
-import { INIT_POPUP, SET_BLOG_POPUP , SET_EVENT_POPUP, SET_TOUR_POPUP, SET_MUSIC_POPUP, SET_SHOP_POPUP, SET_SELECTED_OPTION, SET_SELECTED_OPTIONS, SET_OPTIONS, SET_PRODUCT_IMAGES, SET_PRODUCT_PRICE } from '../actions/'
+import { INIT_POPUP, SET_BLOG_POPUP , SET_EVENT_POPUP, SET_TOUR_POPUP, SET_MUSIC_POPUP, SET_SHOP_POPUP, SET_SELECTED_OPTION, SET_SELECTED_OPTIONS, SET_OPTIONS, SET_PRODUCT_IMAGES, SET_PRODUCT_PRICE, SET_VARIATION_ID } from '../actions/'
 import { blogPopupInitState, eventPopupInitState, tourPopupInitState , musicPopupInitState, shopPopupInitState} from '../initialState'
 const popup = ( state = initState.popup, action ) => {
   switch(action.type){
@@ -261,6 +261,8 @@ const popup = ( state = initState.popup, action ) => {
     case SET_PRODUCT_PRICE:
       return { ...state, price: action.price, originalPrice: action.originalPrice }
 
+    case SET_VARIATION_ID:
+      return {...state, curVariationId: action.variationId}
 
     default:
       return state
@@ -411,6 +413,54 @@ const data = ( state = initState.data , action) => {
 
 
 
+//CART
+import { REQUEST_GET_CARTS, RECEIVE_GET_CARTS, REQUEST_ADD_TO_CART, RECEIVE_ATT_TO_CART, REQUEST_REMOVE_CART, RECEIVE_REMOVE_CART } from '../actions/'
+const cart = ( state = initState.cart , action) => {
+  switch(action.type) {
+    case REQUEST_GET_CARTS:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+
+    case RECEIVE_GET_CARTS:
+
+      console.log(action)
+
+      let totalCnt = action.products.music.length + action.products.product.length
+
+      return Object.assign({}, state, {
+        isFetching: false,
+        loaded: true,
+        products: action.products,
+        productsCount: totalCnt
+      })
+    case REQUEST_ADD_TO_CART:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+
+    case RECEIVE_ATT_TO_CART:
+      return Object.assign({}, state, {
+        isFetching: false,
+        loaded: false
+      })
+
+    case REQUEST_REMOVE_CART:
+      return Object.assign({}, state, {
+        isFetching: true
+      })
+
+    case RECEIVE_REMOVE_CART:
+      return Object.assign({}, state, {
+        isFetching: false,
+        loaded: false
+      })
+
+    default:
+      return state
+
+  }
+}
 
 
 
@@ -435,7 +485,7 @@ const signup = ( state = initState.signup, action ) => {
 
 
 
-const appReducer = combineReducers({ mainMenu, app, signup, data, page, popup})
+const appReducer = combineReducers({ mainMenu, app, signup, data, page, popup, cart})
 export default appReducer
 
 

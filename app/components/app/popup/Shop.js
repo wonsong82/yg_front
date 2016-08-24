@@ -22,6 +22,17 @@ class Shop extends Component {
 
   onAddCartClick(e) {
     e.preventDefault()
+
+    const productId = this.props.id
+    const variationId = this.props.curVariationId
+    const qty = 1;
+
+    if(this.props.options == false || (!this.props.options == false && variationId)){
+      this.props.addToCart(productId,variationId, qty);
+    }else{
+      alert('Please select option to add to shopping cart')
+    }
+
   }
 
   onMouseEnter(e) {
