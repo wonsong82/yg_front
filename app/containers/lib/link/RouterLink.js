@@ -4,7 +4,7 @@ import { setClickPosition } from '../../../actions/'
 import RouterLink from '../../../components/lib/link/RouterLink'
 
 
-const mapStateToProps = (state) => {}
+const mapStateToProps = (state) => ({})
 
 const mapDispatchToProps = (dispatch) => {
   return {
