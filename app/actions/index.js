@@ -140,12 +140,14 @@ export const SET_SELECTED_OPTIONS = 'set_selected_options'
 export const SET_OPTIONS = 'set_options'
 export const SET_PRODUCT_IMAGES = 'set_product_images'
 export const SET_PRODUCT_PRICE = 'set_product_price'
+export const SET_VARIATION_ID = 'set_variation_id'
 export const setShopPopup = ( product, related ) => ({type: SET_SHOP_POPUP, product, related})
 export const setSelectedOption = ( name, value ) => ({type: SET_SELECTED_OPTION, name, value})
 export const setSelectedOptions = ( options ) => ({type: SET_SELECTED_OPTIONS, options})
 export const setOptions = options => ({ type: SET_OPTIONS, options })
 export const setProductImages = images => ({ type: SET_PRODUCT_IMAGES, images })
 export const setProductPrice = ( price, originalPrice)  => ({ type: SET_PRODUCT_PRICE, price, originalPrice })
+export const setVariationId = (variationId) => ({type: SET_VARIATION_ID, variationId})
 export const loadShopPopup = Middlewares.loadShopPopup
 export const changeProductOption = Middlewares.changeProductOption
 
@@ -204,7 +206,28 @@ export const getShopsData = Middlewares.getShopsData
 // DATA:ALL
 export const getAllData = Middlewares.getAllData
 
+// DATA: CART
 
+export const REQUEST_GET_CARTS = 'request_get_carts'
+export const RECEIVE_GET_CARTS = 'receive_get_carts'
+export const REQUEST_ADD_TO_CART = 'request_add_to_cart'
+export const RECEIVE_ATT_TO_CART = 'receive_add_to_cart'
+export const REQUEST_REMOVE_CART = 'request_remove_carts'
+export const RECEIVE_REMOVE_CART = 'receive_remove_carts'
+
+
+export const requestGetCarts = () => ({type: REQUEST_GET_CARTS})
+export const receiveGetCarts = (json) => ({type: RECEIVE_GET_CARTS, products: json})
+
+export const requestAddToCart = () => ({type: REQUEST_ADD_TO_CART})
+export const receiveAddToCart = () => ({type: RECEIVE_ATT_TO_CART})
+
+export const requestRemoveCart = () => ({type: REQUEST_REMOVE_CART})
+export const receiveRemoveCart = () => ({type: RECEIVE_REMOVE_CART})
+
+export const getProductsInCart = Middlewares._getProductsInCart
+export const addProductsToCart = Middlewares._addProductsToCart
+export const removeProductInCart = Middlewares._removeProductInCart
 
 
 

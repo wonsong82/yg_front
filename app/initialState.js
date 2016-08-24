@@ -23,6 +23,13 @@ const initialState = {
   },
 
 
+  cart: {
+    loaded: false,
+    isFetching: false,
+    products: [],
+    productsCount: 0
+  },
+
   data: {
     loaded: false,
 
@@ -37,7 +44,7 @@ const initialState = {
     blogs: {
       loaded: false,
       isFetching: false,
-      contents: {
+      contents: {  
         posts: {},
         postsCount: 0,
         hotPosts: {},
@@ -207,6 +214,7 @@ export const shopPopupInitState = {
   originalPrice: '',
   price: '',
   images: [],
+  curVariationId: '',
   artistName: '',
   content: '',
   facebookShareLink: '',

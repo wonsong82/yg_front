@@ -92,7 +92,11 @@ app.get([
   res.sendFile(path.resolve('../data/getHotBlogs.json'));
 });
 
-
+app.get([
+  '/api/getProductsInCart'
+], function (req, res) {
+  res.sendFile(path.resolve('../data/getCarts.json'));
+});
 
 
 
@@ -122,6 +126,25 @@ app.post([
       break;
   }*/
 });
+
+app.post([
+  '/api/addProductsToCart'
+], function(req, res){
+  setTimeout(function(){
+    console.log('server')
+    switch(Math.floor(Math.random() * 3)){
+      case 0:
+        res.status(200).json({"msg": "adding"});;
+        break;
+      case 1:
+        res.status(409).json({"msg": "adding"});;
+        break;
+      case 2:
+        res.status(400).json({"msg": "adding"});;
+    }
+  }, 500);
+});
+
 
 app.get([
   '/about'

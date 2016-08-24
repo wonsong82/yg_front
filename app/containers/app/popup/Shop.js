@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { initPopup, loadShopPopup, changeProductOption } from '../../../actions/'
+import { initPopup, loadShopPopup, changeProductOption , addProductsToCart} from '../../../actions/'
 import ShopComponent from '../../../components/app/popup/Shop'
 
 
@@ -25,12 +25,12 @@ class Shop extends Component {
 const mapStateToProps = (state) => {
   const {
     id, title, price, originalPrice, artistName, content, facebookShareLink, twitterShareLink, options, selectedOptions,
-    type, variation, images, related
+    type, variation, images, related, curVariationId
   } = state.popup
 
   return {
     id, title, price: price || '', originalPrice: originalPrice || '', artistName: artistName || '', content, facebookShareLink, twitterShareLink, options, selectedOptions,
-    type, variation, images, related, themeColor: state.app.themeColor, textColor: state.app.textColor
+    type, variation, images, related, themeColor: state.app.themeColor, textColor: state.app.textColor, curVariationId: curVariationId
   }
 }
 
@@ -38,7 +38,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     initPopup: popupType => {dispatch(initPopup(popupType))},
     loadShopPopup: name => {dispatch(loadShopPopup(name))},
-    changeProductOption: ( optionName, optionValue, optionEnabled ) => {dispatch(changeProductOption( optionName, optionValue, optionEnabled ))}
+    changeProductOption: ( optionName, optionValue, optionEnabled ) => {dispatch(changeProductOption( optionName, optionValue, optionEnabled ))},
+    addToCart: (productId, variationId, qty) => {dispatch(addProductsToCart(productId, variationId, qty))}
   }
 }
 

@@ -232,7 +232,7 @@ export const loadProductsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch
       } else {
         price = getProductPrice(product).price
       }
-      const url = '/Shop/' + url_friendly_name
+      const url = '/shop/' + url_friendly_name
       const image = images && images.length ? images[0] : false
 
       newProducts.push({
@@ -287,7 +287,7 @@ export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
         product._regular_price :
         product.variation[0].display_price
       const image = images && images.length ? images[0] : false
-      const url = '/Shop/' + url_friendly_name
+      const url = '/shop/' + url_friendly_name
       if(!layoutStyle || layoutNum > count){
         layoutStyle = getLayoutStyle(LAYOUT_STYLE.RANDOM, 8)
         layoutNum = 1
@@ -344,7 +344,7 @@ export const loadToursList = ( count ) => (dispatch, getState) => {
         let artistName = artistsData[tour.artist_id].name
 
         let {id, post_title, subtitle, url_friendly_name, tour_schedule, start_date:startDate, end_date:endDate, thumb_3x2, thumb_1x1, thumb_2x1, main_image:image} = tour
-        let url = '/Tour/' + url_friendly_name
+        let url = '/tour/' + url_friendly_name
 
         newTours.push({
           id,
@@ -397,7 +397,7 @@ export const loadAlbumsList = (count) => (dispatch, getState) => {
         let artistName = artistData[album.artist_id].name
 
         let {id, post_title, url_friendly_name, thumb_1x1 } = album
-        let url = Site + '/Music/' + url_friendly_name
+        let url = Site + '/music/' + url_friendly_name
 
         newAlbums.push({
           id,
@@ -649,7 +649,7 @@ export const loadMusicPopup = (name) => (dispatch, getState) => {
 
 
 //POPUP:SHOP
-import { setShopPopup, setSelectedOption, setSelectedOptions, setOptions, setProductImages, setProductPrice }  from '../actions/'
+import { setShopPopup, setSelectedOption, setSelectedOptions, setOptions, setProductImages, setProductPrice, setVariationId }  from '../actions/'
 import { getDefaultOptions, getProductOptions, findProductVariation, getProductImages, getProductPrice } from '../functions/'
 export const loadShopPopup = (name) => (dispatch, getState) => {
 
@@ -761,10 +761,12 @@ export const changeProductOption = ( optionName, optionValue, optionEnabled ) =>
   if(product.variation){
     let variation = findProductVariation(product.variation, getState().popup
       .selectedOptions )
+    let variationId = variation.variation_id
 
     dispatch( setProductImages( getProductImages(product, variation) ))
     let { price, originalPrice } = getProductPrice(product, variation)
     dispatch( setProductPrice( price, originalPrice ) )
+    dispatch( setVariationId (variationId))
   }
 
 }
@@ -827,6 +829,8 @@ export const getMusicsData = () => (dispatch, getState) =>getData('/api/getMusic
 import {requestShops, receiveShops} from '../actions'
 export const getShopsData = () => (dispatch, getState) =>getData('/api/getShops', getState().data.shops, requestShops, receiveShops, dispatch, fetch)
 
+
+
 // DATA:ALL
 import { setDataLoaded } from '../actions/'
 export const getAllData = () => (dispatch, getState) => {
@@ -834,11 +838,101 @@ export const getAllData = () => (dispatch, getState) => {
   let timer = setInterval(()=>{
     let state = getState().data
     if(datas.filter( data => state[data].loaded ).length === datas.length){
+      console.log(12314);
       dispatch(setDataLoaded(true))
       clearInterval(timer)
+
+      dispatch(getProductsInCart())
     }
   }, 150)
+
   datas.map( data => {
     dispatch(eval('get' + data[0].toUpperCase() + data.slice(1) + 'Data')())
   })
 }
+
+
+import {requestGetCarts, receiveGetCarts, requestAddToCart, receiveAddToCart, getProductsInCart, requestRemoveCart, receiveRemoveCart } from '../actions'
+export const _getProductsInCart = () => (dispatch, getState) =>getData('/api/getProductsInCart', getState().cart, requestGetCarts, receiveGetCarts, dispatch, fetch)
+export const _addProductsToCart = (productId, variationId, qty) => (dispatch, getState) => {
+
+  let state = getState()
+  let shouldFetch = !state.cart.isFetching
+  if(shouldFetch){
+    dispatch(requestAddToCart())
+    fetch('/api/addProductsToCart', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        'product_id' : productId,
+        'variation_id' : variationId,
+        'qty': qty
+      })
+    }).then(response => {
+        dispatch(receiveAddToCart())
+      if(response.status == 200){
+        dispatch(getProductsInCart())
+      }
+    })
+  }
+}
+
+
+export const _removeProductInCart = (productId, variationId) => (dispatch, getState) => {
+
+  let state = getState()
+  let shouldFetch = !state.cart.isFetching
+  if(shouldFetch){
+    dispatch(requestRemoveCart())
+    fetch('/api/deleteProductsInCart', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        'product_id' : productId,
+        'variation_id' : variationId
+      })
+    }).then(response => {
+      dispatch(receiveRemoveCart())
+      console.log(response.status)
+      if(response.status == 200){
+        dispatch(getProductsInCart())
+      }
+    })
+  }
+}
+
+
+
+// export const getProductsInCart = () => ( dispatch, getState ) => {
+//   const state = getState().cart
+//   let shouldFetch = !( state.loaded || (!state.loaded && state.isFetching) )
+//   if(shouldFetch){
+//     dispatch(getCarts())
+//     return fetch('/api/getProductsInCart')
+//       .then(response => response.json())
+//       .then(json => {
+//         dispatch(receiveArtists(json))
+//
+//         let imagesToLoad = []
+//         for( let key in json ) {
+//           if(json.hasOwnProperty(key)) {
+//             imagesToLoad.push(json[key].bg)
+//           }
+//         }
+//         loadImages(imagesToLoad, ()=>{
+//           dispatch(startApp())
+//         })
+//       })
+//   }
+//   else {
+//     return Promise.resolve()
+//   }
+// }
