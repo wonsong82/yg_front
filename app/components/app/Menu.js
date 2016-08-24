@@ -151,8 +151,8 @@ class MainMenu extends Component {
 
         <TransitionGroup className="menu-image" component="div">
           {this.state.artists.hovered &&
-          <BackgroundImage image={this.state.image}
-                           prevImage={this.state.prevImage}
+          <BackgroundImage image={this.state.image || ""}
+                           prevImage={this.state.prevImage || ""}
           />
           }
         </TransitionGroup>
