@@ -233,7 +233,7 @@ export const loadProductsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch
       } else {
         price = getProductPrice(product).price
       }
-      const url = '/Shop/' + url_friendly_name
+      const url = '/shop/' + url_friendly_name
       const image = images && images.length ? images[0] : false
 
       newProducts.push({
@@ -288,7 +288,7 @@ export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
         product._regular_price :
         product.variation[0].display_price
       const image = images && images.length ? images[0] : false
-      const url = '/Shop/' + url_friendly_name
+      const url = '/shop/' + url_friendly_name
       if(!layoutStyle || layoutNum > count){
         layoutStyle = getLayoutStyle(LAYOUT_STYLE.RANDOM, 8)
         layoutNum = 1
@@ -398,7 +398,7 @@ export const loadAlbumsList = (count) => (dispatch, getState) => {
         let artistName = artistData[album.artist_id].name
 
         let {id, post_title, url_friendly_name, thumb_1x1 } = album
-        let url = Site + '/Music/' + url_friendly_name
+        let url = Site + '/music/' + url_friendly_name
 
         newAlbums.push({
           id,

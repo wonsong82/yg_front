@@ -3,7 +3,8 @@ import React, { Component, PropTypes } from 'react'
 import AnchorLink from '../../../components/lib/link/AnchorLink'
 import Image from '../../../components/lib/image/Image'
 import dateformat from 'dateformat'
-import ScrollArea from 'react-scrollbar/dist/no-css'
+//import ScrollArea from 'react-scrollbar/dist/no-css'
+import ScrollArea from '../../../components/lib/scroll/ScrollArea'
 import TourSchedule from '../../../components/app/item/tour/TourSchedule'
 import TourCalendar from '../../../components/app/item/tour/TourCalendar'
 
@@ -15,20 +16,59 @@ class Tour extends Component {
   }
 
   preventOtherScrolls(e){
-    e.preventDefault()
+    var _$this = $()
+
+    console.log(_$this)
+
+
+
+      /*scrollTop = this.scrollTop,
+      scrollHeight = this.scrollHeight,
+      height = _$this.height(),
+      delta = (ev.type == 'DOMMouseScroll' ?
+      ev.originalEvent.detail * -40 :
+        ev.originalEvent.wheelDelta),
+      up = delta > 0;
+
+    var prevent = function() {
+      ev.stopPropagation();
+      ev.preventDefault();
+      ev.returnValue = false;
+      return false;
+    };
+
+    if (!up && -delta > scrollHeight - height - scrollTop) {
+      // Scrolling down, but this will take us past the bottom.
+      _$this.scrollTop(scrollHeight);
+      return prevent();
+    } else if (up && delta > scrollTop) {
+      // Scrolling up, but this will take us past the top.
+      _$this.scrollTop(0);
+      return prevent();
+    }*/
+  }
+
+  onScroll(e){
+    //this.disableOtherScrolls(e, this.refs.)
 
   }
-  componentDidMount() {
-    $('.schedules', this.refs.tour).off('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
-    $('.schedules', this.refs.tour).on('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
+
+  disableOtherScrolls(scrollEvent, target){
+
+  }
+
+
+ /* componentDidMount() {
+    $('.schedules', this.refs.tour).off('DOMMouseScroll mousewheel', this.onScroll.bind(this))
+    $('.schedules', this.refs.tour).on('DOMMouseScroll mousewheel', this.onScroll.bind(this))
   }
   componentWillUnmount() {
-    $('.schedules', this.refs.tour).off('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
+    $('.schedules', this.refs.tour).off('DOMMouseScroll mousewheel', this.onScroll.bind(this))
   }
   componentDidUpdate() {
-    $('.schedules', this.refs.tour).off('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
-    $('.schedules', this.refs.tour).on('DOMMouseScroll mousewheel', this.preventOtherScrolls.bind(this))
-  }
+    $('.schedules', this.refs.tour).off('DOMMouseScroll mousewheel', this.onScroll.bind(this))
+    $('.schedules', this.refs.tour).on('DOMMouseScroll mousewheel', this.onScroll.bind(this))
+  }*/
 
 
   render() {
