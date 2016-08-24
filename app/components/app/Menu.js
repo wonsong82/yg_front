@@ -99,6 +99,7 @@ class MainMenu extends Component {
 
 
   render() {
+    {console.log('what')}
     const { artists, disabled } = this.props
 
     // Static Links
@@ -111,7 +112,7 @@ class MainMenu extends Component {
     ].map( link => {
       let { to, text } = link
       return (
-        <li>
+        <li key={`static-${to}`}>
           <RouterLink key={to}
                     to={'/'+to}
                     className="link"
@@ -128,7 +129,7 @@ class MainMenu extends Component {
     const artistLinks = artists.map(( artist ) => {
       let { id, urlFriendlyName, themeColor, name } = artist
       return (
-        <li>
+        <li key={`artist-${id}`}>
           <HoverLink key={id}
                      to={"/artist/"+urlFriendlyName}
                      className="link"
