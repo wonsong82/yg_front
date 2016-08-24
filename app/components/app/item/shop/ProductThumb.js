@@ -17,9 +17,9 @@ const ProductThumb = ({ title, url, artistName, price, thumb1x1, thumb2x1, thumb
 
     <Ripple color='rgba(0,0,0,.5)' />
 
-    <RouterLink className="title" to={url}>
+    <div className="title" to={url}>
       <h3>{`${artistName} - ${title}`}</h3>
-    </RouterLink>
+    </div>
 
     <span className="price">{`$${price}`}</span>
 
