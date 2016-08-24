@@ -844,7 +844,9 @@ export const getArtistsData = () => ( dispatch, getState ) => {
         let imagesToLoad = []
         for( let key in json ) {
           if(json.hasOwnProperty(key)) {
-            imagesToLoad.push(json[key].bg)
+            if(json[key].bg) {
+              imagesToLoad.push(json[key].bg)
+            }
           }
         }
         loadImages(imagesToLoad, ()=>{
