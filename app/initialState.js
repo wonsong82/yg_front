@@ -58,7 +58,7 @@ const initialState = {
       loaded: false,
       isFetching: false,
       contents: {
-        tours: [],
+        tours: {},
         toursCount: 0,
       }
     },
@@ -67,7 +67,7 @@ const initialState = {
       loaded: false,
       isFetching: false,
       contents: {
-        events: [],
+        events: {},
         eventsCount: 0,
       }
     },
@@ -99,8 +99,7 @@ const initialState = {
     promotions: {
       loaded: false,
       isFetching: false,
-      list: [
-      ]
+      list: {}
     }
   },
 }

@@ -314,10 +314,10 @@ const data = ( state = initState.data , action) => {
           isFetching: false,
           loaded: true,
           contents: {
-            posts,
-            total_posts: Object.keys(posts).length,
-            hot_posts,
-            total_hot_posts: hot_posts.length
+            posts: posts || {},
+            total_posts: posts ? Object.keys(posts).length : 0,
+            hot_posts: hot_posts || [],
+            total_hot_posts: hot_posts ? hot_posts.length : 0
           }
         })
       })
@@ -336,8 +336,8 @@ const data = ( state = initState.data , action) => {
           isFetching: false,
           loaded: true,
           contents: {
-            events,
-            eventsCount: Object.keys(events).length
+            events: events || {},
+            eventsCount: events ? Object.keys(events).length : 0
           }
         })
       })
@@ -355,8 +355,8 @@ const data = ( state = initState.data , action) => {
           isFetching: false,
           loaded: true,
           contents: {
-            tours,
-            toursCount: Object.keys(tours).length
+            tours: tours || {},
+            toursCount: tours ? Object.keys(tours).length : 0
           }
         })
       })
@@ -374,12 +374,12 @@ const data = ( state = initState.data , action) => {
           isFetching: false,
           loaded: true,
           contents: {
-            albums,
-            albumsCount: Object.keys(albums).length,
-            musics,
-            musicsCount: Object.keys(musics).length,
-            hotTracks,
-            hotTracksCount: hotTracks.length
+            albums: albums || {},
+            albumsCount: albums ? Object.keys(albums).length : 0,
+            musics: musics || {},
+            musicsCount: musics ? Object.keys(musics).length : 0,
+            hotTracks: hotTracks || [],
+            hotTracksCount: hotTracks ? hotTracks.length : 0
           }
         })
       })
@@ -397,10 +397,10 @@ const data = ( state = initState.data , action) => {
           isFetching: false,
           loaded: true,
           contents: {
-            products,
-            productsCount: Object.keys(products).length,
-            categories,
-            categoriesCount: Object.keys(categories).length,
+            products: products || {},
+            productsCount: products ? Object.keys(products).length : 0,
+            categories: categories || [],
+            categoriesCount: categories ? Object.keys(categories).length : 0,
           }
         })
       })
@@ -423,8 +423,6 @@ const cart = ( state = initState.cart , action) => {
       })
 
     case RECEIVE_GET_CARTS:
-
-      console.log(action)
 
       let totalCnt = action.products.music.length + action.products.product.length
 

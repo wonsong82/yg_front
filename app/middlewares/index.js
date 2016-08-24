@@ -382,8 +382,9 @@ export const loadAlbumsList = (count) => (dispatch, getState) => {
   const state = getState()
   if(state.page.type = 'music'){
     if(state.page.albumsAllLoaded) return true
+
     const albums = state.page.albums,
-          albumsData = state.data.musics.contents.albums,
+          albumsData = toArray(state.data.musics.contents.albums),
           albumsDataCount = state.data.musics.contents.albumsCount,
           artistData = state.data.artists.contents.artists
 
@@ -392,13 +393,16 @@ export const loadAlbumsList = (count) => (dispatch, getState) => {
     let nextCount = curCount + count
 
     let newAlbums = []
-    if(albumsDataCount > 0 && albumsDataCount > curCount){
-      for(let i=curCount; i<nextCount; i++){
 
-
-
+    for(let i=curCount; i<nextCount; i++){
+      newAlbums.push( createAlbumThumb( albumsData[i], artistData ) )
+      if(albumsDataCount-1 == i){
+        dispatch(setAlbumsAllLoaded(true))
+        break
       }
     }
+
+    dispatch(setAlbumsList(newAlbums))
 
 
     /*const albums = state.page.albums,
@@ -442,12 +446,13 @@ export const loadAlbumsList = (count) => (dispatch, getState) => {
   }
 }
 
-const albumThumb = ( albumData, artistData ) => {
-  const {id, post_title, url_friendly_name, thumb_1x1, cover_image, artist_id } = albumsData
+const createAlbumThumb = ( albumData, artistData ) => {
+  console.log(albumData)
+  const {id, post_title, url_friendly_name, thumb_1x1, cover_image, artist_id } = albumData
   const { name } = artistData[artist_id]
   return {
     id,
-    title: exerptStr(post_title, 90),
+    title: excerptStr(post_title, 90),
     url: `/music/${url_friendly_name}`,
     thumb1x1: thumb_1x1 || cover_image || false,
     artistName: name
@@ -881,7 +886,6 @@ export const getAllData = () => (dispatch, getState) => {
   let timer = setInterval(()=>{
     let state = getState().data
     if(datas.filter( data => state[data].loaded ).length === datas.length){
-      console.log(12314);
       dispatch(setDataLoaded(true))
       clearInterval(timer)
 
