@@ -11,14 +11,11 @@
       "cat_IDs": [
         1
       ],
-      "thumb_1x1": "/images/product1x1.png",
-      "thumb_2x1": "/images/product1x1.png",
-      "thumb_1x2": "/images/product1x1.png",
+      "thumb_1x1": false,
+      "thumb_2x1": false,
+      "thumb_1x2": false,
       "images": [
-        "/images/product1x1.png",
-        "/images/product1x1.png",
-        "/images/product1x1.png",
-        "/images/product1x1.png"
+
       ],
       "artist_id": 1,
       "related": [

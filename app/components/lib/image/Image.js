@@ -17,14 +17,11 @@ class Image extends Component {
     const { src } = this.props
 
     if( src ) {
-      this.loadImages(src, () => {
-        this.showImage.bind(this)
-        this.stopLoading.bind(this)
-      })
+      this.loadImages(src, this.showImage.bind(this) )
     }
-    
+
     else {
-      this.stopLoading.bind(this)
+      this.stopLoading()
     }
   }
 
@@ -32,6 +29,7 @@ class Image extends Component {
     this.setState({
       imgLoaded: true
     })
+    this.stopLoading()
   }
 
   stopLoading() {
