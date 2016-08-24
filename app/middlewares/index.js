@@ -223,10 +223,11 @@ export const loadProductsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch
     let layoutNum = 1
 
     for(let i=curCount; i<nextCount; i++){
-
       const product = productsData[i]
       const { id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id } = product
-      const artistName = artistsData[artist_id].name
+
+      const artistName = artist_id ? artistsData[artist_id].name : ''
+  
       let price = null
       if(product.product_type == 'variable' && product.variation && product.variation.length){
         price = getProductPrice(product, product.variation[0]).price
