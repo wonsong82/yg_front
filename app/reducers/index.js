@@ -423,14 +423,14 @@ const cart = ( state = initState.cart , action) => {
       })
 
     case RECEIVE_GET_CARTS:
-
-      let totalCnt = action.products.music.length + action.products.product.length
+      let music = action.products.music || []
+      let product = action.products.product || []
 
       return Object.assign({}, state, {
         isFetching: false,
         loaded: true,
-        products: action.products,
-        productsCount: totalCnt
+        products: { music, product },
+        productsCount: music.length + product.length
       })
     case REQUEST_ADD_TO_CART:
       return Object.assign({}, state, {

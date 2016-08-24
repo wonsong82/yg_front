@@ -26,7 +26,10 @@ const initialState = {
   cart: {
     loaded: false,
     isFetching: false,
-    products: [],
+    products: {
+      product: [],
+      music: []
+    },
     productsCount: 0
   },
 
