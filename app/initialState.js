@@ -128,7 +128,9 @@ export const tourInitState = {
 
 export const musicInitState = {
   type: 'music',
-  albums: [],
+  albums: [
+    /* [ {} ] */
+  ],
   hotTracks: [],
   albumsAllLoaded: false,
   hotTracksAllLoaded: false

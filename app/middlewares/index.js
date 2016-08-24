@@ -381,7 +381,27 @@ import { setAlbumsList, setAlbumsAllLoaded } from '../actions'
 export const loadAlbumsList = (count) => (dispatch, getState) => {
   const state = getState()
   if(state.page.type = 'music'){
+    if(state.page.albumsAllLoaded) return true
     const albums = state.page.albums,
+          albumsData = state.data.musics.contents.albums,
+          albumsDataCount = state.data.musics.contents.albumsCount,
+          artistData = state.data.artists.contents.artists
+
+    const count = 6
+    let curCount = albums.length * count
+    let nextCount = curCount + count
+
+    let newAlbums = []
+    if(albumsDataCount > 0 && albumsDataCount > curCount){
+      for(let i=curCount; i<nextCount; i++){
+
+
+
+      }
+    }
+
+
+    /*const albums = state.page.albums,
         albumsData = state.data.musics.contents.albums,
         albumsDataCount = state.data.musics.contents.albumsCount,
         artistData = state.data.artists.contents.artists
@@ -418,9 +438,28 @@ export const loadAlbumsList = (count) => (dispatch, getState) => {
       }
       index++
     }
-    dispatch(setAlbumsList(newAlbums))
+    dispatch(setAlbumsList(newAlbums))*/
   }
 }
+
+const albumThumb = ( albumData, artistData ) => {
+  const {id, post_title, url_friendly_name, thumb_1x1, cover_image, artist_id } = albumsData
+  const { name } = artistData[artist_id]
+  return {
+    id,
+    title: exerptStr(post_title, 90),
+    url: `/music/${url_friendly_name}`,
+    thumb1x1: thumb_1x1 || cover_image || false,
+    artistName: name
+  }
+}
+
+
+
+
+
+
+
 
 import {setHotTracksList, setHotTracksAllLoaded} from '../actions/'
 export const loadHotTracksList = (count) => (dispatch, getState) => {

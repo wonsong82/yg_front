@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: "yg-icons";
-  src:url("/icons/yg/yg-icons.eot");
-  src:url("/icons/yg/yg-icons.eot?#iefix") format("embedded-opentype"),
-    url("/icons/yg/yg-icons.woff") format("woff"),
-    url("/icons/yg/yg-icons.ttf") format("truetype"),
-    url("/icons/yg/yg-icons.svg#yg-icons") format("svg");
+  src:url("icons/yg/yg-icons.eot");
+  src:url("icons/yg/yg-icons.eot?#iefix") format("embedded-opentype"),
+    url("icons/yg/yg-icons.woff") format("woff"),
+    url("icons/yg/yg-icons.ttf") format("truetype"),
+    url("icons/yg/yg-icons.svg#yg-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 
