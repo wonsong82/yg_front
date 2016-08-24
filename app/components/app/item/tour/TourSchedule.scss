@@ -93,6 +93,7 @@
       text-align: center;
     }
     &.ticket-link {
+      cursor: pointer;
       .text1 {
         opacity: $opacity--caption;
       }

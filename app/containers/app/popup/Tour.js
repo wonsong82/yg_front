@@ -23,12 +23,12 @@ class Tour extends Component {
 
 const mapStateToProps = (state) => {
   const {
-    startDate, endDate, name, themeColor, title, subtitle,
-    content, image, facebookShareLink, twitterShareLink, tourSchedule
+    startDate, endDate, artistName, themeColor, textColor, title, subtitle,
+    content, image, calendarMonth, facebookShareLink, twitterShareLink, schedule, calendar
   } = state.popup
   return {
-    startDate, endDate, name, themeColor, title, subtitle,
-    content, image, facebookShareLink, twitterShareLink, tourSchedule
+    startDate, endDate, artistName, themeColor, textColor, title, subtitle, calendarMonth,
+    content, image, facebookShareLink, twitterShareLink, schedule, calendar
   }
 }
 

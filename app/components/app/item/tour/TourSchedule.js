@@ -4,9 +4,9 @@ import AnchorLink from '../../../../components/lib/link/AnchorLink'
 import Ripple from '../../../../components/lib/effect/Ripple'
 import dateformat from 'dateformat'
 
-const TourSchedule = ({ tour_date: date, event_time: time, location, place, ticket_link: link, ticket_availability: available, url, themeColor, textColor }) => (
+const TourSchedule = ({ tour_date: date, event_time: time, location, place, ticket_link: link, ticket_availability: available, themeColor, textColor }) => (
 
-    <RouterLink className="TourSchedule" to={url} >
+    <div className="TourSchedule" >
 
       <div className="info">
         <Ripple color="rgba(0,0,0,.5)"/>
@@ -47,7 +47,7 @@ const TourSchedule = ({ tour_date: date, event_time: time, location, place, tick
 
 
 
-    </RouterLink>
+    </div>
 
   )
 

@@ -2,6 +2,7 @@ import fetch from 'isomorphic-fetch'
 import { browserHistory } from 'react-router'
 import { toArray, excerptStr, getData, getFacebookShareLink, getTwitterShareLink, loadImages } from '../functions/'
 import { Site } from '../../env'
+import dateformat from 'dateformat'
 
 
 // APP
@@ -566,11 +567,12 @@ export const loadTourPopup = (name) => (dispatch, getState) => {
     if(thisTour.length){
       let {start_date, end_date, post_title, subtitle, post_content, main_image, url_friendly_name, tour_schedule, tour_calendar} = thisTour[0]
       let artist = state.data.artists.contents.artists[thisTour[0].artist_id]
-      let {themeColor, name} = artist
+      let {themeColor, textColor, name} = artist
+      let calendarMonth = dateformat('2016-' + tour_calendar[0].date.replace('/','-'), 'mmmm')
 
       let url = Site + '/tour/' + url_friendly_name
       const tour = {
-        startData: start_date,
+        startDate: start_date,
         endDate: end_date,
         title: post_title,
         subtitle: subtitle,
@@ -578,10 +580,12 @@ export const loadTourPopup = (name) => (dispatch, getState) => {
         content: post_content,
         facebookShareLink: getFacebookShareLink(url),
         twitterShareLink: getTwitterShareLink(url),
-        tourSchedule: tour_schedule,
-        tourCalendar: tour_calendar,
+        schedule: tour_schedule,
+        calendarMonth,
+        calendar: tour_calendar,
         themeColor: themeColor,
-        name: name
+        textColor: textColor,
+        artistName: name
       }
 
       dispatch(setTourPopup(tour))

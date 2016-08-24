@@ -47,7 +47,7 @@ class Tour extends Component {
 
                 {tour.schedule.map( (schedule, i) => (
                   <div className="schedule-con">
-                    <TourSchedule key={`${tour.id}-${i}`} {...schedule} textColor={tour.textColor} themeColor={tour.themeColor} url={tour.url} />
+                    <TourSchedule key={`${tour.id}-${i}`} {...schedule} textColor={tour.textColor} themeColor={tour.themeColor} />
                   </div>
                 ))}
 
