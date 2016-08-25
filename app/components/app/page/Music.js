@@ -5,10 +5,9 @@ import AlbumGroup from '../../../transitions/app/item/music/AlbumGroup'
 import HotTrackGroup from '../../../transitions/app/item/music/HotTrackGroup'
 
 
-const Music = ({albumGroups, hotTrackGroups, albumsAllLoaded, hotTracksAllLoaded, onAlbumViewMoreClick, onHotTrackViewMoreClick }) => (
+const Music = ({albumGroups, hotTrackGroups, albumsAllLoaded, hotTracksAllLoaded, onAlbumViewMoreClick, onHotTrackViewMoreClick, onAddToCartClick }) => (
 
   <div className="MusicLayout">
-
 
     <section className="main">
 
@@ -30,7 +29,7 @@ const Music = ({albumGroups, hotTrackGroups, albumsAllLoaded, hotTracksAllLoaded
       <h3>Hot Tracks</h3>
 
       {hotTrackGroups && hotTrackGroups.map((hotTracks, i) => (
-        <HotTrackGroup key={`hotTrackGroup-${i}`} hotTracks={hotTracks} />
+        <HotTrackGroup key={`hotTrackGroup-${i}`} hotTracks={hotTracks} onAddCartClick={onAddToCartClick}/>
       ))}
 
       {!hotTracksAllLoaded && hotTrackGroups && hotTrackGroups.length ?

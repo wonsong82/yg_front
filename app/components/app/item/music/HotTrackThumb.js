@@ -5,8 +5,6 @@ import RouterLink from '../../../../components/lib/link/RouterLink'
 import AnchorLink from '../../../../components/lib/link/AnchorLink'
 import Ripple from '../../../../components/lib/effect/Ripple'
 
-
-
 class HotTrackThumb extends Component {
 
   constructor(props) {
@@ -15,9 +13,9 @@ class HotTrackThumb extends Component {
 
   onAddCartClick(e){
     e.preventDefault()
-    /***
-     * todo: handle cart click
-     */
+
+    const productId = this.props.id
+    this.props.onAddCartClick(productId)
   }
 
   render() {
