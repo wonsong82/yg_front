@@ -1,0 +1,53 @@
+@import '../../../variable.scss';
+
+@mixin album-thumb-base {
+  @include card;
+  display: block;
+  position: relative;
+  width: getGridWidth(2);
+
+  .img {
+    position: relative;
+    display: block;
+    width: getGridWidth(2);
+    height: getGridWidth(2);
+  }
+
+  .text {
+    display: block;
+    position: relative;
+    width: getGridWidth(2);
+    height: 58px;
+    background: #fff;
+
+    .title {
+      font: 400 16px/20px $font-family;
+      color: #000;
+      opacity: $opacity--title;
+      text-transform: capitalize;
+      box-sizing: border-box;
+      display: block;
+      padding: 10px 20px 0;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .artist {
+      font: 400 14px/20px $font-family;
+      color: #000;
+      opacity: $opacity--sub;
+      text-transform: uppercase;
+      box-sizing: border-box;
+      display: block;
+      padding: 0 20px;
+      overflow: hidden;
+      text-align: center;
+    }
+  }
+
+
+}
+
+@mixin album-thumb--xs {
+  @include album-thumb-base;
+}

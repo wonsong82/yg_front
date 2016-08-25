@@ -139,3 +139,12 @@ $font-family: 'Klavika', sans-serif;
     opacity: $opacity--primary;
   }
 }
+
+@mixin clear {
+  &:after {
+    display: block;
+    clear: both;
+    content: ""
+  }
+}
+

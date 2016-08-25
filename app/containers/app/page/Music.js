@@ -39,8 +39,8 @@ class Music extends Component{
 const mapStateProps = state => {
     const { albums, hotTracks, albumsAllLoaded, hotTracksAllLoaded } = state.page
     return {
-        albums,
-        hotTracks,
+        albumGroups: albums,
+        hotTrackGroups: hotTracks,
         albumsAllLoaded,
         hotTracksAllLoaded
     }

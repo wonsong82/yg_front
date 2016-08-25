@@ -153,7 +153,7 @@ const page = ( state = initState.page, action ) => {
     //MUSIC
     case SET_ALBUMS_LIST:
       return Object.assign({}, state,{
-        albums: action.albums
+        albums: [...state.albums, action.albums]
       })
 
     case SET_ALBUMS_ALL_LOADED:
@@ -163,7 +163,7 @@ const page = ( state = initState.page, action ) => {
 
     case SET_HOT_TRACKS_LIST:
       return Object.assign({}, state, {
-        hotTracks: action.hotTracks
+        hotTracks: [...state.hotTracks, action.hotTracks]
       })
 
     case SET_HOT_TRACKS_ALL_LOADED:
@@ -384,6 +384,7 @@ const data = ( state = initState.data , action) => {
         })
       })
 
+    // SHOP
     case REQUEST_SHOPS:
       return Object.assign({}, state, {
         shops: Object.assign({}, state.shops, {isFetching: true})
