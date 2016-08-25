@@ -222,41 +222,44 @@ export const loadProductsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch
 
     let layoutNum = 1
 
-    for(let i=curCount; i<nextCount; i++){
+    if(productsDataCount > 0 && productsDataCount > curCount){
+      for(let i=curCount; i<nextCount; i++){
 
-      const product = productsData[i]
-      const { id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id } = product
-      const artistName = artistsData[artist_id].name
-      let price = null
-      if(product.product_type == 'variable' && product.variation && product.variation.length){
-        price = getProductPrice(product, product.variation[0]).price
-      } else {
-        price = getProductPrice(product).price
+        const product = productsData[i]
+        const { id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id } = product
+        const artistName = artist_id ? artistsData[artist_id].name : ''
+        let price = null
+        if(product.product_type == 'variable' && product.variation && product.variation.length){
+          price = getProductPrice(product, product.variation[0]).price
+        } else {
+          price = getProductPrice(product).price
+        }
+        const url = '/shop/' + url_friendly_name
+        const image = images && images.length ? images[0] : false
+
+        newProducts.push({
+          id,
+          title: excerptStr(post_title, 90),
+          url,
+          artistName,
+          thumb1x1: thumb_1x1 || image || false,
+          thumb2x1: thumb_2x1 || image || false,
+          thumb1x2: thumb_1x2 || image || false,
+          price,
+          layoutStyle,
+          layoutNum
+        })
+
+        layoutNum++
+
+        if(productsDataCount-1 == i){
+          dispatch(setProductsAllLoaded(true))
+          break
+        }
       }
-      const url = '/shop/' + url_friendly_name
-      const image = images && images.length ? images[0] : false
 
-      newProducts.push({
-        id,
-        title: excerptStr(post_title, 90),
-        url,
-        artistName,
-        thumb1x1: thumb_1x1 || image || false,
-        thumb2x1: thumb_2x1 || image || false,
-        thumb1x2: thumb_1x2 || image || false,
-        price,
-        layoutStyle,
-        layoutNum
-      })
-
-      layoutNum++
-
-      if(productsDataCount-1 == i){
-        dispatch(setProductsAllLoaded(true))
-        break
-      }
+      dispatch(setProductsList(newProducts))
     }
-    dispatch(setProductsList(newProducts))
   }
 }
 
@@ -377,8 +380,9 @@ export const loadToursList = ( count ) => (dispatch, getState) => {
 }
 
 //PAGE:MUSIC
-import { setAlbumsList, setAlbumsAllLoaded } from '../actions'
-export const loadAlbumsList = (count) => (dispatch, getState) => {
+import { setAlbumsList, setAlbumsAllLoaded, setHotTracksAllLoaded, setHotTracksList } from '../actions'
+
+export const loadAlbumsList = (count=6) => (dispatch, getState) => {
   const state = getState()
   if(state.page.type = 'music'){
     if(state.page.albumsAllLoaded) return true
@@ -388,131 +392,199 @@ export const loadAlbumsList = (count) => (dispatch, getState) => {
           albumsDataCount = state.data.musics.contents.albumsCount,
           artistData = state.data.artists.contents.artists
 
-    const count = 6
     let curCount = albums.length * count
     let nextCount = curCount + count
 
-    let newAlbums = []
+    if(albumsDataCount > 0 && albumsDataCount > curCount){
 
-    for(let i=curCount; i<nextCount; i++){
-      newAlbums.push( createAlbumThumb( albumsData[i], artistData ) )
-      if(albumsDataCount-1 == i){
-        dispatch(setAlbumsAllLoaded(true))
-        break
-      }
-    }
+      let newAlbums = []
 
-    dispatch(setAlbumsList(newAlbums))
-
-
-    /*const albums = state.page.albums,
-        albumsData = state.data.musics.contents.albums,
-        albumsDataCount = state.data.musics.contents.albumsCount,
-        artistData = state.data.artists.contents.artists
-
-    let curCount = albums.length
-    let nextCount = curCount + count
-
-    let newAlbums = []
-    let index = 0
-
-    for(let key in albumsData){
-      if(albumsData.hasOwnProperty(key)){
-        let album = albumsData[key]
-        let artistName = artistData[album.artist_id].name
-
-        let {id, post_title, url_friendly_name, thumb_1x1 } = album
-        let url = Site + '/music/' + url_friendly_name
-
-        newAlbums.push({
-          id,
-          title: post_title,
-          url,
-          image: thumb_1x1,
-          name: artistName
-        })
-
-        if(albumsDataCount-1 == index || nextCount-1 == index){
-          if(albumsDataCount-1 == index){
-
-            dispatch(setAlbumsAllLoaded(true))
-          }
+      for(let i=curCount; i<nextCount; i++){
+        newAlbums.push( createAlbumThumb( albumsData[i], artistData ) )
+        if(albumsDataCount-1 == i){
+          dispatch(setAlbumsAllLoaded(true))
           break
         }
       }
-      index++
+
+      dispatch(setAlbumsList(newAlbums))
     }
-    dispatch(setAlbumsList(newAlbums))*/
+  }
+}
+
+export const loadHotTracksList = (count=6) => (dispatch, getState) => {
+  const state = getState()
+  if(state.page.type == 'music'){
+    if(state.page.hotTracksAllLoaded) return true
+
+    const hotTracks = state.page.hotTracks,
+          hotTracksData = state.data.musics.contents.hotTracks.map( id => state.data.musics.contents.musics[id] ),
+          hotTracksDataCount = state.data.musics.contents.hotTracksCount,
+          artistsData = state.data.artists.contents.artists,
+          albumsData = state.data.musics.contents.albums
+
+    let curCount = hotTracks.length * count
+    let nextCount = curCount + count
+
+    if(hotTracksDataCount > 0 && hotTracksDataCount > curCount){
+
+      let newHotTracks = []
+
+      for(let i=curCount; i<nextCount; i++){
+        newHotTracks.push( createHotTrackThumb(hotTracksData[i], albumsData, artistsData, i+1) )
+        if(hotTracksDataCount-1 == i){
+          dispatch(setHotTracksAllLoaded(true))
+          break
+        }
+      }
+
+      dispatch(setHotTracksList(newHotTracks))
+    }
   }
 }
 
 const createAlbumThumb = ( albumData, artistData ) => {
-  console.log(albumData)
   const {id, post_title, url_friendly_name, thumb_1x1, cover_image, artist_id } = albumData
   const { name } = artistData[artist_id]
   return {
     id,
     title: excerptStr(post_title, 90),
     url: `/music/${url_friendly_name}`,
-    thumb1x1: thumb_1x1 || cover_image || false,
+    image: thumb_1x1 || cover_image || false,
     artistName: name
   }
 }
 
+const createHotTrackThumb = ( hotTrackData, albumsData, artistsData, orderID=1 ) => {
+  const { id, post_title, post_content, sample_link, album_id, youtube_link } = hotTrackData
+  const { cover_image, thumb_1x1, url_friendly_name, artist_id } = albumsData[album_id]
+  const { name } = artistsData[artist_id]
+  return {
+    id,
+    title: excerptStr(post_title, 90),
+    subtitle: post_content,
+    url: `/music/${url_friendly_name}`,
+    image: thumb_1x1 || cover_image || false,
+    artistName: name,
+    sampleLink: sample_link,
+    youtubeLink: youtube_link,
+    orderID
+  }
+}
 
+//PAGE:PROMOTION
+import {setPromotions_list} from '../actions'
+export const loadPromotionsList = () => (dispatch, getState) => {
+  const state = getState();
+  if(state.page.type == 'promotion'){
 
+    const {tours, albums, events, products} = state.data.promotions.contents
+    const toursData = state.data.tours.contents.tours,
+          albumsData = state.data.musics.contents.albums,
+          eventsData = state.data.events.contents.events,
+          productsData = state.data.shops.contents.products,
+          artistsData = state.data.artists.contents.artists
 
+    let newTours = []
+    for(let key in tours){
+      if(tours.hasOwnProperty(key)){
+        const tour = toursData[tours[key].id]
+        const {name, themeColor} = artistsData[tour.artist_id]
 
+        const {id, post_title, subtitle, url_friendly_name, thumb_3x2, thumb_1x1, thumb_2x1, main_image, start_date, end_date} = tour
+        const url = '/tour/' + url_friendly_name
 
-
-
-import {setHotTracksList, setHotTracksAllLoaded} from '../actions/'
-export const loadHotTracksList = (count) => (dispatch, getState) => {
-  const state = getState()
-  if(state.page.type == 'music'){
-    const hotTracks = state.page.hotTracks,
-        hotTracksData = state.data.musics.contents.hotTracks.map( id =>
-          state.data.musics.contents.musics[id]
-        ),
-        hotTracksDataCount = state.data.musics.contents.hotTracksCount,
-        artistsData = state.data.artists.contents.artists,
-        albumsData = state.data.musics.contents.albums
-
-    let curCount = hotTracks.length
-    let nextCount = curCount + count
-
-    let newHotTracks = []
-    var index = 0
-    for (let key in hotTracksData) {
-          if(hotTracksData.hasOwnProperty(key)) {
-            let hotTrack = hotTracksData[key]
-            let album = albumsData[hotTrack.album_id]
-            let artistName = artistsData[album.artist_id].name
-            let image = album.thumb_1x1
-
-            const { id, post_title, subtitle, sample_link, duration} = hotTrack
-
-            newHotTracks.push({
-              id,
-              order: index+1,
-              title: post_title,
-              subtitle,
-              image,
-              duration,
-              artistName,
-              sample_link
-            })
-
-            if(hotTracksDataCount-1 == index || nextCount-1 == index ){
-              if(hotTracksDataCount-1 == index){
-                dispatch(setHotTracksAllLoaded(true))
-              }
-              break
-            }
-          }
-      index++
+        newTours.push({
+          id,
+          title: post_title,
+          subtitle,
+          url,
+          thumb1x1: thumb_1x1 || main_image || false,
+          thumb2x1: thumb_2x1 || main_image || false,
+          thumb3x2: thumb_3x2 || main_image || false,
+          artistName: name,
+          themeColor,
+          startDate: start_date,
+          endDate: end_date
+        })
+      }
     }
-    dispatch(setHotTracksList(newHotTracks))
+
+
+    let newAlbums = []
+    for(let key in albums){
+      if(albums.hasOwnProperty(key)) {
+        const album = albumsData[albums[key].id]
+        const {id, post_title, url_friendly_name, thumb_1x1, cover_image, artist_id} = album
+        const artistName = artistsData[artist_id].name
+        const url = '/music/' + url_friendly_name
+
+        newAlbums.push({
+          id,
+          title: post_title,
+          url,
+          thumb1x1: thumb_1x1 || cover_image || false,
+          artistName
+        })
+      }
+    }
+
+
+    let newEvents = []
+    for(let key in events){
+      if(events.hasOwnProperty(key)) {
+        let event = eventsData[events[key].id]
+
+        const {id, post_title, url_friendly_name, excerpt, post_date, main_image, thumb_3x2, thumb_1x1, artist_id} = event
+        const {themeColor, textColor} = artistsData[artist_id]
+        const url = '/event/' + url_friendly_name
+
+        newEvents.push({
+          id,
+          title: post_title,
+          url,
+          excerpt,
+          date: post_date,
+          thumb3x2: thumb_3x2 || main_image || false,
+          thumb1x1: thumb_1x1 || main_image || false,
+          themeColor,
+          textColor
+        })
+      }
+    }
+
+    let newProducts = []
+    for(let key in products){
+      if(products.hasOwnProperty(key)) {
+        let product = productsData[products[key].id]
+        const {id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id} = product
+
+        const artistName = artist_id ? artistsData[artist_id].name : ''
+        let price = null
+        if (product.product_type == 'variable' && product.variation && product.variation.length) {
+          price = getProductPrice(product, product.variation[0]).price
+        } else {
+          price = getProductPrice(product).price
+        }
+        const url = '/shop/' + url_friendly_name
+        const image = images && images.length ? images[0] : false
+
+        newProducts.push({
+          id,
+          title: excerptStr(post_title, 90),
+          url,
+          artistName,
+          thumb1x1: thumb_1x1 || image || false,
+          thumb2x1: thumb_2x1 || image || false,
+          thumb1x2: thumb_1x2 || image || false,
+          price
+        })
+      }
+    }
+
+    let promotions = {tours: newTours, albums: newAlbums, products: newProducts, events: newEvents}
+
+    dispatch(setPromotions_list(promotions))
   }
 }
 
@@ -710,7 +782,7 @@ export const loadShopPopup = (name) => (dispatch, getState) => {
     if(thisShop.length){
       const productData = thisShop[0]
       let { id, post_title:title, post_content:content, url_friendly_name, related } = productData
-      let artistName = state.data.artists.contents.artists[productData.artist_id].name
+      let artistName = productData.artist_id ? state.data.artists.contents.artists[productData.artist_id].name : ''
       let url = '/shop/' + url_friendly_name
       let productType = ''
       let selectedOptions = getDefaultOptions(productData)
@@ -844,7 +916,9 @@ export const getArtistsData = () => ( dispatch, getState ) => {
         let imagesToLoad = []
         for( let key in json ) {
           if(json.hasOwnProperty(key)) {
-            imagesToLoad.push(json[key].bg)
+            if(json[key].bg) {
+              imagesToLoad.push(json[key].bg)
+            }
           }
         }
         loadImages(imagesToLoad, ()=>{
@@ -877,12 +951,15 @@ export const getMusicsData = () => (dispatch, getState) =>getData('/api/getMusic
 import {requestShops, receiveShops} from '../actions'
 export const getShopsData = () => (dispatch, getState) =>getData('/api/getShops', getState().data.shops, requestShops, receiveShops, dispatch, fetch)
 
+// DATA:PROMOTION
+import {requestPromotions, receivePromotions} from '../actions'
+export const getPromotionsData = () => (dispatch, getState) =>getData('/api/getPromotions', getState().data.promotions, requestPromotions, receivePromotions, dispatch, fetch)
 
 
 // DATA:ALL
 import { setDataLoaded } from '../actions/'
 export const getAllData = () => (dispatch, getState) => {
-  const datas = [ 'artists', 'blogs', 'events', 'tours', 'musics', 'shops' ]
+  const datas = [ 'artists', 'blogs', 'events', 'tours', 'musics', 'shops', 'promotions' ]
   let timer = setInterval(()=>{
     let state = getState().data
     if(datas.filter( data => state[data].loaded ).length === datas.length){

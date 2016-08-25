@@ -80,6 +80,9 @@ export const computeThemeColor = ( props ) => {
 export const getThemeColors = ( item, data, artists ) => {
   let found = toArray(data).filter( e => item === e.url_friendly_name )
   if(!found.length) return false
+
+  if(!found[0].artist_id) return false
+
   const { themeColor, textColor } = artists[found[0].artist_id]
   return { themeColor, textColor }
 }
@@ -317,6 +320,29 @@ export const getProductPrice = ( product, variation=false ) => {
     default :
       return { price:null, originalPrice: null }
   }
+}
+
+
+
+export const showStagger = items => {
+  items.each((i, e) => {
+    $(e)
+      .velocity('stop', true)
+      .velocity({
+        opacity: 0,
+        scaleX: 1.5,
+        scaleY: 1.5,
+        translateX: 80,
+        translateY: 100
+      })
+      .velocity('finish')
+      .velocity('reverse', {
+        duration: 370,
+        delay: i * 100,
+        queue: false,
+        easing: 'easeInOutQuad'
+      })
+  })
 }
 
 

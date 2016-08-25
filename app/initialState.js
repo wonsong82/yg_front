@@ -33,6 +33,7 @@ const initialState = {
     productsCount: 0
   },
 
+
   data: {
     loaded: false,
 
@@ -102,7 +103,12 @@ const initialState = {
     promotions: {
       loaded: false,
       isFetching: false,
-      list: {}
+      contents: {
+        product: {},
+        album: {},
+        tour: {},
+        event: {}
+      }
     }
   },
 }
@@ -153,6 +159,14 @@ export const shopInitState = {
   ],
   productsAllLoaded: false,
   selectedCategory: null
+}
+
+export const promotionInitState = {
+  type: 'promotion',
+  tours: [],
+  albums: [],
+  products: [],
+  events: []
 }
 
 

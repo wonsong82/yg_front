@@ -1,0 +1,258 @@
+@import '../../../variable.scss';
+
+@mixin hot-track-thumb-base {
+  @include card;
+  display: block;
+  width: getGridWidth(4);
+  height: 88px;
+  background: #fff;
+  position: relative;
+  @include clear;
+  $height: 88px;
+  $icon-gap: 15px;
+
+  .image-link {
+    display: block;
+    position: relative;
+    width: 88px;
+    height: $height;
+
+    .Image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .MusicPlayer {
+    display: block;
+    position: absolute;
+    top: 0;
+    left:  0;
+    bottom: 0;
+    right: 0;
+    font-size: 0;
+
+    .music-info {
+      display: block;
+      box-sizing: border-box;
+      padding: 10px 20px;
+      height: 100%;
+
+      .order {
+        display: inline-block;
+        width: 60px;
+        vertical-align: top;
+        text-align: center;
+        font: 400 24px/24px $font-family;
+        color: #000;
+        opacity: $opacity--caption;
+      }
+
+      .info {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        height: 100%;
+
+        .title {
+          display: block;
+          width: 170px;
+          height: 24px;
+          overflow: hidden;
+          font: 400 18px/24px $font-family;
+          color: rgba(0,0,0, $opacity--primary);
+          margin: 0;
+        }
+
+        .subtitle {
+          display: block;
+          width: 170px;
+          height: 18px;
+          overflow: hidden;
+          font: 400 14px/18px $font-family;
+          color: rgba(0,0,0, $opacity--caption);
+        }
+
+        .song {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          .artist-name {
+            font: 500 14px/18px $font-family;
+            color: rgba(0,0,0, $opacity--sub);
+          }
+          .current-time {
+            font: 400 14px/18px $font-family;
+            color: rgba(0,0,0, $opacity--sub);
+          }
+        }
+      }
+    }
+
+    .controls {
+      width: 20px + 25px + $icon-gap + 25px;
+      height: $height;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      .player-btn {
+        display: block;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+
+        span {
+          transition: color 0.3s ease;
+          will-change: color;
+          color: rgba(0,0,0, $opacity--title);
+          font-size: 22px;
+        }
+
+        &:hover span {
+          color: #000;
+        }
+      }
+
+    }
+
+    .progress-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 4px;
+      background: #f3f3f3;
+
+      .progress-value {
+        display: block;
+        height: 100%;
+        background: rgba(0,0,0,$opacity--sub);
+      }
+    }
+  }
+
+  .add-to-cart {
+    display: block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+    span {
+      transition: color 0.3s ease;
+      will-change: color;
+      color: rgba(0,0,0, $opacity--title);
+      font-size: 22px;
+    }
+    &:hover span {
+      color: #000;
+    }
+  }
+
+  .youtube-link {
+    display: block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    position: absolute;
+    right: 20px + 25px + $icon-gap + 25px + $icon-gap;
+    top: 50%;
+    transform: translate(0, -50%);
+    span {
+      transition: color 0.3s ease;
+      will-change: color;
+      color: rgba(0,0,0, $opacity--title);
+      font-size: 22px;
+    }
+    &:hover span {
+      color: #000;
+    }
+  }
+
+  &.image .MusicPlayer {
+    left: 88px;
+  }
+
+}
+
+@mixin hot-track-thumb--md {
+  @include hot-track-thumb-base;
+  width: getGridWidth(6);
+}
+
+@mixin hot-track-thumb--sm {
+  @include hot-track-thumb-base;
+}
+
+@mixin hot-track-thumb--xs {
+  @include hot-track-thumb-base;
+  width: getGridWidth(2);
+  height: 130px;
+  .MusicPlayer {
+    bottom: 42px;
+    .music-info {
+      padding: 5px 10px 5px 0;
+      .order {
+        width: 50px;
+      }
+      .info {
+        .title {
+          font-size: 14px;
+          width: 78px;
+        }
+        .subtitle {
+          display: none;
+        }
+        .song {
+          .artist-name {
+            display: block;
+            font-size: 12px;
+          }
+          .current-time {
+            display: block;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    .controls {
+      width: 226px;
+      height: 42px;
+      right: 0;
+      top: 88px;
+
+      .player-btn {
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .add-to-cart {
+    right: 60px;
+    top: auto;
+    bottom: 8px;
+    transform: translate(0,0);
+  }
+
+  .youtube-link {
+    left: 60px;
+    top: auto;
+    bottom: 8px;
+    transform: translate(0,0);
+  }
+
+
+
+
+}

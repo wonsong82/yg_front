@@ -96,8 +96,10 @@ export const loadProductsList = Middlewares.loadProductsList
 export const loadCategoriesList = Middlewares.loadCategoriesList
 export const loadProductsListOnSearch = Middlewares.loadProductsListOnSearch
 
-
-
+//PAGE:PROMOTION
+export const SET_PROMOTIONS_LIST = 'set_promotions_list'
+export const setPromotions_list = promotions => ({type:SET_PROMOTIONS_LIST, promotions})
+export const loadPromotionsList = Middlewares.loadPromotionsList
 
 
 
@@ -202,6 +204,15 @@ export const RECEIVE_SHOPS = 'receive_shops'
 export const requestShops = () => ({type: REQUEST_SHOPS})
 export const receiveShops = (json) => ({type: RECEIVE_SHOPS, data: json})
 export const getShopsData = Middlewares.getShopsData
+
+// DATA:PROMOTION
+export const REQUEST_PROMOTIONS = 'request_promotions'
+export const RECEIVE_PROMOTIONS = 'recevie_promotions'
+export const requestPromotions = () => ({type: REQUEST_PROMOTIONS})
+export const receivePromotions = (json) => ({type: RECEIVE_PROMOTIONS, data: json })
+export const getPromotionsData = Middlewares.getPromotionsData
+
+
 
 // DATA:ALL
 export const getAllData = Middlewares.getAllData

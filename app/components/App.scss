@@ -59,6 +59,9 @@ body {
     display: inline-block;
     font: 400 14px/18px 'Klavika', sans-serif;
     color: rgba(0,0,0, $opacity--line1);
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
     padding: 20px;
     transition: color 0.3s ease;
     will-change: color;
