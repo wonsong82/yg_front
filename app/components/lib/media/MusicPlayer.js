@@ -26,7 +26,8 @@ class ReactMusicPlayer extends Component {
     let playerElement = this.refs.player;
     playerElement.addEventListener('timeupdate', this.updateProgress.bind(this));
     playerElement.addEventListener('ended', this.end.bind(this));
-    playerElement.addEventListener('error', this.next.bind(this));
+    // playerElement.addEventListener('error', this.next.bind(this));
+    playerElement.addEventListener('error', this.onError.bind(this))
     playerElement.addEventListener('durationchange', this.updateProgress.bind(this));
   }
 
@@ -34,8 +35,13 @@ class ReactMusicPlayer extends Component {
     let playerElement = this.refs.player;
     playerElement.removeEventListener('timeupdate', this.updateProgress.bind(this));
     playerElement.removeEventListener('ended', this.end.bind(this));
-    playerElement.removeEventListener('error', this.next.bind(this));
+    //playerElement.removeEventListener('error', this.next.bind(this));
+    playerElement.removeEventListener('error', this.onError.bind(this))
     playerElement.removeEventListener('durationchange', this.updateProgress.bind(this));
+  }
+
+  onError(){
+
   }
 
   setProgress(e) {
@@ -146,7 +152,7 @@ class ReactMusicPlayer extends Component {
     return (
       <div className="MusicPlayer player-container">
 
-        <audio src={active.url} autoPlay={this.state.play} preload="auto" ref="player" />
+        <audio src={active.url || ''} autoPlay={this.state.play} preload="auto" ref="player" />
 
         {/*<div className={coverClass} style={coverStyle}></div>
 

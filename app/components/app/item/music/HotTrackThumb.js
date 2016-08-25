@@ -19,7 +19,8 @@ class HotTrackThumb extends Component {
   }
 
   render() {
-    const { title, subtitle, url, image, artistName, sampleLink, youtubeLink, orderID } = this.props
+    const { title, subtitle, url, image, artistName, sampleLink, youtubeLink, orderID , price} = this.props
+
     return (
       <div className={image? 'HotTrackThumb image':'HotTrackThumb'}>
 
@@ -50,6 +51,8 @@ class HotTrackThumb extends Component {
           <span className="icon-youtube" />
         </AnchorLink>
         }
+
+        <div className="track-price">${price}</div>
 
       </div>
     )

@@ -456,7 +456,8 @@ const createAlbumThumb = ( albumData, artistData ) => {
 }
 
 const createHotTrackThumb = ( hotTrackData, albumsData, artistsData, orderID=1 ) => {
-  const { id, post_title, post_content, sample_link, album_id, youtube_link } = hotTrackData
+
+  const { id, post_title, post_content, sample_link, album_id, youtube_link, _regular_price, _sale_price } = hotTrackData
   const { cover_image, thumb_1x1, url_friendly_name, artist_id } = albumsData[album_id]
   const { name } = artistsData[artist_id]
   return {
@@ -468,7 +469,8 @@ const createHotTrackThumb = ( hotTrackData, albumsData, artistsData, orderID=1 )
     artistName: name,
     sampleLink: sample_link,
     youtubeLink: youtube_link,
-    orderID
+    orderID,
+    price: _sale_price || _regular_price
   }
 }
 
@@ -724,16 +726,34 @@ export const loadMusicPopup = (name) => (dispatch, getState) => {
       let products = toArray(state.data.musics.contents.musics)
         .filter( product => product.album_id == id)
 
-
       let albumProduct = products.filter(product => product.product_type == 'album')
       let musicsProduct = products.filter(product => product.product_type == 'music')
 
+      let index = 0;
+      const trackList = musicsProduct.map ( track => {
+        const {id, _regular_price, _sale_price, post_title, post_content, sample_link, youtube_link} = track
+        index++
+        return {
+          id,
+          title: excerptStr(post_title, 90),
+          subtitle: post_content,
+          artistName: name,
+          sampleLink: sample_link,
+          youtubeLink: youtube_link,
+          orderID: index,
+          price: _sale_price || _regular_price
+        }
+      })
 
       let albumPrice = albumProduct.length > 0 ? albumProduct[0]._regular_price : ''
       let albumSalePrice = albumProduct.length > 0 ? albumProduct[0]._sale_price : ''
       let albumProductId = albumProduct.length > 0 ? albumProduct[0].id : ''
 
       let url = Site + '/music/' + url_friendly_name
+
+
+
+
       const music = {
         image: cover_image,
         title: post_title,
@@ -744,7 +764,7 @@ export const loadMusicPopup = (name) => (dispatch, getState) => {
         content: post_content,
         facebookShareLink: getFacebookShareLink(url),
         twitterShareLink: getTwitterShareLink(url),
-        music: musicsProduct
+        music: trackList
       }
 
       const related = related_album.map ( id => {
