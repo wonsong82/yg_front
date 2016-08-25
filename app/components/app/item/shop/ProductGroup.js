@@ -5,7 +5,7 @@ import ProductThumb from './ProductThumb'
 const ProductGroup = ({ products }) => (
   <div className="ProductGroup">
     {
-      products &&
+      products && products.length &&
       products.map( product => (
         <ProductThumb key={'product-'+product.id} {...product} />
       ))
