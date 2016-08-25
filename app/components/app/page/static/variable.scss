@@ -1,5 +1,6 @@
 
-$width-my_account--sm        : 1034px;
+$width-my_account--sm         : 1034px;
+$width--xxs                   : 393px;
 
 /******* Footer ********
 ************************/
@@ -75,6 +76,10 @@ $width-my_account--sm        : 1034px;
   padding: 7px 0;
 }
 
+@mixin input-tel {
+  @include input-text;
+}
+
 @mixin textarea {
   height: 370px;
   padding: 5px;
@@ -85,6 +90,12 @@ $width-my_account--sm        : 1034px;
   color: rgba(0,0,0, $opacity--caption);
   box-sizing: border-box;
 }
+
+@mixin select {
+  @include input-text;
+}
+
+
 
 /******* my_account ******
 *************************/
@@ -105,6 +116,7 @@ $width-my_account--sm        : 1034px;
 }
 
 @mixin a_btn-edit {
+  display: inline-block;
   padding: 6px 17px;
   font: 600 12px/22px $font-family;
   color: rgba(0,0,0, $opacity--primary);
