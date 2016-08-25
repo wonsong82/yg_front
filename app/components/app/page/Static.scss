@@ -1,7 +1,9 @@
 @import '../../variable.scss';
 @import './static/variable.scss';
+@import './static/static-content';
 @import './static/Footer.scss';
 @import './static/MyAccount.scss';
+@import './static/Checkout.scss';
 
 
 .StaticPage {
@@ -9,32 +11,51 @@
 }
 
 .App .Page .Static {
+  @include static-content;
   @include footer;
   @include my_account;
+  @include checkout;
 }
 
 @media( max-width: $width-my_account--sm ){
   .App .Page .Static {
+    @include static-content--md;
     @include my_account--md;
   }
 }
 
 @media( max-width: $width--md ){
   .App .Page .Static {
+    @include static-content--md;
     @include footer--md;
+    @include checkout--md;
   }
 }
 
 @media( max-width: $width--sm ){
   .App .Page .Static {
+    @include static-content--sm;
     @include footer--sm;
     @include my_account--sm;
+    @include checkout--sm;
   }
 }
 
 @media( max-width: $width--xs ){
   .App .Page .Static {
+    @include static-content--xs;
     @include footer--xs;
     @include my_account--xs;
+    @include checkout--xs;
+  }
+}
+
+@media( max-width: $width--xxs ){
+  .App .Page .Static {
+    box-sizing: border-box;
+    @include static-content--xxs;
+    @include footer--xxs;
+    @include my_account--xxs;
+    @include checkout--xxs;
   }
 }
