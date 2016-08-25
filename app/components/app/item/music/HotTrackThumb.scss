@@ -185,7 +185,8 @@
 }
 
 @mixin hot-track-thumb--md {
-
+  @include hot-track-thumb-base;
+  width: getGridWidth(6);
 }
 
 @mixin hot-track-thumb--sm {
@@ -193,5 +194,65 @@
 }
 
 @mixin hot-track-thumb--xs {
+  @include hot-track-thumb-base;
+  width: getGridWidth(2);
+  height: 130px;
+  .MusicPlayer {
+    bottom: 42px;
+    .music-info {
+      padding: 5px 10px 5px 0;
+      .order {
+        width: 50px;
+      }
+      .info {
+        .title {
+          font-size: 14px;
+          width: 78px;
+        }
+        .subtitle {
+          display: none;
+        }
+        .song {
+          .artist-name {
+            display: block;
+            font-size: 12px;
+          }
+          .current-time {
+            display: block;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    .controls {
+      width: 226px;
+      height: 42px;
+      right: 0;
+      top: 88px;
+
+      .player-btn {
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .add-to-cart {
+    right: 60px;
+    top: auto;
+    bottom: 8px;
+    transform: translate(0,0);
+  }
+
+  .youtube-link {
+    left: 60px;
+    top: auto;
+    bottom: 8px;
+    transform: translate(0,0);
+  }
+
+
+
 
 }

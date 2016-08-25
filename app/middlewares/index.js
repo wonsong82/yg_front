@@ -472,7 +472,6 @@ const createHotTrackThumb = ( hotTrackData, albumsData, artistsData, orderID=1 )
   }
 }
 
-
 //PAGE:PROMOTION
 import {setPromotions_list} from '../actions'
 export const loadPromotionsList = () => (dispatch, getState) => {
