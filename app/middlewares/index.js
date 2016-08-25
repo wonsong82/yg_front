@@ -475,59 +475,6 @@ const createHotTrackThumb = ( hotTrackData, albumsData, artistsData, orderID=1 )
 
 
 
-
-import {setHotTracksList, setHotTracksAllLoaded} from '../actions/'
-export const loadHotTracksList = (count) => (dispatch, getState) => {
-  const state = getState()
-  if(state.page.type == 'music'){
-    const hotTracks = state.page.hotTracks,
-        hotTracksData = state.data.musics.contents.hotTracks.map( id =>
-          state.data.musics.contents.musics[id]
-        ),
-        hotTracksDataCount = state.data.musics.contents.hotTracksCount,
-        artistsData = state.data.artists.contents.artists,
-        albumsData = state.data.musics.contents.albums
-
-    let curCount = hotTracks.length
-    let nextCount = curCount + count
-
-    let newHotTracks = []
-    var index = 0
-    for (let key in hotTracksData) {
-          if(hotTracksData.hasOwnProperty(key)) {
-            let hotTrack = hotTracksData[key]
-            let album = albumsData[hotTrack.album_id]
-            let artistName = artistsData[album.artist_id].name
-            let image = album.thumb_1x1
-
-            const { id, post_title, subtitle, sample_link, duration} = hotTrack
-
-            newHotTracks.push({
-              id,
-              order: index+1,
-              title: post_title,
-              subtitle,
-              image,
-              duration,
-              artistName,
-              sample_link
-            })
-
-            if(hotTracksDataCount-1 == index || nextCount-1 == index ){
-              if(hotTracksDataCount-1 == index){
-                dispatch(setHotTracksAllLoaded(true))
-              }
-              break
-            }
-          }
-      index++
-    }
-    dispatch(setHotTracksList(newHotTracks))
-  }
-}
-
-
-
 //PAGE:PROMOTION
 import {setPromotions_list} from '../actions'
 export const loadPromotionsList = () => (dispatch, getState) => {
