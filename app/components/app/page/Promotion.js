@@ -1,8 +1,14 @@
 import React from 'react'
 
 
-const Promotion = () => (
-    <div className="Promotion">Promotion</div>
+const Promotion = (albums, tours, products, events) => (
+    <div className="Promotion">
+      {console.log(albums)}
+      {
+
+      }
+
+    </div>
 )
 
 Promotion.defaultProps = {

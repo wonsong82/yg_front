@@ -78,11 +78,11 @@ import { INIT_PAGE, SET_BLOGS_LIST, SET_HOT_POSTS_LIST, SET_POSTS_ALL_LOADED, SE
                     SET_EVENTS_LIST, SET_EVENTS_ALL_LOADED, SET_TOURS_LIST, SET_TOURS_ALL_LOADED,
                     SET_ALBUMS_LIST, SET_ALBUMS_ALL_LOADED, SET_HOT_TRACKS_LIST, SET_HOT_TRACKS_ALL_LOADED,
                     SET_PRODUCTS_LIST, SET_PRODUCTS_ALL_LOADED, SET_CATEGORY, SET_CATEGORIES_LIST,
-                    SET_PRODUCTS_LIST_ON_SEARCH, SEARCHING_REQUEST
+                    SET_PRODUCTS_LIST_ON_SEARCH, SEARCHING_REQUEST, SET_PROMOTIONS_LIST
 } from '../actions/'
 
 
-import { blogInitState , eventInitState, tourInitState, musicInitState, shopInitState} from '../initialState'
+import { blogInitState , eventInitState, tourInitState, musicInitState, shopInitState, promotionInitState} from '../initialState'
 
 const page = ( state = initState.page, action ) => {
   switch(action.type){
@@ -102,6 +102,10 @@ const page = ( state = initState.page, action ) => {
 
         case 'Shop':
           return Object.assign({}, state, shopInitState)
+
+        case 'Promotion':
+          return Object.assign({}, state, promotionInitState)
+
 
         default:
           return state
@@ -198,6 +202,14 @@ const page = ( state = initState.page, action ) => {
         selectedCategory: action.categoryId
       })
 
+    case SET_PROMOTIONS_LIST:
+      return Object.assign({}, state, {
+        albums: action.promotions.albums,
+        products: action.promotions.products,
+        tours: action.promotions.albums,
+        events: action.promotions.events
+      })
+
     default:
       return state
   }
@@ -274,7 +286,7 @@ const popup = ( state = initState.popup, action ) => {
 
 
 // DATA
-import { SET_DATA_LOADED, REQUEST_ARTISTS, RECEIVE_ARTISTS, REQUEST_BLOGS, RECEIVE_BLOGS , REQUEST_EVENTS, RECEIVE_EVENTS, REQUEST_TOURS, RECEIVE_TOURS , REQUEST_MUSICS, RECEIVE_MUSICS, REQUEST_SHOPS, RECEIVE_SHOPS } from '../actions'
+import { SET_DATA_LOADED, REQUEST_ARTISTS, RECEIVE_ARTISTS, REQUEST_BLOGS, RECEIVE_BLOGS , REQUEST_EVENTS, RECEIVE_EVENTS, REQUEST_TOURS, RECEIVE_TOURS , REQUEST_MUSICS, RECEIVE_MUSICS, REQUEST_SHOPS, RECEIVE_SHOPS, REQUEST_PROMOTIONS, RECEIVE_PROMOTIONS } from '../actions'
 const data = ( state = initState.data , action) => {
   switch(action.type){
 
@@ -402,6 +414,28 @@ const data = ( state = initState.data , action) => {
             productsCount: products ? Object.keys(products).length : 0,
             categories: categories || [],
             categoriesCount: categories ? Object.keys(categories).length : 0,
+          }
+        })
+      })
+
+    //PROMOTIONS
+    case REQUEST_PROMOTIONS:
+      return Object.assign({}, state, {
+        promotions: Object.assign({}, state.promotions, {isFetching: true})
+      })
+
+    case RECEIVE_PROMOTIONS:
+      let {product, album, tour, event} = action.data
+
+      return Object.assign({}, state, {
+        promotions: Object.assign({}, state.promotions, {
+          isFetching: false,
+          loaded: true,
+          contents: {
+            products: product,
+            albums: album,
+            tours: tour,
+            events: event
           }
         })
       })
