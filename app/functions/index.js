@@ -80,6 +80,9 @@ export const computeThemeColor = ( props ) => {
 export const getThemeColors = ( item, data, artists ) => {
   let found = toArray(data).filter( e => item === e.url_friendly_name )
   if(!found.length) return false
+
+  if(!found[0].artist_id) return false
+
   const { themeColor, textColor } = artists[found[0].artist_id]
   return { themeColor, textColor }
 }

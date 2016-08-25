@@ -227,7 +227,7 @@ export const loadProductsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch
 
         const product = productsData[i]
         const { id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id } = product
-        const artistName = artistsData[artist_id].name
+        const artistName = artist_id ? artistsData[artist_id].name : ''
         let price = null
         if(product.product_type == 'variable' && product.variation && product.variation.length){
           price = getProductPrice(product, product.variation[0]).price
@@ -471,61 +471,6 @@ const createHotTrackThumb = ( hotTrackData, albumsData, artistsData, orderID=1 )
     orderID
   }
 }
-
-
-
-
-
-import {setHotTracksList, setHotTracksAllLoaded} from '../actions/'
-export const loadHotTracksList = (count) => (dispatch, getState) => {
-  const state = getState()
-  if(state.page.type == 'music'){
-    const hotTracks = state.page.hotTracks,
-        hotTracksData = state.data.musics.contents.hotTracks.map( id =>
-          state.data.musics.contents.musics[id]
-        ),
-        hotTracksDataCount = state.data.musics.contents.hotTracksCount,
-        artistsData = state.data.artists.contents.artists,
-        albumsData = state.data.musics.contents.albums
-
-    let curCount = hotTracks.length
-    let nextCount = curCount + count
-
-    let newHotTracks = []
-    var index = 0
-    for (let key in hotTracksData) {
-          if(hotTracksData.hasOwnProperty(key)) {
-            let hotTrack = hotTracksData[key]
-            let album = albumsData[hotTrack.album_id]
-            let artistName = artistsData[album.artist_id].name
-            let image = album.thumb_1x1
-
-            const { id, post_title, subtitle, sample_link, duration} = hotTrack
-
-            newHotTracks.push({
-              id,
-              order: index+1,
-              title: post_title,
-              subtitle,
-              image,
-              duration,
-              artistName,
-              sample_link
-            })
-
-            if(hotTracksDataCount-1 == index || nextCount-1 == index ){
-              if(hotTracksDataCount-1 == index){
-                dispatch(setHotTracksAllLoaded(true))
-              }
-              break
-            }
-          }
-      index++
-    }
-    dispatch(setHotTracksList(newHotTracks))
-  }
-}
-
 
 
 //PAGE:PROMOTION
@@ -838,7 +783,7 @@ export const loadShopPopup = (name) => (dispatch, getState) => {
     if(thisShop.length){
       const productData = thisShop[0]
       let { id, post_title:title, post_content:content, url_friendly_name, related } = productData
-      let artistName = state.data.artists.contents.artists[productData.artist_id].name
+      let artistName = productData.artist_id ? state.data.artists.contents.artists[productData.artist_id].name : ''
       let url = '/shop/' + url_friendly_name
       let productType = ''
       let selectedOptions = getDefaultOptions(productData)
