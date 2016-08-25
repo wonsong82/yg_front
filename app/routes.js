@@ -4,7 +4,7 @@ import { Route, IndexRoute } from 'react-router'
 import App from './containers/App'
 
 import StaticPage from './components/app/page/Static'
-import PromotionPage from './components/app/page/Promotion'
+import PromotionPage from './containers/app/page/Promotion'
 
 import ShopPage from './containers/app/page/Shop'
 import MusicPage from './containers/app/page/Music'

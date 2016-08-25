@@ -1,26 +1,49 @@
-[
-  {
-    "id": 7,
-    "post_type": "album"
+{
+  "product": {
+    "1":{
+      "id":601,
+      "order":"1"
+    },
+    "2":{
+      "id":602,
+      "order":"2"
+    }
   },
-  {
-    "id": 8,
-    "post_type": "album"
+  "album":{
+    "1":{
+      "id":401,
+      "order":"1"
+    },
+    "2":{
+      "id":402,
+      "order":"2"
+    }
   },
-  {
-    "id": 19,
-    "post_type": "event"
+  "tour":{
+    "1":{
+      "id":201,
+      "order":"1"
+    },
+    "2":{
+      "id":202,
+      "order":"2"
+    },"3": {
+      "id":203,
+      "order":"3"
+    }
   },
-  {
-    "id": 20,
-    "post_type": "event"
-  },
-  {
-    "id": 25,
-    "post_type": "tour"
-  },
-  {
-    "id": 26,
-    "post_type": "tour"
+  "event":{
+    "1":{
+      "id":101,
+      "order":"1"
+    },
+    "2":{
+      "id":102,
+      "order":
+      "2"},
+    "3":{
+      "id":103,
+      "order":"3"
+    }
   }
-]
+}

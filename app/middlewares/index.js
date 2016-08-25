@@ -522,6 +522,126 @@ export const loadHotTracksList = (count) => (dispatch, getState) => {
   }
 }
 
+
+
+//PAGE:PROMOTION
+import {setPromotions_list} from '../actions'
+export const loadPromotionsList = () => (dispatch, getState) => {
+  const state = getState();
+  if(state.page.type == 'promotion'){
+
+    const {tours, albums, events, products} = state.data.promotions.contents
+    const toursData = state.data.tours.contents.tours,
+          albumsData = state.data.musics.contents.albums,
+          eventsData = state.data.events.contents.events,
+          productsData = state.data.shops.contents.products,
+          artistsData = state.data.artists.contents.artists
+
+    let newTours = []
+    for(let key in tours){
+      if(tours.hasOwnProperty(key)){
+        const tour = toursData[tours[key].id]
+        const {name, themeColor} = artistsData[tour.artist_id]
+
+        const {id, post_title, subtitle, url_friendly_name, thumb_3x2, thumb_1x1, thumb_2x1, main_image, start_date, end_date} = tour
+        const url = '/tour/' + url_friendly_name
+
+        newTours.push({
+          id,
+          title: post_title,
+          subtitle,
+          url,
+          thumb1x1: thumb_1x1 || main_image || false,
+          thumb2x1: thumb_2x1 || main_image || false,
+          thumb3x2: thumb_3x2 || main_image || false,
+          artistName: name,
+          themeColor,
+          startDate: start_date,
+          endDate: end_date
+        })
+      }
+    }
+
+
+    let newAlbums = []
+    for(let key in albums){
+      if(albums.hasOwnProperty(key)) {
+        const album = albumsData[albums[key].id]
+        const {id, post_title, url_friendly_name, thumb_1x1, cover_image, artist_id} = album
+        const artistName = artistsData[artist_id].name
+        const url = '/music/' + url_friendly_name
+
+        newAlbums.push({
+          id,
+          title: post_title,
+          url,
+          thumb1x1: thumb_1x1 || cover_image || false,
+          artistName
+        })
+      }
+    }
+
+
+    let newEvents = []
+    for(let key in events){
+      if(events.hasOwnProperty(key)) {
+        let event = eventsData[events[key].id]
+
+        const {id, post_title, url_friendly_name, excerpt, post_date, main_image, thumb_3x2, thumb_1x1, artist_id} = event
+        const {themeColor, textColor} = artistsData[artist_id]
+        const url = '/event/' + url_friendly_name
+
+        newEvents.push({
+          id,
+          title: post_title,
+          url,
+          excerpt,
+          date: post_date,
+          thumb3x2: thumb_3x2 || main_image || false,
+          thumb1x1: thumb_1x1 || main_image || false,
+          themeColor,
+          textColor
+        })
+      }
+    }
+
+    let newProducts = []
+    for(let key in products){
+      if(products.hasOwnProperty(key)) {
+        let product = productsData[products[key].id]
+        const {id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id} = product
+
+        const artistName = artist_id ? artistsData[artist_id].name : ''
+        let price = null
+        if (product.product_type == 'variable' && product.variation && product.variation.length) {
+          price = getProductPrice(product, product.variation[0]).price
+        } else {
+          price = getProductPrice(product).price
+        }
+        const url = '/shop/' + url_friendly_name
+        const image = images && images.length ? images[0] : false
+
+        newProducts.push({
+          id,
+          title: excerptStr(post_title, 90),
+          url,
+          artistName,
+          thumb1x1: thumb_1x1 || image || false,
+          thumb2x1: thumb_2x1 || image || false,
+          thumb1x2: thumb_1x2 || image || false,
+          price
+        })
+      }
+    }
+
+    let promotions = {tours: newTours, albums: newAlbums, products: newProducts, events: newEvents}
+
+    dispatch(setPromotions_list(promotions))
+  }
+
+
+}
+
 /***
  * POPUP
  */
@@ -885,12 +1005,15 @@ export const getMusicsData = () => (dispatch, getState) =>getData('/api/getMusic
 import {requestShops, receiveShops} from '../actions'
 export const getShopsData = () => (dispatch, getState) =>getData('/api/getShops', getState().data.shops, requestShops, receiveShops, dispatch, fetch)
 
+// DATA:PROMOTION
+import {requestPromotions, receivePromotions} from '../actions'
+export const getPromotionsData = () => (dispatch, getState) =>getData('/api/getPromotions', getState().data.promotions, requestPromotions, receivePromotions, dispatch, fetch)
 
 
 // DATA:ALL
 import { setDataLoaded } from '../actions/'
 export const getAllData = () => (dispatch, getState) => {
-  const datas = [ 'artists', 'blogs', 'events', 'tours', 'musics', 'shops' ]
+  const datas = [ 'artists', 'blogs', 'events', 'tours', 'musics', 'shops', 'promotions' ]
   let timer = setInterval(()=>{
     let state = getState().data
     if(datas.filter( data => state[data].loaded ).length === datas.length){
