@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { findDOMNode } from 'react-dom'
 import TransitionGroup from 'react/lib/ReactTransitionGroup'
-import ProductGroupComponent from '../../../../components/app/item/shop/ProductGroup'
+import HotTrackGroupComponent from '../../../../components/app/item/music/HotTrackGroup'
 import { showStagger } from '../../../../functions/'
 
 
-class ProductGroup extends Component {
+class HotTrackGroup extends Component {
 
   constructor(props) {
     super(props)
@@ -13,12 +13,14 @@ class ProductGroup extends Component {
 
   render() {
     return (
-      <TransitionGroup component="div" className="ProductGroupTransition">
+      <TransitionGroup component="div" className="HotTrackGroupTransition">
         <Transition {...this.props} />
       </TransitionGroup>
     )
   }
 }
+HotTrackGroup.propTypes = {}
+
 
 
 class Transition extends Component {
@@ -29,12 +31,12 @@ class Transition extends Component {
 
   render() {
     return (
-      <ProductGroupComponent {...this.props}  />
+      <HotTrackGroupComponent {...this.props} />
     )
   }
 
   show() {
-    const items = $('.ProductThumb', findDOMNode(this))
+    const items = $('.HotTrackThumb', findDOMNode(this))
     showStagger(items)
   }
 
@@ -47,11 +49,12 @@ class Transition extends Component {
     callback()
     this.show()
   }
+
 }
 
 
 
-export default ProductGroup
+export default HotTrackGroup
 
 
 

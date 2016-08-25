@@ -47,9 +47,7 @@
     margin-left: $gridGap;
 
     h3 {
-      font: 400 22px/22px 'Klavika', sans-serif;
-      color: (0,0,0, $opacity--primary);
-      margin-bottom: 15px;
+      @include page-title;
     }
 
     .hot-post-list {

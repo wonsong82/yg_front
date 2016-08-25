@@ -1,0 +1,100 @@
+@import '../../variable.scss';
+@import '../../../components/app/item/music/AlbumThumb';
+@import '../../../components/app/item/music/HotTrackThumb';
+
+
+.App .Page .MusicLayout {
+  width: getGridWidth(10) + $gridGap + $gridGap;
+  margin: $pagePadding--top auto $pagePadding--bottom;
+  @include clear;
+
+  > .main {
+    width: getGridWidth(6) + $gridGap;
+    float: left;
+
+    h3 {
+      @include page-title;
+    }
+
+    .AlbumGroup {
+      @include clear;
+
+      li {
+        float: left;
+        padding: 5px;
+
+        .AlbumThumb {
+          @include album-thumb--xs;
+        }
+      }
+    }
+
+  }
+
+  > .side {
+    width: getGridWidth(4) + $gridGap;
+    float: left;
+
+    h3 {
+      @include page-title;
+    }
+
+    .HotTrackGroup {
+
+      li {
+        padding: 5px;
+
+        .HotTrackThumb {
+          @include hot-track-thumb--sm;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: $width--lg) {
+  .App .Page .MusicLayout {
+    width: getGridWidth(6) + $gridGap;
+    .main {
+      width: getGridWidth(6) + $gridGap;
+    }
+    .side {
+      width: getGridWidth(6) + $gridGap;
+      .HotTrackGroup li .HotTrackThumb {
+        @include hot-track-thumb--md;
+      }
+    }
+  }
+}
+
+@media (max-width: $width--md) {
+  .App .Page .MusicLayout {
+    width: getGridWidth(4) + $gridGap;
+    .main {
+      width: getGridWidth(4) + $gridGap;
+    }
+    .side {
+      width: getGridWidth(6) + $gridGap;
+      .HotTrackGroup li .HotTrackThumb {
+        @include hot-track-thumb--sm;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $width--sm) {
+  .App .Page .MusicLayout {
+    width: getGridWidth(2) + $gridGap;
+    .main {
+      width: getGridWidth(2) + $gridGap;
+    }
+    .side {
+      width: getGridWidth(2) + $gridGap;
+      .HotTrackGroup li .HotTrackThumb {
+        @include hot-track-thumb--xs;
+      }
+    }
+  }
+}
