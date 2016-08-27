@@ -169,6 +169,25 @@ export const promotionInitState = {
   events: []
 }
 
+export const artistPageInitState = {
+  type: 'artist',
+  activeIndex: 0,
+  artists: {}
+}
+export const artistInitState = {
+  tours: [],
+  toursAllLoaded: false,
+  products: [],
+  productsAllLoaded: false,
+  albums: [],
+  albumsAllLoaded: false,
+  hotTracks: [],
+  hotTracksAllLoaded: false,
+  events: [],
+  eventsAllLoaded: false,
+  sns: []
+}
+
 
 
 // 팝업

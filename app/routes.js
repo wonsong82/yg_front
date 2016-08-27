@@ -11,7 +11,7 @@ import MusicPage from './containers/app/page/Music'
 import TourPage from './containers/app/page/Tour'
 import EventPage from './containers/app/page/Event'
 import BlogPage from './containers/app/page/Blog'
-import ArtistPage from './components/app/page/Artist'
+import ArtistPage from './containers/app/page/Artist'
 
 import BlogPopup from './containers/app/popup/Blog'
 import EventPopup from './containers/app/popup/Event'

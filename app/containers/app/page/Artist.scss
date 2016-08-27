@@ -1,0 +1,126 @@
+@import '../../../components/variable.scss';
+
+.ArtistLayoutSwiper {
+  position: relative;
+  width: 100%;
+
+  .swiper-container {
+    width: 100%;
+  }
+
+  .swiper-slide {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .swiper-button-prev {
+    position: fixed;
+    margin-top: -10px;
+    left: 40px;
+  }
+  .swiper-button-next {
+    position: fixed;
+    margin-top: -10px;
+    right: 40px;
+  }
+
+  .btn-next {
+    display: block;
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    font: 500 80px/100px 'Klavika', sans-serif;
+    color: #000;
+    background: rgba(0,0,0,0);
+    z-index: 99;
+    cursor: pointer;
+    user-select: none;
+    transform: translate(0, -50%);
+    transition: color 1s ease;
+    will-change: color;
+    transition-delay: 100ms;
+    &.swiper-button-disabled {
+      opacity: .3;
+    }
+  }
+
+  .btn-prev {
+    display: block;
+    position: fixed;
+    left: 40px;
+    top: 50%;
+    font: 500 80px/100px 'Klavika', sans-serif;
+    color: #000;
+    background: rgba(0,0,0,0);
+    z-index: 99;
+    cursor: pointer;
+    user-select: none;
+    transition: color 1s ease;
+    transform: translate(0, -50%);
+    will-change: color;
+    transition-delay: 100ms;
+    &.swiper-button-disabled {
+      opacity: .3;
+    }
+  }
+}
+
+@media (max-width: $width--lg) {
+  .ArtistLayoutSwiper {
+    .btn-next {
+      right: 30px;
+      font-size: 60px;
+      line-height: 80px;
+    }
+    .btn-prev {
+      left: 30px;
+      font-size: 60px;
+      line-height: 80px;
+    }
+  }
+}
+
+@media (max-width: $width--md) {
+  .ArtistLayoutSwiper {
+    .btn-next {
+      right: 20px;
+      font-size: 50px;
+      line-height: 60px;
+    }
+    .btn-prev {
+      left: 20px;
+      font-size: 50px;
+      line-height: 60px;
+    }
+  }
+}
+
+@media (max-width: $width--sm) {
+  .ArtistLayoutSwiper {
+    .btn-next {
+      right: 20px;
+      font-size: 40px;
+      line-height: 50px;
+    }
+    .btn-prev {
+      left: 20px;
+      font-size: 40px;
+      line-height: 50px;
+    }
+  }
+}
+
+@media (max-width: $width--xs) {
+  .ArtistLayoutSwiper {
+    .btn-next {
+      right: 10px;
+      font-size: 30px;
+      line-height: 40px;
+    }
+    .btn-prev {
+      left: 10px;
+      font-size: 30px;
+      line-height: 40px;
+    }
+  }
+}

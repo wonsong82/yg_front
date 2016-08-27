@@ -7,12 +7,14 @@ class ProductImageSwiper extends Component {
 
   constructor(props) {
     super(props)
+    this.gallerySwiper = false
+    this.thumbSwiper = false
   }
 
   componentDidMount() {
 
     $('.App .Popup').on('popupShowed', () => {
-      let galleryTop = new Swiper($(this.refs.galleryTop), {
+      this.gallerySwiper = new Swiper($(this.refs.galleryTop), {
         nextButton: $(this.refs.nextBtn),
         prevButton: $(this.refs.prevBtn),
         spaceBetween: 10,
@@ -20,7 +22,7 @@ class ProductImageSwiper extends Component {
         nested: true
       })
 
-      let galleryThumb = new Swiper($(this.refs.galleryThumb), {
+      this.thumbSwiper = new Swiper($(this.refs.galleryThumb), {
         spaceBetween: 10,
         centeredSlides: true,
         slidesPerView: 'auto',
@@ -29,9 +31,14 @@ class ProductImageSwiper extends Component {
         nested: true
       })
 
-      galleryTop.params.control = galleryThumb
-      galleryThumb.params.control = galleryTop
+      this.gallerySwiper.params.control = this.thumbSwiper
+      this.thumbSwiper.params.control = this.gallerySwiper
     })
+  }
+
+  componentWillUnmount() {
+    this.gallerySwiper.destroy()
+    this.thumbSwiper.destroy()
   }
 
 

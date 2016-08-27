@@ -1,0 +1,380 @@
+@import '../../variable.scss';
+@import '../../../components/app/item/tour/TourThumb';
+@import '../../../components/app/item/tour/TourSchedule';
+@import '../../../components/app/item/shop/ProductGroup';
+@import '../../../components/app/item/music/AlbumThumb';
+@import '../../../components/app/item/music/HotTrackThumb';
+@import '../../../components/app/item/event/EventGroup';
+
+.App .Page .ArtistLayout {
+  width: 100%;
+  position: relative;
+  padding: 150px 0 $pagePadding--bottom;
+
+  .artist-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+
+    .image {
+      display: block;
+      position: absolute;
+      top: -1 * $frameSizeTop;
+      left: -1 * $frameSize;
+      width: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 0;
+    }
+  }
+
+  .page-title {
+    position: relative;
+    text-align: center;
+    font: 400 120px/120px $font-family;
+    transition: color 1s ease;
+    will-change: color;
+    margin-bottom: 130px;
+  }
+
+
+  .tour-container {
+    width: getGridWidth(10) + $gridGap;
+    position: relative;
+    margin: 0 auto 50px;
+
+    h3 {
+      @include page-title;
+      padding: 0 5px;
+    }
+    .tours-list {
+      li {
+        width: 100%;
+        position: relative;
+        margin-bottom: 60px;
+        &:after {
+          clear: both;
+          content: "";
+          display: block;
+        }
+        .thumb-con {
+          float: left;
+          padding: 5px;
+          .TourThumb {
+            @include tour-thumb--md;
+          }
+        }
+        .schedules {
+          $num: 4;
+          max-height: (96px * $num) + (($num - 1) * $gridGap) + $gridGap;
+          float: left;
+          &.scrollarea .scrollbar-container.vertical {
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            overflow: hidden;
+            height: auto;
+          }
+          .schedule-con {
+            padding: 5px;
+            .TourSchedule {
+              @include tour-schedule--sm;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .shop-container {
+    width: getGridWidth(10) + $gridGap;
+    position: relative;
+    margin: 0 auto 50px;
+
+    h3 {
+      @include page-title;
+      padding: 0 5px;
+    }
+
+    .ProductGroup {
+      @include product-group--xl;
+    }
+  }
+
+  .music-container {
+    width: getGridWidth(10) + $gridGap + $gridGap;
+    position: relative;
+    margin: 0 auto 50px;
+    @include clear;
+
+    > .main {
+      width: getGridWidth(6) + $gridGap;
+      float: left;
+
+      h3 {
+        @include page-title;
+        padding: 0 5px;
+      }
+
+      .AlbumGroup {
+        @include clear;
+
+        li {
+          float: left;
+          padding: 5px;
+
+          .AlbumThumb {
+            @include album-thumb--xs;
+          }
+        }
+      }
+    }
+
+    > .side {
+      width: getGridWidth(4) + $gridGap;
+      float: left;
+
+      h3 {
+        @include page-title;
+        padding: 0 5px;
+      }
+
+      .HotTrackGroup {
+
+        li {
+          padding: 5px;
+
+          .HotTrackThumb {
+            @include hot-track-thumb--sm;
+          }
+        }
+      }
+    }
+  }
+
+  .event-container {
+    width: getGridWidth(10) + $gridGap;
+    position: relative;
+    margin: 0 auto 50px;
+
+    > h3 {
+      @include page-title;
+      padding: 5px;
+    }
+
+    .EventGroup {
+      @include event-group--xl;
+    }
+  }
+
+}
+
+@media (max-width: $width--lg) {
+  .App .Page .ArtistLayout {
+    padding: (150px - 20px) 0 $pagePadding--bottom;
+
+    .artist-image {
+      height: 480px - 40px;
+      .image {
+        top: -1 * $frameSizeTop--lg;
+        left: -1 * $frameSize--lg;
+      }
+    }
+
+    .page-title {
+      margin-bottom: 130px - 20px;
+    }
+
+    .tour-container {
+      width: getGridWidth(6) + $gridGap;
+      .tours-list {
+        li {
+          .schedules {
+            $num: 3;
+            max-height: (96px * $num) + (($num - 1) * $gridGap) + $gridGap;
+            .schedule-con {
+              .TourSchedule {
+                @include tour-schedule--md;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .shop-container {
+      width: getGridWidth(6) + $gridGap;
+      .ProductGroup {
+        @include product-group--md;
+      }
+    }
+
+    .music-container {
+      width: getGridWidth(6) + $gridGap;
+
+      > .main {
+        width: getGridWidth(6) + $gridGap;
+        margin-bottom: 40px;
+      }
+
+      > .side {
+        width: getGridWidth(6) + $gridGap;
+        .HotTrackGroup li .HotTrackThumb {
+          @include hot-track-thumb--md;
+        }
+      }
+    }
+
+    .event-container {
+      width: getGridWidth(6) + $gridGap;
+      .EventGroup {
+        @include event-group--md;
+      }
+    }
+  }
+}
+
+@media (max-width: $width--md) {
+  .App .Page .ArtistLayout {
+    .artist-image {
+      .image {
+        top: -1 * $frameSizeTop--md;
+        left: -1 * $frameSize--md;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $width--sm){
+  .App .Page .ArtistLayout {
+    padding-top: 65px;
+
+    .artist-image {
+      height: 240px;
+      .image {
+        top: -1 * $frameSizeTop--sm;
+        left: -1 * $frameSize--sm;
+      }
+    }
+
+    .page-title {
+      font: 400 40px/40px $font-family;
+      margin-bottom: 65px;
+    }
+
+    .tour-container {
+      width: getGridWidth(4) + $gridGap;
+      .tours-list {
+        li {
+          .thumb-con .TourThumb {
+            @include tour-thumb--sm;
+          }
+          .schedules .schedule-con .TourSchedule {
+            @include tour-schedule--sm;
+          }
+        }
+      }
+    }
+
+    .shop-container {
+      width: getGridWidth(4) + $gridGap;
+      .ProductGroup {
+        @include product-group--sm;
+      }
+    }
+
+    .music-container {
+      width: getGridWidth(4) + $gridGap;
+      .main {
+        width: getGridWidth(4) + $gridGap;
+      }
+      .side {
+        width: getGridWidth(4) + $gridGap;
+        .HotTrackGroup li .HotTrackThumb {
+          @include hot-track-thumb--sm;
+        }
+      }
+    }
+
+    .event-container {
+      width: getGridWidth(4) + $gridGap;
+      .EventGroup {
+        @include event-group--sm;
+      }
+    }
+
+  }
+}
+
+@media (max-width: $width--xs){
+  .App .Page .ArtistLayout {
+    padding-top: 50px;
+
+    .artist-image {
+      height: 200px;
+      .image {
+        top: -1 * $frameSizeTop--xs;
+        left: -1 * $frameSize--xs;
+      }
+    }
+
+    .page-title {
+      font: 400 30px/30px $font-family;
+      margin-bottom: 50px;
+    }
+
+    .tour-container {
+      width: getGridWidth(2) + $gridGap;
+      .tours-list {
+        li {
+          .thumb-con {
+            .TourThumb {
+              @include tour-thumb--xs;
+            }
+          }
+          .schedules {
+            $num: 2;
+            max-height: ((74px + 36px) * $num) + (($num - 1) * $gridGap) + $gridGap;
+            .schedule-con {
+              .TourSchedule {
+                @include tour-schedule--xs;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .shop-container {
+      width: getGridWidth(2) + $gridGap;
+      .ProductGroup {
+        @include product-group--xs;
+      }
+    }
+
+    .music-container {
+      width: getGridWidth(2) + $gridGap;
+      .main {
+        width: getGridWidth(2) + $gridGap;
+      }
+      .side {
+        width: getGridWidth(2) + $gridGap;
+        .HotTrackGroup li .HotTrackThumb {
+          @include hot-track-thumb--xs;
+        }
+      }
+    }
+
+    .event-container {
+      width: getGridWidth(2) + $gridGap;
+      .EventGroup {
+        @include event-group--xs;
+      }
+    }
+
+  }
+}

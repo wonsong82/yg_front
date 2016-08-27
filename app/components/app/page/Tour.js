@@ -37,7 +37,7 @@ class Tour extends Component {
         <h3>Tour</h3>
         <ul className="tours-list" ref="list">
 
-          {tours && tours.length && tours.map( tour => (
+          {tours && tours.length ? tours.map( tour => (
             <li key={tour.id}>
               <div className="thumb-con">
                 <TourThumb {...tour} />
@@ -47,17 +47,17 @@ class Tour extends Component {
 
 
                 {
-                  tour.schedule && tour.schedule.length &&
+                  tour.schedule && tour.schedule.length ?
                   tour.schedule.map( (schedule, i) => (
                   <div className="schedule-con">
                     <TourSchedule key={`${tour.id}-${i}`} {...schedule} textColor={tour.textColor} themeColor={tour.themeColor} />
                   </div>
-                ))}
+                )):null}
 
               </ScrollArea>
 
             </li>
-          ))}
+          )):null}
         </ul>
 
         {

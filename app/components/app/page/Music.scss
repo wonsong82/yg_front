@@ -69,14 +69,14 @@
   }
 }
 
-@media (max-width: $width--md) {
+@media (max-width: $width--sm) {
   .App .Page .MusicLayout {
     width: getGridWidth(4) + $gridGap;
     .main {
       width: getGridWidth(4) + $gridGap;
     }
     .side {
-      width: getGridWidth(6) + $gridGap;
+      width: getGridWidth(4) + $gridGap;
       .HotTrackGroup li .HotTrackThumb {
         @include hot-track-thumb--sm;
       }
@@ -85,7 +85,7 @@
 }
 
 
-@media (max-width: $width--sm) {
+@media (max-width: $width--xs) {
   .App .Page .MusicLayout {
     width: getGridWidth(2) + $gridGap;
     .main {

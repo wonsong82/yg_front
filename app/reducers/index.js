@@ -74,44 +74,44 @@ const mainMenu = ( state = initState.mainMenu, action) => {
 
 
 // PAGE
-import { INIT_PAGE, SET_BLOGS_LIST, SET_HOT_POSTS_LIST, SET_POSTS_ALL_LOADED, SET_HOT_POSTS_ALL_LOADED,
-                    SET_EVENTS_LIST, SET_EVENTS_ALL_LOADED, SET_TOURS_LIST, SET_TOURS_ALL_LOADED,
-                    SET_ALBUMS_LIST, SET_ALBUMS_ALL_LOADED, SET_HOT_TRACKS_LIST, SET_HOT_TRACKS_ALL_LOADED,
-                    SET_PRODUCTS_LIST, SET_PRODUCTS_ALL_LOADED, SET_CATEGORY, SET_CATEGORIES_LIST,
-                    SET_PRODUCTS_LIST_ON_SEARCH, SEARCHING_REQUEST, SET_PROMOTIONS_LIST
+import { INIT_PAGE, SET_BLOGS_LIST, SET_HOT_POSTS_LIST, SET_POSTS_ALL_LOADED, SET_HOT_POSTS_ALL_LOADED, SET_EVENTS_LIST, SET_EVENTS_ALL_LOADED, SET_TOURS_LIST, SET_TOURS_ALL_LOADED, SET_ALBUMS_LIST, SET_ALBUMS_ALL_LOADED, SET_HOT_TRACKS_LIST, SET_HOT_TRACKS_ALL_LOADED, SET_PRODUCTS_LIST, SET_PRODUCTS_ALL_LOADED, SET_CATEGORY, SET_CATEGORIES_LIST, SET_PRODUCTS_LIST_ON_SEARCH, SEARCHING_REQUEST, SET_PROMOTIONS_LIST, SET_ARTIST_PAGE, SET_ALBUMS_BY_ARTIST, SET_ALBUMS_BY_ARTIST_ALL_LOADED, SET_TOURS_BY_ARTIST, SET_TOURS_BY_ARTIST_ALL_LOADED, SET_PRODUCTS_BY_ARTIST, SET_PRODUCTS_BY_ARTIST_ALL_LOADED, SET_HOT_TRACKS_BY_ARTIST, SET_HOT_TRACKS_BY_ARTIST_ALL_LOADED, SET_EVENTS_BY_ARTIST, SET_EVENTS_BY_ARTIST_ALL_LOADED, SET_SNS_BY_ARTIST, SET_SNS_BY_ARTIST_ALL_LOADED
 } from '../actions/'
 
 
-import { blogInitState , eventInitState, tourInitState, musicInitState, shopInitState, promotionInitState} from '../initialState'
+import { blogInitState , eventInitState, tourInitState, musicInitState, shopInitState, promotionInitState, artistPageInitState } from '../initialState'
 
 const page = ( state = initState.page, action ) => {
   switch(action.type){
     case INIT_PAGE:
       switch(action.pageType) {
         case 'Blog':
-          return Object.assign({}, state, blogInitState)
+          return {...blogInitState}
 
         case 'Event':
-          return Object.assign({}, state, eventInitState)
+          return {...eventInitState}
 
         case 'Tour':
-          return Object.assign({}, state, tourInitState)
+          return {...tourInitState}
 
         case 'Music':
-          return Object.assign({}, state, musicInitState)
+          return {...musicInitState}
 
         case 'Shop':
-          return Object.assign({}, state, shopInitState)
+          return {...shopInitState}
 
         case 'Promotion':
-          return Object.assign({}, state, promotionInitState)
+          return {...promotionInitState}
 
+        case 'Artist':
+          return {...artistPageInitState}
 
         default:
           return state
       }
 
+
     //BLOG
+    let artists = false
     case SET_BLOGS_LIST:
       return Object.assign({}, state, {
         posts: action.posts
@@ -209,6 +209,63 @@ const page = ( state = initState.page, action ) => {
         tours: action.promotions.albums,
         events: action.promotions.events
       })
+
+    // ARTIST
+    case SET_ARTIST_PAGE:
+      return {...state, ...action.page}
+
+    case SET_TOURS_BY_ARTIST:
+      artists = [...state.artists]
+      artists[action.index].tours = [...artists[action.index].tours, ...action.list]
+      return { ...state, artists }
+
+    case SET_TOURS_BY_ARTIST_ALL_LOADED:
+      artists = [...state.artists]
+      artists[action.index].toursAllLoaded = action.bool
+      return { ...state, artists }
+
+    case SET_PRODUCTS_BY_ARTIST:
+      artists = [...state.artists]
+      artists[action.index].products = [...artists[action.index].products, action.list]
+      return { ...state, artists }
+
+    case SET_PRODUCTS_BY_ARTIST_ALL_LOADED:
+      artists = [...state.artists]
+      artists[action.index].productsAllLoaded = action.bool
+      return { ...state, artists }
+
+    case SET_ALBUMS_BY_ARTIST:
+      artists = [...state.artists]
+      artists[action.index].albums = [...artists[action.index].albums, action.list]
+      return { ...state, artists }
+
+    case SET_ALBUMS_BY_ARTIST_ALL_LOADED:
+      artists = [...state.artists]
+      artists[action.index].albumsAllLoaded = action.bool
+      return { ...state, artists }
+
+    case SET_HOT_TRACKS_BY_ARTIST:
+      artists = [...state.artists]
+      artists[action.index].hotTracks = [...artists[action.index].hotTracks, action.list]
+      return { ...state, artists }
+
+    case SET_HOT_TRACKS_BY_ARTIST_ALL_LOADED:
+      artists = [...state.artists]
+      artists[action.index].hotTracksAllLoaded = action.bool
+      return { ...state, artists }
+
+    case SET_EVENTS_BY_ARTIST:
+      artists = [...state.artists]
+      artists[action.index].events = [...artists[action.index].events, action.list]
+      return { ...state, artists }
+
+    case SET_EVENTS_BY_ARTIST_ALL_LOADED:
+      artists = [...state.artists]
+      artists[action.index].eventsAllLoaded = action.bool
+      return { ...state, artists }
+
+
+
 
     default:
       return state

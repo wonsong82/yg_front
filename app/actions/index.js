@@ -101,9 +101,46 @@ export const SET_PROMOTIONS_LIST = 'set_promotions_list'
 export const setPromotions_list = promotions => ({type:SET_PROMOTIONS_LIST, promotions})
 export const loadPromotionsList = Middlewares.loadPromotionsList
 
+//PAGE:ARTIST
+export const SET_ARTIST_PAGE = 'set_artist_page'
+export const setArtistPage = page => ({ type: SET_ARTIST_PAGE, page })
+export const initArtistPage = Middlewares.initArtistPage
 
+export const SET_TOURS_BY_ARTIST = 'set_tours_by_artist'
+export const SET_TOURS_BY_ARTIST_ALL_LOADED = 'set_tours_by_artist_all_loaded'
+export const setToursByArtist = (index, list) => ({type: SET_TOURS_BY_ARTIST, index, list})
+export const setToursByArtistAllLoaded = (index, bool) => ({type: SET_TOURS_BY_ARTIST_ALL_LOADED, index, bool})
+export const loadToursByArtist = Middlewares.loadToursByArtist
 
+export const SET_PRODUCTS_BY_ARTIST = 'set_products_by_artist'
+export const SET_PRODUCTS_BY_ARTIST_ALL_LOADED = 'set_products_by_artist_all_loaded'
+export const setProductsByArtist = (index, list) => ({type: SET_PRODUCTS_BY_ARTIST, index, list})
+export const setProductsByArtistAllLoaded = (index, bool) => ({type: SET_PRODUCTS_BY_ARTIST_ALL_LOADED, index, bool})
+export const loadProductsByArtist = Middlewares.loadProductsByArtist
 
+export const SET_ALBUMS_BY_ARTIST = 'set_albums_by_artist'
+export const SET_ALBUMS_BY_ARTIST_ALL_LOADED = 'set_albums_by_artist_all_loaded'
+export const setAlbumsByArtist = (index, list) => ({type: SET_ALBUMS_BY_ARTIST, index, list})
+export const setAlbumsByArtistAllLoaded = (index, bool) => ({type: SET_ALBUMS_BY_ARTIST_ALL_LOADED, index, bool})
+export const loadAlbumsByArtist = Middlewares.loadAlbumsByArtist
+
+export const SET_HOT_TRACKS_BY_ARTIST = 'set_hot_tracks_by_artist'
+export const SET_HOT_TRACKS_BY_ARTIST_ALL_LOADED = 'set_hot_tracks_by_artist_all_loaded'
+export const setHotTracksByArtist = (index, list) => ({type: SET_HOT_TRACKS_BY_ARTIST, index, list})
+export const setHotTracksByArtistAllLoaded = (index, bool) => ({type: SET_HOT_TRACKS_BY_ARTIST_ALL_LOADED, index, bool})
+export const loadHotTracksByArtist = Middlewares.loadHotTracksByArtist
+
+export const SET_EVENTS_BY_ARTIST = 'set_events_by_artist'
+export const SET_EVENTS_BY_ARTIST_ALL_LOADED = 'set_events_by_artist_all_loaded'
+export const setEventsByArtist = (index, list) => ({type: SET_EVENTS_BY_ARTIST, index, list})
+export const setEventsByArtistAllLoaded = (index, bool) => ({type: SET_EVENTS_BY_ARTIST_ALL_LOADED, index, bool})
+export const loadEventsByArtist = Middlewares.loadEventsByArtist
+
+export const SET_SNS_BY_ARTIST = 'set_sns_by_artist'
+export const SET_SNS_BY_ARTIST_ALL_LOADED = 'set_sns_by_artist_all_loaded'
+export const setSNSByArtist = (index, list) => ({type: SET_SNS_BY_ARTIST, index, list})
+export const setSNSByArtistAllLoaded = (index, bool) => ({type: SET_SNS_BY_ARTIST_ALL_LOADED, index, bool})
+export const loadSNSByArtist = Middlewares.loadSNSByArtist
 
 
 
