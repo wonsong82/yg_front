@@ -1,0 +1,292 @@
+
+@mixin static-content {
+  @include static-content--md;
+  .static-content {
+    .page-title {
+      @include page-title;
+    }
+    .sub {
+      @include sub;
+    }
+    .sub-2 {
+      @include sub-2
+    }
+    .line1 {
+      @include line1;
+    }
+    .line2 {
+      @include line2;
+    }
+    .line2-2 {
+      @include line2-2;
+    }
+    p {
+      @include caption;
+      a {
+        color: rgba(0,0,0, $opacity--caption);
+      }
+    }
+    .woocommerce {
+      margin-top: 0;
+      .my_account_user {
+        & + h2 {
+          display: none;
+        }
+      }
+      .shop_table {
+        display: none;
+      }
+      h2 {
+        @include page-title-my_account;
+      }
+      h3 {
+        @include sub-my_account;
+      }
+      p, address {
+        @include caption;
+      }
+      .addresses {
+        a {
+          @include a_btn-edit;
+        }
+        address {
+          position: relative;
+          margin-bottom: 20px;
+        }
+      }
+      form {
+        .static-content-title {
+          @include page-title-my_account;
+        }
+        .static-content-h2 {
+          @include sub-my_account;
+        }
+        .form-row {
+          @include caption;
+          label {
+            display: block;
+            margin-bottom: 10px;
+          }
+          br {
+            display: none;
+          }
+        }
+        input[type=text] {
+          @include input-text;
+        }
+        input[type=email] {
+          @include input-email;
+        }
+        input[type=password] {
+          @include input-password;
+        }
+        input[type=submit] {
+          @include input-submit;
+        }
+      }
+      #profile-form {
+        .profile-menu {
+          display: none;
+        }
+        form.edit-account {
+          #password-change {
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(0,0,0, $opacity--line1);
+            margin-bottom: 20px;
+            .static-content-h2 {
+              @include sub-my_account;
+            }
+          }
+        }
+      }
+    }
+    table {
+      width: 100%;
+      thead {
+        tr {
+          th {
+            @include sub-my_account;
+            padding-bottom: 20px;
+            text-align: left;
+            font: 400 14px/22px $font-family;
+            color: rgba(0,0,0, $opacity--caption);
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            @include sub-my_account;
+            padding: 20px 0;
+            &, a {
+              font: 600 14px/22px $font-family;
+              color: rgba(0,0,0, $opacity--sub);
+            }
+            a[class='button pay'], a[class='button view'], a[class='button cancel'] {
+              padding: 6px;
+            }
+          }
+        }
+      }
+    }
+    .menu-bar {
+      position: absolute;
+      box-sizing: border-box;
+      left: -130px;
+      top: $pagePadding--top;
+      width: 107px;
+      .menu-title {
+        @include page-title-my_account;
+      }
+      .menu-body {
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid rgba(0,0,0, $opacity--line1);;
+        ul {
+          display: inline-block;
+          width: 100%;
+          li {
+            margin: 0;
+            float: none;
+            text-align: left;
+            width: 100%;
+            a {
+              font: 400 14px/22px $font-family;
+              color: rgba(0,0,0, $opacity--caption);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@mixin static-content--md {
+  width: getGridWidth(6);
+  padding: $pagePadding--top 0 $pagePadding--bottom;
+  .static-content {
+    .grid-2 {
+      @include grid-2;
+      + .grid-2 {
+        margin-left: $gridGap;
+      }
+    }
+    .woocommerce {
+      margin-top: 180px;
+      form {
+        .form-row {
+          &.form-row-first, &.form-row-last {
+            @include grid-2;
+          }
+          &.form-row-last {
+            margin-left: $gridGap;
+          }
+        }
+      }
+    }
+    .menu-bar {
+      position: absolute;
+      left: 0px;
+      width: 100%;
+      .menu-title {
+        text-align: center;
+      }
+      .menu-body {
+        padding: 0 20px 20px 20px;
+        ul li {
+          float: left;
+          text-align: center;
+          width: 25%;
+        }
+      }
+    }
+  }
+
+}
+
+@mixin static-content--sm {
+  width: 460px;
+  padding: 70px 0 70px;
+  .static-content {
+    .grid-2 {
+      width: 100%;
+      + .grid-2 {
+        margin-left: 0px;
+        float: none;
+      }
+    }
+    .woocommerce {
+      form {
+        .form-row {
+          &.form-row-first, &.form-row-last {
+            width: 100%;
+          }
+          &.form-row-last {
+            margin-left: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin static-content--xs {
+  width: 350px;
+  padding: 40px 0 40px;
+  .static-content {
+    .grid-2 {
+      width: 100%;
+      + .grid-2 {
+        margin-left: 0px;
+        float: none;
+      }
+    }
+    .woocommerce {
+      form {
+        .form-row {
+          &.form-row-first, &.form-row-last {
+            width: 100%;
+          }
+          &.form-row-last {
+            margin-left: 0px;
+          }
+        }
+        input[type=submit] {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@mixin static-content--xxs {
+  width: 100%;
+  padding: 40px 12px;
+  .static-content {
+    .grid-2 {
+      width: 100%;
+      + .grid-2 {
+        margin-left: 0px;
+        float: none;
+      }
+    }
+    .woocommerce {
+      form {
+        .form-row {
+          &.form-row-first, &.form-row-last {
+            width: 100%;
+          }
+          &.form-row-last {
+            margin-left: 0px;
+          }
+        }
+        input[type=submit] {
+          width: 100%;
+        }
+      }
+    }
+    .menu-bar {
+      padding: 0 12px;
+    }
+  }
+}
