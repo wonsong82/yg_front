@@ -51,3 +51,29 @@
 @mixin album-thumb--xs {
   @include album-thumb-base;
 }
+
+@mixin album-thumb-m--xs {
+  @include album-thumb-base;
+  width: getGridWidthPromotion(2);
+  height: getGridWidthPromotion(2);
+  .img {
+    width: getGridWidthPromotion(2);
+    height: getGridWidthPromotion(2);
+  }
+  .text {
+    display: none;
+  }
+}
+
+@mixin album-thumb-m--xxs {
+  @include album-thumb-base;
+  width: getGridWidthPromotion(1);
+  height: getGridWidthPromotion(1);
+  .img {
+    width: getGridWidthPromotion(1);
+    height: getGridWidthPromotion(1);
+  }
+  .text {
+    display: none;
+  }
+}

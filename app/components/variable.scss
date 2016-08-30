@@ -124,8 +124,10 @@ $font-family: 'Klavika', sans-serif;
   transition: box-shadow 0.3s $easeOutQuad;
   will-change: box-shadow;
   user-select: none;
+  z-index: 1;
   &:hover, &:active {
     box-shadow: $shadow8dp;
+    z-index: 20;
   }
 }
 

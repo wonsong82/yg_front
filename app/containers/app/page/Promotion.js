@@ -16,9 +16,7 @@ class Promotion extends Component{
   }
 
   render(){
-    return <PromotionComponent {...this.props}
-
-    />
+    return <PromotionComponent {...this.props} />
   }
 }
 

@@ -5,10 +5,10 @@ import EventThumb from './EventThumb'
 const EventGroup = ({ events }) => (
     <div className="EventGroup">
       {
-        events && events.length &&
+        events && events.length ?
         events.map( event => (
           <EventThumb key={'event-'+event.id} {...event} />
-        ))
+        )) : null
       }
     </div>
 )

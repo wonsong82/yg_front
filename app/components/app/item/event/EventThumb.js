@@ -18,6 +18,7 @@ const EventThumb = ({ title, url, text, date, image, thumb1x1, thumb3x2, textCol
         <div className="images">
           <Image className="image-1x1" color="rgba(0,0,0,.30)" src={thumb1x1} />
           <Image className="image-3x2" color="rgba(0,0,0,.30)" src={thumb3x2} />
+          <span className="film"/>
         </div>
       }
 

@@ -37,8 +37,10 @@ class ProductImageSwiper extends Component {
   }
 
   componentWillUnmount() {
-    this.gallerySwiper.destroy()
-    this.thumbSwiper.destroy()
+    if(this.gallerySwiper) {
+      this.gallerySwiper.destroy()
+      this.thumbSwiper.destroy()
+    }
   }
 
 

@@ -121,3 +121,68 @@
     display: none;
   }
 }
+
+
+@mixin tour-thumb-m--md {
+  @include tour-thumb-base;
+  width: getGridWidthPromotion(4);
+  height: getGridWidthPromotion(2);
+  .images {
+    .image-2x1 {
+      display: block;
+    }
+  }
+}
+
+@mixin tour-thumb-m--sm {
+  @include tour-thumb-base;
+  width: getGridWidthPromotion(3);
+  height: getGridWidthPromotion(2);
+  .images {
+    .image-3x2 {
+      display: block;
+    }
+  }
+}
+
+@mixin tour-thumb-m--xs {
+  @include tour-thumb-base;
+  width: getGridWidthPromotion(2);
+  height: getGridWidthPromotion(2);
+  padding: 20px;
+  .images {
+    .image-1x1 {
+      display: block;
+    }
+  }
+  .artist {
+    font: 500 60px/60px $font-family;
+  }
+  .title {
+    font: 400 24px/26px $font-family;
+  }
+  .subtitle {
+    font: 400 18px/26px $font-family;
+  }
+}
+
+@mixin tour-thumb-m--xxs {
+  @include tour-thumb-base;
+  width: getGridWidthPromotion(1);
+  height: getGridWidthPromotion(1);
+  padding: 15px;
+  .images {
+    .image-1x1 {
+      display: block;
+    }
+  }
+  .artist {
+    font: 500 42px/42px $font-family;
+  }
+  .title {
+    font: 400 18px/22px $font-family;
+  }
+  .subtitle, .date {
+    display: none;
+  }
+}

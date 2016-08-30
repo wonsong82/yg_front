@@ -203,12 +203,7 @@ const page = ( state = initState.page, action ) => {
       })
 
     case SET_PROMOTIONS_LIST:
-      return Object.assign({}, state, {
-        albums: action.promotions.albums,
-        products: action.promotions.products,
-        tours: action.promotions.albums,
-        events: action.promotions.events
-      })
+      return {...action.promotions}
 
     // ARTIST
     case SET_ARTIST_PAGE:
