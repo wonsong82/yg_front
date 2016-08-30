@@ -28,6 +28,8 @@ export default (
            components={{page: PromotionPage}} />
     
     {/*Promotion*/}
+    <Route path="promotion"
+           components={{page: PromotionPage}} />
     <Route path="promotion/shop/:item"
            components={{page: PromotionPage, popup: ShopPopup}} />
     <Route path="promotion/music/:item"

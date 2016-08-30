@@ -8,6 +8,7 @@ var cors = require('cors');
 
 app.get([
   '/',
+  '/promotion',
   '/promotion/shop/:item',
   '/promotion/music/:item',
   '/promotion/tour/:item',
