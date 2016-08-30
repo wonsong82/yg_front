@@ -6,9 +6,9 @@ import Ripple from '../../../../components/lib/effect/Ripple'
 import dateformat from 'dateformat'
 
 
-const TourThumb = ({ artistName, title, subtitle, url, thumb1x1, thumb2x1, thumb3x2, startDate, endDate, textColor, themeColor}) => (
+const TourThumb = ({ artistName, title, subtitle, url, thumb1x1, thumb2x1, thumb3x2, startDate, endDate, textColor, themeColor, layoutStyle, layoutNum }) => (
 
-  <RouterLink className="TourThumb" to={url}>
+  <RouterLink className={`TourThumb style-${layoutStyle}-${layoutNum}`} to={url}>
 
     <div className="images">
       <Image className="image-1x1" color="rgba(0,0,0,.30)" src={thumb1x1}/>

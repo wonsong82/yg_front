@@ -1,0 +1,64 @@
+@import '../../variable';
+@import '../item/promotion/PromotionGroup';
+
+.App .Page .PromotionLayout {
+  width: getGridWidthPromotion(7);
+  margin: $pagePadding--top auto $pagePadding--bottom;
+  .PromotionGroup {
+    @include promotion-group--xxl;
+  }
+}
+
+@media (max-width: $width--m-xl) {
+  .App .Page .PromotionLayout {
+    width: getGridWidthPromotion(6);
+    .PromotionGroup {
+      @include promotion-group--xl;
+    }
+  }
+}
+
+@media (max-width: $width--m-lg) {
+  .App .Page .PromotionLayout {
+    width: getGridWidthPromotion(5);
+    .PromotionGroup {
+      @include promotion-group--lg;
+    }
+  }
+}
+
+@media (max-width: $width--m-md) {
+  .App .Page .PromotionLayout {
+    width: getGridWidthPromotion(4);
+    .PromotionGroup {
+      @include promotion-group--md;
+    }
+  }
+}
+
+@media (max-width: $width--m-sm) {
+  .App .Page .PromotionLayout {
+    width: getGridWidthPromotion(3);
+    .PromotionGroup {
+      @include promotion-group--sm;
+    }
+  }
+}
+
+@media (max-width: $width--m-xs) {
+  .App .Page .PromotionLayout {
+    width: getGridWidthPromotion(2);
+    .PromotionGroup {
+      @include promotion-group--xs;
+    }
+  }
+}
+
+@media (max-width: $width--m-xxs) {
+  .App .Page .PromotionLayout {
+    width: getGridWidthPromotion(1);
+    .PromotionGroup {
+      @include promotion-group--xxs;
+    }
+  }
+}

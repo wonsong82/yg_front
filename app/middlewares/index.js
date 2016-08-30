@@ -353,13 +353,13 @@ export const loadToursList = ( count ) => (dispatch, getState) => {
     let nextCount = curCount + count
 
     let newTours = []
-    var index = 0;
+    var index = 0
 
     for(let key in toursData){
       if(toursData.hasOwnProperty(key)){
         let tour = toursData[key]
 
-        let e = createTourThumb(tour, artistsData)
+        let e = createTourThumb(tour, artistsData, 1, index+1 )
         newTours.push(e)
 
         if(toursDataCount-1 == index || nextCount-1 == index){
@@ -375,13 +375,13 @@ export const loadToursList = ( count ) => (dispatch, getState) => {
   }
 }
 
-const createTourThumb = ( data, artistData ) => {
-  const {id, post_title, sub_title, url_friendly_name, tour_schedule, start_date, end_date, main_image, thumb_3x2, thumb_1x1, thumb_2x1, artist_id } = data
+const createTourThumb = ( data, artistData, layoutStyle, layoutNum ) => {
+  const {id, post_title, subtitle, url_friendly_name, tour_schedule, start_date, end_date, main_image, thumb_3x2, thumb_1x1, thumb_2x1, artist_id } = data
   const { name, themeColor, textColor } = artistData[artist_id]
   return {
     id,
     title: post_title,
-    subtitle: sub_title,
+    subtitle: subtitle,
     url: `/tour/${url_friendly_name}`,
     thumb1x1: thumb_1x1 || main_image || false,
     thumb2x1: thumb_2x1 || main_image || false,
@@ -390,6 +390,8 @@ const createTourThumb = ( data, artistData ) => {
     startDate: start_date,
     endDate: end_date,
     artistName: name,
+    layoutStyle,
+    layoutNum,
     themeColor,
     textColor
   }
@@ -418,10 +420,12 @@ export const loadAlbumsList = (count=6) => (dispatch, getState) => {
 
     if(albumsDataCount > 0 && albumsDataCount > curCount){
 
-      let newAlbums = []
+      let newAlbums = [];
+      let y = 1
 
       for(let i=curCount; i<nextCount; i++){
-        newAlbums.push( createAlbumThumb( albumsData[i], artistData ) )
+        newAlbums.push( createAlbumThumb( albumsData[i], artistData, 1, y ) )
+        y++
         if(albumsDataCount-1 == i){
           dispatch(setAlbumsAllLoaded(true))
           break
@@ -434,7 +438,7 @@ export const loadAlbumsList = (count=6) => (dispatch, getState) => {
 }
 
 
-const createAlbumThumb = ( albumData, artistData ) => {
+const createAlbumThumb = ( albumData, artistData, layoutStyle, layoutNum ) => {
   const {id, post_title, url_friendly_name, thumb_1x1, cover_image, artist_id } = albumData
   const { name } = artistData[artist_id]
   return {
@@ -442,7 +446,9 @@ const createAlbumThumb = ( albumData, artistData ) => {
     title: excerptStr(post_title, 90),
     url: `/music/${url_friendly_name}`,
     image: thumb_1x1 || cover_image || false,
-    artistName: name
+    artistName: name,
+    layoutStyle,
+    layoutNum
   }
 }
 
@@ -509,100 +515,52 @@ export const loadPromotionsList = () => (dispatch, getState) => {
           productsData = state.data.shops.contents.products,
           artistsData = state.data.artists.contents.artists
 
+    let i=1;
     let newTours = []
     for(let key in tours){
       if(tours.hasOwnProperty(key)){
         const tour = toursData[tours[key].id]
-        const {name, themeColor} = artistsData[tour.artist_id]
-
-        const {id, post_title, subtitle, url_friendly_name, thumb_3x2, thumb_1x1, thumb_2x1, main_image, start_date, end_date} = tour
-        const url = '/tour/' + url_friendly_name
-
-        newTours.push({
-          id,
-          title: post_title,
-          subtitle,
-          url,
-          thumb1x1: thumb_1x1 || main_image || false,
-          thumb2x1: thumb_2x1 || main_image || false,
-          thumb3x2: thumb_3x2 || main_image || false,
-          artistName: name,
-          themeColor,
-          startDate: start_date,
-          endDate: end_date
-        })
+        let e = createTourThumb(tour, artistsData, 1, i)
+        e.url = `/promotion${e.url}`
+        newTours.push(e)
+        i++
       }
     }
 
-
+    i = 1
     let newAlbums = []
     for(let key in albums){
       if(albums.hasOwnProperty(key)) {
         const album = albumsData[albums[key].id]
-        const {id, post_title, url_friendly_name, thumb_1x1, cover_image, artist_id} = album
-        const artistName = artistsData[artist_id].name
-        const url = '/music/' + url_friendly_name
-
-        newAlbums.push({
-          id,
-          title: post_title,
-          url,
-          thumb1x1: thumb_1x1 || cover_image || false,
-          artistName
-        })
+        let e = createAlbumThumb(album, artistsData, 1, i)
+        e.url = `/promotion${e.url}`
+        newAlbums.push(e)
+        i++
       }
     }
 
-
+    i = 1
     let newEvents = []
     for(let key in events){
       if(events.hasOwnProperty(key)) {
         let event = eventsData[events[key].id]
-
-        const {id, post_title, url_friendly_name, excerpt, post_date, main_image, thumb_3x2, thumb_1x1, artist_id} = event
-        const {themeColor, textColor} = artistsData[artist_id]
-        const url = '/event/' + url_friendly_name
-
-        newEvents.push({
-          id,
-          title: post_title,
-          url,
-          excerpt,
-          date: post_date,
-          thumb3x2: thumb_3x2 || main_image || false,
-          thumb1x1: thumb_1x1 || main_image || false,
-          themeColor,
-          textColor
-        })
+        let e = createEventThumb(event, artistsData, 1, i)
+        e.url = `/promotion${e.url}`
+        newEvents.push(e)
+        i++
       }
     }
 
+    i = 1
     let newProducts = []
+    console.log(products)
     for(let key in products){
       if(products.hasOwnProperty(key)) {
         let product = productsData[products[key].id]
-        const {id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id} = product
-
-        const artistName = artist_id ? artistsData[artist_id].name : ''
-        let price = null
-        if (product.product_type == 'variable' && product.variation && product.variation.length) {
-          price = getProductPrice(product, product.variation[0]).price
-        } else {
-          price = getProductPrice(product).price
-        }
-        const url = '/shop/' + url_friendly_name
-        const image = images && images.length ? images[0] : false
-
-        newProducts.push({
-          id,
-          title: excerptStr(post_title, 90),
-          url,
-          artistName,
-          thumb1x1: thumb_1x1 || image || false,
-          thumb2x1: thumb_2x1 || image || false,
-          thumb1x2: thumb_1x2 || image || false,
-          price
-        })
+        let e = createProductThumb(product, artistsData, 1, i)
+        e.url = `/promotion${e.url}`
+        newProducts.push(e)
+        i++
       }
     }
 
@@ -653,11 +611,12 @@ export const loadToursByArtist = ( index, count=1 ) => (dispatch, getState) => {
       nextCount = curCount + count
 
   if(dataCount > 0 && dataCount > curCount){
-    let list = []
+    let list = []; let y = 1
     for(let i=curCount; i<nextCount; i++){
-      let e = createTourThumb(data[i], artistData)
+      let e = createTourThumb(data[i], artistData, 1, y)
       e.url = `/artist/${artist.urlFriendlyName}${e.url}`
       list.push(e)
+      y++
       if(dataCount-1 == i){
         dispatch(setToursByArtistAllLoaded(index, true))
       }
@@ -720,11 +679,12 @@ export const loadAlbumsByArtist = ( index, count=6 ) => (dispatch, getState) => 
       nextCount = curCount + count
 
   if(dataCount > 0 && dataCount > curCount){
-    let list = []
+    let list = []; let y=1
     for(let i=curCount; i<nextCount; i++){
-      let e = createAlbumThumb(data[i], artistData)
+      let e = createAlbumThumb(data[i], artistData, 1, y)
       e.url = `/artist/${artist.urlFriendlyName}${e.url}`
       list.push(e)
+      y++
       if(dataCount-1 == i){
           dispatch(setAlbumsByArtistAllLoaded(index, true))
         break

@@ -10,6 +10,7 @@
   box-sizing: border-box;
   @include card;
   .images {
+    position: relative;
     .image-1x1 {
       display: none;
     }
@@ -17,6 +18,15 @@
       display: block;
       width: getGridWidth(4);
       height: $imgHeight;
+    }
+    .film {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,.15);
+      display: none;
     }
   }
   .title {
@@ -26,7 +36,7 @@
     overflow: hidden;
     h3 {
       display: block;
-      word-break: break-all;
+      word-break: normal;
       font: 400 18px/24px 'Klavika', sans-serif;
       opacity: $opacity--primary;
     }
@@ -42,7 +52,7 @@
     font: 400 14px/20px 'Klavika', sans-serif;
     max-height: 280px;
     margin: 70px 20px 0;
-    word-break: break-all;
+    word-break: normal;
     overflow: hidden;
     opacity: $opacity--caption;
   }
@@ -77,6 +87,82 @@
     .image-3x2 {
       width: getGridWidth(2);
       height: $imgHeight;
+    }
+  }
+  .title {
+    padding: 15px 15px 0 15px;
+    max-height: 36px;
+    h3 {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+  .date {
+    margin-left: 15px;
+    line-height: 18px;
+  }
+  .text {
+    margin: 20px 15px 0;
+    max-height: 80px;
+  }
+  .read-more {
+    display: none;
+  }
+
+  &.no-image {
+    .title {
+      max-height: 72px;
+    }
+
+  }
+}
+
+
+@mixin event-thumb-m--xs {
+  @include event-thumb;
+  width: getGridWidthPromotion(2);
+  height: getGridWidthPromotion(2);
+  .images {
+    .image-3x2 {
+      display: none;
+    }
+    .image-1x1 {
+      display: block;
+      width: getGridWidthPromotion(2);
+      height: getGridWidthPromotion(2);
+    }
+    .film {
+      display: block;
+    }
+  }
+  .title {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    h3 {
+      color: #fff !important;
+    }
+  }
+  .date {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    color: #fff !important;
+  }
+  .read-more {
+    display: none;
+  }
+}
+
+@mixin event-thumb-m--xxs {
+  @include event-thumb;
+  @include event-thumb;
+  width: getGridWidthPromotion(1);
+  height: getGridWidthPromotion(1);
+  .images {
+    .image-3x2 {
+      width: getGridWidthPromotion(1);
+      height: 138px;
     }
   }
   .title {

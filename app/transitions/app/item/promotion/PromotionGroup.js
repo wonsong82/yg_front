@@ -1,10 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { findDOMNode } from 'react-dom'
 import TransitionGroup from 'react/lib/ReactTransitionGroup'
-import EventGroupComponent from '../../../../components/app/item/event/EventGroup'
+import PromotionComponent from '../../../../components/app/item/promotion/PromotionGroup'
 import { showStagger } from '../../../../functions/'
 
-class EventGroup extends Component {
+
+class PromotionGroup extends Component {
 
   constructor(props) {
     super(props)
@@ -12,13 +13,13 @@ class EventGroup extends Component {
 
   render() {
     return (
-      <TransitionGroup component="div" className="EventGroupTransition">
+      <TransitionGroup component="div" className="PromotionTransition">
         <Transition {...this.props} />
       </TransitionGroup>
     )
   }
 }
-EventGroup.propTypes = {}
+PromotionGroup.propTypes = {}
 
 
 class Transition extends Component {
@@ -29,12 +30,12 @@ class Transition extends Component {
 
   render() {
     return (
-      <EventGroupComponent {...this.props}  />
+      <PromotionComponent {...this.props} />
     )
   }
 
   show() {
-    const items = $('.EventThumb', findDOMNode(this))
+    const items = $('.TourThumb, .ProductThumb, .AlbumThumb, .EventThumb', findDOMNode(this))
     showStagger(items)
   }
 
@@ -42,6 +43,7 @@ class Transition extends Component {
     callback()
     this.show()
   }
+
 
   componentWillEnter(callback) {
     callback()
@@ -51,7 +53,7 @@ class Transition extends Component {
 
 
 
-export default EventGroup
+export default PromotionGroup
 
 
 
