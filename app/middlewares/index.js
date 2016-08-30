@@ -804,6 +804,26 @@ export const loadEventsByArtist = ( index,layoutStyle=LAYOUT_STYLE.RANDOM,  coun
 
     dispatch(setEventsByArtist(index, list))
   }
+}
+
+export const loadSNSByArtist = (index) => (dispatch, getState) => {
+
+  const state = getState()
+  if(state.page.type != 'artist') return true
+  const artist = state.page.artists[index]
+
+  const data = toArray(state.data.socialFeeds.contents.feeds)
+    .filter( e => e.artist_id == artist.id)
+
+    let {profile_image_url, url, username, feeds} = data[0]
+    const list = {
+      image_url: profile_image_url,
+      url,
+      username,
+      feeds
+    }
+
+  dispatch(setSNSByArtist(index, list))
 
 }
 
@@ -820,7 +840,9 @@ export const loadEventsByArtist = ( index,layoutStyle=LAYOUT_STYLE.RANDOM,  coun
 
 
 
-/***
+
+
+  /***
  * POPUP
  */
 // POPUP:BLOG
@@ -1205,11 +1227,15 @@ export const getShopsData = () => (dispatch, getState) =>getData('/api/getShops'
 import {requestPromotions, receivePromotions} from '../actions'
 export const getPromotionsData = () => (dispatch, getState) =>getData('/api/getPromotions', getState().data.promotions, requestPromotions, receivePromotions, dispatch, fetch)
 
+// DATA:SOCIAL FEEDS
+import {requestSocialFeeds, receiveSocialFeeds} from '../actions'
+export const getSocialFeedsData = () => (dispatch, getState) =>getData('/api/getSocialFeeds', getState().data.socialFeeds, requestSocialFeeds, receiveSocialFeeds, dispatch, fetch)
+
 
 // DATA:ALL
 import { setDataLoaded } from '../actions/'
 export const getAllData = () => (dispatch, getState) => {
-  const datas = [ 'artists', 'blogs', 'events', 'tours', 'musics', 'shops', 'promotions' ]
+  const datas = [ 'artists', 'blogs', 'events', 'tours', 'musics', 'shops', 'promotions', 'socialFeeds' ]
   let timer = setInterval(()=>{
     let state = getState().data
     if(datas.filter( data => state[data].loaded ).length === datas.length){

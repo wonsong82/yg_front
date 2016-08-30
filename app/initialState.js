@@ -109,6 +109,14 @@ const initialState = {
         tour: {},
         event: {}
       }
+    },
+
+    socialFeeds: {
+      loaded: false,
+      isFetching: false,
+      contents: {
+        feeds: {}
+      }
     }
   },
 }

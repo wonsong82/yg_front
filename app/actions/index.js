@@ -249,6 +249,12 @@ export const requestPromotions = () => ({type: REQUEST_PROMOTIONS})
 export const receivePromotions = (json) => ({type: RECEIVE_PROMOTIONS, data: json })
 export const getPromotionsData = Middlewares.getPromotionsData
 
+// DATA:SOCIAL FEED
+export const REQUEST_SOCIAL_FEEDS = 'request_social_feeds'
+export const RECEIVE_SOCIAL_FEEDS = 'receive_social_feeds'
+export const requestSocialFeeds = () => ({type: REQUEST_SOCIAL_FEEDS})
+export const receiveSocialFeeds = (json) => ({type: RECEIVE_SOCIAL_FEEDS, data: json})
+export const getSocialFeedsData = Middlewares.getSocialFeedsData
 
 
 // DATA:ALL
