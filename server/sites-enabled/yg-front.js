@@ -99,6 +99,12 @@ app.get([
   res.sendFile(path.resolve('../data/getCarts.json'));
 });
 
+app.get([
+  '/api/getSocialFeeds'
+], function (req, res) {
+  res.sendFile(path.resolve('../data/getSocialFeeds.json'));
+});
+
 
 
 

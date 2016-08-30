@@ -38,6 +38,7 @@ class ArtistSwiper extends Component {
       loadProducts(i, 1)
       loadHotTracks(i)
       loadEvents(i, 1)
+      loadSNS(i)
     })
   }
 

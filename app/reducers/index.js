@@ -259,6 +259,9 @@ const page = ( state = initState.page, action ) => {
       artists[action.index].eventsAllLoaded = action.bool
       return { ...state, artists }
 
+    case SET_SNS_BY_ARTIST:
+      artists = [...state.artists]
+      artists[action.index].sns = [...artists[action.index].sns, action.list]
 
 
 
@@ -338,7 +341,7 @@ const popup = ( state = initState.popup, action ) => {
 
 
 // DATA
-import { SET_DATA_LOADED, REQUEST_ARTISTS, RECEIVE_ARTISTS, REQUEST_BLOGS, RECEIVE_BLOGS , REQUEST_EVENTS, RECEIVE_EVENTS, REQUEST_TOURS, RECEIVE_TOURS , REQUEST_MUSICS, RECEIVE_MUSICS, REQUEST_SHOPS, RECEIVE_SHOPS, REQUEST_PROMOTIONS, RECEIVE_PROMOTIONS } from '../actions'
+import { SET_DATA_LOADED, REQUEST_ARTISTS, RECEIVE_ARTISTS, REQUEST_BLOGS, RECEIVE_BLOGS , REQUEST_EVENTS, RECEIVE_EVENTS, REQUEST_TOURS, RECEIVE_TOURS , REQUEST_MUSICS, RECEIVE_MUSICS, REQUEST_SHOPS, RECEIVE_SHOPS, REQUEST_PROMOTIONS, RECEIVE_PROMOTIONS, REQUEST_SOCIAL_FEEDS, RECEIVE_SOCIAL_FEEDS } from '../actions'
 const data = ( state = initState.data , action) => {
   switch(action.type){
 
@@ -488,6 +491,22 @@ const data = ( state = initState.data , action) => {
             albums: album,
             tours: tour,
             events: event
+          }
+        })
+      })
+
+    case REQUEST_SOCIAL_FEEDS:
+      return Object.assign({}, state, {
+        socialFeeds: Object.assign({}, state.socialFeeds, {isFetching: true})
+      })
+
+    case RECEIVE_SOCIAL_FEEDS:
+      return Object.assign({}, state, {
+        socialFeeds: Object.assign({}, state.socialFeeds, {
+          isFetching: false,
+          loaded: true,
+          contents: {
+            feeds: action.data,
           }
         })
       })
