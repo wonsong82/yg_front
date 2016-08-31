@@ -773,7 +773,7 @@ export const loadSNSByArtist = (index) => (dispatch, getState) => {
   const artist = state.page.artists[index]
 
   const data = state.data.socialFeeds.contents.feeds[artist.id],
-    dataCount = data.length
+    dataCount = data && data.length
 
   let list = [];
 
