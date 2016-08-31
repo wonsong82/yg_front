@@ -21,13 +21,13 @@ class Blog extends Component {
   }
 
   onViewMoreClick() {
-    const { onViewMoreClick } = this.props
-    onViewMoreClick(4)
+    const { loadBlogsList } = this.props
+    loadBlogsList(4)
   }
 
   onHotPostsViewMoreClick() {
-    const { onHotPostsViewMoreClick } = this.props
-    onHotPostsViewMoreClick(4)
+    const { loadHotPostsList } = this.props
+    loadHotPostsList(4)
   }
 
   render() {
