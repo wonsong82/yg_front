@@ -1212,6 +1212,16 @@ export const getAllData = () => (dispatch, getState) => {
 }
 
 
+// CART
+import { openCart, closeCart } from '../actions/'
+export const toggleCart = () => (dispatch, getState) => {
+  return getState().cart.opened ?
+    dispatch(closeCart()) :
+    dispatch(openCart())
+}
+
+
+
 import {requestGetCarts, receiveGetCarts, requestAddToCart, receiveAddToCart, getProductsInCart, requestRemoveCart, receiveRemoveCart } from '../actions'
 export const _getProductsInCart = () => (dispatch, getState) =>getData('/api/getProductsInCart', getState().cart, requestGetCarts, receiveGetCarts, dispatch, fetch)
 export const _addProductsToCart = (productId, variationId, qty) => (dispatch, getState) => {

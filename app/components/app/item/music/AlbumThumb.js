@@ -2,6 +2,7 @@ import React from 'react'
 import RouterLink from '../../../../components/lib/link/RouterLink'
 import Image from '../../../../components/lib/image/Image'
 import Ripple from '../../../../components/lib/effect/Ripple'
+import ThumbHover from '../../../../components/lib/button/ThumbHover'
 
 const AlbumThumb = ({ id, image, title, artistName, url, layoutStyle, layoutNum }) => (
 
@@ -15,6 +16,8 @@ const AlbumThumb = ({ id, image, title, artistName, url, layoutStyle, layoutNum 
     </div>
 
     <Ripple color='rgba(255,255,255,.5)' />
+
+    <ThumbHover text="Details" />
 
   </RouterLink>
 )

@@ -37,6 +37,44 @@
       will-change: color;
     }
   }
+
+  .my-account {
+    position: absolute;
+    top: 19px;
+    right: 70px;
+    transition: opacity 300ms ease;
+    cursor: pointer;
+
+    .icon-log-in {
+      font-size: 24px;
+      transition: color 1s ease;
+      will-change: color;
+    }
+  }
+
+  .cart {
+    position: absolute;
+    top: 19px;
+    right: 33px;
+    transition: opacity 300ms ease;
+    cursor: pointer;
+
+    .icon-shopping-bag {
+      font-size: 24px;
+      transition: color 1s ease;
+      will-change: color;
+    }
+
+    .quantity {
+      position: absolute;
+      top: -6px;
+      left: 24px;
+      font-family: $font-family;
+      font-size: 16px;
+      transition: color 1s ease;
+      will-change: color;
+    }
+  }
 }
 
 
@@ -52,6 +90,12 @@
 .App .Header {
   .menu {
     left: 18px;
+  }
+  .my-account {
+    right: 55px;
+  }
+  .cart {
+    right: 18px;
   }
 }}
 

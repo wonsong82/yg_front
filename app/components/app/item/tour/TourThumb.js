@@ -4,6 +4,7 @@ import RouterLink from '../../../../containers/lib/link/RouterLink'
 import Image from '../../../../components/lib/image/Image'
 import Ripple from '../../../../components/lib/effect/Ripple'
 import dateformat from 'dateformat'
+import ThumbHover from '../../../../components/lib/button/ThumbHover'
 
 
 const TourThumb = ({ artistName, title, subtitle, url, thumb1x1, thumb2x1, thumb3x2, startDate, endDate, textColor, themeColor, layoutStyle, layoutNum }) => (
@@ -27,6 +28,8 @@ const TourThumb = ({ artistName, title, subtitle, url, thumb1x1, thumb2x1, thumb
     </span>
 
     <Ripple color="rgba(255,255,255,.5)" />
+
+    <ThumbHover text="Details" />
 
   </RouterLink>
 

@@ -3,6 +3,7 @@ import React from 'react'
 import RouterLink from '../../../../containers/lib/link/RouterLink'
 import Image from '../../../../components/lib/image/Image'
 import Ripple from '../../../../components/lib/effect/Ripple'
+import ThumbHover from '../../../../components/lib/button/ThumbHover'
 
 
 const EventThumb = ({ title, url, text, date, image, thumb1x1, thumb3x2, textColor, themeColor, layoutStyle, layoutNum }) => (
@@ -35,6 +36,8 @@ const EventThumb = ({ title, url, text, date, image, thumb1x1, thumb3x2, textCol
         {text}
       </div>
       }
+
+      <ThumbHover text="Details" />
 
       <RouterLink to={url} className="read-more" style={ image ? {color:'#000000'} : {color:textColor} }>Read More</RouterLink>
 

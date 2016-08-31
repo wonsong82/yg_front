@@ -4,6 +4,8 @@ import AnchorLink from '../../../../components/lib/link/AnchorLink'
 import RouterLink from '../../../../containers/lib/link/RouterLink'
 import Image from '../../../../components/lib/image/Image'
 import Ripple from '../../../../components/lib/effect/Ripple'
+import ThumbHover from '../../../../components/lib/button/ThumbHover'
+
 
 const BlogThumb = ({ title, url, text, date, image, facebookShareLink, twitterShareLink, thumb_3x2, thumb_2x1 }) => (
 
@@ -41,6 +43,9 @@ const BlogThumb = ({ title, url, text, date, image, facebookShareLink, twitterSh
     <div className="text">
       {text}
     </div>
+
+    <ThumbHover text="Details" />
+
 
     <RouterLink to={url} className="read-more">Read More</RouterLink>
 

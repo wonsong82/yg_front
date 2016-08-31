@@ -81,6 +81,7 @@ import { INIT_PAGE, SET_BLOGS_LIST, SET_HOT_POSTS_LIST, SET_POSTS_ALL_LOADED, SE
 import { blogInitState , eventInitState, tourInitState, musicInitState, shopInitState, promotionInitState, artistPageInitState } from '../initialState'
 
 const page = ( state = initState.page, action ) => {
+  var artists = false
   switch(action.type){
     case INIT_PAGE:
       switch(action.pageType) {
@@ -111,7 +112,6 @@ const page = ( state = initState.page, action ) => {
 
 
     //BLOG
-    let artists = false
     case SET_BLOGS_LIST:
       return Object.assign({}, state, {
         posts: action.posts
@@ -262,7 +262,7 @@ const page = ( state = initState.page, action ) => {
     case SET_SNS_BY_ARTIST:
       artists = [...state.artists]
       artists[action.index].sns = [...artists[action.index].sns, action.list]
-
+      return { ...state, artists }
 
 
     default:
@@ -520,45 +520,41 @@ const data = ( state = initState.data , action) => {
 
 
 //CART
-import { REQUEST_GET_CARTS, RECEIVE_GET_CARTS, REQUEST_ADD_TO_CART, RECEIVE_ATT_TO_CART, REQUEST_REMOVE_CART, RECEIVE_REMOVE_CART } from '../actions/'
+import { REQUEST_GET_CARTS, RECEIVE_GET_CARTS, REQUEST_ADD_TO_CART, RECEIVE_ATT_TO_CART, REQUEST_REMOVE_CART, RECEIVE_REMOVE_CART, OPEN_CART, CLOSE_CART } from '../actions/'
 const cart = ( state = initState.cart , action) => {
   switch(action.type) {
     case REQUEST_GET_CARTS:
-      return Object.assign({}, state, {
-        isFetching: true
-      })
+      return { ...state, isFetching: true }
 
     case RECEIVE_GET_CARTS:
       let music = action.products.music || []
       let product = action.products.product || []
-
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: false,
         loaded: true,
         products: { music, product },
-        productsCount: music.length + product.length
-      })
+        productsCount: music.length + product.length,
+        total: action.products.total
+      }
+
     case REQUEST_ADD_TO_CART:
-      return Object.assign({}, state, {
-        isFetching: true
-      })
+      return { ...state, isFetching: true }
 
     case RECEIVE_ATT_TO_CART:
-      return Object.assign({}, state, {
-        isFetching: false,
-        loaded: false
-      })
+      return { ...state, isFetching: false, loaded: true }
 
     case REQUEST_REMOVE_CART:
-      return Object.assign({}, state, {
-        isFetching: true
-      })
+      return { ...state, isFetching: true }
 
     case RECEIVE_REMOVE_CART:
-      return Object.assign({}, state, {
-        isFetching: false,
-        loaded: false
-      })
+      return { ...state, isFetching: false, loaded: true}
+
+    case OPEN_CART:
+      return { ...state, opened: true }
+
+    case CLOSE_CART:
+      return { ...state, opened: false }
 
     default:
       return state

@@ -7,6 +7,7 @@ import Footer from '../components/app/Footer'
 import Frame from '../components/app/Frame'
 import Header from '../containers/app/Header'
 import Menu from '../containers/app/Menu'
+import Cart from '../containers/app/Cart'
 import SquareSpinner from '../components/lib/spinner/SquareSpinner'
 
 
@@ -29,6 +30,7 @@ class App extends Component {
           <Footer color={textColor} bgColor={themeColor}/>
           <Frame color={textColor} bgColor={themeColor}/>
           <Popup color={textColor} bgColor={themeColor}>{popup}</Popup>
+          <Cart />
           <Menu />
           <Header color={textColor}/>
         </div>

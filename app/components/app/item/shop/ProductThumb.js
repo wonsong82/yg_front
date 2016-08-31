@@ -3,6 +3,7 @@ import React from 'react'
 import RouterLink from '../../../../containers/lib/link/RouterLink'
 import Image from '../../../../components/lib/image/Image'
 import Ripple from '../../../../components/lib/effect/Ripple'
+import ThumbHover from '../../../../components/lib/button/ThumbHover'
 
 const ProductThumb = ({ title, url, artistName, price, thumb1x1, thumb2x1, thumb1x2, layoutStyle, layoutNum }) => (
 
@@ -22,6 +23,8 @@ const ProductThumb = ({ title, url, artistName, price, thumb1x1, thumb2x1, thumb
     </div>
 
     <span className="price">{`$${price}`}</span>
+
+    <ThumbHover text="Details" />
 
   </RouterLink>
 

@@ -30,6 +30,30 @@ export const toggleMainMenu = Middlewares.toggleMainMenu
 
 
 
+// DATA: CART
+export const REQUEST_GET_CARTS = 'request_get_carts'
+export const RECEIVE_GET_CARTS = 'receive_get_carts'
+export const REQUEST_ADD_TO_CART = 'request_add_to_cart'
+export const RECEIVE_ATT_TO_CART = 'receive_add_to_cart'
+export const REQUEST_REMOVE_CART = 'request_remove_carts'
+export const RECEIVE_REMOVE_CART = 'receive_remove_carts'
+export const requestGetCarts = () => ({type: REQUEST_GET_CARTS})
+export const receiveGetCarts = (json) => ({type: RECEIVE_GET_CARTS, products: json})
+export const requestAddToCart = () => ({type: REQUEST_ADD_TO_CART})
+export const receiveAddToCart = () => ({type: RECEIVE_ATT_TO_CART})
+export const requestRemoveCart = () => ({type: REQUEST_REMOVE_CART})
+export const receiveRemoveCart = () => ({type: RECEIVE_REMOVE_CART})
+export const getProductsInCart = Middlewares._getProductsInCart
+export const addProductsToCart = Middlewares._addProductsToCart
+export const removeProductInCart = Middlewares._removeProductInCart
+
+export const OPEN_CART = 'open_cart'
+export const CLOSE_CART = 'close_cart'
+export const TOGGLE_CART = 'toggle_cart'
+export const openCart = () => ({ type: OPEN_CART })
+export const closeCart = () => ({ type: CLOSE_CART })
+export const toggleCart = Middlewares.toggleCart
+
 
 
 /***
@@ -259,29 +283,6 @@ export const getSocialFeedsData = Middlewares.getSocialFeedsData
 
 // DATA:ALL
 export const getAllData = Middlewares.getAllData
-
-// DATA: CART
-
-export const REQUEST_GET_CARTS = 'request_get_carts'
-export const RECEIVE_GET_CARTS = 'receive_get_carts'
-export const REQUEST_ADD_TO_CART = 'request_add_to_cart'
-export const RECEIVE_ATT_TO_CART = 'receive_add_to_cart'
-export const REQUEST_REMOVE_CART = 'request_remove_carts'
-export const RECEIVE_REMOVE_CART = 'receive_remove_carts'
-
-
-export const requestGetCarts = () => ({type: REQUEST_GET_CARTS})
-export const receiveGetCarts = (json) => ({type: RECEIVE_GET_CARTS, products: json})
-
-export const requestAddToCart = () => ({type: REQUEST_ADD_TO_CART})
-export const receiveAddToCart = () => ({type: RECEIVE_ATT_TO_CART})
-
-export const requestRemoveCart = () => ({type: REQUEST_REMOVE_CART})
-export const receiveRemoveCart = () => ({type: RECEIVE_REMOVE_CART})
-
-export const getProductsInCart = Middlewares._getProductsInCart
-export const addProductsToCart = Middlewares._addProductsToCart
-export const removeProductInCart = Middlewares._removeProductInCart
 
 
 

@@ -1,0 +1,473 @@
+@import '../variable';
+
+.App .Cart {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: $z-cart;
+  will-change: background-color;
+  transition: background-color 1s ease;
+
+  .cart-container {
+    position: absolute;
+    top: $frameSizeTop;
+    left: $frameSize;
+    right: $frameSize;
+    bottom: $frameSize;
+
+    .scroll-contents {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 30px;
+      box-sizing: border-box;
+
+      .content-wrapper {
+        position: relative;
+        width: getGridWidth(6);
+        margin: 0 auto 40px;
+
+        h3 {
+          position: relative;
+          font: 500 22px/24px $font-family;
+          margin-bottom: 10px;
+          opacity: $opacity--primary;
+          will-change: color;
+          transition: color 1s ease;
+        }
+
+        .data-table {
+          width: 100%;
+          position: relative;
+
+          .table-border {
+            width: 100%;
+            height: 1px;
+            opacity: $opacity--line1;
+            will-change: background-color;
+            transition: background-color 1s ease;
+          }
+
+          table {
+            position: relative;
+            width: 100%;
+
+            th {
+              height: 40px;
+              b {
+                font: 400 14px/40px $font-family;
+                opacity: $opacity--sub;
+                will-change: color;
+                transition: color 1s ease;
+              }
+            }
+
+            td {
+              border-top: 1px solid rgba(0,0,0, $opacity--line2);
+              height: 60px;
+              will-change: border-color;
+              transition: border-color 1s ease;
+            }
+
+            .img {
+              text-align: left;
+              width: 60px;
+              .image {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .name {
+              text-align: left;
+              width: auto;
+              padding-left: 10px;
+              span {
+                font: 400 16px/60px $font-family;
+                opacity: $opacity--title;
+                will-change: color;
+                transition: color 1s ease;
+              }
+            }
+            .unit-price {
+              text-align: right;
+              width: 100px;
+              padding-right: 20px;
+              span {
+                font: 400 16px/60px $font-family;
+                opacity: $opacity--caption;
+                will-change: color;
+                transition: color 1s ease;
+              }
+            }
+            .quantity {
+              text-align: center;
+              width: 100px;
+
+              .NumberStepper {
+                position: relative;
+                display: inline-block;
+                width: 55px;
+                height: 30px;
+
+                .input {
+                  width: 100%;
+                  height: 100%;
+                  background: transparent;
+                  box-sizing: border-box;
+                  appearance: none;
+                  outline: none;
+                  text-align: center;
+                  font: 500 16px/28px $font-family;
+                  will-change: border-color, color;
+                  transition: border-color 0.3s ease, color 0.3s ease;
+                }
+                &.dark .input {
+                  border: 1px solid rgba(255,255,255, $opacity--caption);
+                  color: rgba(255,255,255, $opacity--caption);
+                  &:focus {
+                    border: 1px solid rgba(255,255,255, $opacity--primary);
+                    color: rgba(255,255,255, $opacity--primary);
+
+                  }
+                }
+                &.light .input {
+                  border: 1px solid rgba(0,0,0, $opacity--caption);
+                  color: rgba(0,0,0, $opacity--caption);
+                  &:focus {
+                    border: 1px solid rgba(0,0,0, $opacity--primary);
+                    color: rgba(0,0,0, $opacity--primary);
+
+                  }
+                }
+
+                .stepup {
+                  position: absolute;
+                  font: 400 12px/12px $font-family;
+                  cursor: pointer;
+                  top: 50%;
+                  right: 4px;
+                  margin-top: -12px;
+                  will-change: color;
+                  transition: color 0.3s ease;
+                }
+
+                .stepdown {
+                  position: absolute;
+                  font: 400 12px/12px $font-family;
+                  cursor: pointer;
+                  top: 50%;
+                  right: 4px;
+                  margin-top: 0;
+                  will-change: color;
+                  transition: color 0.3s ease;
+                }
+
+                &.dark .stepup, &.dark .stepdown {
+                  color: rgba(255,255,255, $opacity--caption);
+                  &:hover {
+                    color: rgba(255,255,255, $opacity--primary);
+                  }
+                }
+                &.light .stepup, &.light .stepdown {
+                  color: rgba(0,0,0, $opacity--caption);
+                  &:hover {
+                    color: rgba(0,0,0, $opacity--primary);
+                  }
+                }
+              }
+            }
+            .total-price {
+              text-align: right;
+              width: 90px;
+              padding-right: 20px;
+              span {
+                font: 400 16px/60px $font-family;
+                opacity: $opacity--title;
+                will-change: color;
+                transition: color 1s ease;
+              }
+            }
+            .delete {
+              text-align: center;
+              width: 40px;
+              a {
+                position: relative;
+                cursor: pointer;
+                top: 4px;
+                span {
+                  font-size: 20px;
+                  line-height: 20px;
+                  opacity: $opacity--caption;
+                  will-change: color;
+                  transition: color 1s ease;
+                }
+                &:hover {
+                  span {
+                    opacity: $opacity--title;
+                  }
+                }
+              }
+            }
+
+            .subtotal-text {
+              text-align: left;
+              width: 50%;
+              border: 0;
+              span {
+                padding-left: 10px;
+                font: 400 16px/60px $font-family;
+                opacity: $opacity--primary;
+                will-change: color;
+                transition: color 1s ease;
+              }
+            }
+
+            .subtotal-value {
+              text-align: right;
+              width: 50%;
+              border: 0;
+              span {
+                padding-right: 10px;
+                font: 400 16px/60px $font-family;
+                opacity: $opacity--primary;
+                will-change: color;
+                transition: color 1s ease;
+              }
+            }
+
+
+
+          }
+        }
+
+
+      }
+
+      .controls {
+        width: 100%;
+        position: relative;
+        padding-bottom: 80px;
+        text-align: center;
+
+        .checkout-btn {
+          display: inline-block;
+          margin: 0 auto;
+          height: 40px;
+          box-sizing: border-box;
+          background: rgba(0,0,0, $opacity--primary);
+          color: rgba(255,255,255, $opacity--primary);
+          font: 500 16px/40px 'Klavika', sans-serif;
+          text-align: center;
+          user-select: none;
+          outline: none;
+          padding: 0 30px;
+          vertical-align: middle;
+          cursor: pointer;
+          border: 1px solid rgba(0,0,0, $opacity--primary);
+        }
+      }
+    }
+  }
+
+  .closebtn {
+    position: absolute;
+    right: 30px;
+    top: 70px;
+    cursor: pointer;
+    span {
+      transition: background-color 1s ease;
+      will-change: background-color;
+    }
+  }
+
+
+  .film {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.4;
+    z-index: 999;
+    will-change: opacity;
+    transition: opacity 0.3s ease;
+    &.closed {
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+  }
+}
+
+
+
+@media (max-width: $maxWidth--8-10) {
+  .App .Cart {
+
+    .cart-container {
+      top: $frameSizeTop--lg;
+      left: $frameSize--lg;
+      right: $frameSize--lg;
+      bottom: $frameSize--lg;
+    }
+  }}
+
+@media (max-width: $maxWidth--6-10) {
+  .App .Cart {
+
+    .cart-container {
+      top: $frameSizeTop--md;
+      left: $frameSize--md;
+      right: $frameSize--md;
+      bottom: $frameSize--md;
+    }
+  }}
+
+@media (max-width: $maxWidth--4-10) {
+  .App .Cart {
+
+    .cart-container {
+      top: $frameSizeTop--sm;
+      left: $frameSize--sm;
+      right: $frameSize--sm;
+      bottom: $frameSize--sm;
+
+      .scroll-contents {
+        padding: 20px;
+
+        .content-wrapper {
+          width: getGridWidth(4);
+          margin-bottom: 60px;
+
+          h3 {
+            font: 500 18px/18px $font-family;
+          }
+
+          .data-table {
+
+            table {
+              display: block;
+
+              thead {
+                display: none;
+              }
+
+              tbody {
+                display: block;
+                width: 100%;
+
+                tr {
+                  display: block;
+                  width: 100%;
+                  position: relative;
+                  transition: border-color 1s ease;
+                  will-change: border-color;
+                  padding: 20px 0;
+
+                  &+tr {
+                    border-top: 1px solid #000;
+                  }
+
+
+                  td {
+                    display: block;
+                    width: auto;
+                    height: auto;
+                    border: 0;
+                  }
+
+                  .img {
+                    margin: 0 0 10px 0;
+                    text-align: left;
+                    width: 120px;
+                    height: 120px;
+                  }
+
+                  .name {
+                    padding-left: 0;
+                    span {
+                      font: 400 14px/20px $font-family;
+                    }
+                  }
+
+                  .unit-price {
+                    text-align: left;
+                    padding: 0;
+                    margin-bottom: 6px;
+                    span {
+                      font: 400 14px/20px $font-family;
+                    }
+                  }
+
+                  .quantity {
+                    text-align: left;
+                  }
+
+                  .total-price {
+                    display: none;
+                  }
+
+                  .delete {
+                    width: 24px;
+                    height: 24px;
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translateY(-50%);
+                  }
+
+                  .subtotal-text {
+                    span {
+                      padding: 0;
+                      font: 400 14px/30px $font-family;
+                    }
+                  }
+
+                  .subtotal-value {
+                    position: absolute;
+                    top: 10px;
+                    right: 0;
+                    span {
+                      font: 400 14px/30px $font-family;
+                    }
+                  }
+
+                }
+
+                .subtotal-tr {
+                  padding: 10px 0;
+                }
+              }
+
+            }
+          }
+
+
+        }
+      }
+
+    }
+  }}
+
+@media (max-width: $maxWidth--2-10) {
+  .App .Cart {
+
+    .cart-container {
+      top: $frameSizeTop--xs;
+      left: $frameSize--xs;
+      right: $frameSize--xs;
+      bottom: $frameSize--xs;
+
+      .scroll-contents {
+        padding: 15px;
+
+        .content-wrapper {
+          width: getGridWidth(2);
+        }
+      }
+    }
+  }}

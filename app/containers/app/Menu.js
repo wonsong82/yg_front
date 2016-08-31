@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { enableMainMenu, disableMainMenu, closeMainMenu } from '../../actions/'
+import { enableMainMenu, disableMainMenu, closeMainMenu, closeCart } from '../../actions/'
 import Menu from '../../transitions/app/Menu'
 
 
@@ -16,7 +16,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onTransitionStart: () => dispatch(disableMainMenu()),
     onTransitionFinish: () => dispatch(enableMainMenu()),
-    onLinkClick: () => dispatch(closeMainMenu()),
+    onLinkClick: () => {
+      dispatch(closeMainMenu())
+      dispatch(closeCart())
+    },
     onESCPressed: () => dispatch(closeMainMenu())
   }
 }

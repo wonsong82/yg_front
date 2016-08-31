@@ -2,6 +2,7 @@ require('./Header.scss')
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import MenuButton from '../../components/lib/button/MenuButton'
+import AnchorLink from '../../components/lib/link/AnchorLink'
 
 
 
@@ -21,8 +22,13 @@ class Header extends React.Component {
     this.props.onHomeClick()
   }
 
+  onCartClick(e){
+    e.preventDefault()
+    this.props.onCartClick()
+  }
+
   render(){
-    const { color, isMenuButtonDisabled, isMenuOpened } = this.props
+    const { color, isMenuButtonDisabled, isMenuOpened, productsCount } = this.props
 
     return (
       <div className="Header">
@@ -41,10 +47,20 @@ class Header extends React.Component {
           <span className="icon-logo" style={{color}} />
         </Link>
 
-        {/* My Page Link */}
 
-        {/* Cart Link */}
+        <AnchorLink
+          href="/my-account"
+          className="my-account"
+           >
+          <span className="icon-log-in" style={{color}} />
+        </AnchorLink>
 
+        <a href="#"
+           onClick={this.onCartClick.bind(this)}
+           className="cart" >
+          <span className="icon-shopping-bag" style={{color}} />
+          <span className="quantity" style={{color}}>{productsCount}</span>
+        </a>
 
       </div>
     )

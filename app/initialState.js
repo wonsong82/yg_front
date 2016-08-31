@@ -14,15 +14,6 @@ const initialState = {
     artistList: []
   },
 
-  page: {},
-
-  popup: {},
-
-  signup: {
-    isLoading: false
-  },
-
-
   cart: {
     loaded: false,
     isFetching: false,
@@ -30,7 +21,17 @@ const initialState = {
       product: [],
       music: []
     },
-    productsCount: 0
+    opened: false,
+    productsCount: 0,
+    total: 0
+  },
+
+  page: {},
+
+  popup: {},
+
+  signup: {
+    isLoading: false
   },
 
 
