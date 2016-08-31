@@ -5,7 +5,7 @@ import BlogTextLink from '../../../components/app/item/blog/BlogTextLink'
 import ViewMore from '../../../components/lib/link/ViewMore'
 
 
-const Blog = ({ posts, hotPosts, onBlogViewMoreClick, onHotPostsViewMoreClick, postsAllLoaded, hotPostsAllLoaded }) => (
+const Blog = ({ posts, hotPosts, onViewMoreClick, onHotPostsViewMoreClick, postsAllLoaded, hotPostsAllLoaded }) => (
 
   <div className="BlogLayout page-grid">
 
@@ -27,7 +27,7 @@ const Blog = ({ posts, hotPosts, onBlogViewMoreClick, onHotPostsViewMoreClick, p
 
       {
         !postsAllLoaded &&
-        <ViewMore className="view-more" onClick={onBlogViewMoreClick} />
+        <ViewMore className="view-more" onClick={onViewMoreClick} />
       }
     </section>
 

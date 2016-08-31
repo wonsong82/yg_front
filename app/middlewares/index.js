@@ -772,34 +772,30 @@ export const loadSNSByArtist = (index) => (dispatch, getState) => {
   if(state.page.type != 'artist') return true
   const artist = state.page.artists[index]
 
-  const data = toArray(state.data.socialFeeds.contents.feeds)
-    .filter( e => e.artist_id == artist.id)
+  const data = state.data.socialFeeds.contents.feeds[artist.id],
+    dataCount = data && data.length
 
-    let {profile_image_url, url, username, feeds} = data[0]
-    const list = {
-      image_url: profile_image_url,
-      url,
-      username,
-      feeds
+  let list = [];
+
+  if(dataCount > 0){
+
+    for(let i=0; i<dataCount; i++){
+      const {type, created_at, url, username, image, profile_image, text} = data[i];
+
+      list.push({
+        type,
+        data: created_at,
+        url,
+        username,
+        image,
+        profile_image,
+        text
+      })
     }
+  }
 
   dispatch(setSNSByArtist(index, list))
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   /***
