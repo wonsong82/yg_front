@@ -124,7 +124,7 @@ class Cart extends Component {
                           value={product.quantity}
                           min={0} max={100} step={1}
                           disabled={loading? true:false}
-                          onChange={this.onQuantityChange.bind(this, product.cart_id, product.variation_id)}
+                          onChange={this.onQuantityChange.bind(this, product.product_id, product.variation_id)}
                         />
                       </td>
                       <td className="total-price" style={{borderColor:line2Color}}>
@@ -133,7 +133,7 @@ class Cart extends Component {
                       <td className="delete" style={{borderColor:line2Color}}>
                         <a
                           href="#"
-                          onClick={this.onDelete.bind(this, product.cart_id, product.variation_id)}
+                          onClick={this.onDelete.bind(this, product.product_id, product.variation_id)}
                           className={loading? 'delete-btn disabled': 'delete-btn'} >
                           <span style={{color:textColor}} className="icon-delete" />
                         </a>
@@ -189,7 +189,7 @@ class Cart extends Component {
                             value={product.quantity}
                             min={0} max={100} step={1}
                             disabled={loading? true:false}
-                            onChange={this.onQuantityChange.bind(this, product.cart_id, product.variation_id)}
+                            onChange={this.onQuantityChange.bind(this, product.product_id, product.variation_id)}
                           />
                         </td>
                         <td className="total-price" style={{borderColor:line2Color}}>
@@ -198,7 +198,7 @@ class Cart extends Component {
                         <td className="delete" style={{borderColor:line2Color}}>
                           <a
                             href="#"
-                            onClick={this.onDelete.bind(this, product.cart_id, product.variation_id)}
+                            onClick={this.onDelete.bind(this, product.product_id, product.variation_id)}
                             className={loading? 'delete-btn disabled': 'delete-btn'} >
                             <span style={{color:textColor}} className="icon-delete" />
                           </a>

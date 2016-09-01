@@ -1269,6 +1269,33 @@ export const _removeProductInCart = (productId, variationId) => (dispatch, getSt
       dispatch(receiveRemoveCart())
       console.log(response.status)
       if(response.status == 200){
+        console.log('receive');
+        dispatch(getProductsInCart())
+      }
+    })
+  }
+}
+
+export const _updateProductInCart = (productId, variationId, qty) => (dispatch, getState) => {
+  let state = getState()
+  let shouldFetch = !state.cart.isFetching
+  if(shouldFetch){
+    dispatch(requestAddToCart())
+    fetch('/api/updateProductsInCart', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        'product_id' : productId,
+        'variation_id' : variationId,
+        'qty': qty
+      })
+    }).then(response => {
+      dispatch(receiveAddToCart())
+      if(response.status == 200){
         dispatch(getProductsInCart())
       }
     })

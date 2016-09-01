@@ -520,7 +520,7 @@ const data = ( state = initState.data , action) => {
 
 
 //CART
-import { REQUEST_GET_CARTS, RECEIVE_GET_CARTS, REQUEST_ADD_TO_CART, RECEIVE_ATT_TO_CART, REQUEST_REMOVE_CART, RECEIVE_REMOVE_CART, OPEN_CART, CLOSE_CART } from '../actions/'
+import { REQUEST_GET_CARTS, RECEIVE_GET_CARTS, REQUEST_ADD_TO_CART, RECEIVE_ATT_TO_CART, REQUEST_REMOVE_CART, RECEIVE_REMOVE_CART, REQUEST_UPDATE_CART, RECEIVE_UPDATE_CART, OPEN_CART, CLOSE_CART } from '../actions/'
 const cart = ( state = initState.cart , action) => {
   switch(action.type) {
     case REQUEST_GET_CARTS:
@@ -534,7 +534,7 @@ const cart = ( state = initState.cart , action) => {
         isFetching: false,
         loaded: true,
         products: { music, product },
-        productsCount: music.length + product.length,
+        productsCount: action.products.products_count,
         total: action.products.total
       }
 
@@ -542,13 +542,20 @@ const cart = ( state = initState.cart , action) => {
       return { ...state, isFetching: true }
 
     case RECEIVE_ATT_TO_CART:
-      return { ...state, isFetching: false, loaded: true }
+      return { ...state, isFetching: false, loaded: false }
 
     case REQUEST_REMOVE_CART:
       return { ...state, isFetching: true }
 
     case RECEIVE_REMOVE_CART:
-      return { ...state, isFetching: false, loaded: true}
+      return { ...state, isFetching: false, loaded: false}
+
+    case REQUEST_UPDATE_CART:
+      return { ...state, isFetching: true }
+
+    case RECEIVE_UPDATE_CART:
+      return { ...state, isFetching: false, loaded: false }
+
 
     case OPEN_CART:
       return { ...state, opened: true }

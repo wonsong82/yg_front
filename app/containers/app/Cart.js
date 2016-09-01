@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { addProductsToCart, removeProductInCart, closeCart } from '../../actions/'
+import { updateProductInCart, removeProductInCart, closeCart } from '../../actions/'
 import Cart from '../../transitions/app/Cart'
 
 
@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onQuantityChange: (productId, variationId, qty) => {
-      dispatch(addProductsToCart(productId, variationId, qty))
+      dispatch(updateProductInCart(productId, variationId, qty))
     },
     onRemove: (productId, variationId) => {
       dispatch(removeProductInCart(productId, variationId))
