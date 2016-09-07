@@ -1,0 +1,81 @@
+.SquareSpinner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .box {
+    position: absolute;
+    width: 48%;
+    height: 48%;
+    opacity: 0;
+    animation-iteration-count: infinite;
+    background-color: #000000;
+    animation-duration: 1900ms;
+
+    &.tl {
+      top: 0;
+      left: 0;
+      animation-name: spinner-transition-tl;
+    }
+    &.tr {
+      top: 0;
+      right: 0;
+      animation-name: spinner-transition-tr;
+    }
+    &.bl {
+      bottom: 0;
+      left: 0;
+      animation-name: spinner-transition-bl;
+    }
+    &.br {
+      bottom: 0;
+      right: 0;
+      animation-name: spinner-transition-br;
+    }
+  }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spinner-transition-tl {
+    0% { opacity: 0; }
+    0% { opacity: 0; }
+   26% { opacity: 1; }
+   50% { opacity: 1; }
+   50% { opacity: 1; }
+   76% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes spinner-transition-tr {
+    0% { opacity: 0; }
+    8% { opacity: 0; }
+   34% { opacity: 1; }
+   50% { opacity: 1; }
+   58% { opacity: 1; }
+   84% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes spinner-transition-br {
+    0% { opacity: 0; }
+   16% { opacity: 0; }
+   42% { opacity: 1; }
+   50% { opacity: 1; }
+   66% { opacity: 1; }
+   92% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes spinner-transition-bl {
+    0% { opacity: 0; }
+   24% { opacity: 0; }
+   50% { opacity: 1; }
+   50% { opacity: 1; }
+   74% { opacity: 1; }
+  100% { opacity: 0; }
+  100% { opacity: 0; }
+}
