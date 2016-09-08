@@ -7,6 +7,7 @@ import dateformat from 'dateformat'
 const TourSchedule = ({ tour_date: date, event_time: time, location, place, ticket_link: link, ticket_availability: available, themeColor, textColor }) => (
 
     <div className="TourSchedule" >
+      {console.log(date)}
 
       <div className="info">
         <Ripple color="rgba(0,0,0,.5)"/>
