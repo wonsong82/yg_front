@@ -11,6 +11,10 @@
   "dependencies": {
     "cors": "^2.7.1",
     "express": "^4.14.0",
+    "glob": "^7.0.6",
     "vhost": "^3.0.2"
+  },
+  "devDependencies": {
+    "glob": "^7.0.6"
   }
 }
