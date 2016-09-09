@@ -53,12 +53,17 @@ export const loadBlogsList = ( count ) => (dispatch, getState) => {
 
   if(state.page.type == 'blog'){
     const posts = state.page.posts,
-      postsData = state.data.blogs.contents.posts,
-      postsDataCount = Object.keys(postsData).length
+      postsData = state.data.blogs.contents.posts_order.map(id =>
+        state.data.blogs.contents.posts[id]
+      ),
+      postsDataCount = postsData.length
+
     let curCount  = posts.length
     let nextCount = curCount + count
     let newPosts = []
     var index = 0
+
+
 
     for( let key in postsData ) {
       if (postsData.hasOwnProperty(key)) {
@@ -146,7 +151,10 @@ export const loadEventsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch, 
     if(state.page.eventsAllLoaded) return true
 
     const events = state.page.events,
-          eventsData = toArray(state.data.events.contents.events),
+          eventsData = state.data.events.contents.eventsOrder.map(id =>
+            state.data.events.contents.events[id]
+          ),
+
           eventsDataCount = state.data.events.contents.eventsCount,
           artistsData = state.data.artists.contents.artists
 
@@ -209,7 +217,11 @@ export const loadProductsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch
   if(state.page.type == 'shop'){
     if(state.page.productsAllLoaded) return true
     const curCategory = state.page.selectedCategory == 0 ? null : state.page.selectedCategory
-    let productsData = toArray(state.data.shops.contents.products)
+    // let productsData = toArray(state.data.shops.contents.products)'
+    let productsData = state.data.shops.contents.productsOrder.map(id =>
+      state.data.shops.contents.products[id]
+    )
+
     if(curCategory != null){
       productsData = productsData.filter( product => {
         return product.cat_IDs.indexOf(curCategory) != -1
@@ -345,7 +357,9 @@ export const loadToursList = ( count ) => (dispatch, getState) => {
   if(state.page.type = 'tour'){
 
     const tours = state.page.tours,
-        toursData = state.data.tours.contents.tours,
+        toursData = state.data.tours.contents.toursOrder.map(id =>
+          state.data.tours.contents.tours[id]
+        ),
         toursDataCount = state.data.tours.contents.toursCount,
         artistsData = state.data.artists.contents.artists
 
@@ -411,7 +425,10 @@ export const loadAlbumsList = (count=6) => (dispatch, getState) => {
     if(state.page.albumsAllLoaded) return true
 
     const albums = state.page.albums,
-          albumsData = toArray(state.data.musics.contents.albums),
+          // albumsData = toArray(state.data.musics.contents.albums),
+          albumsData = state.data.musics.contents.albumsOrder.map(id =>
+            state.data.musics.contents.albums[id]
+          ),
           albumsDataCount = state.data.musics.contents.albumsCount,
           artistData = state.data.artists.contents.artists
 
@@ -602,8 +619,10 @@ export const loadToursByArtist = ( index, count=1 ) => (dispatch, getState) => {
   if(artist.toursAllLoaded) return true
 
   const tours   = artist.tours,
-        data    = toArray(state.data.tours.contents.tours)
-                    .filter( e => e.artist_id == artist.id ),
+        data = state.data.tours.contents.toursOrder.map(id =>
+          state.data.tours.contents.tours[id]
+        ).filter( e => e.artist_id == artist.id ),
+
         dataCount = data.length,
         artistData = state.data.artists.contents.artists
 
@@ -633,8 +652,9 @@ export const loadProductsByArtist = ( index, layoutStyle=LAYOUT_STYLE.RANDOM, co
   if(artist.productsAllLoaded) return true
 
   const products    = artist.products,
-        data        = toArray(state.data.shops.contents.products)
-                      .filter( e => e.artist_id == artist.id ),
+        data        = state.data.shops.contents.productsOrder.map(id =>
+                        state.data.shops.contents.products[id]
+                      ).filter( e => e.artist_id == artist.id ),
         dataCount   = data.length,
         artistData  = state.data.artists.contents.artists
 
@@ -670,7 +690,7 @@ export const loadAlbumsByArtist = ( index, count=6 ) => (dispatch, getState) => 
   if(artist.albumsAllLoaded) return true
 
   const albums  = artist.albums,
-        data    = toArray(state.data.musics.contents.albums)
+        data    = state.data.musics.contents.albumsOrder.map(id=>state.data.musics.contents.albums[id])
                     .filter( e => e.artist_id == artist.id ),
         dataCount = data.length,
         artistData = state.data.artists.contents.artists
@@ -737,7 +757,7 @@ export const loadEventsByArtist = ( index,layoutStyle=LAYOUT_STYLE.RANDOM,  coun
   if(artist.eventsAllLoaded) return true
 
   const events      = artist.events,
-        data        = toArray(state.data.events.contents.events)
+        data        = state.data.events.contents.eventsOrder.map(id=>state.data.events.contents.events[id])
                       .filter( e => e.artist_id == artist.id ),
         dataCount   = data.length,
         artistData  = state.data.artists.contents.artists

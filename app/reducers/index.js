@@ -375,7 +375,7 @@ const data = ( state = initState.data , action) => {
         blogs: Object.assign({}, state.blogs, {isFetching: true})
       })
     case RECEIVE_BLOGS:
-      let { posts, hot_posts} = action.data
+      let { posts, hot_posts, posts_order } = action.data
       return Object.assign({}, state, {
         blogs: Object.assign({}, state.blogs, {
           isFetching: false,
@@ -384,7 +384,8 @@ const data = ( state = initState.data , action) => {
             posts: posts || {},
             total_posts: posts ? Object.keys(posts).length : 0,
             hot_posts: hot_posts || [],
-            total_hot_posts: hot_posts ? hot_posts.length : 0
+            total_hot_posts: hot_posts ? hot_posts.length : 0,
+            posts_order: posts_order || []
           }
         })
       })
@@ -397,14 +398,15 @@ const data = ( state = initState.data , action) => {
       })
 
     case RECEIVE_EVENTS:
-      let events  = action.data
+      let { events, event_order }  = action.data
       return Object.assign({}, state, {
         events: Object.assign({}, state.events, {
           isFetching: false,
           loaded: true,
           contents: {
             events: events || {},
-            eventsCount: events ? Object.keys(events).length : 0
+            eventsCount: events ? Object.keys(events).length : 0,
+            eventsOrder: event_order || []
           }
         })
       })
@@ -416,14 +418,15 @@ const data = ( state = initState.data , action) => {
       })
 
     case RECEIVE_TOURS:
-      let tours = action.data
+      let { tours, tours_order } = action.data
       return Object.assign({}, state, {
         tours: Object.assign({}, state.tours,{
           isFetching: false,
           loaded: true,
           contents: {
             tours: tours || {},
-            toursCount: tours ? Object.keys(tours).length : 0
+            toursCount: tours ? Object.keys(tours).length : 0,
+            toursOrder: tours_order || []
           }
         })
       })
@@ -435,7 +438,7 @@ const data = ( state = initState.data , action) => {
       })
 
     case RECEIVE_MUSICS:
-      let { albums, musics, hotTracks } = action.data
+      let { albums, musics, hotTracks , albums_order} = action.data
       return Object.assign({}, state, {
         musics: Object.assign({}, state.musics, {
           isFetching: false,
@@ -443,6 +446,7 @@ const data = ( state = initState.data , action) => {
           contents: {
             albums: albums || {},
             albumsCount: albums ? Object.keys(albums).length : 0,
+            albumsOrder: albums_order || [],
             musics: musics || {},
             musicsCount: musics ? Object.keys(musics).length : 0,
             hotTracks: hotTracks || [],
@@ -458,7 +462,7 @@ const data = ( state = initState.data , action) => {
       })
 
     case RECEIVE_SHOPS:
-      let { products, categories } = action.data
+      let { products, products_order, categories } = action.data
 
       return Object.assign({}, state, {
         shops: Object.assign({}, state.shops, {
@@ -467,6 +471,7 @@ const data = ( state = initState.data , action) => {
           contents: {
             products: products || {},
             productsCount: products ? Object.keys(products).length : 0,
+            productsOrder: products_order || [],
             categories: categories || [],
             categoriesCount: categories ? Object.keys(categories).length : 0,
           }

@@ -55,7 +55,8 @@ const initialState = {
         hotPosts: {},
         hotPostsCount: 0,
         mostViewedPosts: {},
-        mostViewedPostsCount: 0
+        mostViewedPostsCount: 0,
+        postsOrder: {}
       }
     },
 
@@ -65,6 +66,7 @@ const initialState = {
       contents: {
         tours: {},
         toursCount: 0,
+        toursOrder: {}
       }
     },
 
@@ -74,6 +76,7 @@ const initialState = {
       contents: {
         events: {},
         eventsCount: 0,
+        eventsOrder: {}
       }
     },
 
@@ -83,6 +86,7 @@ const initialState = {
       contents: {
         albums: {},
         albumsCount: 0,
+        albumsOrder: {},
         musics: {},
         musicsCount: 0,
         hotTracks: {},
@@ -96,6 +100,7 @@ const initialState = {
       contents: {
         products: {},
         productsCount: 0,
+        productsOrder: {},
         categories: {},
         categoriesCount: 0
       }
