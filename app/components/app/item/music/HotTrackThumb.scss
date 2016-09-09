@@ -223,12 +223,14 @@
           display: none;
         }
         .song {
+          bottom: 40px;
+
           .artist-name {
             display: block;
             font-size: 12px;
           }
           .current-time {
-            display: block;
+            display: none;
             font-size: 12px;
           }
         }
@@ -264,7 +266,7 @@
 
   .track-price {
     bottom: 48px;
-    right: 40px;
+    right: 20px;
   }
 
 
