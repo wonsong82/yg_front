@@ -22,7 +22,6 @@ class App extends Component {
   render(){
     const { page, popup, themeColor, textColor, dataLoaded, startApp } = this.props
 
-
     if( startApp ) {
       return (
         <div className="App">
