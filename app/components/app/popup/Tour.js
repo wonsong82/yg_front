@@ -2,7 +2,7 @@ require('./Tour.scss')
 import React, { Component, PropTypes } from 'react'
 import AnchorLink from '../../../components/lib/link/AnchorLink'
 import Image from '../../../components/lib/image/Image'
-import dateformat from 'dateformat'
+import moment from 'moment'
 //import ScrollArea from 'react-scrollbar/dist/no-css'
 import ScrollArea from '../../../components/lib/scroll/ScrollArea'
 import TourSchedule from '../../../components/app/item/tour/TourSchedule'
@@ -91,8 +91,8 @@ class Tour extends Component {
               <h6 className="title" style={{color:textColor}}>{title}</h6>
               <span className="subtitle" style={{color:textColor}}>{subtitle}</span>
               <span className="date" style={{color:textColor}}>
-              { dateformat(startDate, 'ddmmm(ddd)') }&nbsp;-&nbsp;
-                        { dateformat(endDate,   'ddmmm(ddd)') }
+              { moment(startDate).format('DDMMM(ddd)') }&nbsp;-&nbsp;
+                        { moment(endDate).format('DDMMM(ddd)') }
             </span>
             </div>
             }
@@ -101,8 +101,8 @@ class Tour extends Component {
               <h1 className="title">{title}</h1>
               <span className="subtitle">{subtitle}</span>
               <span className="date">
-              { dateformat(startDate, 'ddmmm(ddd)') }&nbsp;-&nbsp;
-                { dateformat(endDate,   'ddmmm(ddd)') }
+              { moment(startDate).format('DDMMM(ddd)') }&nbsp;-&nbsp;
+                { moment(endDate).format('DDMMM(ddd)') }
             </span>
               <div className="socialLinks">
                 <AnchorLink href={facebookShareLink} target="_blank">

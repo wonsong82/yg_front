@@ -51,6 +51,8 @@ class ArtistSwiper extends Component {
     const { slides, redirect, activeIndex } = this.props
 
     if(!this.swiper && !prevProps.slides && slides){
+      console.log(activeIndex)
+
       this.swiper = new Swiper($(this.refs.pages), {
         nextButton: $(this.refs.nextBtn),
         prevButton: $(this.refs.prevBtn),
@@ -59,7 +61,10 @@ class ArtistSwiper extends Component {
         nested: true,
         initialSlide: activeIndex,
         autoHeight: true,
+        preventClicks:false,
+        preventClicksPropagation: false,
         onSlideChangeEnd: (e) => {
+          if(e.activeIndex != activeIndex)
           redirect(`/artist/${slides[e.activeIndex].urlFriendlyName}`)
         }
       })

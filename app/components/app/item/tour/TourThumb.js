@@ -3,7 +3,7 @@ import React from 'react'
 import RouterLink from '../../../../containers/lib/link/RouterLink'
 import Image from '../../../../components/lib/image/Image'
 import Ripple from '../../../../components/lib/effect/Ripple'
-import dateformat from 'dateformat'
+import moment from 'moment'
 import ThumbHover from '../../../../components/lib/button/ThumbHover'
 
 
@@ -23,8 +23,8 @@ const TourThumb = ({ artistName, title, subtitle, url, thumb1x1, thumb2x1, thumb
     <span className="subtitle" style={{color:textColor}}>{subtitle}</span>
 
     <span className="date" style={{color:textColor}}>
-      { dateformat(startDate, 'ddmmm(ddd)') }&nbsp;-&nbsp;
-      { dateformat(endDate,   'ddmmm(ddd)') }
+      { moment(startDate).format('DDMMM(ddd)') }&nbsp;-&nbsp;
+      { moment(endDate).format('DDMMM(ddd)') }
     </span>
 
     <Ripple color="rgba(255,255,255,.5)" />

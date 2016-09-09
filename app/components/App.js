@@ -22,15 +22,14 @@ class App extends Component {
   render(){
     const { page, popup, themeColor, textColor, dataLoaded, startApp } = this.props
 
-
     if( startApp ) {
       return (
         <div className="App">
           <Page ready={page.props.pageType == 'Static' ? true : dataLoaded} color={textColor} page={page}>{page}</Page>
-          <Footer color={textColor} bgColor={themeColor}/>
+          { dataLoaded && <Footer color={textColor} bgColor={themeColor}/> }
           <Frame color={textColor} bgColor={themeColor}/>
-          <Popup color={textColor} bgColor={themeColor}>{popup}</Popup>
-          <Cart />
+          { dataLoaded && <Popup color={textColor} bgColor={themeColor}>{popup}</Popup> }
+          { dataLoaded && <Cart /> }
           <Menu />
           <Header color={textColor}/>
         </div>

@@ -1,8 +1,7 @@
 import React from 'react'
-import RouterLink from '../../../../containers/lib/link/RouterLink'
 import AnchorLink from '../../../../components/lib/link/AnchorLink'
 import Ripple from '../../../../components/lib/effect/Ripple'
-import dateformat from 'dateformat'
+import moment from 'moment'
 
 const TourSchedule = ({ tour_date: date, event_time: time, location, place, ticket_link: link, ticket_availability: available, themeColor, textColor }) => (
 
@@ -13,16 +12,16 @@ const TourSchedule = ({ tour_date: date, event_time: time, location, place, tick
 
         <div className="date">
           <div className="wrapper">
-            <div>{dateformat(date, 'mmm')}</div>
-            <div className="d">{dateformat(date, 'dd')}</div>
-            <div>{dateformat(date, 'ddd')}</div>
+            <div>{moment(date).format('MMM')}</div>
+            <div className="d">{moment(date).format('DD')}</div>
+            <div>{moment(date).format('ddd')}</div>
           </div>
         </div>
 
         <div className="con">
           <div className="place">{place}</div>
           <div className="loc">{location}</div>
-          <div className="time">{dateformat(`${date} ${time}`, 'hh:ii TT')}</div>
+          <div className="time">{moment(`${date} ${time}`).format('hh:mm A')}</div>
         </div>
 
       </div>

@@ -30,6 +30,7 @@
   "author": "Won Song",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^6.4.1",
     "babel": "^6.5.2",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
@@ -67,6 +68,7 @@
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "latest",
+    "moment": "^2.14.1",
     "react": "^15.3.0",
     "react-audio-player": "^0.2.5",
     "react-dom": "^15.3.0",

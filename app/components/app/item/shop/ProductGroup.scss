@@ -10,84 +10,84 @@
   }
 }
 
-$w: (getGridWidth(10) + $gridGap) / 5;
-$h: (400 + $gridGap) / 2;
-@function x($num){
-  @return ($w * ($num - 1)) + ($gridGap / 2);
+$productGroupWidth: (getGridWidth(10) + $gridGap) / 5;
+$productGroupHeight: (400 + $gridGap) / 2;
+@function productGroupX($num){
+  @return ($productGroupWidth * ($num - 1)) + ($gridGap / 2);
 }
-@function y($num){
-  @return ($h * ($num - 1)) + ($gridGap  /2);
+@function productGroupY($num){
+  @return ($productGroupHeight * ($num - 1)) + ($gridGap  /2);
 }
 
 
 @mixin product-group--xl {
   @include product-group-base;
-  width: $w * 5;
-  height: $h * 2;
+  width: $productGroupWidth * 5;
+  height: $productGroupHeight * 2;
   .ProductThumb {
     &.style-1 {
-      &-1 {@include product-thumb--sm; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--vt; top: y(1); left: x(3);}
-      &-3 {@include product-thumb--xs; top: y(1); left: x(4);}
-      &-4 {@include product-thumb--xs; top: y(1); left: x(5);}
-      &-5 {@include product-thumb--xs; top: y(2); left: x(4);}
-      &-6 {@include product-thumb--xs; top: y(2); left: x(5);}
+      &-1 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(3);}
+      &-3 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(4);}
+      &-4 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(5);}
+      &-5 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(4);}
+      &-6 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(5);}
     }
     &.style-2 {
-      &-1 {@include product-thumb--xs; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(2); left: x(1);}
-      &-3 {@include product-thumb--sm; top: y(1); left: x(2);}
-      &-4 {@include product-thumb--xs; top: y(1); left: x(4);}
-      &-5 {@include product-thumb--xs; top: y(2); left: x(4);}
-      &-6 {@include product-thumb--vt; top: y(1); left: x(5);}
+      &-1 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(1);}
+      &-3 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(2);}
+      &-4 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(4);}
+      &-5 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(4);}
+      &-6 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(5);}
     }
     &.style-3 {
-      &-1 {@include product-thumb--sm; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(1); left: x(3);}
-      &-3 {@include product-thumb--xs; top: y(1); left: x(4);}
-      &-4 {@include product-thumb--xs; top: y(1); left: x(5);}
-      &-5 {@include product-thumb--xs; top: y(2); left: x(3);}
-      &-6 {@include product-thumb--hr; top: y(2); left: x(4);}
+      &-1 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(3);}
+      &-3 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(4);}
+      &-4 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(5);}
+      &-5 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(3);}
+      &-6 {@include product-thumb--hr; top: productGroupY(2); left: productGroupX(4);}
     }
     &.style-4 {
-      &-1 {@include product-thumb--xs; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(2); left: x(1);}
-      &-3 {@include product-thumb--sm; top: y(1); left: x(2);}
-      &-4 {@include product-thumb--xs; top: y(1); left: x(4);}
-      &-5 {@include product-thumb--xs; top: y(1); left: x(5);}
-      &-6 {@include product-thumb--hr; top: y(2); left: x(4);}
+      &-1 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(1);}
+      &-3 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(2);}
+      &-4 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(4);}
+      &-5 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(5);}
+      &-6 {@include product-thumb--hr; top: productGroupY(2); left: productGroupX(4);}
     }
     &.style-5 {
-      &-1 {@include product-thumb--vt; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--xs; top: y(1); left: x(3);}
-      &-4 {@include product-thumb--xs; top: y(2); left: x(2);}
-      &-5 {@include product-thumb--xs; top: y(2); left: x(3);}
-      &-6 {@include product-thumb--sm; top: y(1); left: x(4);}
+      &-1 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(3);}
+      &-4 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(2);}
+      &-5 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(3);}
+      &-6 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(4);}
     }
     &.style-6 {
-      &-1 {@include product-thumb--hr; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(2); left: x(1);}
-      &-3 {@include product-thumb--xs; top: y(2); left: x(2);}
-      &-4 {@include product-thumb--sm; top: y(1); left: x(3);}
-      &-5 {@include product-thumb--xs; top: y(1); left: x(5);}
-      &-6 {@include product-thumb--xs; top: y(2); left: x(5);}
+      &-1 {@include product-thumb--hr; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(1);}
+      &-3 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(2);}
+      &-4 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(3);}
+      &-5 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(5);}
+      &-6 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(5);}
     }
     &.style-7 {
-      &-1 {@include product-thumb--hr; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(1); left: x(3);}
-      &-3 {@include product-thumb--xs; top: y(2); left: x(1);}
-      &-4 {@include product-thumb--xs; top: y(2); left: x(2);}
-      &-5 {@include product-thumb--xs; top: y(2); left: x(3);}
-      &-6 {@include product-thumb--sm; top: y(1); left: x(4);}
+      &-1 {@include product-thumb--hr; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(3);}
+      &-3 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(1);}
+      &-4 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(2);}
+      &-5 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(3);}
+      &-6 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(4);}
     }
     &.style-8 {
-      &-1 {@include product-thumb--xs; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(2); left: x(1);}
-      &-3 {@include product-thumb--vt; top: y(1); left: x(2);}
-      &-4 {@include product-thumb--sm; top: y(1); left: x(3);}
-      &-5 {@include product-thumb--xs; top: y(1); left: x(5);}
-      &-6 {@include product-thumb--xs; top: y(2); left: x(5);}
+      &-1 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(1);}
+      &-3 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(2);}
+      &-4 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(3);}
+      &-5 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(5);}
+      &-6 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(5);}
     }
   }
 }
@@ -95,72 +95,72 @@ $h: (400 + $gridGap) / 2;
 
 @mixin product-group--lg {
   @include product-group-base;
-  width: $w * 4;
-  height: $h * 3;
+  width: $productGroupWidth * 4;
+  height: $productGroupHeight * 3;
   .ProductThumb {
     &.style-1 {
-      &-1 {@include product-thumb--sm; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--hr; top: y(1); left: x(3);}
-      &-3 {@include product-thumb--xs; top: y(2); left: x(3);}
-      &-4 {@include product-thumb--xs; top: y(2); left: x(4);}
-      &-5 {@include product-thumb--hr; top: y(3); left: x(1);}
-      &-6 {@include product-thumb--hr; top: y(3); left: x(3);}
+      &-1 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--hr; top: productGroupY(1); left: productGroupX(3);}
+      &-3 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(3);}
+      &-4 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(4);}
+      &-5 {@include product-thumb--hr; top: productGroupY(3); left: productGroupX(1);}
+      &-6 {@include product-thumb--hr; top: productGroupY(3); left: productGroupX(3);}
     }
     &.style-2 {
-      &-1 {@include product-thumb--xs; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--sm; top: y(2); left: x(1);}
-      &-4 {@include product-thumb--vt; top: y(1); left: x(3);}
-      &-5 {@include product-thumb--vt; top: y(1); left: x(4);}
-      &-6 {@include product-thumb--hr; top: y(3); left: x(3);}
+      &-1 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--sm; top: productGroupY(2); left: productGroupX(1);}
+      &-4 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(3);}
+      &-5 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(4);}
+      &-6 {@include product-thumb--hr; top: productGroupY(3); left: productGroupX(3);}
     }
     &.style-3 {
-      &-1 {@include product-thumb--sm; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--vt; top: y(1); left: x(3);}
-      &-3 {@include product-thumb--xs; top: y(1); left: x(4);}
-      &-4 {@include product-thumb--hr; top: y(3); left: x(1);}
-      &-5 {@include product-thumb--xs; top: y(3); left: x(3);}
-      &-6 {@include product-thumb--vt; top: y(2); left: x(4);}
+      &-1 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(3);}
+      &-3 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(4);}
+      &-4 {@include product-thumb--hr; top: productGroupY(3); left: productGroupX(1);}
+      &-5 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(3);}
+      &-6 {@include product-thumb--vt; top: productGroupY(2); left: productGroupX(4);}
     }
     &.style-4 {
-      &-1 {@include product-thumb--vt; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--hr; top: y(1); left: x(3);}
-      &-4 {@include product-thumb--xs; top: y(3); left: x(1);}
-      &-5 {@include product-thumb--sm; top: y(2); left: x(2);}
-      &-6 {@include product-thumb--vt; top: y(2); left: x(4);}
+      &-1 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--hr; top: productGroupY(1); left: productGroupX(3);}
+      &-4 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(1);}
+      &-5 {@include product-thumb--sm; top: productGroupY(2); left: productGroupX(2);}
+      &-6 {@include product-thumb--vt; top: productGroupY(2); left: productGroupX(4);}
     }
     &.style-5 {
-      &-1 {@include product-thumb--vt; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--sm; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--xs; top: y(1); left: x(4);}
-      &-4 {@include product-thumb--xs; top: y(3); left: x(1);}
-      &-5 {@include product-thumb--hr; top: y(3); left: x(2);}
-      &-6 {@include product-thumb--vt; top: y(2); left: x(4);}
+      &-1 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(4);}
+      &-4 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(1);}
+      &-5 {@include product-thumb--hr; top: productGroupY(3); left: productGroupX(2);}
+      &-6 {@include product-thumb--vt; top: productGroupY(2); left: productGroupX(4);}
     }
     &.style-6 {
-      &-1 {@include product-thumb--vt; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--hr; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--xs; top: y(1); left: x(4);}
-      &-4 {@include product-thumb--xs; top: y(2); left: x(2);}
-      &-5 {@include product-thumb--hr; top: y(3); left: x(1);}
-      &-6 {@include product-thumb--sm; top: y(2); left: x(3);}
+      &-1 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--hr; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(4);}
+      &-4 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(2);}
+      &-5 {@include product-thumb--hr; top: productGroupY(3); left: productGroupX(1);}
+      &-6 {@include product-thumb--sm; top: productGroupY(2); left: productGroupX(3);}
     }
     &.style-7 {
-      &-1 {@include product-thumb--hr; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--vt; top: y(2); left: x(1);}
-      &-3 {@include product-thumb--xs; top: y(2); left: x(2);}
-      &-4 {@include product-thumb--sm; top: y(1); left: x(3);}
-      &-5 {@include product-thumb--hr; top: y(3); left: x(2);}
-      &-6 {@include product-thumb--xs; top: y(3); left: x(4);}
+      &-1 {@include product-thumb--hr; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--vt; top: productGroupY(2); left: productGroupX(1);}
+      &-3 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(2);}
+      &-4 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(3);}
+      &-5 {@include product-thumb--hr; top: productGroupY(3); left: productGroupX(2);}
+      &-6 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(4);}
     }
     &.style-8 {
-      &-1 {@include product-thumb--xs; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--hr; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--xs; top: y(1); left: x(4);}
-      &-4 {@include product-thumb--vt; top: y(2); left: x(1);}
-      &-5 {@include product-thumb--vt; top: y(2); left: x(2);}
-      &-6 {@include product-thumb--sm; top: y(2); left: x(3);}
+      &-1 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--hr; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(4);}
+      &-4 {@include product-thumb--vt; top: productGroupY(2); left: productGroupX(1);}
+      &-5 {@include product-thumb--vt; top: productGroupY(2); left: productGroupX(2);}
+      &-6 {@include product-thumb--sm; top: productGroupY(2); left: productGroupX(3);}
     }
   }
 }
@@ -168,160 +168,160 @@ $h: (400 + $gridGap) / 2;
 
 @mixin product-group--md {
   @include product-group-base;
-  width: $w * 3;
-  height: $h * 4;
+  width: $productGroupWidth * 3;
+  height: $productGroupHeight * 4;
   .ProductThumb {
     &.style-1 {
-      &-1 {@include product-thumb--sm; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(1); left: x(3);}
-      &-3 {@include product-thumb--hr; top: y(3); left: x(1);}
-      &-4 {@include product-thumb--vt; top: y(2); left: x(3);}
-      &-5 {@include product-thumb--xs; top: y(4); left: x(1);}
-      &-6 {@include product-thumb--hr; top: y(4); left: x(2);}
+      &-1 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(3);}
+      &-3 {@include product-thumb--hr; top: productGroupY(3); left: productGroupX(1);}
+      &-4 {@include product-thumb--vt; top: productGroupY(2); left: productGroupX(3);}
+      &-5 {@include product-thumb--xs; top: productGroupY(4); left: productGroupX(1);}
+      &-6 {@include product-thumb--hr; top: productGroupY(4); left: productGroupX(2);}
     }
     &.style-2 {
-      &-1 {@include product-thumb--sm; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(1); left: x(3);}
-      &-3 {@include product-thumb--vt; top: y(3); left: x(1);}
-      &-4 {@include product-thumb--xs; top: y(3); left: x(2);}
-      &-5 {@include product-thumb--vt; top: y(2); left: x(3);}
-      &-6 {@include product-thumb--hr; top: y(4); left: x(2);}
+      &-1 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(3);}
+      &-3 {@include product-thumb--vt; top: productGroupY(3); left: productGroupX(1);}
+      &-4 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(2);}
+      &-5 {@include product-thumb--vt; top: productGroupY(2); left: productGroupX(3);}
+      &-6 {@include product-thumb--hr; top: productGroupY(4); left: productGroupX(2);}
     }
     &.style-3 {
-      &-1 {@include product-thumb--vt; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--sm; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--xs; top: y(3); left: x(1);}
-      &-4 {@include product-thumb--xs; top: y(3); left: x(2);}
-      &-5 {@include product-thumb--hr; top: y(4); left: x(1);}
-      &-6 {@include product-thumb--vt; top: y(3); left: x(3);}
+      &-1 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(1);}
+      &-4 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(2);}
+      &-5 {@include product-thumb--hr; top: productGroupY(4); left: productGroupX(1);}
+      &-6 {@include product-thumb--vt; top: productGroupY(3); left: productGroupX(3);}
     }
     &.style-4 {
-      &-1 {@include product-thumb--xs; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--hr; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--sm; top: y(2); left: x(1);}
-      &-4 {@include product-thumb--vt; top: y(2); left: x(3);}
-      &-5 {@include product-thumb--xs; top: y(4); left: x(1);}
-      &-6 {@include product-thumb--hr; top: y(4); left: x(2);}
+      &-1 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--hr; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--sm; top: productGroupY(2); left: productGroupX(1);}
+      &-4 {@include product-thumb--vt; top: productGroupY(2); left: productGroupX(3);}
+      &-5 {@include product-thumb--xs; top: productGroupY(4); left: productGroupX(1);}
+      &-6 {@include product-thumb--hr; top: productGroupY(4); left: productGroupX(2);}
     }
     &.style-5 {
-      &-1 {@include product-thumb--vt; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--hr; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--vt; top: y(3); left: x(1);}
-      &-4 {@include product-thumb--sm; top: y(2); left: x(2);}
-      &-5 {@include product-thumb--xs; top: y(4); left: x(2);}
-      &-6 {@include product-thumb--xs; top: y(4); left: x(3);}
+      &-1 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--hr; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--vt; top: productGroupY(3); left: productGroupX(1);}
+      &-4 {@include product-thumb--sm; top: productGroupY(2); left: productGroupX(2);}
+      &-5 {@include product-thumb--xs; top: productGroupY(4); left: productGroupX(2);}
+      &-6 {@include product-thumb--xs; top: productGroupY(4); left: productGroupX(3);}
     }
     &.style-6 {
-      &-1 {@include product-thumb--vt; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--hr; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--xs; top: y(2); left: x(2);}
-      &-4 {@include product-thumb--sm; top: y(3); left: x(1);}
-      &-5 {@include product-thumb--vt; top: y(2); left: x(3);}
-      &-6 {@include product-thumb--xs; top: y(4); left: x(3);}
+      &-1 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--hr; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(2);}
+      &-4 {@include product-thumb--sm; top: productGroupY(3); left: productGroupX(1);}
+      &-5 {@include product-thumb--vt; top: productGroupY(2); left: productGroupX(3);}
+      &-6 {@include product-thumb--xs; top: productGroupY(4); left: productGroupX(3);}
     }
     &.style-7 {
-      &-1 {@include product-thumb--hr; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(1); left: x(3);}
-      &-3 {@include product-thumb--vt; top: y(2); left: x(1);}
-      &-4 {@include product-thumb--hr; top: y(2); left: x(2);}
-      &-5 {@include product-thumb--xs; top: y(4); left: x(1);}
-      &-6 {@include product-thumb--sm; top: y(3); left: x(2);}
+      &-1 {@include product-thumb--hr; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(3);}
+      &-3 {@include product-thumb--vt; top: productGroupY(2); left: productGroupX(1);}
+      &-4 {@include product-thumb--hr; top: productGroupY(2); left: productGroupX(2);}
+      &-5 {@include product-thumb--xs; top: productGroupY(4); left: productGroupX(1);}
+      &-6 {@include product-thumb--sm; top: productGroupY(3); left: productGroupX(2);}
     }
     &.style-8 {
-      &-1 {@include product-thumb--xs; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--hr; top: y(2); left: x(1);}
-      &-4 {@include product-thumb--vt; top: y(1); left: x(3);}
-      &-5 {@include product-thumb--vt; top: y(3); left: x(1);}
-      &-6 {@include product-thumb--sm; top: y(3); left: x(2);}
+      &-1 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--hr; top: productGroupY(2); left: productGroupX(1);}
+      &-4 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(3);}
+      &-5 {@include product-thumb--vt; top: productGroupY(3); left: productGroupX(1);}
+      &-6 {@include product-thumb--sm; top: productGroupY(3); left: productGroupX(2);}
     }
   }
 }
 
 @mixin product-group--sm {
   @include product-group-base;
-  width: $w * 2;
-  height: $h * 5;
+  width: $productGroupWidth * 2;
+  height: $productGroupHeight * 5;
   .ProductThumb {
     &.style-1 {
-      &-1 {@include product-thumb--sm; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--hr; top: y(3); left: x(1);}
-      &-3 {@include product-thumb--xs; top: y(4); left: x(1);}
-      &-4 {@include product-thumb--xs; top: y(4); left: x(2);}
-      &-5 {@include product-thumb--xs; top: y(5); left: x(1);}
-      &-6 {@include product-thumb--xs; top: y(5); left: x(2);}
+      &-1 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--hr; top: productGroupY(3); left: productGroupX(1);}
+      &-3 {@include product-thumb--xs; top: productGroupY(4); left: productGroupX(1);}
+      &-4 {@include product-thumb--xs; top: productGroupY(4); left: productGroupX(2);}
+      &-5 {@include product-thumb--xs; top: productGroupY(5); left: productGroupX(1);}
+      &-6 {@include product-thumb--xs; top: productGroupY(5); left: productGroupX(2);}
     }
     &.style-2 {
-      &-1 {@include product-thumb--sm; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(3); left: x(1);}
-      &-3 {@include product-thumb--xs; top: y(3); left: x(2);}
-      &-4 {@include product-thumb--vt; top: y(4); left: x(1);}
-      &-5 {@include product-thumb--xs; top: y(4); left: x(2);}
-      &-6 {@include product-thumb--xs; top: y(5); left: x(2);}
+      &-1 {@include product-thumb--sm; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(1);}
+      &-3 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(2);}
+      &-4 {@include product-thumb--vt; top: productGroupY(4); left: productGroupX(1);}
+      &-5 {@include product-thumb--xs; top: productGroupY(4); left: productGroupX(2);}
+      &-6 {@include product-thumb--xs; top: productGroupY(5); left: productGroupX(2);}
     }
     &.style-3 {
-      &-1 {@include product-thumb--xs; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--sm; top: y(2); left: x(1);}
-      &-4 {@include product-thumb--xs; top: y(4); left: x(1);}
-      &-5 {@include product-thumb--xs; top: y(4); left: x(2);}
-      &-6 {@include product-thumb--hr; top: y(5); left: x(1);}
+      &-1 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--sm; top: productGroupY(2); left: productGroupX(1);}
+      &-4 {@include product-thumb--xs; top: productGroupY(4); left: productGroupX(1);}
+      &-5 {@include product-thumb--xs; top: productGroupY(4); left: productGroupX(2);}
+      &-6 {@include product-thumb--hr; top: productGroupY(5); left: productGroupX(1);}
     }
     &.style-4 {
-      &-1 {@include product-thumb--xs; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--sm; top: y(2); left: x(1);}
-      &-4 {@include product-thumb--xs; top: y(4); left: x(1);}
-      &-5 {@include product-thumb--xs; top: y(5); left: x(1);}
-      &-6 {@include product-thumb--vt; top: y(4); left: x(2);}
+      &-1 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--sm; top: productGroupY(2); left: productGroupX(1);}
+      &-4 {@include product-thumb--xs; top: productGroupY(4); left: productGroupX(1);}
+      &-5 {@include product-thumb--xs; top: productGroupY(5); left: productGroupX(1);}
+      &-6 {@include product-thumb--vt; top: productGroupY(4); left: productGroupX(2);}
     }
     &.style-5 {
-      &-1 {@include product-thumb--xs; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(1); left: x(2);}
-      &-3 {@include product-thumb--xs; top: y(2); left: x(1);}
-      &-4 {@include product-thumb--xs; top: y(2); left: x(2);}
-      &-5 {@include product-thumb--sm; top: y(3); left: x(1);}
-      &-6 {@include product-thumb--hr; top: y(5); left: x(1);}
+      &-1 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(2);}
+      &-3 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(1);}
+      &-4 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(2);}
+      &-5 {@include product-thumb--sm; top: productGroupY(3); left: productGroupX(1);}
+      &-6 {@include product-thumb--hr; top: productGroupY(5); left: productGroupX(1);}
     }
     &.style-6 {
-      &-1 {@include product-thumb--xs; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(2); left: x(1);}
-      &-3 {@include product-thumb--vt; top: y(1); left: x(2);}
-      &-4 {@include product-thumb--sm; top: y(3); left: x(1);}
-      &-5 {@include product-thumb--xs; top: y(5); left: x(1);}
-      &-6 {@include product-thumb--xs; top: y(5); left: x(2);}
+      &-1 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(1);}
+      &-3 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(2);}
+      &-4 {@include product-thumb--sm; top: productGroupY(3); left: productGroupX(1);}
+      &-5 {@include product-thumb--xs; top: productGroupY(5); left: productGroupX(1);}
+      &-6 {@include product-thumb--xs; top: productGroupY(5); left: productGroupX(2);}
     }
     &.style-7 {
-      &-1 {@include product-thumb--hr; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(2); left: x(1);}
-      &-3 {@include product-thumb--xs; top: y(2); left: x(2);}
-      &-4 {@include product-thumb--xs; top: y(3); left: x(1);}
-      &-5 {@include product-thumb--xs; top: y(3); left: x(2);}
-      &-6 {@include product-thumb--sm; top: y(4); left: x(1);}
+      &-1 {@include product-thumb--hr; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(1);}
+      &-3 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(2);}
+      &-4 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(1);}
+      &-5 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(2);}
+      &-6 {@include product-thumb--sm; top: productGroupY(4); left: productGroupX(1);}
     }
     &.style-8 {
-      &-1 {@include product-thumb--xs; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(2); left: x(1);}
-      &-3 {@include product-thumb--vt; top: y(1); left: x(2);}
-      &-4 {@include product-thumb--xs; top: y(3); left: x(1);}
-      &-5 {@include product-thumb--xs; top: y(3); left: x(2);}
-      &-6 {@include product-thumb--sm; top: y(4); left: x(1);}
+      &-1 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(1);}
+      &-3 {@include product-thumb--vt; top: productGroupY(1); left: productGroupX(2);}
+      &-4 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(1);}
+      &-5 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(2);}
+      &-6 {@include product-thumb--sm; top: productGroupY(4); left: productGroupX(1);}
     }
   }
 }
 
 @mixin product-group--xs {
   @include product-group-base;
-  width: $w * 1;
-  height: $h * 6;
+  width: $productGroupWidth * 1;
+  height: $productGroupHeight * 6;
   .ProductThumb {
     &.style-1, &.style-2, &.style-3, &.style-4, &.style-5, &.style-6, &.style-7, &.style-8 {
-      &-1 {@include product-thumb--xs; top: y(1); left: x(1);}
-      &-2 {@include product-thumb--xs; top: y(2); left: x(1);}
-      &-3 {@include product-thumb--xs; top: y(3); left: x(1);}
-      &-4 {@include product-thumb--xs; top: y(4); left: x(1);}
-      &-5 {@include product-thumb--xs; top: y(5); left: x(1);}
-      &-6 {@include product-thumb--xs; top: y(6); left: x(1);}
+      &-1 {@include product-thumb--xs; top: productGroupY(1); left: productGroupX(1);}
+      &-2 {@include product-thumb--xs; top: productGroupY(2); left: productGroupX(1);}
+      &-3 {@include product-thumb--xs; top: productGroupY(3); left: productGroupX(1);}
+      &-4 {@include product-thumb--xs; top: productGroupY(4); left: productGroupX(1);}
+      &-5 {@include product-thumb--xs; top: productGroupY(5); left: productGroupX(1);}
+      &-6 {@include product-thumb--xs; top: productGroupY(6); left: productGroupX(1);}
     }
   }
 }
