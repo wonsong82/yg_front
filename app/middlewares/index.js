@@ -457,7 +457,8 @@ export const loadAlbumsList = (count=6) => (dispatch, getState) => {
 
 const createAlbumThumb = ( albumData, artistData, layoutStyle, layoutNum ) => {
   const {id, post_title, url_friendly_name, thumb_1x1, cover_image, artist_id } = albumData
-  const { name } = artistData[artist_id]
+
+  const name  = artist_id ? artistData[artist_id].name : ''   
   return {
     id,
     title: excerptStr(post_title, 90),
