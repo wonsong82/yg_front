@@ -11,6 +11,7 @@
       "album_url": "www.albumurl.com",
       "album_release_date": "2016-07-17",
       "artist_id": 1,
+      "individual_name": "",
       "related_album": [
         402,
         403,
@@ -28,6 +29,7 @@
       "album_url": "www.albumurl.com",
       "album_release_date": "2016-07-17",
       "artist_id": 2,
+      "individual_name": "",
       "related_album": [
         401,
         404,
@@ -45,6 +47,7 @@
       "album_url": "www.albumurl.com",
       "album_release_date": "2016-07-17",
       "artist_id": 3,
+      "individual_name": "",
       "related_album": [
       ]
     },
@@ -59,6 +62,7 @@
       "album_url": "www.albumurl.com",
       "album_release_date": "2016-07-17",
       "artist_id": 4,
+      "individual_name": "Tablo",
       "related_album": [
         402,
         403,
@@ -76,6 +80,7 @@
       "album_url": "www.albumurl.com",
       "album_release_date": "2016-07-17",
       "artist_id": 5,
+      "individual_name": "BOM",
       "related_album": [
         402,
         403
@@ -92,6 +97,7 @@
       "album_url": "www.albumurl.com",
       "album_release_date": "2016-07-17",
       "artist_id": 6,
+      "individual_name": "",
       "related_album": [
         402,
         403,
@@ -109,6 +115,7 @@
       "album_url": "www.albumurl.com",
       "album_release_date": "2016-07-17",
       "artist_id": 6,
+      "individual_name": "",
       "related_album": [
         402,
         403,

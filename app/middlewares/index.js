@@ -456,9 +456,13 @@ export const loadAlbumsList = (count=6) => (dispatch, getState) => {
 
 
 const createAlbumThumb = ( albumData, artistData, layoutStyle, layoutNum ) => {
-  const {id, post_title, url_friendly_name, thumb_1x1, cover_image, artist_id } = albumData
+  const {id, post_title, url_friendly_name, thumb_1x1, cover_image, individual_name, artist_id } = albumData
 
-  const name  = artist_id ? artistData[artist_id].name : ''   
+  const artistName = artist_id ? artistData[artist_id].name : '';
+
+  const name  = individual_name || artistName
+
+
   return {
     id,
     title: excerptStr(post_title, 90),
@@ -504,8 +508,12 @@ export const loadHotTracksList = (count=6) => (dispatch, getState) => {
 const createHotTrackThumb = ( hotTrackData, albumsData, artistsData, orderID=1 ) => {
 
   const { id, post_title, post_content, sample_link, album_id, youtube_link, _regular_price, _sale_price } = hotTrackData
-  const { cover_image, thumb_1x1, url_friendly_name, artist_id } = albumsData[album_id]
-  const { name } = artistsData[artist_id]
+  const { cover_image, thumb_1x1, url_friendly_name, individual_name, artist_id } = albumsData[album_id]
+
+  const artistName = artist_id ? artistsData[artist_id].name : '';
+  const name  = individual_name || artistName
+
+
   return {
     id,
     title: excerptStr(post_title, 90),
@@ -951,14 +959,21 @@ export const loadMusicPopup = (name) => (dispatch, getState) => {
 
     if(thisMusic.length){
       let {id, post_title, cover_image, post_content, url_friendly_name , related_album } = thisMusic[0]
-      let name = state.data.artists.contents.artists[thisMusic[0].artist_id].name
+
       let products = toArray(state.data.musics.contents.musics)
         .filter( product => product.album_id == id)
 
       let albumProduct = products.filter(product => product.product_type == 'album')
       let musicsProduct = products.filter(product => product.product_type == 'music')
 
-      let index = 0;
+      let artistName = state.data.artists.contents.artists[thisMusic[0].artist_id].name
+      let individualName = thisMusic[0].individual_name || ''
+      let name = individualName || artistName
+
+      console.log(albumProduct[0])
+      console.log(artistName, individualName, name)
+
+      let index = 0
       const trackList = musicsProduct.map ( track => {
         const {id, _regular_price, _sale_price, post_title, post_content, sample_link, youtube_link} = track
         index++
