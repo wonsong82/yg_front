@@ -1112,9 +1112,63 @@
       "_regular_price": "89.99",
       "_sale_price": "",
       "_sku": "2ne1-pants-01__2"
+    },
+    "639":{
+      "id": 639,
+      "post_title": "Psy Top & Pants",
+      "post_content": "Psy Top & Pants",
+      "post_date": "2016-07-26 03:06:20",
+      "url_friendly_name": "product-608",
+      "product_type": "simple",
+      "cat_IDs": [
+        2,4,5
+      ],
+      "thumb_1x1": "/images/product1x1.png",
+      "thumb_2x1": "/images/product1x1.png",
+      "thumb_1x2": "/images/product1x1.png",
+      "images": [
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png"
+      ],
+      "artist_id": 1,
+      "related": [
+        602,603,604
+      ],
+      "_regular_price": "89.99",
+      "_sale_price": "",
+      "_sku": "2ne1-pants-01__2"
+    },
+    "640":{
+      "id": 640,
+      "post_title": "Psy Top & Pants",
+      "post_content": "Psy Top & Pants",
+      "post_date": "2016-07-26 03:06:20",
+      "url_friendly_name": "product-608",
+      "product_type": "simple",
+      "cat_IDs": [
+        2,4,5
+      ],
+      "thumb_1x1": "/images/product1x1.png",
+      "thumb_2x1": "/images/product1x1.png",
+      "thumb_1x2": "/images/product1x1.png",
+      "images": [
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png",
+        "/images/product1x1.png"
+      ],
+      "artist_id": 1,
+      "related": [
+        602,603,604
+      ],
+      "_regular_price": "89.99",
+      "_sale_price": "",
+      "_sku": "2ne1-pants-01__2"
     }
   },
-  "products_order":[630,601,629,628,627,626,625,624,623,622,621,620,619,618,617,616,615,614,613,612,611,610,609,608,607,606,605,604,603,602],
+  "products_order":[640,639,638,637,636,635,634,633,632,631,630,601,629,628,627,626,625,624,623,622,621,620,619,618,617,616,615,614,613,612,611,610,609,608,607,606,605,604,603,602],
   "categories":{
     "1":
     {

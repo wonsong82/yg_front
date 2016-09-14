@@ -6,8 +6,8 @@
       "post_content": "his is the discography of the South Korean idol Psy. He is well known for his humorous videos and stage performances, and for his hit single Gangnam Style/ a song about where he came from and which talks about the life of the people of Gangnam, which is a neighborhood in Seoul, South Korea.",
       "post_date": "2016-07-18 23:33:38",
       "url_friendly_name": "album-401",
-      "thumb_1x1": "/images/akmu.jpg",
-      "cover_image": "/images/akmu.jpg",
+      "thumb_1x1": "/images/leehi.jpg",
+      "cover_image": "/images/leehi.jpg",
       "album_url": "www.albumurl.com",
       "album_release_date": "2016-07-17",
       "artist_id": 1,
@@ -112,6 +112,60 @@
       "url_friendly_name": "album-407",
       "thumb_1x1": "/images/akmu.jpg",
       "cover_image": "/images/akmu.jpg",
+      "album_url": "www.albumurl.com",
+      "album_release_date": "2016-07-17",
+      "artist_id": 6,
+      "individual_name": "",
+      "related_album": [
+        402,
+        403,
+        404
+      ]
+    },
+    "408": {
+      "id": 408,
+      "post_title": "LEE First Album",
+      "post_content": "his is the discography of the South Korean idol Psy. He is well known for his humorous videos and stage performances, and for his hit single Gangnam Style/ a song about where he came from and which talks about the life of the people of Gangnam, which is a neighborhood in Seoul, South Korea.",
+      "post_date": "2016-07-18 23:33:38",
+      "url_friendly_name": "album-407",
+      "thumb_1x1": "/images/leehi.jpg",
+      "cover_image": "/images/leehi.jpg",
+      "album_url": "www.albumurl.com",
+      "album_release_date": "2016-07-17",
+      "artist_id": 1,
+      "individual_name": "",
+      "related_album": [
+        402,
+        403,
+        404
+      ]
+    },
+    "409": {
+      "id": 409,
+      "post_title": "HI First Album",
+      "post_content": "his is the discography of the South Korean idol Psy. He is well known for his humorous videos and stage performances, and for his hit single Gangnam Style/ a song about where he came from and which talks about the life of the people of Gangnam, which is a neighborhood in Seoul, South Korea.",
+      "post_date": "2016-07-18 23:33:38",
+      "url_friendly_name": "album-407",
+      "thumb_1x1": "/images/leehi.jpg",
+      "cover_image": "/images/leehi.jpg",
+      "album_url": "www.albumurl.com",
+      "album_release_date": "2016-07-17",
+      "artist_id": 1,
+      "individual_name": "",
+      "related_album": [
+        402,
+        403,
+        404
+      ]
+    },
+    "410": {
+      "id": 410,
+      "post_title": "LEE HI First Album",
+      "post_content": "his is the discography of the South Korean idol Psy. He is well known for his humorous videos and stage performances, and for his hit single Gangnam Style/ a song about where he came from and which talks about the life of the people of Gangnam, which is a neighborhood in Seoul, South Korea.",
+      "post_date": "2016-07-18 23:33:38",
+      "url_friendly_name": "album-407",
+      "thumb_1x1": "/images/leehi.jpg",
+      "cover_image": "/images/leehi.jpg",
       "album_url": "www.albumurl.com",
       "album_release_date": "2016-07-17",
       "artist_id": 6,
@@ -549,5 +603,5 @@
 
   },
   "hotTracks": [501,503,505,507,509,511,513],
-  "albums_order" : [402,403,401,404,405,407,406]
+  "albums_order" : [402,403,401,404,405,407,406,408,409,410]
 }

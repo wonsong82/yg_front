@@ -6,9 +6,9 @@
       "post_title": "Lee Hi's first Event",
       "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
       "post_date": "2016-07-18 22:31:47",
-      "main_image": "/images/2ne1.jpg",
-      "thumb_1x1": "/images/2ne1.jpg",
-      "thumb_3x2": "/images/2ne1.jpg",
+      "main_image": "/images/leehi.jpg",
+      "thumb_1x1": "/images/leehi.jpg",
+      "thumb_3x2": "/images/leehi.jpg",
 
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-101",
@@ -90,9 +90,9 @@
       "post_title": "Lee Hi's first Event",
       "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
       "post_date": "2016-07-18 22:31:47",
-      "main_image": "/images/2ne1.jpg",
-      "thumb_1x1": "/images/2ne1.jpg",
-      "thumb_3x2": "/images/2ne1.jpg",
+      "main_image": null,
+      "thumb_1x1": null,
+      "thumb_3x2": null,
 
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-107",
@@ -176,9 +176,9 @@
       "post_title": "Lee Hi's first Event",
       "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
       "post_date": "2016-07-18 22:31:47",
-      "main_image": "/images/2ne1.jpg",
-      "thumb_1x1": "/images/2ne1.jpg",
-      "thumb_3x2": "/images/2ne1.jpg",
+      "main_image": "/images/leehi.jpg",
+      "thumb_1x1": "/images/leehi.jpg",
+      "thumb_3x2": "/images/leehi.jpg",
 
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-113",
@@ -348,9 +348,9 @@
       "post_title": "Lee Hi's first Event",
       "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
       "post_date": "2016-07-18 22:31:47",
-      "main_image": "/images/2ne1.jpg",
-      "thumb_1x1": "/images/2ne1.jpg",
-      "thumb_3x2": "/images/2ne1.jpg",
+      "main_image": "/images/leehi.jpg",
+      "thumb_1x1": "/images/leehi.jpg",
+      "thumb_3x2": "/images/leehi.jpg",
 
       "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
       "url_friendly_name": "event-125",
@@ -427,7 +427,67 @@
       "url_friendly_name": "event-130",
       "artist_id": 6,
       "related_event": [101,102]
+    },
+    "131" :
+    {
+      "id": 131,
+      "post_title": "Lee Hi's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "/images/leehi.jpg",
+      "thumb_1x1": "/images/leehi.jpg",
+      "thumb_3x2": "/images/leehi.jpg",
+
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "event-125",
+      "artist_id": 1,
+      "related_event": [101,102,103]
+    },
+    "132" :
+    {
+      "id": 132,
+      "post_title": "Lee Hi's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "/images/leehi.jpg",
+      "thumb_1x1": "/images/leehi.jpg",
+      "thumb_3x2": "/images/leehi.jpg",
+
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "event-125",
+      "artist_id": 1,
+      "related_event": [101,102,103]
+    },
+    "133" :
+    {
+      "id": 133,
+      "post_title": "Lee Hi's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "/images/leehi.jpg",
+      "thumb_1x1": "/images/leehi.jpg",
+      "thumb_3x2": "/images/leehi.jpg",
+
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "event-125",
+      "artist_id": 1,
+      "related_event": [101,102,103]
+    },
+    "134" :
+    {
+      "id": 134,
+      "post_title": "Lee Hi's first Event",
+      "post_content": "Science Olympiad Events are balanced among the three broad areas of the Science Standards. Click on Event Name for a short description of the event for the 2015-2016 school year. Individual Event Info Pages for the 46 events are updated with 2016 content throughout the fall.",
+      "post_date": "2016-07-18 22:31:47",
+      "main_image": "/images/leehi.jpg",
+      "thumb_1x1": "/images/leehi.jpg",
+      "thumb_3x2": "/images/leehi.jpg",
+
+      "excerpt": "The role of event organiser is hands-on and often involves working as part of a team. Event organisers must be able to complete a wide range of activities requiring clear communication, excellent organisational skills and attention to detail.",
+      "url_friendly_name": "event-125",
+      "artist_id": 1,
+      "related_event": [101,102,103]
     }
   },
-  "event_order": [130,129,128,127,126,125,124,123,122,121,120,119,118,117,116,115,114,113,112,111,110,109,108,107,106,105,104,101,102,103]
+  "event_order": [130,129,128,127,126,125,124,123,122,121,120,119,118,117,116,115,114,113,112,111,110,109,108,107,106,105,104,101,102,103,133,132,131,134]
 }
