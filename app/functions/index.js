@@ -184,9 +184,9 @@ export const getProductOptions = ( {product_type:type, attributes, variation:var
     }
   }
 
-
   let availableOptions = {}
   const selectedCount = toArray(selectedOptions).length
+
 
   // 1. 먼저 모든 필드가 선택되었을시, 선택할수 있는 바리에이션에서 1개뺴고 변경 가능한 것을 찾는다
   if(selectedCount == toArray(attributes).length) {
@@ -220,6 +220,7 @@ export const getProductOptions = ( {product_type:type, attributes, variation:var
   else {
 
     let filteredVariations = [...variations]
+
     if(selectedCount!=0){
 
       filteredVariations = variations.filter( variation => {
@@ -237,6 +238,7 @@ export const getProductOptions = ( {product_type:type, attributes, variation:var
 
     filteredVariations.forEach(variation => {
       variation.attribute.forEach(attr => {
+
         if (availableOptions[attr.key]) {
           if (availableOptions[attr.key].indexOf(attr.value) == -1) {
             availableOptions[attr.key].push(attr.value)
@@ -249,17 +251,26 @@ export const getProductOptions = ( {product_type:type, attributes, variation:var
     })
   }
 
-  return options.map( select => {
+  console.log(options);
+  console.log(availableOptions);
+
+  let o = options.map( select => {
 
    let availableValues = availableOptions[select.name] || []
-   let values = select.values.map( value => {
-     return {
+    console.log(availableValues)
+
+    let values = select.values.map( value => {
+      return {
        ...value,
        enabled: availableValues.filter( availableValue => availableValue == value.value || value.value == 'select' ).length ? true : false
       }
     })
     return { ...select, values }
   })
+
+  console.log(o)
+
+  return o;
 }
 
 
