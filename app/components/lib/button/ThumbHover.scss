@@ -25,7 +25,6 @@
     display: block;
     height: 34px;
     padding: 0 34px;
-    will-change: transform, color, border;
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, border 0.3s ease-in-out;
     &:hover {
       color: rgba(255,255,255, 1);
