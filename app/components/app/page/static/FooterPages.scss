@@ -1,0 +1,70 @@
+@import './variable';
+
+.App .Page .Static .static-content {
+
+  &.about-us {
+  }
+
+  &.contact {
+    .contact-form-top {
+      font-size: 0;
+      margin-bottom: 20px;
+
+      .contact-form-address {
+        width: 337px;
+        display: inline-block;
+      }
+
+      .static-form-office-hour {
+        width: 337px;
+        display: inline-block;
+        margin-left: 10px;
+      }
+    }
+
+    form.wpcf7-form {
+      p {
+        text-indent: 10px;
+        margin-bottom: 24px;
+      }
+      input[type="text"], input[type="email"]{
+        @include s-input-text;
+      }
+      textarea {
+        @include s-textarea;
+      }
+      input[type="submit"]{
+        @include s-button;
+        width: 336px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+}
+
+@media (max-width: $staticMaxWidth--s){
+  .App .Page .Static .static-content {
+
+    &.contact {
+      .contact-form-top {
+        .contact-form-address, .static-form-office-hour {
+          width: 100%;
+        }
+      }
+      form.wpcf7-form {
+        textarea {
+          height: 200px;
+        }
+        input[type="submit"]{
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+

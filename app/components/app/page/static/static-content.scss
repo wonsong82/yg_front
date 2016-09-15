@@ -1,6 +1,6 @@
+@import './variable';
 
 @mixin static-content {
-  @include static-content--md;
   .static-content {
     .page-title {
       @include page-title;
@@ -162,6 +162,7 @@
 
 
 @mixin static-content--md {
+  @include static-content;
   width: getGridWidth(6);
   padding: $pagePadding--top 0 $pagePadding--bottom;
   .static-content {
@@ -205,6 +206,7 @@
 }
 
 @mixin static-content--sm {
+  @include static-content;
   width: 460px;
   padding: 70px 0 70px;
   .static-content {
@@ -231,6 +233,7 @@
 }
 
 @mixin static-content--xs {
+  @include static-content;
   width: 350px;
   padding: 40px 0 40px;
   .static-content {
@@ -260,6 +263,7 @@
 }
 
 @mixin static-content--xxs {
+  @include static-content;
   width: 100%;
   padding: 40px 12px;
   .static-content {

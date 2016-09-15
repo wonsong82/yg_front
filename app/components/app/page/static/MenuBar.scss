@@ -1,0 +1,67 @@
+@import '../../../variable';
+
+@mixin menu-bar--base {
+  .menu-title {
+    font: 500 20px/24px $font-family;
+    color: #333;
+    border-bottom: 1px solid rgba(0,0,0, $opacity--line1);
+    padding: 0 2px 14px;
+    text-align: left;
+  }
+  .menu-body {
+    padding: 16px 2px;
+    border-bottom: 1px solid rgba(0,0,0, $opacity--line1);
+    ul {
+      li {
+        margin: 0;
+        float: none;
+        text-align: left;
+        width: 100%;
+        a {
+          font: 400 18px/28px $font-family;
+          text-transform: capitalize;
+          color: #999;
+          will-change: color;
+          transition: color 0.3s ease;
+          &:hover {
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin menu-bar--side {
+  @include menu-bar--base;
+  width: 184px;
+}
+
+
+
+@mixin menu-bar--top {
+  @include menu-bar--base;
+  width: 100%;
+  .menu-title {
+    text-align: center;
+  }
+  .menu-body {
+    padding: 0;
+    ul {
+      font-size: 0;
+      text-align: center;
+      li {
+        display: inline-block;
+        height: 60px;
+        text-align: center;
+        width: auto;
+        &+li {
+          margin-left: 46px;
+        }
+        a {
+          font: 400 17px/60px $font-family;
+        }
+      }
+    }
+  }
+}
