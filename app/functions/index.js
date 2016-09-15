@@ -48,27 +48,51 @@ export const computeThemeColor = ( props ) => {
         return defaultTheme
 
       case 'event':
-        data = props.data.events.contents.events
-        if(!data) return defaultTheme
-        themeColors = getThemeColors(item, data, artists)
-        return themeColors ? themeColors : defaultTheme
+
+        //Artist Popup
+        if(name){
+          let _found = toArray(artists).filter( artist => {
+            return name === artist.urlFriendlyName
+          })
+
+          if(_found.length){
+            return {
+              themeColor: _found[0].themeColor,
+              textColor: _found[0].textColor
+            }
+          }else{
+            return defaultTheme
+          }
+        }
+
+        //Others Popup
+        else{
+          data = props.data.events.contents.events
+          if(!data) return defaultTheme
+          themeColors = getThemeColors(item, data, artists,'event')
+          return themeColors ? themeColors : defaultTheme
+        }
+
+
+
+
 
       case 'shop':
         data = props.data.shops.contents.products
         if(!data) return defaultTheme
-        themeColors = getThemeColors(item, data, artists)
+        themeColors = getThemeColors(item, data, artists,'shop')
         return themeColors ? themeColors : defaultTheme
 
       case 'tour':
         data = props.data.tours.contents.tours
         if(!data) return defaultTheme
-        themeColors = getThemeColors(item, data, artists)
+        themeColors = getThemeColors(item, data, artists,'tour')
         return themeColors ? themeColors : defaultTheme
 
       case 'music':
         data = props.data.musics.contents.albums
         if(!data) return defaultTheme
-        themeColors = getThemeColors(item, data, artists)
+        themeColors = getThemeColors(item, data, artists,'music')
         return themeColors ? themeColors : defaultTheme
 
       default:
@@ -77,13 +101,17 @@ export const computeThemeColor = ( props ) => {
   }
 }
 
-export const getThemeColors = ( item, data, artists ) => {
+export const getThemeColors = ( item, data, artists, type ) => {
+
   let found = toArray(data).filter( e => item === e.url_friendly_name )
   if(!found.length) return false
 
-  if(!found[0].artist_id) return false
+  let { artist_id } = found[0]
+  if(!artist_id) return false
 
-  const { themeColor, textColor } = artists[found[0].artist_id]
+  if(type == 'event') artist_id = artist_id[0];
+
+  const { themeColor, textColor } = artists[artist_id]
   return { themeColor, textColor }
 }
 
