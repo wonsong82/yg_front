@@ -168,16 +168,26 @@ export const getProductOptions = ( {product_type:type, attributes, variation:var
 
   let options = []
 
+
   // 모든 아트리븃 순차적으로
   for(let name in attributes){
     if(attributes.hasOwnProperty(name)){
 
       // 각각의 select 들 시작
-      let select = { name, values:[ {value:'select', enabled:true} ]}
+      let select = { name, values:[ {value:'select', enabled:true, text:'Select'} ]}
       let values = attributes[name]
-      values.forEach( value => {
-        select.values.push({value, enabled:true})
-      })
+
+      for(let vkey in values){
+        if(values.hasOwnProperty(vkey)){
+
+          select.values.push({
+            value: vkey,
+            text: values[vkey],
+            enabled: true
+          })
+
+        }
+      }
 
       options.push(select)
       // END Select
@@ -251,13 +261,10 @@ export const getProductOptions = ( {product_type:type, attributes, variation:var
     })
   }
 
-  console.log(options);
-  console.log(availableOptions);
 
   let o = options.map( select => {
 
    let availableValues = availableOptions[select.name] || []
-    console.log(availableValues)
 
     let values = select.values.map( value => {
       return {
@@ -268,7 +275,7 @@ export const getProductOptions = ( {product_type:type, attributes, variation:var
     return { ...select, values }
   })
 
-  console.log(o)
+  console.log(o);
 
   return o;
 }

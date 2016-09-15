@@ -106,7 +106,7 @@ class Shop extends Component {
                       key={`${name}-${i}`}
                       value={e.value}
                     >
-                      {e.value}
+                      {e.text}
                     </option>
                   ))}
 
