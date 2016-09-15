@@ -186,9 +186,15 @@ export const loadEventsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch, 
 }
 
 
-const createEventThumb = ( data, artistData, layoutStyle, layoutNum ) => {
+const createEventThumb = ( data, artistData, layoutStyle, layoutNum, curArtistId = null ) => {
   const { id, post_title, post_content, url_friendly_name, excerpt, post_date, main_image, thumb_3x2, thumb_1x1, artist_id } = data
-  const { name, themeColor, textColor } = artistData[artist_id]
+
+  let artistId;
+
+  if(curArtistId != null) artistId = curArtistId
+  else artistId = artist_id[0]
+
+  const { name, themeColor, textColor } = artistData[artistId]
   return {
     id,
     title: excerptStr(post_title, 90),
@@ -767,9 +773,12 @@ export const loadEventsByArtist = ( index,layoutStyle=LAYOUT_STYLE.RANDOM,  coun
 
   const events      = artist.events,
         data        = state.data.events.contents.eventsOrder.map(id=>state.data.events.contents.events[id])
-                      .filter( e => e.artist_id == artist.id ),
+                      .filter( e => e.artist_id.indexOf(artist.id) != -1 ),
         dataCount   = data.length,
         artistData  = state.data.artists.contents.artists
+
+
+
 
   let curCount = events.length * count,
       nextCount = curCount + count
@@ -780,7 +789,7 @@ export const loadEventsByArtist = ( index,layoutStyle=LAYOUT_STYLE.RANDOM,  coun
   if(dataCount > 0 && dataCount > curCount){
     let list = []
     for(let i=curCount; i<nextCount; i++){
-      let e = createEventThumb(data[i], artistData, layoutStyle, layoutNum)
+      let e = createEventThumb(data[i], artistData, layoutStyle, layoutNum, artist.id)
       e.url = `/artist/${artist.urlFriendlyName}${e.url}`
       list.push(e)
       layoutNum++
@@ -891,7 +900,7 @@ export const loadEventPopup = (name) => (dispatch, getState) => {
 
       const related = related_event.map ( id => {
         let e = state.data.events.contents.events[id]
-        const { themeColor, textColor } = state.data.artists.contents.artists[e.artist_id]
+        const { themeColor, textColor } = state.data.artists.contents.artists[e.artist_id[0]]
         let path = '/event/' + e.url_friendly_name
         return {
           id: e.id,
