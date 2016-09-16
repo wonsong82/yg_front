@@ -42,7 +42,8 @@ const initialState = {
       loaded: false,
       isFetching: false,
       contents: {
-        artists: {}
+        artists: {},
+        artistsOrder: {},
       }
     },
 

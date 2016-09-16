@@ -615,7 +615,12 @@ export const initArtistPage = ( name ) => (dispatch,getState) => {
   if(state.page.type != 'artist') return true
 
   let activeIndex = 0
-  const artists = toArray(state.data.artists.contents.artists).map((artist, i) => {
+
+  const artistsData = state.data.artists.contents.artistsOrder.map(id =>
+    state.data.artists.contents.artists[id]
+  )
+
+  const artists = artistsData.map((artist, i) => {
     if(artist.urlFriendlyName == name){
       activeIndex = i
     }
@@ -1186,12 +1191,17 @@ export const getArtistsData = () => ( dispatch, getState ) => {
       .then(response => response.json())
       .then(json => {
         dispatch(receiveArtists(json))
-        dispatch(setMainMenuArtistList( toArray(json) ))
+
+        let artistsData = json.artists_order.map(id =>
+          json.artists[id]
+        )
+
+        dispatch(setMainMenuArtistList( artistsData ))
         let imagesToLoad = []
-        for( let key in json ) {
-          if(json.hasOwnProperty(key)) {
-            if(json[key].bg) {
-              imagesToLoad.push(json[key].bg)
+        for( let key in artistsData ) {
+          if(artistsData.hasOwnProperty(key)) {
+            if(artistsData[key].bg) {
+              imagesToLoad.push(artistsData[key].bg)
             }
           }
         }
