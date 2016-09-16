@@ -268,7 +268,7 @@ export const loadProductsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch
 
 const createProductThumb = ( data, artistData, layoutStyle, layoutNum ) => {
   const {id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id} = data
-  const artistName = artist_id ? artistData[artist_id].name : ''
+  const artistName = artist_id ? artistData[artist_id].name : 'YG'
   let price = null
   if(data.product_type == 'variable' && data.variation && data.variation.length){
     price = getProductPrice(data, data.variation[0]).price
@@ -1055,7 +1055,7 @@ export const loadShopPopup = (name) => (dispatch, getState) => {
     if(thisShop.length){
       const productData = thisShop[0]
       let { id, post_title:title, post_content:content, url_friendly_name, related } = productData
-      let artistName = productData.artist_id ? state.data.artists.contents.artists[productData.artist_id].name : ''
+      let artistName = productData.artist_id ? state.data.artists.contents.artists[productData.artist_id].name : 'YG'
       let url = '/shop/' + url_friendly_name
       let productType = ''
       let selectedOptions = getDefaultOptions(productData)
