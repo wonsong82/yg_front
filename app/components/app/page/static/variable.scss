@@ -8,11 +8,12 @@ $staticMaxWidth--s: 723px;
 $staticWidth--m   : 684px;
 $staticWidth--s   : 420px;
 
+$errorColor : #d00;
+
 @mixin s-title {
   font: 500 20px/24px $font-family;
   color: #333;
   padding: 0 0 14px 0;
-  text-align: left;
   border-bottom: 1px solid #bbbbbb;
   margin-bottom: 16px;
 }
@@ -31,7 +32,6 @@ $staticWidth--s   : 420px;
   font: 400 14px/24px $font-family;
   color: #999999;
   margin-bottom: 14px;
-  text-align: left;
   a {
     font: 400 14px/24px $font-family;
     color: #999999;
@@ -45,7 +45,12 @@ $staticWidth--s   : 420px;
   .il {
     font-weight: 500;
   }
+  b {
+    font-weight: 400;
+    color: #5e5e5e;
+  }
 }
+
 
 @mixin s-input-text {
   height: 42px;
@@ -61,6 +66,7 @@ $staticWidth--s   : 420px;
   transition: border-color 0.3s ease;
   -webkit-appearance: none;
   outline: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
   &:active, &:focus {
     border-color: #999;
   }
@@ -87,12 +93,12 @@ $staticWidth--s   : 420px;
 
 @mixin s-button {
   display: block;
-  font: 400 16px/40px $font-family;
+  font: 500 16px/40px $font-family;
   color: #ffffff;
   background: #333333;
   width: 100%;
   text-transform: uppercase;
-  border: 1px solid #333333;
+  border: 3px solid #333333;
   box-sizing: border-box;
   outline: none;
   -webkit-appearance: none;
@@ -104,5 +110,23 @@ $staticWidth--s   : 420px;
     background-color: transparent;
     color: #333;
     border-color: #333;
+  }
+}
+
+@mixin s-form {
+
+  label {
+    font: 400 14px/24px $font-family;
+    color: #999999;
+    padding-left: 10px;
+    .required {
+      font-weight: 500;
+      color: #333;
+    }
+  }
+
+  input[type="text"], input[type="password"], input[type="email"]{
+    @include s-input-text;
+    margin-bottom: 24px;
   }
 }

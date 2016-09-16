@@ -7,9 +7,6 @@
 //@import './static/Checkout.scss';
 
 
-@import './static/MenuBar';
-
-
 .StaticPage {
   display: none;
 }
@@ -21,149 +18,50 @@
   .static-content {
     position: relative;
 
-    // Footer Pages
-    .static-content-wrapper {
-      width: $staticWidth--m;
-      margin: 0 auto;
+    .static-content-title {
+      @include s-title;
+    }
+    .static-content-h2 {
+      @include s-subtitle;
+    }
+    p {
+      @include s-paragraph;
+    }
 
-      .static-content-title {
-        @include s-title;
-      }
-      .static-content-h2 {
-        @include s-subtitle;
-      }
-      p {
-        @include s-paragraph;
+    label {
+      font: 400 14px/24px $font-family;
+      color: #999999;
+      padding-left: 10px;
+      .required {
+        font-weight: 500;
+        color: #333;
       }
     }
 
-    .menu-bar {
-      @include menu-bar--side;
-      width: 184px;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      margin-left: -1 * ($staticWidth--m * 0.5) - 184px - 30px;
-    }
-    .woocommerce {
-      width: $staticWidth--m;
-      margin: 0 auto;
-
-      h2 {
-        @include s-title;
-      }
+    input[type="text"], input[type="password"], input[type="email"], input[type="tel"], select{
+      @include s-input-text;
+      margin-bottom: 24px;
     }
 
+    .form-row-first {
+      margin-bottom: 0;
+    }
 
-  }
-}
-
-@media( max-width: 1279px ){
-  .App .Page .Static {
-    .static-content {
-      text-align: center;
-      .menu-bar {
-        display: inline-block;
-        position: relative;
-        top: auto;
-        left: auto;
-        vertical-align: top;
-        margin: 0 30px 0 0;
-      }
-      .woocommerce {
-        display: inline-block;
-        position: relative;
-        margin: 0;
-        text-align: left;
-        vertical-align: top;
-      }
-
+    .button {
+      @include s-button;
     }
   }
 }
 
-@media( max-width: 959px ){
-  .App .Page .Static {
-    .static-content {
-      text-align: left;
-      .menu-bar {
-        @include menu-bar--top;
-        display: block;
-        width: 100%;
-        margin: 0;
-      }
-      .woocommerce {
-        display: block;
-        width: 100%;
-      }
-    }
-  }
-}
-
-@media( max-width: 723px ){
-  .App .Page .Static {
-    .static-content {
-      .static-content-wrapper {
-        width: 100%;
-      }
-    }
-  }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus {
+  background-color: $bgColor !important;
+  -webkit-box-shadow: 0 0 0 1000px $bgColor inset !important;
 }
 
 
-
-
-/*
-.App .Page .Static {
-  @include static-content;
-  @include footer;
-  @include my_account;
-  @include checkout;
-}
-
-@media( max-width: $width-my_account--sm ){
-  .App .Page .Static {
-    @include static-content--md;
-    @include my_account--md;
-  }
-}
-
-@media( max-width: $width--md ){
-  .App .Page .Static {
-    @include static-content--md;
-    @include footer--md;
-    @include checkout--md;
-  }
-}
-
-@media( max-width: $width--sm ){
-  .App .Page .Static {
-    @include static-content--sm;
-    @include footer--sm;
-    @include my_account--sm;
-    @include checkout--sm;
-  }
-}
-
-@media( max-width: $width--xs ){
-  .App .Page .Static {
-    @include static-content--xs;
-    @include footer--xs;
-    @include my_account--xs;
-    @include checkout--xs;
-  }
-}
-
-@media( max-width: $width--xxs ){
-  .App .Page .Static {
-    box-sizing: border-box;
-    @include static-content--xxs;
-    @include footer--xxs;
-    @include my_account--xxs;
-    @include checkout--xxs;
-  }
-}
-*/
-
-
-@import './static/FooterPages';
+@import './static/MyAccount';
+@import './static/SingleColumn';
+@import './static/Checkout';
