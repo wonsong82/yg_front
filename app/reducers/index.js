@@ -438,7 +438,7 @@ const data = ( state = initState.data , action) => {
       })
 
     case RECEIVE_MUSICS:
-      let { albums, musics, hotTracks , albums_order} = action.data
+      let { albums, musics, hotTracks , albums_order, musics_order} = action.data
       return Object.assign({}, state, {
         musics: Object.assign({}, state.musics, {
           isFetching: false,
@@ -449,6 +449,7 @@ const data = ( state = initState.data , action) => {
             albumsOrder: albums_order || [],
             musics: musics || {},
             musicsCount: musics ? Object.keys(musics).length : 0,
+            musicsOrder: musics_order || [],
             hotTracks: hotTracks || [],
             hotTracksCount: hotTracks ? hotTracks.length : 0
           }

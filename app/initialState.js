@@ -89,6 +89,7 @@ const initialState = {
         albumsOrder: {},
         musics: {},
         musicsCount: 0,
+        musicsOrder: {},
         hotTracks: {},
         hotTracksCount: 0,
       }

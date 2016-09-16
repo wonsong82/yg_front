@@ -41,6 +41,18 @@ class Cart extends Component {
     this.props.onCloseClick()
   }
 
+  onCheckoutClick(e){
+    e.preventDefault()
+
+    let { musics, products } = this.props
+    let totalCnt = musics.length + products.length
+
+    if(totalCnt > 0) {
+      window.location.href = '/checkout';
+    }else{
+      alert('No items to checkout')
+    }
+  }
 
   onMouseEnter(e) {
     const { textColor, themeColor } = this.props
@@ -244,8 +256,9 @@ class Cart extends Component {
             </div>
 
             <div className="controls">
-              <a href="/checkout"
+              <a href="#"
                  className="checkout-btn"
+                 onClick={this.onCheckoutClick.bind(this)}
                  onMouseEnter={this.onMouseEnter.bind(this)}
                  onMouseLeave={this.onMouseLeave.bind(this)}
               >
