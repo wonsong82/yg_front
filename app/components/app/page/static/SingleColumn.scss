@@ -7,6 +7,26 @@
     margin: 0 auto;
   }
 
+  // Not Found
+  &.not-found {
+    .static-content-wrapper {
+      width: $staticWidth--s;
+      text-align: center;
+
+      .static-content-big-title {
+        margin-bottom: 0;
+      }
+      .static-content-title {
+        border-bottom: 0;
+        font: 400 36px/40px $font-family;
+        margin-bottom: 40px;
+      }
+      .button:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
   &.about-us {
   }
 
@@ -55,6 +75,26 @@
 
 @media (max-width: $staticMaxWidth--s){
   .App .Page .Static .static-content {
+
+    // Not Found
+    &.not-found {
+      .static-content-wrapper {
+        width: 100%;
+        .static-content-big-title {
+          margin-bottom: 0;
+          font-size: 60px;
+          line-height: 60px;
+        }
+        .static-content-title {
+          border-bottom: 0;
+          font: 400 20px/22px $font-family;
+          margin-bottom: 40px;
+        }
+        .button:hover {
+          text-decoration: none;
+        }
+      }
+    }
 
     &.contact {
       .contact-form-top {

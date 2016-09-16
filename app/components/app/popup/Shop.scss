@@ -83,6 +83,8 @@
           display: inline-block;
           height: 40px;
           box-sizing: border-box;
+          border-radius: 0;
+          background: transparent;
           text-transform: capitalize;
           font: 400 16px/40px 'Klavika', sans-serif;
           min-width: 100px;
@@ -116,6 +118,13 @@
           outline: none;
           padding: 0 30px;
           vertical-align: middle;
+          border: 1px solid rgba(0,0,0, $opacity--primary);
+          will-change: color, background-color;
+          transition: color 0.3s ease, background-color 0.3s ease;
+          &:hover, &:active {
+            background: transparent;
+            color: rgba(0,0,0, $opacity--primary);
+          }
         }
       }
     }

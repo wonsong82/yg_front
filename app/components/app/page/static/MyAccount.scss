@@ -1,7 +1,8 @@
 @import '../../../variable.scss';
 @import './variable.scss';
 
-.App .Page .Static .static-content.my-account {
+.App .Page .Static .static-content.my-account,
+.App .Page .Static .static-content.my-orders {
   position: relative;
   text-align: left;
 
@@ -34,8 +35,11 @@
             color: #999;
             will-change: color;
             transition: color 0.3s ease;
-            &:hover {
+            &:hover, &:active, &.active {
               color: #333;
+            }
+            &.active {
+              font-weight: 500;
             }
           }
         }
@@ -43,14 +47,10 @@
     }
   }
 
-  .woocommerce {
+  .woocommerce, .static-content-body {
     width: $staticWidth--m;
     margin: 0 auto;
     position: relative;
-
-    h2 {
-      @include s-title;
-    }
 
 
     .woocommerce-error {
@@ -63,76 +63,167 @@
         }
       }
     }
+  }
 
-
-    // Register & Login
-    #customer_login {
-
-      .button {
-        @include s-button;
-        margin-bottom: 10px;
-      }
-
-      .col-1 {
-        float: left;
-        width: 337px;
-
-        form.login {
-          @include s-form;
-
-          .inline {
-            padding-left: 0;
-            @include s-paragraph;
-          }
-        }
-      }
-
-      .col-2 {
-        float: left;
-        width: 337px;
-        margin-left: 10px;
-
-        form.register {
-          @include s-form;
-        }
-      }
-
-      &:after {
-        display: block;
-        content: '';
-        clear: both;
-      }
+  .col2-set {
+    .col-1, .col-2 {
+      @include s-text;
+      width: 337px;
+      float: left;
     }
-
-    // Lost Password
-    .lost_reset_password {
-      .text {
-        margin-bottom: 50px;
-      }
-      input {
-        width: 340px;
-      }
+    .col-2 {
+      margin-left: 10px;
     }
-
-
-
-
-
-
-    .myaccount_user {
+    &:after {
       display: block;
-      position: absolute;
-      top: 20px;
-      left: 0;
+      content: '';
+      clear: both;
+    }
+  }
+
+  .form-row-first, .form-row-last {
+    width: 337px;
+    float: left;
+  }
+  .form-row-last {
+    margin-left: 10px;
+  }
+
+  .controls {
+    border-top: 1px solid #bbbbbb;
+    margin-top: 46px;
+    padding-top: 20px;
+    text-align: center;
+    .button {
+      display: inline-block;
+      max-width: 340px;
+    }
+  }
+
+  .order-info {
+    font: 500 16px/24px $font-family;
+    color: #333;
+  }
+
+
+
+
+  address {
+    @include s-paragraph;
+  }
+
+
+
+  // Register & Login
+  #customer_login {
+
+    .button {
+      @include s-button;
+      margin-bottom: 10px;
     }
 
+    .col-1 {
+      float: left;
+      width: 337px;
+
+      form.login {
+        @include s-form;
+
+        .inline {
+          padding-left: 0;
+          @include s-paragraph;
+        }
+      }
+    }
+
+    .col-2 {
+      float: left;
+      width: 337px;
+      margin-left: 10px;
+
+      form.register {
+        @include s-form;
+      }
+    }
+
+    &:after {
+      display: block;
+      content: '';
+      clear: both;
+    }
+  }
+
+  // Lost Password
+  .lost_reset_password {
+    .text {
+      margin-bottom: 50px;
+    }
+    input {
+      width: 340px;
+    }
+  }
+
+  // Profile
+  #profile-form {
+
+    .controls {
+      border-top: 1px solid #bbbbbb;
+      margin-top: 46px;
+      padding-top: 20px;
+      text-align: center;
+      .button {
+        display: inline-block;
+        width: 337px;
+      }
+    }
+  }
+
+  // Track Order
+  .track_order {
+    .form-row {
+      margin-bottom: 0;
+    }
+  }
+
+  // Downloads
+  .digital-downloads {
+    margin-bottom: 20px;
+    li {
+      font: 400 14px/50px $font-family;
+      color: #5e5e5e;
+      padding: 0 10px;
+      vertical-align: middle;
+      height: 50px;
+      border-bottom: 1px solid #dddddd;
+      text-align: left;
+      a {
+        color: #5e5e5e;
+        &:hover {
+          color: #333;
+          text-decoration: underline;
+        }
+      }
+      strong {
+        font-weight: 400;
+      }
+    }
+  }
 
 
+
+}
+
+.App .Page .Static .static-content.my-orders {
+  .static-content-body {
+    .static-content-h2 {
+      margin-bottom: 0;
+    }
   }
 }
 
 @media( max-width: $staticMaxWidth--l ){
-  .App .Page .Static .static-content.my-account {
+  .App .Page .Static .static-content.my-account,
+  .App .Page .Static .static-content.my-orders {
     font-size: 0;
     text-align: center;
 
@@ -145,7 +236,8 @@
       margin: 0 30px 0 0;
     }
 
-    .woocommerce {
+    .woocommerce, .static-content-body {
+      font-size: initial;
       display: inline-block;
       position: relative;
       margin: 0;
@@ -156,7 +248,8 @@
 }
 
 @media( max-width: 959px ){
-  .App .Page .Static .static-content.my-account {
+  .App .Page .Static .static-content.my-account,
+  .App .Page .Static .static-content.my-orders {
     text-align: left;
 
     .menu-bar {
@@ -171,6 +264,10 @@
       }
       .menu-body {
         padding: 0;
+        width: $staticWidth--m;
+        margin-left: auto;
+        margin-right: auto;
+
         ul {
           font-size: 0;
           text-align: center;
@@ -190,7 +287,7 @@
       }
       margin-bottom: 40px;
     }
-    .woocommerce {
+    .woocommerce, .static-content-body {
       display: block;
       margin: 0 auto;
       text-align: left;
@@ -198,8 +295,32 @@
   }
 }
 
-@media( max-width: 723px ){
-  .App .Page .Static .static-content.my-account {
+@media( max-width: $staticMaxWidth--s ){
+  .App .Page .Static .static-content.my-account,
+  .App .Page .Static .static-content.my-orders {
+
+    .static-content-wrapper {
+      width: 100%;
+    }
+
+    input {
+      text-align: center;
+    }
+
+    .form-row-first, .form-row-last {
+      width: 100%;
+    }
+    .form-row-last {
+      margin-left: 0;
+    }
+
+    .controls {
+      .button {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
 
     .menu-bar {
       .menu-title {
@@ -207,6 +328,7 @@
         text-align: center;
       }
       .menu-body {
+        width: 100%;
         ul {
           li {
             width: 150px;
@@ -222,24 +344,44 @@
       }
     }
 
-    .woocommerce {
+    .woocommerce, .static-content-body {
       width: 100%;
       text-align: center;
+    }
 
-      #customer_login {
-        .col-1, .col-2 {
-          width: 100%;
-        }
-        .col-1 {
-          margin-bottom: 40px;
-        }
+    .col2-set {
+      .col-1, .col-2 {
+        width: 100%;
       }
+      .col-2 {
+        margin-left: 0;
+      }
+    }
 
-      .lost_reset_password {
-        .text {
-          margin-bottom: 50px;
-        }
-        input {
+
+    #customer_login {
+      .col-1, .col-2 {
+        width: 100%;
+      }
+      .col-1 {
+        margin-bottom: 40px;
+      }
+    }
+
+    .lost_reset_password {
+      .text {
+        margin-bottom: 50px;
+      }
+      input {
+        width: 100%;
+      }
+    }
+
+    // Profile
+    #profile-form {
+      .controls {
+        .button {
+          display: block;
           width: 100%;
         }
       }
