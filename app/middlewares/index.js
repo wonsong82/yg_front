@@ -969,8 +969,9 @@ export const loadMusicPopup = (name) => (dispatch, getState) => {
     if(thisMusic.length){
       let {id, post_title, cover_image, post_content, url_friendly_name , related_album } = thisMusic[0]
 
-      let products = toArray(state.data.musics.contents.musics)
-        .filter( product => product.album_id == id)
+      let products = toArray(state.data.musics.contents.musicsOrder).map(
+        id => state.data.musics.contents.musics[id]
+      ).filter( product => product.album_id == id)
 
       let albumProduct = products.filter(product => product.product_type == 'album')
       let musicsProduct = products.filter(product => product.product_type == 'music')
