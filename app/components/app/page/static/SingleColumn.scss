@@ -2,6 +2,11 @@
 
 .App .Page .Static .static-content {
 
+  .static-content-wrapper {
+    width: $staticWidth--m;
+    margin: 0 auto;
+  }
+
   &.about-us {
   }
 
@@ -20,6 +25,11 @@
         display: inline-block;
         margin-left: 10px;
       }
+    }
+
+    .screen-reader-response {
+      @include s-paragraph;
+      color: #d00;
     }
 
     form.wpcf7-form {

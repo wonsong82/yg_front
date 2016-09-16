@@ -1,0 +1,168 @@
+
+@mixin checkout {
+  @include checkout--md;
+  position: relative;
+  margin: auto;
+  .static-content {
+    &.checkout {
+      .woocommerce {
+        margin-top: 0px;
+        form.checkout {
+          .col2-set {
+            display: inline-block;
+            .woocommerce-billing-fields, .woocommerce-shipping-fields {
+              p {
+                width: 100%;
+                margin-left: 0px;
+                input[type=tel] {
+                  @include input-tel;
+                }
+                select {
+                  @include select;
+                }
+                textarea {
+                  @include textarea;
+                  height: 152px;
+                }
+              }
+            }
+            .col-1, .col-2 {
+              float: left;
+              box-sizing: border-box;
+            }
+            .col-1 {
+              width: 60%;
+            }
+            .col-2 {
+              width: 40%;
+              padding-left: 20px;
+              .shipping_address {
+                max-height: 0px;
+                overflow: hidden;
+              }
+            }
+          }
+        }
+        &-checkout {
+          &-payment {
+            ul {
+              li {
+                @include caption;
+                margin-bottom: 10px;
+                .payment_box {
+                  margin: 30px 0 30px 0;
+                  fieldset {
+                    padding: 5px;
+                    border: 1px solid rgba(0,0,0, $opacity--caption);
+                  }
+                }
+                input {
+                }
+                label {
+                }
+                .payment_icon {
+                  img {
+                    ~ img {
+                      margin-left: 1%;
+                    }
+                    width: 12%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@mixin checkout--md {
+}
+
+@mixin checkout--sm {
+  .static-content {
+    &.checkout {
+      .woocommerce {
+        form.checkout {
+          .col2-set {
+            .col-1 {
+              width: 100%;
+            }
+            .col-2 {
+              width: 100%;
+              padding-left: 0px;
+            }
+          }
+        }
+        &-checkout {
+          &-payment {
+            ul {
+              li {
+                label {
+                  img {
+                    top: 9px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin checkout--xs {
+  .static-content {
+    &.checkout {
+      .woocommerce {
+        form.checkout {
+          .col2-set {
+            .col-1 {
+              width: 100%;
+            }
+            .col-2 {
+              width: 100%;
+              padding-left: 0px;
+            }
+          }
+        }
+        &-checkout {
+          &-payment {
+            ul {
+              li {
+                label {
+                  img {
+                    top: 7px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin checkout--xxs {
+  .static-content {
+    &.checkout {
+      .woocommerce {
+        form.checkout {
+          .col2-set {
+            .col-1 {
+              width: 100%;
+            }
+            .col-2 {
+              width: 100%;
+              padding-left: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

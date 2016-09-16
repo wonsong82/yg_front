@@ -1,0 +1,249 @@
+@import '../../../variable.scss';
+@import './variable.scss';
+
+.App .Page .Static .static-content.my-account {
+  position: relative;
+  text-align: left;
+
+  .menu-bar {
+    width: 184px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -1 * ($staticWidth--m * 0.5) - 184px - 30px;
+
+    .menu-title {
+      font: 500 20px/24px $font-family;
+      color: #333;
+      border-bottom: 1px solid rgba(0,0,0, $opacity--line1);
+      padding: 0 2px 14px;
+      text-align: left;
+    }
+    .menu-body {
+      padding: 16px 2px;
+      border-bottom: 1px solid rgba(0, 0, 0, $opacity--line1);
+      ul {
+        li {
+          margin: 0;
+          float: none;
+          text-align: left;
+          width: 100%;
+          a {
+            font: 400 18px/28px $font-family;
+            text-transform: capitalize;
+            color: #999;
+            will-change: color;
+            transition: color 0.3s ease;
+            &:hover {
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .woocommerce {
+    width: $staticWidth--m;
+    margin: 0 auto;
+    position: relative;
+
+    h2 {
+      @include s-title;
+    }
+
+
+    .woocommerce-error {
+      li {
+        @include s-paragraph;
+        color: $errorColor;
+
+        strong {
+          font-weight: bold;
+        }
+      }
+    }
+
+
+    // Register & Login
+    #customer_login {
+
+      .button {
+        @include s-button;
+        margin-bottom: 10px;
+      }
+
+      .col-1 {
+        float: left;
+        width: 337px;
+
+        form.login {
+          @include s-form;
+
+          .inline {
+            padding-left: 0;
+            @include s-paragraph;
+          }
+        }
+      }
+
+      .col-2 {
+        float: left;
+        width: 337px;
+        margin-left: 10px;
+
+        form.register {
+          @include s-form;
+        }
+      }
+
+      &:after {
+        display: block;
+        content: '';
+        clear: both;
+      }
+    }
+
+    // Lost Password
+    .lost_reset_password {
+      .text {
+        margin-bottom: 50px;
+      }
+      input {
+        width: 340px;
+      }
+    }
+
+
+
+
+
+
+    .myaccount_user {
+      display: block;
+      position: absolute;
+      top: 20px;
+      left: 0;
+    }
+
+
+
+  }
+}
+
+@media( max-width: $staticMaxWidth--l ){
+  .App .Page .Static .static-content.my-account {
+    font-size: 0;
+    text-align: center;
+
+    .menu-bar {
+      display: inline-block;
+      position: relative;
+      top: auto;
+      left: auto;
+      vertical-align: top;
+      margin: 0 30px 0 0;
+    }
+
+    .woocommerce {
+      display: inline-block;
+      position: relative;
+      margin: 0;
+      text-align: left;
+      vertical-align: top;
+    }
+  }
+}
+
+@media( max-width: 959px ){
+  .App .Page .Static .static-content.my-account {
+    text-align: left;
+
+    .menu-bar {
+      display: block;
+      width: 100%;
+      margin: 0;
+      .menu-title {
+        text-align: left;
+        width: $staticWidth--m;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .menu-body {
+        padding: 0;
+        ul {
+          font-size: 0;
+          text-align: center;
+          li {
+            display: inline-block;
+            height: 60px;
+            text-align: center;
+            width: auto;
+            &+li {
+              margin-left: 46px;
+            }
+            a {
+              font: 400 17px/60px $font-family;
+            }
+          }
+        }
+      }
+      margin-bottom: 40px;
+    }
+    .woocommerce {
+      display: block;
+      margin: 0 auto;
+      text-align: left;
+    }
+  }
+}
+
+@media( max-width: 723px ){
+  .App .Page .Static .static-content.my-account {
+
+    .menu-bar {
+      .menu-title {
+        width: 100%;
+        text-align: center;
+      }
+      .menu-body {
+        ul {
+          li {
+            width: 150px;
+            height: 30px;
+            a {
+              font: 400 16px/30px $font-family;
+            }
+            &+li {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .woocommerce {
+      width: 100%;
+      text-align: center;
+
+      #customer_login {
+        .col-1, .col-2 {
+          width: 100%;
+        }
+        .col-1 {
+          margin-bottom: 40px;
+        }
+      }
+
+      .lost_reset_password {
+        .text {
+          margin-bottom: 50px;
+        }
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
