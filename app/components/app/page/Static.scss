@@ -18,10 +18,14 @@
   .static-content {
     position: relative;
 
+    .static-content-big-title {
+      @include s-title-large;
+    }
+
     .static-content-title {
       @include s-title;
     }
-    .static-content-h2 {
+    .static-content-h2, h2, h3 {
       @include s-subtitle;
     }
     p {
@@ -38,6 +42,10 @@
       }
     }
 
+    .clear {
+      clear: both;
+    }
+
     input[type="text"], input[type="password"], input[type="email"], input[type="tel"], select{
       @include s-input-text;
       margin-bottom: 24px;
@@ -49,6 +57,85 @@
 
     .button {
       @include s-button;
+    }
+
+    .woocommerce-error li {
+      @include s-paragraph;
+      font-weight: 500;
+      color: #d00;
+    }
+
+    .woocommerce-info {
+      @include s-paragraph;
+      color: #333;
+    }
+
+    .woocommerce-message {
+      @include s-paragraph;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .myaccount_user {
+      margin-bottom: 40px;
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: 40px;
+
+      th, td {
+        &:last-child {
+          text-align: right;
+        }
+      }
+
+      th {
+        font: 400 14px/20px $font-family;
+        color: #999999;
+        height: 50px;
+        padding: 0 10px;
+        vertical-align: middle;
+        border-bottom: 1px solid #dddddd;
+        text-align: left;
+      }
+      td {
+        font: 400 14px/20px $font-family;
+        color: #5e5e5e;
+        padding: 0 10px;
+        vertical-align: middle;
+        height: 50px;
+        border-bottom: 1px solid #dddddd;
+        text-align: left;
+        a {
+          color: #5e5e5e;
+          &:hover {
+            color: #333;
+            text-decoration: underline;
+          }
+        }
+        strong {
+          font-weight: 400;
+        }
+        .button {
+          font: 500 12px/20px $font-family;
+          height: 26px;
+          width: auto;
+          padding-left: 10px;
+          padding-right: 10px;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        &.product-total {
+          text-align: right;
+        }
+      }
+      tfoot {
+        td {
+          text-align: right;
+        }
+      }
     }
   }
 }

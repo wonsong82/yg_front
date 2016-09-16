@@ -36,7 +36,7 @@ class Shop extends Component {
   }
 
   onMouseEnter(e) {
-    const { textColor, themeColor } = this.props
+    /*const { textColor, themeColor } = this.props
     $(e.target)
       .velocity('stop')
       .velocity({
@@ -45,16 +45,16 @@ class Shop extends Component {
       }, {
         easing: 'easeOutQuad',
         duration: 300
-      })
+      })*/
   }
 
   onMouseLeave(e) {
-    $(e.target)
+    /*$(e.target)
       .velocity('stop')
       .velocity('reverse', {
         duration: 300,
         easing: 'easeOutQuad'
-      })
+      })*/
   }
 
 
@@ -116,7 +116,7 @@ class Shop extends Component {
               <a href="#"
                 className="add-to-cart"
                 onClick={this.onAddCartClick.bind(this)}
-                onMouseEnter={this.onMouseEnter.bind(this)}
+                onMouseOver={this.onMouseEnter.bind(this)}
                 onMouseLeave={this.onMouseLeave.bind(this)}
               >
                 ADD TO CART

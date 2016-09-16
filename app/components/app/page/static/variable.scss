@@ -10,12 +10,20 @@ $staticWidth--s   : 420px;
 
 $errorColor : #d00;
 
+
+@mixin s-title-large {
+  font: 500 97px/97px $font-family;
+  color: #333;
+  padding: 0 0 14px 0;
+}
+
 @mixin s-title {
   font: 500 20px/24px $font-family;
   color: #333;
   padding: 0 0 14px 0;
   border-bottom: 1px solid #bbbbbb;
   margin-bottom: 16px;
+  text-transform: capitalize;
 }
 
 @mixin s-subtitle {
@@ -25,13 +33,20 @@ $errorColor : #d00;
   border-bottom: 1px solid #dddddd;
   padding-top: 24px;
   margin-bottom: 16px;
-  text-align: left;
+  text-transform: capitalize;
+}
+
+@mixin s-text {
+  font: 400 14px/24px $font-family;
+  color: #999999;
+  font-style: normal;
 }
 
 @mixin s-paragraph {
   font: 400 14px/24px $font-family;
   color: #999999;
   margin-bottom: 14px;
+  font-style: normal;
   a {
     font: 400 14px/24px $font-family;
     color: #999999;
