@@ -357,13 +357,17 @@ const data = ( state = initState.data , action) => {
         artists: Object.assign({}, state.artists, {isFetching: true})
       })
     case RECEIVE_ARTISTS:
-      let artistsList = action.data
+
+
+      let {artists, artists_order} = action.data
+
       return Object.assign({}, state, {
         artists: Object.assign({}, state.artists, {
           isFetching: false,
           loaded: true,
           contents: {
-            artists: artistsList
+            artists: artists,
+            artistsOrder: artists_order
           }
         })
       })
