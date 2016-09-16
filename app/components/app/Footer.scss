@@ -56,6 +56,15 @@
 
   .EmailSignup {
     display: block;
+    margin-bottom: 28px;
+  }
+
+  .copyright {
+    font: 400 12px/25px 'Klavika', sans-serif;
+    opacity: $opacity--sub;
+    text-align: center;
+    transition: color 1000ms ease, opacity 300ms ease;
+    will-change: color, opacity;
     margin-bottom: 58px;
   }
 }

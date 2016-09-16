@@ -2,7 +2,8 @@
 @import './variable.scss';
 
 .App .Page .Static .static-content.my-account,
-.App .Page .Static .static-content.my-orders {
+.App .Page .Static .static-content.my-orders,
+.App .Page .Static .static-content.my-downloads{
   position: relative;
   text-align: left;
 
@@ -223,7 +224,8 @@
 
 @media( max-width: $staticMaxWidth--l ){
   .App .Page .Static .static-content.my-account,
-  .App .Page .Static .static-content.my-orders {
+  .App .Page .Static .static-content.my-orders,
+  .App .Page .Static .static-content.my-downloads{
     font-size: 0;
     text-align: center;
 
@@ -249,7 +251,8 @@
 
 @media( max-width: 959px ){
   .App .Page .Static .static-content.my-account,
-  .App .Page .Static .static-content.my-orders {
+  .App .Page .Static .static-content.my-orders,
+  .App .Page .Static .static-content.my-downloads{
     text-align: left;
 
     .menu-bar {
@@ -297,7 +300,8 @@
 
 @media( max-width: $staticMaxWidth--s ){
   .App .Page .Static .static-content.my-account,
-  .App .Page .Static .static-content.my-orders {
+  .App .Page .Static .static-content.my-orders,
+  .App .Page .Static .static-content.my-downloads{
 
     .static-content-wrapper {
       width: 100%;

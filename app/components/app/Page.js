@@ -9,10 +9,10 @@ class Page extends Component {
   }
 
   render() {
-    const { ready, color, children } = this.props
+    const { ready, color, children, popup } = this.props
 
       return (
-        <div className="Page">
+        <div className={popup? 'Page disabled':'Page'}>
           { ready ?
             children :
             <div className="loading">

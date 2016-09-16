@@ -45,14 +45,6 @@
     left: 0;
     right: 0;
     z-index: $z-frame;
-
-    .copyright {
-      font: 400 12px/25px 'Klavika', sans-serif;
-      opacity: $opacity--sub;
-      text-align: center;
-      transition: color 1000ms ease, opacity 300ms ease;
-      will-change: color, opacity;
-    }
   }
 }
 

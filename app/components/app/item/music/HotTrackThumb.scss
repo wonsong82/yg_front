@@ -57,7 +57,7 @@
         .title {
           display: block;
           width: 170px;
-          height: 24px;
+          height: 48px;
           overflow: hidden;
           font: 400 18px/24px $font-family;
           color: rgba(0,0,0, $opacity--primary);
@@ -197,6 +197,15 @@
 @mixin hot-track-thumb--md {
   @include hot-track-thumb-base;
   width: getGridWidth(6);
+  .MusicPlayer {
+    .music-info {
+      .info {
+        .title {
+          width: 380px;
+        }
+      }
+    }
+  }
 }
 
 @mixin hot-track-thumb--sm {
@@ -207,7 +216,89 @@
   @include hot-track-thumb-base;
   width: getGridWidth(2);
   height: 130px;
+
+  .image-link {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &.image {
+    .MusicPlayer {
+      left: 0;
+    }
+    .progress-container {
+      left: 88px;
+      right: 0;
+      width: auto;
+    }
+
+  }
   .MusicPlayer {
+    .music-info {
+      padding: 5px 10px;
+      .order {
+        display: block;
+        width: auto;
+        height: 37px;
+        text-align: left;
+        line-height: 37px;
+      }
+      .info {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 5px;
+        left: 0;
+        .title {
+          width: 100%;
+          box-sizing: border-box;
+          padding-left: 30px;
+          padding-right: 10px;
+          line-height: 37px;
+          height: 37px;
+          overflow: hidden;
+          font-size: 14px;
+        }
+        .subtitle {
+          display: none;
+        }
+        .song {
+          bottom: 35px;
+          left: auto;
+          right: 10px;
+          .artist-name {
+            font-size: 12px;
+          }
+          .current-time {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .controls {
+      .player-btn {
+        left: 20px;
+        top: 65px;
+      }
+    }
+  }
+  .track-price {
+    right: 10px;
+  }
+  .add-to-cart {
+    right: 10px;
+  }
+  .youtube-link {
+    left: 125px;
+    top: auto;
+    bottom: 52px;
+    transform: translate(0,0);
+  }
+
+  /*.MusicPlayer {
     bottom: 42px;
     .music-info {
       padding: 5px 10px 5px 0;
@@ -267,7 +358,7 @@
   .track-price {
     bottom: 48px;
     right: 20px;
-  }
+  }*/
 
 
 

@@ -3,6 +3,10 @@
 .App .Page {
   width: 100%;
   z-index: $z-page;
+
+  &.disabled {
+    position: absolute;
+  }
 }
 
 

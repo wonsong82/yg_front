@@ -32,6 +32,8 @@ const Footer = ({ color, bgColor }) => (
 
       <EmailSignup title="NEWSLETTER" />
 
+      <div className="copyright" style={{color}}>All Rights Reserved @ 2016 YG PRESENTS</div>
+
     </div>
 )
 

@@ -245,7 +245,7 @@ class Cart extends Component {
                         <span style={{color:textColor}}>Subtotal</span>
                       </td>
                       <td className="subtotal-value">
-                        <span style={{color:textColor}}>{total}</span>
+                        <span style={{color:textColor}}>${total}</span>
                       </td>
                     </tr>
                   </tbody>

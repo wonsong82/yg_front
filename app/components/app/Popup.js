@@ -37,11 +37,6 @@ class Popup extends Component {
       <div className="Popup" ref="popup">
 
         <div className="popup-container">
-          <div className="header">
-            <a className="close-button" href="#" onClick={this.onCloseClick.bind(this)}>
-              <MenuButton color="#000000" close={true} />
-            </a>
-          </div>
 
           <ScrollArea className="contents"
                       speed={0.8}
@@ -51,6 +46,12 @@ class Popup extends Component {
             {children}
 
           </ScrollArea>
+
+          <a className="close-button" href="#" onClick={this.onCloseClick.bind(this)}>
+            <MenuButton color="#000000" close={true} />
+          </a>
+
+
         </div>
       </div>
     )

@@ -17,27 +17,22 @@
     bottom: $frameSize;
     background: $bgColor;
 
-    > .header {
-      position: relative;
+    .close-button {
       display: block;
-      box-sizing: border-box;
-      width: 100%;
-      padding: 20px;
-      text-align: right;
-
-      .close-button {
-        display: inline-block;
-        width: 28px;
-        height: 28px;
-      }
+      width: 28px;
+      height: 28px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
 
     > .contents {
       position: absolute;
-      top: 48px + 34px;
+      top: 0;
       left: 0;
       right: 0;
       bottom: 0;
+      padding-top: 50px;
     }
   }
 }

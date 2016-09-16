@@ -39,7 +39,9 @@ class Transition extends Component {
     let y = this.props.clickPosition.y || $(window).height() * 0.5
     const popup = $(findDOMNode(this.refs.popup))
     const contents = $('.contents', popup)
+    const closebtn = $('.close-button', popup)
     contents.css('display','none')
+    closebtn.css('opacity',0)
     popup.css({
         '-webkit-transform-origin': x + 'px ' + y + 'px',
         '-moz-transform-origin': x + 'px ' + y + 'px',
@@ -63,15 +65,24 @@ class Transition extends Component {
           contents.css({display:'block', opacity:0})
             .velocity('stop', true)
             .velocity({
-              translateY: '30px'
+              translateY: '200px'
             })
             .velocity('finish')
             .velocity({
               opacity: 1,
               translateY: 0
             }, {
-              duration: 700,
-              easing: 'easeOutQuart'
+              duration: 800,
+              easing: 'easeInOutCubic',
+              complete: () => {
+                closebtn
+                  .velocity('stop', true)
+                  .velocity({
+                    opacity: 1
+                  },{
+                    duration: 300
+                  })
+              }
             })
 
           $('.App .Popup').trigger('popupShowed')
@@ -82,7 +93,7 @@ class Transition extends Component {
 
   hide( callback ) {
     const popup = $(findDOMNode(this.refs.popup))
-    const contents = $('.contents', popup)
+    const contents = $('.contents, .close-button', popup)
     contents
       .velocity('stop', true)
       .velocity({
