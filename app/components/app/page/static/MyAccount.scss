@@ -3,7 +3,8 @@
 
 .App .Page .Static .static-content.my-account,
 .App .Page .Static .static-content.my-orders,
-.App .Page .Static .static-content.my-downloads{
+.App .Page .Static .static-content.my-downloads,
+.App .Page .Static .static-content.checkout{
   position: relative;
   text-align: left;
 
@@ -209,9 +210,6 @@
       }
     }
   }
-
-
-
 }
 
 .App .Page .Static .static-content.my-orders {
@@ -222,12 +220,141 @@
   }
 }
 
+.App .Page .Static .static-content.checkout {
+  // Checkout
+  .page-header {
+    text-align: inherit;
+  }
+  .tg-container {
+    width: auto;
+    padding: 0;
+  }
+  .checkout_coupon {
+    border-top: 1px solid #d3ced2;
+    .form-row-first, .form-row-last {
+      width: 316px;
+      .input-text {
+        margin: 0;
+      }
+    }
+    .form-row-last {
+      margin-left: 10px;
+    }
+  }
+  table.shop_attributes {
+    border: 0;
+    border-top: 0;
+    margin-bottom: 40px;
+    width: 100%;
+
+    th {
+      width: auto;
+      font-weight: 400;
+      padding: 0 10px;
+      border-top: 0;
+      border-bottom: 1px solid #dddddd;
+      margin: 0;
+      line-height: 20px;
+    }
+
+    td {
+      font-style: normal;
+      padding: 0 10px;
+      border-top: 0;
+      border-bottom: 1px solid #dddddd;
+      margin: 0;
+      line-height: 20px;
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .alt td,
+    .alt th {
+      background: transparent;
+    }
+  }
+
+  .order-recap {
+    th {
+      border-top: 1px solid #dddddd;
+    }
+  }
+
+  table.shop_table {
+    border: 0;
+    margin: 0;
+    margin-bottom: 40px;
+    text-align: inherit;
+    width: 100%;
+    border-collapse: separate;
+    border-radius: 0;
+
+    th {
+      font-weight: 400;
+      padding: 0 10px;
+    }
+
+    td {
+      border-top: 0;
+      padding: 0 10px;
+      vertical-align: middle;
+
+      small {
+        font-weight: normal;
+      }
+    }
+
+    tbody:first-child {
+      tr:first-child {
+        th,
+        td {
+          border-top: 0;
+        }
+      }
+    }
+
+    tfoot td,
+    tfoot th,
+    tbody th {
+      font-weight: 400;
+      border-top: 0;
+    }
+  }
+
+  table.my_account_orders {
+    font-size: 0.85em;
+
+    th,
+    td {
+      padding: 4px 8px;
+      vertical-align: middle;
+    }
+
+    .button {
+      white-space: nowrap;
+    }
+
+    .order-actions {
+      text-align: right;
+
+      .button {
+        margin: .125em 0 .125em .25em;
+      }
+    }
+  }
+}
+
+
 @media( max-width: $staticMaxWidth--l ){
   .App .Page .Static .static-content.my-account,
   .App .Page .Static .static-content.my-orders,
-  .App .Page .Static .static-content.my-downloads{
+  .App .Page .Static .static-content.my-downloads,
+  .App .Page .Static .static-content.checkout{
     font-size: 0;
-    text-align: center;
+    text-align: left;
 
     .menu-bar {
       display: inline-block;
@@ -252,7 +379,8 @@
 @media( max-width: 959px ){
   .App .Page .Static .static-content.my-account,
   .App .Page .Static .static-content.my-orders,
-  .App .Page .Static .static-content.my-downloads{
+  .App .Page .Static .static-content.my-downloads,
+  .App .Page .Static .static-content.checkout{
     text-align: left;
 
     .menu-bar {
@@ -301,7 +429,8 @@
 @media( max-width: $staticMaxWidth--s ){
   .App .Page .Static .static-content.my-account,
   .App .Page .Static .static-content.my-orders,
-  .App .Page .Static .static-content.my-downloads{
+  .App .Page .Static .static-content.my-downloads,
+  .App .Page .Static .static-content.checkout{
 
     .static-content-wrapper {
       width: 100%;
@@ -388,6 +517,18 @@
           display: block;
           width: 100%;
         }
+      }
+    }
+  }
+
+  .App .Page .Static .static-content.checkout {
+    // Checkout
+    .checkout_coupon {
+      .form-row-first, .form-row-last {
+        width: 100%;
+      }
+      .form-row-last {
+        margin-left: 0;
       }
     }
   }

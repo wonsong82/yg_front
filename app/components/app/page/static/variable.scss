@@ -108,8 +108,10 @@ $errorColor : #d00;
 
 @mixin s-button {
   display: block;
-  font: 500 16px/40px $font-family;
+  font: 500 16px/36px $font-family;
   color: #ffffff;
+  height: 42px;
+  padding: 0 10px;
   background: #333333;
   width: 100%;
   text-transform: uppercase;
@@ -123,7 +125,7 @@ $errorColor : #d00;
   text-align: center;
   &:hover, &:active {
     background-color: transparent;
-    color: #333;
+    color: #333 !important;
     border-color: #333;
   }
 }
@@ -142,6 +144,6 @@ $errorColor : #d00;
 
   input[type="text"], input[type="password"], input[type="email"]{
     @include s-input-text;
-    margin-bottom: 24px;
+    margin-bottom: 15px;
   }
 }

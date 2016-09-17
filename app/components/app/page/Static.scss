@@ -48,7 +48,7 @@
 
     input[type="text"], input[type="password"], input[type="email"], input[type="tel"], select{
       @include s-input-text;
-      margin-bottom: 24px;
+      margin-bottom: 15px;
     }
 
     .form-row-first {
