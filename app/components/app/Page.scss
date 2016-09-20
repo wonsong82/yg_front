@@ -5,11 +5,9 @@
   z-index: $z-page;
 
   &.disabled {
-    position: absolute;
-    top: 0;
-    bottom: 0;
     overflow: hidden;
-
+    padding-bottom: 26px;
+    min-height: initial;
   }
 }
 
