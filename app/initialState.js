@@ -5,7 +5,8 @@ const initialState = {
     themeColor: '#f0f0f0',
     responsiveMode: 0,
     startApp: false,
-    clickPosition: {x:undefined, y:undefined}
+    clickPosition: {x:undefined, y:undefined},
+    blockFilm: false
   },
   
   mainMenu: {
@@ -23,7 +24,9 @@ const initialState = {
     },
     opened: false,
     productsCount: 0,
-    total: 0
+    total: 0,
+    notifierText: '',
+    notifier: false
   },
 
   page: {},

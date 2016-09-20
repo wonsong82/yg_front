@@ -6,12 +6,16 @@ export const SET_THEME_COLOR = 'set_theme_color'
 export const SET_RESPONSIVE_MODE = 'set_responsive_mode'
 export const START_APP = 'start_app'
 export const SET_CLICK_POSITION = 'set_click_position'
+export const SHOW_BLOCK_FILM = 'show_block_film'
+export const HIDE_BLOCK_FILM = 'hide_block_film'
 export const setThemeColor = (themeColor, textColor) => ({ type: SET_THEME_COLOR, themeColor, textColor })
 export const setResponsiveMode = width => ({ type: SET_RESPONSIVE_MODE, width })
 export const startApp = () => ({ type: START_APP })
 export const setClickPosition = ( x, y ) => ({ type: SET_CLICK_POSITION, x, y })
 export const handleResponsiveChange = Middlewares.handleResponsiveChange
 export const redirect = Middlewares.redirect
+export const showBlockFilm = () => ({ type: SHOW_BLOCK_FILM })
+export const hideBlockFilm = () => ({ type: HIDE_BLOCK_FILM })
 
 
 // MAIN MENU

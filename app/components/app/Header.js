@@ -62,6 +62,11 @@ class Header extends React.Component {
           <span className="quantity" style={{color}}>{productsCount}</span>
         </a>
 
+        {/*<div className="cart-notifier">
+          <i class="material-icons">&#xE5C7;</i>
+          <div className="cart-notified-content">aoefjiofij</div>
+        </div>*/}
+
       </div>
     )
   }

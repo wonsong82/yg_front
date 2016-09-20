@@ -20,7 +20,7 @@ class App extends Component {
 
 
   render(){
-    const { page, popup, mainMenuOpened, cartOpened, themeColor, textColor, dataLoaded, startApp } = this.props
+    const { page, popup, mainMenuOpened, cartOpened, themeColor, textColor, dataLoaded, startApp, blockFilm } = this.props
 
     const pagescroll = !(popup || cartOpened || mainMenuOpened)
 
@@ -34,6 +34,7 @@ class App extends Component {
           { dataLoaded && <Cart /> }
           <Menu />
           <Header color={textColor}/>
+          <span className={blockFilm? 'block-film':'block-film closed'} />
         </div>
       )
     }

@@ -122,14 +122,17 @@ export const getThemeColors = ( item, data, artists, type ) => {
 
 
 
-export const getData = ( apiURL, state, onStart, onComplete, dispatch, fetch ) => {
+export const getData = ( apiURL, state, onStart, onComplete, dispatch, fetch, callback=()=>{} ) => {
 
   let shouldFetch = !( state.loaded || (!state.loaded && state.isFetching) )
   if(shouldFetch){
     dispatch(onStart())
     return fetch(apiURL, {credentials: 'same-origin'})
       .then(response => response.json())
-      .then(json => dispatch(onComplete(json)))
+      .then(json => {
+        dispatch(onComplete(json))
+        callback()
+      })
   }
   else {
     return Promise.resolve()

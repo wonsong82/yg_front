@@ -49,7 +49,8 @@ const mapStateToProps = (state) => {
     mainMenuOpened    : state.mainMenu.opened,
     dataLoaded        : state.data.loaded,
     data              : state.data,
-    cartOpened        : state.cart.opened
+    cartOpened        : state.cart.opened,
+    blockFilm         : state.app.blockFilm
   }
 }
 

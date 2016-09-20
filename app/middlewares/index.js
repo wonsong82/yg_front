@@ -1280,14 +1280,17 @@ export const toggleCart = () => (dispatch, getState) => {
 
 
 
-import {requestGetCarts, receiveGetCarts, requestAddToCart, receiveAddToCart, getProductsInCart, requestRemoveCart, receiveRemoveCart } from '../actions'
-export const _getProductsInCart = () => (dispatch, getState) =>getData('/api/getProductsInCart', getState().cart, requestGetCarts, receiveGetCarts, dispatch, fetch)
+import {requestGetCarts, receiveGetCarts, requestAddToCart, receiveAddToCart, getProductsInCart, requestRemoveCart, receiveRemoveCart, showBlockFilm, hideBlockFilm } from '../actions'
+export const _getProductsInCart = () => (dispatch, getState) =>getData('/api/getProductsInCart', getState().cart, requestGetCarts, receiveGetCarts, dispatch, fetch, ()=> dispatch(hideBlockFilm()) )
+
+
 export const _addProductsToCart = (productId, variationId, qty) => (dispatch, getState) => {
 
   let state = getState()
   let shouldFetch = !state.cart.isFetching
   if(shouldFetch){
     dispatch(requestAddToCart())
+    dispatch(showBlockFilm())
     fetch('/api/addProductsToCart', {
       method: 'POST',
       credentials: 'same-origin',
@@ -1316,6 +1319,7 @@ export const _removeProductInCart = (productId, variationId) => (dispatch, getSt
   let shouldFetch = !state.cart.isFetching
   if(shouldFetch){
     dispatch(requestRemoveCart())
+    dispatch(showBlockFilm())
     fetch('/api/deleteProductsInCart', {
       method: 'POST',
       credentials: 'same-origin',
@@ -1343,6 +1347,7 @@ export const _updateProductInCart = (productId, variationId, qty) => (dispatch, 
   let shouldFetch = !state.cart.isFetching
   if(shouldFetch){
     dispatch(requestAddToCart())
+    dispatch(showBlockFilm())
     fetch('/api/updateProductsInCart', {
       method: 'POST',
       credentials: 'same-origin',

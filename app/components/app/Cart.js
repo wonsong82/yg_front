@@ -275,8 +275,6 @@ class Cart extends Component {
           <MenuButton color={textColor} close={true} />
         </a>
 
-        <span className={loading? 'film' : 'film closed'} />
-
       </div>
 
     )

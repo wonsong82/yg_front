@@ -3,7 +3,7 @@ import initState from '../initialState'
 
 
 // APP
-import { SET_THEME_COLOR, SET_RESPONSIVE_MODE, START_APP, SET_CLICK_POSITION } from '../actions/'
+import { SET_THEME_COLOR, SET_RESPONSIVE_MODE, START_APP, SET_CLICK_POSITION, SHOW_BLOCK_FILM, HIDE_BLOCK_FILM } from '../actions/'
 const app = ( state = initState.app, action ) => {
   switch(action.type){
     case SET_THEME_COLOR:
@@ -30,6 +30,10 @@ const app = ( state = initState.app, action ) => {
       return Object.assign({}, state, {
         clickPosition: { x, y }
       })
+    case SHOW_BLOCK_FILM:
+      return { ...state, blockFilm: true }
+    case HIDE_BLOCK_FILM:
+      return { ...state, blockFilm: false }
 
     default:
       return state
