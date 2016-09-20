@@ -24,7 +24,10 @@ class ArtistSwiper extends Component {
 
   constructor(props) {
     super(props)
-    this.swiper =false;
+    this.swiper =false
+    this._timer = false
+    this._interval = false
+    this._prevIndex = false
   }
 
   componentDidMount() {
@@ -49,6 +52,7 @@ class ArtistSwiper extends Component {
 
   componentDidUpdate(prevProps) {
     const { slides, redirect, activeIndex } = this.props
+    let _this = this
 
     if(!this.swiper && !prevProps.slides && slides){
 
@@ -63,8 +67,18 @@ class ArtistSwiper extends Component {
         preventClicks:false,
         preventClicksPropagation: false,
         onSlideChangeEnd: (e) => {
-          if(e.activeIndex != activeIndex)
-          redirect(`/artist/${slides[e.activeIndex].urlFriendlyName}`)
+          if(_this.prevIndex === false){
+            if(e.activeIndex != activeIndex){
+              redirect(`/artist/${slides[e.activeIndex].urlFriendlyName}`)
+              _this.prevIndex = e.activeIndex
+            }
+          }
+          else {
+            if(e.activeIndex != _this.prevIndex){
+              redirect(`/artist/${slides[e.activeIndex].urlFriendlyName}`)
+              _this.prevIndex = e.activeIndex
+            }
+          }
         }
       })
     }
@@ -85,25 +99,39 @@ class ArtistSwiper extends Component {
 
   onToursViewMoreClick(index){
     this.props.onToursViewMoreClick(index)
+    this.fixContentHeight()
   }
   onProductsViewMoreClick(index){
     this.props.onProductsViewMoreClick(index)
+    this.fixContentHeight()
   }
   onAlbumsViewMoreClick(index){
     this.props.onAlbumsViewMoreClick(index)
+    this.fixContentHeight()
   }
   onHotTracksViewMoreClick(index){
     this.props.onHotTracksViewMoreClick(index)
+    this.fixContentHeight()
   }
   onEventsViewMoreClick(index){
     this.props.onEventsViewMoreClick(index)
+    this.fixContentHeight()
   }
   onSNSViewMoreClick(index){
     this.props.onSNSViewMoreClick(index)
+    this.fixContentHeight()
   }
   onAddToCartClick(productId){
     const {addToCart} = this.props
     addToCart(productId, 0, 1);
+  }
+
+  fixContentHeight(){
+    let _this = this
+    clearInterval(_this._interval)
+    clearTimeout(_this._timer)
+    let interval = setInterval(()=> _this.swiper.update(), 200)
+    setTimeout(()=> clearInterval(interval) ,1000)
   }
 
 

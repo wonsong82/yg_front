@@ -194,7 +194,13 @@ const createEventThumb = ( data, artistData, layoutStyle, layoutNum, curArtistId
   if(curArtistId != null) artistId = curArtistId
   else artistId = artist_id[0]
 
-  const { name, themeColor, textColor } = artistData[artistId]
+  let artist = artistData[artistId];
+  if(!artist){
+    artist = {name:'', themeColor:'#f0f0f0', textColor:'#000000'}
+  }
+
+  let { name, themeColor, textColor } = artist
+
   return {
     id,
     title: excerptStr(post_title, 90),
