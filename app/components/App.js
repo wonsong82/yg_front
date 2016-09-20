@@ -20,12 +20,14 @@ class App extends Component {
 
 
   render(){
-    const { page, popup, themeColor, textColor, dataLoaded, startApp } = this.props
+    const { page, popup, mainMenuOpened, cartOpened, themeColor, textColor, dataLoaded, startApp } = this.props
+
+    const pagescroll = !(popup || cartOpened || mainMenuOpened)
 
     if( startApp ) {
       return (
         <div className="App">
-          <Page ready={page.props.pageType == 'Static' ? true : dataLoaded} color={textColor} page={page} popup={popup? true: false} >{page}</Page>
+          <Page ready={page.props.pageType == 'Static' ? true : dataLoaded} color={textColor} page={page} pagescroll={pagescroll} >{page}</Page>
           { dataLoaded && <Footer color={textColor} bgColor={themeColor}/> }
           <Frame color={textColor} bgColor={themeColor=='#f0f0f0'? 'rgba(240,240,240,0.9)': themeColor}/>
           { dataLoaded && <Popup color={textColor} bgColor={themeColor}>{popup}</Popup> }

@@ -303,7 +303,6 @@ export const getProductOptions = ( {product_type:type, attributes, variation:var
     return { ...select, values }
   })
 
-  console.log(o);
 
   return o;
 }

@@ -9,10 +9,12 @@ class Page extends Component {
   }
 
   render() {
-    const { ready, color, children, popup } = this.props
+    const { ready, color, children, pagescroll } = this.props
+
+    {console.log(pagescroll)}
 
       return (
-        <div className={popup? 'Page disabled':'Page'}>
+        <div className={pagescroll? 'Page' : 'Page disabled'}>
           { ready ?
             children :
             <div className="loading">
