@@ -1193,7 +1193,7 @@ export const getArtistsData = () => ( dispatch, getState ) => {
   let shouldFetch = !( state.loaded || (!state.loaded && state.isFetching) )
   if(shouldFetch){
     dispatch(requestArtists())
-    return fetch('/api/getArtists')
+    return fetch('/api/getArtists', {credentials: 'same-origin'})
       .then(response => response.json())
       .then(json => {
         dispatch(receiveArtists(json))
