@@ -199,7 +199,7 @@ class Cart extends Component {
                           <NumberStepper
                             className={bgcolor}
                             value={product.quantity}
-                            min={0} max={100} step={1}
+                            min={0} max={1} step={1}
                             disabled={loading? true:false}
                             onChange={this.onQuantityChange.bind(this, product.product_id, product.variation_id)}
                           />
