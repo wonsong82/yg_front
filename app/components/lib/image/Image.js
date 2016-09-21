@@ -11,9 +11,11 @@ class Image extends Component {
       imgLoaded: false,
       showLoading: true
     }
+    this._mounted = false
   }
 
   componentDidMount() {
+    this._mounted = true
     const { src } = this.props
 
     if( src ) {
@@ -25,17 +27,26 @@ class Image extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this._mounted = false
+  }
+
+
   showImage() {
-    this.setState({
-      imgLoaded: true
-    })
+    if(this._mounted) {
+      this.setState({
+        imgLoaded: true
+      })
+    }
     this.stopLoading()
   }
 
   stopLoading() {
-    this.setState({
-      showLoading: false
-    })
+    if(this._mounted) {
+      this.setState({
+        showLoading: false
+      })
+    }
   }
 
 

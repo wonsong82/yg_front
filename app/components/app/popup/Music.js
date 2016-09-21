@@ -47,10 +47,6 @@ class Music extends Component {
     return (
       <div className="MusicLayout">
         <div className="Music">
-          {
-            console.log(music)
-          }
-
 
           { image &&
           <div className="images">
