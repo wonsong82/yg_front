@@ -49,7 +49,7 @@ class ReactMusicPlayer extends Component {
     let width = target.clientWidth;
     let rect = target.getBoundingClientRect();
     let offsetX = e.clientX - rect.left;
-    let duration = this.refs.player.duration;
+    let duration = this.refs.player.duration || '00:00';
     let currentTime = (duration * offsetX) / width;
     let progress = (currentTime * 100) / duration;
 
@@ -61,8 +61,8 @@ class ReactMusicPlayer extends Component {
   }
 
   updateProgress() {
-    let duration = this.refs.player.duration;
-    let currentTime = this.refs.player.currentTime;
+    let duration = this.refs.player.duration || '00:00';
+    let currentTime = this.refs.player.currentTime || '00:00';
     let progress = (currentTime * 100) / duration;
 
     this.setState({ progress: progress,

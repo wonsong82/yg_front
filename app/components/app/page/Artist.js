@@ -107,7 +107,7 @@ class Artist extends Component {
             ))}
           </ul>
           {!toursAllLoaded &&
-          <ViewMore onClick={onToursViewMoreClick} /> 
+          <ViewMore onClick={onToursViewMoreClick} />
           }
         </div>
         :null}
