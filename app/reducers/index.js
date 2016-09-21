@@ -556,19 +556,19 @@ const cart = ( state = initState.cart , action) => {
       return { ...state, isFetching: true }
 
     case RECEIVE_ATT_TO_CART:
-      return { ...state, isFetching: false, loaded: false }
+      return { ...state, isFetching: false, loaded: true }
 
     case REQUEST_REMOVE_CART:
       return { ...state, isFetching: true }
 
     case RECEIVE_REMOVE_CART:
-      return { ...state, isFetching: false, loaded: false}
+      return { ...state, isFetching: false, loaded: true}
 
     case REQUEST_UPDATE_CART:
       return { ...state, isFetching: true }
 
     case RECEIVE_UPDATE_CART:
-      return { ...state, isFetching: false, loaded: false }
+      return { ...state, isFetching: false, loaded: true }
 
 
     case OPEN_CART:

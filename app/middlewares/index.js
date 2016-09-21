@@ -591,7 +591,6 @@ export const loadPromotionsList = () => (dispatch, getState) => {
 
     i = 1
     let newProducts = []
-    console.log(products)
     for(let key in products){
       if(products.hasOwnProperty(key)) {
         let product = productsData[products[key].id]
@@ -991,8 +990,6 @@ export const loadMusicPopup = (name) => (dispatch, getState) => {
       let individualName = thisMusic[0].individual_name || ''
       let name = individualName || artistName
 
-      console.log(albumProduct[0])
-      console.log(artistName, individualName, name)
 
       let index = 0
       const trackList = musicsProduct.map ( track => {
@@ -1281,7 +1278,9 @@ export const toggleCart = () => (dispatch, getState) => {
 
 
 import {requestGetCarts, receiveGetCarts, requestAddToCart, receiveAddToCart, getProductsInCart, requestRemoveCart, receiveRemoveCart, showBlockFilm, hideBlockFilm } from '../actions'
-export const _getProductsInCart = () => (dispatch, getState) =>getData('/api/getProductsInCart', getState().cart, requestGetCarts, receiveGetCarts, dispatch, fetch, ()=> dispatch(hideBlockFilm()) )
+export const _getProductsInCart = () => (dispatch, getState) => {
+  getData('/api/getProductsInCart', getState().cart, requestGetCarts, receiveGetCarts, dispatch, fetch, ()=> dispatch(hideBlockFilm()) )
+}
 
 
 export const _addProductsToCart = (productId, variationId, qty) => (dispatch, getState) => {
@@ -1306,7 +1305,13 @@ export const _addProductsToCart = (productId, variationId, qty) => (dispatch, ge
     }).then(response => {
         dispatch(receiveAddToCart())
       if(response.status == 200){
-        dispatch(getProductsInCart())
+        dispatch(requestGetCarts())
+        return fetch('/api/getProductsInCart', {credentials: 'same-origin'})
+          .then(response => response.json())
+          .then(json => {
+            dispatch(receiveGetCarts(json))
+            dispatch(hideBlockFilm())
+          })
       }
     })
   }
@@ -1333,10 +1338,14 @@ export const _removeProductInCart = (productId, variationId) => (dispatch, getSt
       })
     }).then(response => {
       dispatch(receiveRemoveCart())
-      console.log(response.status)
       if(response.status == 200){
-        console.log('receive');
-        dispatch(getProductsInCart())
+        dispatch(requestGetCarts())
+        return fetch('/api/getProductsInCart', {credentials: 'same-origin'})
+          .then(response => response.json())
+          .then(json => {
+            dispatch(receiveGetCarts(json))
+            dispatch(hideBlockFilm())
+          })
       }
     })
   }
@@ -1363,7 +1372,13 @@ export const _updateProductInCart = (productId, variationId, qty) => (dispatch, 
     }).then(response => {
       dispatch(receiveAddToCart())
       if(response.status == 200){
-        dispatch(getProductsInCart())
+        dispatch(requestGetCarts())
+        return fetch('/api/getProductsInCart', {credentials: 'same-origin'})
+          .then(response => response.json())
+          .then(json => {
+            dispatch(receiveGetCarts(json))
+            dispatch(hideBlockFilm())
+          })
       }
     })
   }

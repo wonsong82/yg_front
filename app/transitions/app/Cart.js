@@ -33,17 +33,21 @@ class Transition extends Component {
   }
 
   componentDidMount() {
-    /*const container = $(findDOMNode(this.refs.cart))
-    const contents = $('.cart-container', container)
-    const closeBtn = $('.close-btn', container)*/
+    const container = $(findDOMNode(this.refs.cart))
+    //const contents = $('.cart-container', container)
+    //const closeBtn = $('.close-btn', container)
+    container.css('opacity', 0)
   }
 
 
   componentWillEnter(callback) {
     callback()
-
     const container = $(findDOMNode(this.refs.cart))
-    const contents = $('.cart-container', container)
+    container
+      .velocity('stop', true)
+      .velocity({opacity: 1}, {duration: 700, easing: 'easeInOutQuart'})
+
+    /*const contents = $('.cart-container', container)
     const closeBtn = $('.close-btn', container)
 
     container
@@ -58,7 +62,7 @@ class Transition extends Component {
           contents.css({display:'block', opacity:0})
             .velocity('stop', true)
             .velocity({
-              translateY: '30px'
+              translateY: '0'
             })
             .velocity('finish')
             .velocity({
@@ -78,7 +82,7 @@ class Transition extends Component {
               easing: 'easeOutQuart'
             })
         }
-      })
+      })*/
 
 
   }
@@ -87,7 +91,7 @@ class Transition extends Component {
   // This is called when the child has been removed from the ReactTransitionGroup. Though the child has been removed, ReactTransitionGroup will keep it in the DOM until callback is called.
   componentWillLeave(callback) {
     const container = $(findDOMNode(this.refs.cart))
-    const contents = $('.cart-container', container)
+    /*const contents = $('.cart-container', container)
     const closeBtn = $('.close-btn', container)
 
     contents
@@ -107,7 +111,7 @@ class Transition extends Component {
         duration: 150,
         queue: false
       })
-
+*/
     container
       .velocity('stop', true)
       .velocity({
@@ -115,7 +119,7 @@ class Transition extends Component {
       }, {
         duration: 500,
         queue:false,
-        easeing: 'easeOutQuart',
+        easeing: 'easeInOutQuart',
         complete: () => callback()
       })
 

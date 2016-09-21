@@ -21,20 +21,20 @@ class NumberStepper extends Component {
       return false
     }
 
-    this.setState({value: parseFloat(e.target.value)})
+    //this.setState({value: parseFloat(e.target.value)})
     this.props.onChange(e.target.value)
   }
 
   onBlur(e){
     if(this.props.disabled) return false
     if(e.target.value.trim() == ''){
-      this.setState({value:0})
+      //this.setState({value:0})
       this.props.onChange(0)
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if(this.props.disabled) return false
+    //if(this.props.disabled) return false
     if(this.state.value != nextProps.value)
       this.setState({value: nextProps.value})
   }
@@ -49,11 +49,11 @@ class NumberStepper extends Component {
     let cur = parseFloat(this.state.value)
     if(cur < max){
       if(cur+step > max){
-        this.setState({value: max})
+        //this.setState({value: max})
         this.props.onChange(max)
       }
       else {
-        this.setState({value: cur+step})
+        //this.setState({value: cur+step})
         this.props.onChange(cur+step)
       }
     }
@@ -70,11 +70,11 @@ class NumberStepper extends Component {
     let cur = parseFloat(this.state.value)
     if(cur > min){
       if(cur-step < min){
-        this.setState({value: min})
+        //this.setState({value: min})
         this.props.onChange(min)
       }
       else {
-        this.setState({value: cur-step})
+        //this.setState({value: cur-step})
         this.props.onChange(cur-step)
       }
     }
