@@ -5,7 +5,7 @@ import Cart from '../../transitions/app/Cart'
 
 
 const mapStateToProps = (state) => {
-  const { opened, isFetching:loading, loaded, products:data, total } = state.cart
+  const { opened, isFetching:loading, loaded, products:data, total } = state.cart;
   const { product:products, music:musics } = data
   const { themeColor, textColor } = state.app
   return {

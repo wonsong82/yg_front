@@ -1,3 +1,10 @@
+import { Env } from '../env'
+if( Env == 'production' ){
+  window.onerror = function(){
+    return true;
+  }
+}
+
 require('./static/font-klavika.css')
 require('./static/icon-yg.css')
 window.$ = window.jQuery = require('jquery')
