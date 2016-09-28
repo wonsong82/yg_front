@@ -193,37 +193,37 @@ export const getDefaultOptions = ( {product_type:type, variation:variations} ) =
     return {}
 }
 
-export const getProductOptions = ( {product_type:type, attributes, variation:variations }, selectedOptions ) => {
+export const getProductOptions = ( {product_type:type, attributes, attributes_order, variation:variations }, selectedOptions ) => {
   if(type!='variable') return false
 
 
   let options = []
 
-
   // 모든 아트리븃 순차적으로
-  for(let name in attributes){
-    if(attributes.hasOwnProperty(name)){
+  for(let name in attributes_order){
+    if(attributes_order.hasOwnProperty(name)){
 
       // 각각의 select 들 시작
       let select = { name, values:[ {value:'select', enabled:true, text:'Select'} ]}
-      let values = attributes[name]
+      let values = attributes_order[name]
 
-      for(let vkey in values){
-        if(values.hasOwnProperty(vkey)){
-
-          select.values.push({
-            value: vkey,
-            text: values[vkey],
-            enabled: true
-          })
-
+      values.map( valueName => {
+        if(attributes.hasOwnProperty(name)){
+          if(attributes[name].hasOwnProperty(valueName)){
+            select.values.push({
+              value: valueName,
+              text: attributes[name][valueName],
+              enabled: true
+            })
+          }
         }
-      }
+      })
 
       options.push(select)
-      // END Select
+      // End select
     }
   }
+  
 
   let availableOptions = {}
   const selectedCount = toArray(selectedOptions).length
