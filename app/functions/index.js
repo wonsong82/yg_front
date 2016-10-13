@@ -223,7 +223,7 @@ export const getProductOptions = ( {product_type:type, attributes, attributes_or
       // End select
     }
   }
-  
+
 
   let availableOptions = {}
   const selectedCount = toArray(selectedOptions).length

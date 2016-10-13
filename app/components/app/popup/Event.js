@@ -4,10 +4,6 @@ import AnchorLink from '../../../components/lib/link/AnchorLink'
 import Image from '../../../components/lib/image/Image'
 import EventThumb from '../../../components/app/item/event/EventThumb'
 
-var Entities = require('html-entities').AllHtmlEntities
-var entities = new Entities()
-
-
 
 const Event = ({ title, date, image, content, facebookShareLink, twitterShareLink, related }) => (
 
@@ -37,8 +33,7 @@ const Event = ({ title, date, image, content, facebookShareLink, twitterShareLin
 
       <span className="spacer" />
 
-      <div className="content">
-          {entities.decode(content)}
+      <div className="content" dangerouslySetInnerHTML={{__html: content}}>
       </div>
 
     </div>

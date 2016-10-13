@@ -86,10 +86,14 @@
     }
 
     .content {
-      p {
-        font: 400 16px/28px 'Klavika', sans-serif;
-        opacity: $opacity--caption;
-        color: #000;
+      font: 400 16px/28px 'Klavika', sans-serif;
+      color: rgba(0,0,0, $opacity--caption);
+      position: relative;
+      img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
       }
     }
   }
