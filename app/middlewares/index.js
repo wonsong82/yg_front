@@ -276,11 +276,14 @@ const createProductThumb = ( data, artistData, layoutStyle, layoutNum ) => {
   const {id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id} = data
   const artistName = artist_id ? artistData[artist_id].name : 'YG'
   let price = null
+  let originalPrice = null
   if(data.product_type == 'variable' && data.variation && data.variation.length){
     price = getProductPrice(data, data.variation[0]).price
+    originalPrice = getProductPrice(data, data.variation[0]).originalPrice
   }
   else {
     price = getProductPrice(data).price
+    originalPrice = getProductPrice(data).originalPrice
   }
   const image = images && images.length ? images[0] : false
   return {
@@ -291,7 +294,7 @@ const createProductThumb = ( data, artistData, layoutStyle, layoutNum ) => {
     thumb1x1: thumb_1x1 || image || false,
     thumb2x1: thumb_2x1 || image || false,
     thumb1x2: thumb_1x2 || image || false,
-    price,
+    price, originalPrice,
     layoutStyle,
     layoutNum
   }

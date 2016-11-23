@@ -5,7 +5,7 @@ import Image from '../../../../components/lib/image/Image'
 import Ripple from '../../../../components/lib/effect/Ripple'
 import ThumbHover from '../../../../components/lib/button/ThumbHover'
 
-const ProductThumb = ({ title, url, artistName, price, thumb1x1, thumb2x1, thumb1x2, layoutStyle, layoutNum }) => (
+const ProductThumb = ({ title, url, artistName, price, originalPrice, thumb1x1, thumb2x1, thumb1x2, layoutStyle, layoutNum }) => (
 
 
   <RouterLink className={ `ProductThumb style-${layoutStyle}-${layoutNum}` } to={url} style={{color:'#000'}}>
@@ -22,7 +22,14 @@ const ProductThumb = ({ title, url, artistName, price, thumb1x1, thumb2x1, thumb
       <h3>{`${artistName} - ${title}`}</h3>
     </div>
 
-    <span className="price">{`$${price}`}</span>
+    <span className="price">
+      {originalPrice &&
+        <span className="sale">
+          <span className="text">{`$${originalPrice}`}</span>&nbsp;
+        </span>
+      }
+      {`$${price}`}
+    </span>
 
     <ThumbHover text="Details" />
 

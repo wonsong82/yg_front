@@ -46,6 +46,9 @@
     color: #000;
     font: 400 16px/22px 'Klavika', sans-serif;
     opacity: $opacity--caption;
+    .sale .text {
+      text-decoration: line-through;
+    }
   }
 }
 

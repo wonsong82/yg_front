@@ -357,8 +357,8 @@ export const getProductPrice = ( product, variation=false ) => {
     case 'variable':
       if(variation){
         return {
-          price: variation.display_price || null,
-          originalPrice: variation.display_regular_price || null
+          price: variation.display_price ? variation.display_price : variation.display_regular_price,
+          originalPrice: variation.display_price ? variation.display_regular_price : null
         }
       }
       else {
