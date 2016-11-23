@@ -70,6 +70,10 @@
         font: 400 26px/40px 'Klavika', sans-serif;
         color: #000;
         opacity: $opacity--primary;
+        .sale .text {
+          text-decoration: line-through;
+          opacity: $opacity--sub;
+        }
       }
 
       .controls {

@@ -77,7 +77,15 @@ class Shop extends Component {
 
             <h1 className="title">{`${artistName} - ${title}`}</h1>
 
-            <div className="price">{price && `$${price}`}</div>
+
+            <div className="price">
+              {originalPrice &&
+                <span className="sale">
+                  <span className="text">{`$${originalPrice}`}</span>&nbsp;
+                </span>
+              }
+              <span>{price && `$${price}`}</span>
+            </div>
 
             <div className="socialLinks">
               <AnchorLink href={facebookShareLink} target="_blank">
