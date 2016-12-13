@@ -60,6 +60,7 @@ const initialState = {
         hotPostsCount: 0,
         mostViewedPosts: {},
         mostViewedPostsCount: 0,
+        banner: {},
         postsOrder: {}
       }
     },
@@ -118,7 +119,8 @@ const initialState = {
         product: {},
         album: {},
         tour: {},
-        event: {}
+        event: {},
+        banners: {}
       }
     },
 

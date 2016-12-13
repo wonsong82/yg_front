@@ -383,7 +383,8 @@ const data = ( state = initState.data , action) => {
         blogs: Object.assign({}, state.blogs, {isFetching: true})
       })
     case RECEIVE_BLOGS:
-      let { posts, hot_posts, posts_order } = action.data
+
+      let { posts, hot_posts, posts_order, banner } = action.data
       return Object.assign({}, state, {
         blogs: Object.assign({}, state.blogs, {
           isFetching: false,
@@ -393,6 +394,7 @@ const data = ( state = initState.data , action) => {
             total_posts: posts ? Object.keys(posts).length : 0,
             hot_posts: hot_posts || [],
             total_hot_posts: hot_posts ? hot_posts.length : 0,
+            banner : banner || [],
             posts_order: posts_order || []
           }
         })
@@ -494,7 +496,8 @@ const data = ( state = initState.data , action) => {
       })
 
     case RECEIVE_PROMOTIONS:
-      let {product, album, tour, event} = action.data
+      let {product, album, tour, event } = action.data
+      let main_banner = action.data.banner
 
       return Object.assign({}, state, {
         promotions: Object.assign({}, state.promotions, {
@@ -504,7 +507,8 @@ const data = ( state = initState.data , action) => {
             products: product,
             albums: album,
             tours: tour,
-            events: event
+            events: event,
+            banners: main_banner
           }
         })
       })
