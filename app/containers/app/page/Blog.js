@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
 
-import { initPage, loadBlogsList, loadHotPostsList } from '../../../actions/'
+import { initPage, loadBlogsList, loadHotPostsList, loadBlogBanners } from '../../../actions/'
 import BlogComponent from '../../../components/app/page/Blog'
 
 
@@ -14,10 +14,11 @@ class Blog extends Component {
   }
 
   componentDidMount() {
-    const { initPage, loadBlogsList, loadHotPostsList } = this.props
+    const { initPage, loadBlogsList, loadHotPostsList, loadBanners } = this.props
     initPage('Blog')
     loadBlogsList(4)
     loadHotPostsList(4)
+    loadBanners()
   }
 
   onViewMoreClick() {
@@ -40,12 +41,13 @@ class Blog extends Component {
 
 
 const mapStateToProps = (state) => {
-  const { posts, hotPosts, postsAllLoaded, hotPostsAllLoaded } = state.page
+  const { posts, hotPosts, postsAllLoaded, hotPostsAllLoaded, banners } = state.page
   return {
     posts,
     hotPosts,
     postsAllLoaded,
-    hotPostsAllLoaded
+    hotPostsAllLoaded,
+    banners
   }
 }
 
@@ -55,7 +57,8 @@ const mapDispatchToProps = (dispatch) => {
     onHotPostsViewMoreClick: count => { dispatch(loadHotPostsList(count)) },
     initPage: pageType => { dispatch(initPage(pageType)) },
     loadBlogsList: count => { dispatch(loadBlogsList(count)) },
-    loadHotPostsList: count => { dispatch(loadHotPostsList(count)) }
+    loadHotPostsList: count => { dispatch(loadHotPostsList(count)) },
+    loadBanners: () => {dispatch(loadBlogBanners())}
   }
 }
 

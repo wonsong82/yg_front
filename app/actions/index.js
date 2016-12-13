@@ -80,12 +80,15 @@ export const SET_BLOGS_LIST = 'set_blog_list'
 export const SET_HOT_POSTS_LIST = 'set_hot_posts_list'
 export const SET_POSTS_ALL_LOADED = 'set_posts_all_loaded'
 export const SET_HOT_POSTS_ALL_LOADED = 'set_hot_posts_all_loaded'
+export const SET_BLOGS_BANNER_LIST = 'set_blog_banner_list'
 export const setBlogsList      = posts => ({ type: SET_BLOGS_LIST, posts })
 export const setHotPostsList   = posts => ({ type: SET_HOT_POSTS_LIST, posts })
 export const setPostsAllLoaded = bool  => ({ type: SET_POSTS_ALL_LOADED, bool })
 export const setHotPostsAllLoaded = bool  => ({ type: SET_HOT_POSTS_ALL_LOADED, bool })
+export const setBlogsBannerList = banners => ({type: SET_BLOGS_BANNER_LIST, banners})
 export const loadBlogsList = Middlewares.loadBlogsList
 export const loadHotPostsList = Middlewares.loadHotPostsList
+export const loadBlogBanners = Middlewares.loadBlogBanners
 
 
 // PAGE:EVENT

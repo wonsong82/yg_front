@@ -141,6 +141,19 @@ export const loadHotPostsList = ( count ) => (dispatch, getState) => {
 }
 
 
+import {setBlogsBannerList} from '../actions/'
+
+export const loadBlogBanners = () => (dispatch, getState) => {
+  const state = getState()
+ 
+  if(state.page.type == 'blog'){
+    const bannersData = state.data.blogs.contents.banner
+    dispatch(setBlogsBannerList(bannersData))
+
+  }
+}
+
+
 //PAGE:EVENT
 import { setEventsList , setEventsAllLoaded} from '../actions/'
 
