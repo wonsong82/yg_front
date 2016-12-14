@@ -1,0 +1,114 @@
+@import '../../../variable';
+
+@mixin main-banner-thumb-base {
+  @include card;
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  background: #fff;
+  width: getGridWidth(6);
+  height: 414px;
+  padding: 30px;
+  overflow: hidden;
+
+  .images {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .image-1x1, .image-2x1, .image-3x2 {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+    .film {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,.15);
+    }
+  }
+}
+
+@mixin main-banner-thumb--md {
+  @include main-banner-thumb-base;
+  .images {
+    .image-3x2 {
+      display: block;
+    }
+  }
+}
+
+@mixin main-banner-thumb--sm {
+  @include main-banner-thumb-base;
+  padding: 20px;
+  width: getGridWidth(4);
+  height: getGridWidth(2.5);
+  .images {
+    .image-3x2 {
+      display: block;
+    }
+  }
+}
+
+@mixin main-banner-thumb--xs {
+  @include main-banner-thumb-base;
+  padding: 15px;
+  width: getGridWidth(2);
+  height: getGridWidth(1.4);
+  .images {
+    .image-3x2 {
+      display: block;
+    }
+  }
+}
+
+
+@mixin main-banner-thumb-m--md {
+  @include main-banner-thumb-base;
+  width: getGridWidthPromotion(4);
+  height: getGridWidthPromotion(2);
+  .images {
+    .image-2x1 {
+      display: block;
+    }
+  }
+}
+
+@mixin main-banner-thumb-m--sm {
+  @include main-banner-thumb-base;
+  width: getGridWidthPromotion(3);
+  height: getGridWidthPromotion(2);
+  .images {
+    .image-3x2 {
+      display: block;
+    }
+  }
+}
+
+@mixin main-banner-thumb-m--xs {
+  @include main-banner-thumb-base;
+  width: getGridWidthPromotion(2);
+  height: getGridWidthPromotion(2);
+  padding: 20px;
+  .images {
+    .image-1x1 {
+      display: block;
+    }
+  }
+}
+
+@mixin main-banner-thumb-m--xxs {
+  @include main-banner-thumb-base;
+  width: getGridWidthPromotion(1);
+  height: getGridWidthPromotion(1);
+  padding: 15px;
+  .images {
+    .image-1x1 {
+      display: block;
+    }
+  }
+}

@@ -3,10 +3,11 @@
 @import '../shop/ProductThumb';
 @import '../music/AlbumThumb';
 @import '../event/EventThumb';
+@import '../banner/MainBannerThumb';
 
 @mixin promotion-group-base {
   position: relative;
-  .TourThumb, .ProductThumb, .AlbumThumb, .EventThumb {
+  .TourThumb, .ProductThumb, .AlbumThumb, .EventThumb, .MainBannerThumb {
     display: block;
     position: absolute !important;
   }
@@ -32,6 +33,13 @@ $promotionGroupHeight: $gridWidthPromotion;
       &-1 {@include tour-thumb-m--md; top: promotionGroupY(1); left: promotionGroupX(1);}
       &-2 {@include tour-thumb-m--xs; top: promotionGroupY(3); left: promotionGroupX(1);}
       &-3 {@include tour-thumb-m--xs; top: promotionGroupY(3); left: promotionGroupX(3);}
+    }
+  }
+  .MainBannerThumb {
+    &.style-1 {
+      &-1 {@include main-banner-thumb-m--md; top: promotionGroupY(1); left: promotionGroupX(1);}
+      &-2 {@include main-banner-thumb-m--xs; top: promotionGroupY(3); left: promotionGroupX(1);}
+      &-3 {@include main-banner-thumb-m--xs; top: promotionGroupY(3); left: promotionGroupX(3);}
     }
   }
   .ProductThumb {
@@ -68,6 +76,13 @@ $promotionGroupHeight: $gridWidthPromotion;
       &-3 {@include tour-thumb-m--sm; top: promotionGroupY(5); left: promotionGroupX(1);}
     }
   }
+  .MainBannerThumb {
+    &.style-1 {
+      &-1 {@include main-banner-thumb-m--sm; top: promotionGroupY(1); left: promotionGroupX(1);}
+      &-2 {@include main-banner-thumb-m--sm; top: promotionGroupY(3); left: promotionGroupX(1);}
+      &-3 {@include main-banner-thumb-m--sm; top: promotionGroupY(5); left: promotionGroupX(1);}
+    }
+  }
   .ProductThumb {
     &.style-1 {
       &-1 {@include product-thumb-m--xs; top: promotionGroupY(1); left: promotionGroupX(4);}
@@ -100,6 +115,13 @@ $promotionGroupHeight: $gridWidthPromotion;
       &-1 {@include tour-thumb-m--sm; top: promotionGroupY(1); left: promotionGroupX(1);}
       &-2 {@include tour-thumb-m--sm; top: promotionGroupY(3); left: promotionGroupX(1);}
       &-3 {@include tour-thumb-m--sm; top: promotionGroupY(5); left: promotionGroupX(1);}
+    }
+  }
+  .MainBannerThumb {
+    &.style-1 {
+      &-1 {@include main-banner-thumb-m--sm; top: promotionGroupY(1); left: promotionGroupX(1);}
+      &-2 {@include main-banner-thumb-m--sm; top: promotionGroupY(3); left: promotionGroupX(1);}
+      &-3 {@include main-banner-thumb-m--sm; top: promotionGroupY(5); left: promotionGroupX(1);}
     }
   }
   .ProductThumb {
@@ -136,6 +158,13 @@ $promotionGroupHeight: $gridWidthPromotion;
       &-3 {@include tour-thumb-m--xs; top: promotionGroupY(3); left: promotionGroupX(3);}
     }
   }
+  .MainBannerThumb {
+    &.style-1 {
+      &-1 {@include main-banner-thumb-m--md; top: promotionGroupY(1); left: promotionGroupX(1);}
+      &-2 {@include main-banner-thumb-m--xs; top: promotionGroupY(3); left: promotionGroupX(1);}
+      &-3 {@include main-banner-thumb-m--xs; top: promotionGroupY(3); left: promotionGroupX(3);}
+    }
+  }
   .ProductThumb {
     &.style-1 {
       &-1 {@include product-thumb-m--xxs; top: promotionGroupY(5); left: promotionGroupX(1);}
@@ -168,6 +197,13 @@ $promotionGroupHeight: $gridWidthPromotion;
       &-1 {@include tour-thumb-m--sm; top: promotionGroupY(1); left: promotionGroupX(1);}
       &-2 {@include tour-thumb-m--sm; top: promotionGroupY(3); left: promotionGroupX(1);}
       &-3 {@include tour-thumb-m--sm; top: promotionGroupY(5); left: promotionGroupX(1);}
+    }
+  }
+  .MainBannerThumb {
+    &.style-1 {
+      &-1 {@include main-banner-thumb-m--sm; top: promotionGroupY(1); left: promotionGroupX(1);}
+      &-2 {@include main-banner-thumb-m--sm; top: promotionGroupY(3); left: promotionGroupX(1);}
+      &-3 {@include main-banner-thumb-m--sm; top: promotionGroupY(5); left: promotionGroupX(1);}
     }
   }
   .ProductThumb {
@@ -204,6 +240,13 @@ $promotionGroupHeight: $gridWidthPromotion;
       &-3 {@include tour-thumb-m--xs; top: promotionGroupY(5); left: promotionGroupX(1);}
     }
   }
+  .MainBannerThumb {
+    &.style-1 {
+      &-1 {@include main-banner-thumb-m--xs; top: promotionGroupY(1); left: promotionGroupX(1);}
+      &-2 {@include main-banner-thumb-m--xs; top: promotionGroupY(3); left: promotionGroupX(1);}
+      &-3 {@include main-banner-thumb-m--xs; top: promotionGroupY(5); left: promotionGroupX(1);}
+    }
+  }
   .ProductThumb {
     &.style-1 {
       &-1 {@include product-thumb-m--xxs; top: promotionGroupY(7); left: promotionGroupX(1);}
@@ -236,6 +279,13 @@ $promotionGroupHeight: $gridWidthPromotion;
       &-1 {@include tour-thumb-m--xxs; top: promotionGroupY(1); left: promotionGroupX(1);}
       &-2 {@include tour-thumb-m--xxs; top: promotionGroupY(2); left: promotionGroupX(1);}
       &-3 {@include tour-thumb-m--xxs; top: promotionGroupY(3); left: promotionGroupX(1);}
+    }
+  }
+  .MainBannerThumb {
+    &.style-1 {
+      &-1 {@include main-banner-thumb-m--xxs; top: promotionGroupY(1); left: promotionGroupX(1);}
+      &-2 {@include main-banner-thumb-m--xxs; top: promotionGroupY(2); left: promotionGroupX(1);}
+      &-3 {@include main-banner-thumb-m--xxs; top: promotionGroupY(3); left: promotionGroupX(1);}
     }
   }
   .ProductThumb {

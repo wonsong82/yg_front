@@ -440,6 +440,18 @@ const createTourThumb = ( data, artistData, layoutStyle, layoutNum ) => {
 }
 
 
+const createMainBannerThumb = ( data, artistData, layoutStyle, layoutNum ) => {
+  const { target_url, thumbnail, thumbnail_2x1, thumbnail_3x2 } = data
+  return {
+    url: target_url,
+    thumb1x1: thumbnail || false,
+    thumb2x1: thumbnail_2x1 || thumbnail || false,
+    thumb3x2: thumbnail_3x2 || thumbnail || false,
+    layoutStyle,
+    layoutNum
+  }
+}
+
 
 
 
@@ -562,7 +574,7 @@ export const loadPromotionsList = () => (dispatch, getState) => {
   const state = getState();
   if(state.page.type == 'promotion'){
 
-    const {tours, albums, events, products} = state.data.promotions.contents
+    const {tours, albums, events, products, banners} = state.data.promotions.contents
     const toursData = state.data.tours.contents.tours,
           albumsData = state.data.musics.contents.albums,
           eventsData = state.data.events.contents.events,
@@ -617,7 +629,17 @@ export const loadPromotionsList = () => (dispatch, getState) => {
       }
     }
 
-    let promotions = {tours: newTours, albums: newAlbums, products: newProducts, events: newEvents}
+
+    i = 1
+    let newBanners = banners.map( banner => {
+      let e = createMainBannerThumb(banner, artistsData, 1, i)
+      i++
+      return e
+    })
+
+
+
+    let promotions = {tours: newTours, albums: newAlbums, products: newProducts, events: newEvents, banners: newBanners }
 
     dispatch(setPromotions_list(promotions))
   }

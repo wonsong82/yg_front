@@ -21,10 +21,10 @@ class Promotion extends Component{
 }
 
 const mapStateToProps = (state) => {
-  const {tours, products, albums, events} = state.page
+  const {tours, products, albums, events, banners} = state.page
 
   return {
-      tours, products, albums, events
+      tours, products, albums, events, banners
   }
 }
 
