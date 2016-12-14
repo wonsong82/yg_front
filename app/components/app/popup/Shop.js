@@ -67,12 +67,6 @@ class Shop extends Component {
 
         <div className="Product">
 
-          {images && images.length ?
-          <div className="images">
-            <ProductImageSwiper className="image-swiper" images={images} />
-          </div>
-          : null}
-
           <div className="header">
 
             <h1 className="title">{`${artistName} - ${title}`}</h1>
@@ -133,6 +127,13 @@ class Shop extends Component {
             </div>
 
           </div>
+
+
+          {images && images.length ?
+            <div className="images">
+              <ProductImageSwiper className="image-swiper" images={images} />
+            </div>
+            : null}
 
 
           <div className="content">

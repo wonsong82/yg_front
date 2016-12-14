@@ -16,9 +16,7 @@
 
     .header {
       position: relative;
-      margin-bottom: 60px;
       padding-bottom: 80px;
-      border-bottom: 1px solid rgba(0,0,0, $opacity--line1);
 
       .title {
         font: 400 20px/30px 'Klavika', sans-serif;
@@ -134,8 +132,10 @@
     }
 
     .content {
+      border-top: 1px solid rgba(0,0,0, $opacity--line1);
       border-bottom: 1px solid rgba(0,0,0, $opacity--line2);
       margin-bottom: 60px;
+      padding-top: 15px;
 
       h3 {
         font: 500 16px/24px 'Klavika', sans-serif;
