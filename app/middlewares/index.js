@@ -1089,8 +1089,8 @@ export const loadMusicPopup = (name) => (dispatch, getState) => {
 
 
 //POPUP:SHOP
-import { setShopPopup, setSelectedOption, setSelectedOptions, setOptions, setProductImages, setProductPrice, setVariationId }  from '../actions/'
-import { getDefaultOptions, getProductOptions, findProductVariation, getProductImages, getProductPrice } from '../functions/'
+import { setShopPopup, setSelectedOption, setSelectedOptions, setOptions, setProductImages, setProductPrice, setVariationId, setInstock }  from '../actions/'
+import { getDefaultOptions, getProductOptions, findProductVariation, getProductImages, getProductPrice, getProductInStock } from '../functions/'
 export const loadShopPopup = (name) => (dispatch, getState) => {
 
   const state = getState();
@@ -1119,6 +1119,7 @@ export const loadShopPopup = (name) => (dispatch, getState) => {
 
       let images = getProductImages( productData, variation )
       let { price, originalPrice } = getProductPrice( productData, variation )
+      let instock = getProductInStock( productData, variation )
 
       const product = {
         id,
@@ -1132,7 +1133,8 @@ export const loadShopPopup = (name) => (dispatch, getState) => {
         price,
         originalPrice,
         options,
-        selectedOptions
+        selectedOptions,
+        instock
       }
 
 
@@ -1158,6 +1160,7 @@ export const loadShopPopup = (name) => (dispatch, getState) => {
           thumb2x1: e.thumb_2x1 || image || false,
           thumb1x2: e.thumb_1x2 || image || false,
           price,
+          instock,
           facebookShareLink: getFacebookShareLink(Site + path),
           twitterShareLink: getTwitterShareLink(Site + path)
         }
@@ -1203,10 +1206,17 @@ export const changeProductOption = ( optionName, optionValue, optionEnabled ) =>
       .selectedOptions )
     let variationId = variation.variation_id
 
+
+
+
     dispatch( setProductImages( getProductImages(product, variation) ))
     let { price, originalPrice } = getProductPrice(product, variation)
+    let instock = getProductInStock(product, variation)
+
     dispatch( setProductPrice( price, originalPrice ) )
     dispatch( setVariationId (variationId))
+    dispatch( setInstock (instock))
+
   }
 
 }

@@ -218,6 +218,7 @@ export const SET_OPTIONS = 'set_options'
 export const SET_PRODUCT_IMAGES = 'set_product_images'
 export const SET_PRODUCT_PRICE = 'set_product_price'
 export const SET_VARIATION_ID = 'set_variation_id'
+export const SET_INSTOCK = 'set_instock'
 export const setShopPopup = ( product, related ) => ({type: SET_SHOP_POPUP, product, related})
 export const setSelectedOption = ( name, value ) => ({type: SET_SELECTED_OPTION, name, value})
 export const setSelectedOptions = ( options ) => ({type: SET_SELECTED_OPTIONS, options})
@@ -227,7 +228,7 @@ export const setProductPrice = ( price, originalPrice)  => ({ type: SET_PRODUCT_
 export const setVariationId = (variationId) => ({type: SET_VARIATION_ID, variationId})
 export const loadShopPopup = Middlewares.loadShopPopup
 export const changeProductOption = Middlewares.changeProductOption
-
+export const setInstock = instock => ({type: SET_INSTOCK, instock})
 
 /**
  * DATA

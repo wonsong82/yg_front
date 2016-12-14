@@ -370,6 +370,24 @@ export const getProductPrice = ( product, variation=false ) => {
   }
 }
 
+export const getProductInStock = ( product, variation=false ) => {
+  switch( product.product_type ){
+    case 'simple':
+      return product._stock_status == 'instock'
+
+    case 'variable':
+      if(variation){
+        return variation._stock_status == 'instock'
+      }
+      else {
+        return true
+      }
+
+    default:
+      return false
+  }
+}
+
 
 
 export const showStagger = items => {

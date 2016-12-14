@@ -278,6 +278,7 @@ export const shopPopupInitState = {
   facebookShareLink: '',
   twitterShareLink: '',
   productType: '',
+  instock: false,
   options: [
     /*{name:''  ,  values:[ {value, enabled} ] }*/
   ],

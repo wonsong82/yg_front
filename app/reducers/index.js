@@ -282,7 +282,7 @@ const page = ( state = initState.page, action ) => {
 
 
 // POPUP
-import { INIT_POPUP, SET_BLOG_POPUP , SET_EVENT_POPUP, SET_TOUR_POPUP, SET_MUSIC_POPUP, SET_SHOP_POPUP, SET_SELECTED_OPTION, SET_SELECTED_OPTIONS, SET_OPTIONS, SET_PRODUCT_IMAGES, SET_PRODUCT_PRICE, SET_VARIATION_ID } from '../actions/'
+import { INIT_POPUP, SET_BLOG_POPUP , SET_EVENT_POPUP, SET_TOUR_POPUP, SET_MUSIC_POPUP, SET_SHOP_POPUP, SET_SELECTED_OPTION, SET_SELECTED_OPTIONS, SET_OPTIONS, SET_PRODUCT_IMAGES, SET_PRODUCT_PRICE, SET_VARIATION_ID, SET_INSTOCK } from '../actions/'
 import { blogPopupInitState, eventPopupInitState, tourPopupInitState , musicPopupInitState, shopPopupInitState} from '../initialState'
 const popup = ( state = initState.popup, action ) => {
   switch(action.type){
@@ -339,6 +339,9 @@ const popup = ( state = initState.popup, action ) => {
 
     case SET_VARIATION_ID:
       return {...state, curVariationId: action.variationId}
+
+    case SET_INSTOCK:
+      return {...state, instock: action.instock}
 
     default:
       return state

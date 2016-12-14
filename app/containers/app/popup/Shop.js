@@ -25,12 +25,12 @@ class Shop extends Component {
 const mapStateToProps = (state) => {
   const {
     id, title, price, originalPrice, artistName, content, facebookShareLink, twitterShareLink, options, selectedOptions,
-    type, variation, images, related, curVariationId
+    type, variation, instock, images, related, curVariationId
   } = state.popup
 
   return {
     id, title, price: price || '', originalPrice: originalPrice || '', artistName: artistName || '', content, facebookShareLink, twitterShareLink, options, selectedOptions,
-    type, variation, images, related, themeColor: state.app.themeColor, textColor: state.app.textColor, curVariationId: curVariationId
+    type, variation, images, instock, related, themeColor: state.app.themeColor, textColor: state.app.textColor, curVariationId: curVariationId
   }
 }
 

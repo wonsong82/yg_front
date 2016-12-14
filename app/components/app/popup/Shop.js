@@ -26,6 +26,11 @@ class Shop extends Component {
     const productId = this.props.id
     const variationId = this.props.curVariationId
     const qty = 1;
+    const instock = this.props.instock
+
+    if(!instock){
+      return false
+    }
 
     if(this.props.options == false || (!this.props.options == false && variationId)){
       this.props.addToCart(productId,variationId, qty);
@@ -59,7 +64,7 @@ class Shop extends Component {
 
 
   render() {
-    const { id, title, price, originalPrice, artistName, content, facebookShareLink,
+    const { id, title, price, originalPrice, artistName, content, facebookShareLink, instock,
       twitterShareLink, type, options, selectedOptions, images, related } = this.props
 
     return (
@@ -121,7 +126,7 @@ class Shop extends Component {
                 onMouseOver={this.onMouseEnter.bind(this)}
                 onMouseLeave={this.onMouseLeave.bind(this)}
               >
-                ADD TO CART
+                {instock ? 'ADD TO CART' : 'OUT OF STOCK'}
               </a>
 
             </div>
