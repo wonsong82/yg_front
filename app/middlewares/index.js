@@ -341,7 +341,7 @@ export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
 
     productsData = productsData.map( product => {
       const { id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id } = product
-      const artistName = artistsData[artist_id].name
+      const artistName = artist_id ? artistsData[artist_id].name : 'YG'
       const price = product.product_type == "simple" ?
         product._regular_price :
         product.variation[0].display_price
