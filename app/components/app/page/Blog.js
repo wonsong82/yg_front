@@ -3,9 +3,11 @@ import React from 'react'
 import BlogThumb from '../../../components/app/item/blog/BlogThumb'
 import BlogTextLink from '../../../components/app/item/blog/BlogTextLink'
 import ViewMore from '../../../components/lib/link/ViewMore'
+import Image from '../../../components/lib/image/Image'
 
 
-const Blog = ({ posts, hotPosts, onViewMoreClick, onHotPostsViewMoreClick, postsAllLoaded, hotPostsAllLoaded }) => (
+const Blog = ({ posts, hotPosts, onViewMoreClick, banners,
+onHotPostsViewMoreClick, postsAllLoaded, hotPostsAllLoaded }) => (
 
   <div className="BlogLayout page-grid">
 
@@ -52,6 +54,20 @@ const Blog = ({ posts, hotPosts, onViewMoreClick, onHotPostsViewMoreClick, posts
         !hotPostsAllLoaded &&
         <ViewMore className="view-more" onClick={onHotPostsViewMoreClick} />
       }
+
+      <ul className="banners">
+      {
+        banners &&
+        banners.map( (banner, i) => (
+          <li key={'banner' + i}>
+            <a href={banner.target_url} >
+              <Image className="banner-image" color="rgba(0,0,0,.30)" src={banner.thumbnail}/>
+            </a>
+          </li>
+        ))
+      }
+      </ul>
+
 
     </section>
 
