@@ -286,10 +286,13 @@ export const loadProductsList = ( layoutStyle=LAYOUT_STYLE.RANDOM ) => (dispatch
 }
 
 const createProductThumb = ( data, artistData, layoutStyle, layoutNum ) => {
-  const {id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id} = data
+
+  const {id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id, _stock_status} = data
   const artistName = artist_id ? artistData[artist_id].name : 'YG'
   let price = null
   let originalPrice = null
+  let isInstock = _stock_status == 'instock' ? true : false;
+
   if(data.product_type == 'variable' && data.variation && data.variation.length){
     price = getProductPrice(data, data.variation[0]).price
     originalPrice = getProductPrice(data, data.variation[0]).originalPrice
@@ -309,6 +312,7 @@ const createProductThumb = ( data, artistData, layoutStyle, layoutNum ) => {
     thumb1x2: thumb_1x2 || image || false,
     price, originalPrice,
     layoutStyle,
+    isInstock: isInstock,
     layoutNum
   }
 }
@@ -341,7 +345,7 @@ export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
 
     productsData = productsData.map( product => {
       const { id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id } = product
-      const artistName = artistsData[artist_id].name
+      const artistName = artist_id ? artistsData[artist_id].name : 'YG'
       const price = product.product_type == "simple" ?
         product._regular_price :
         product.variation[0].display_price
