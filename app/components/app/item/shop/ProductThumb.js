@@ -33,7 +33,14 @@ const ProductThumb = ({ title, url, artistName, price, originalPrice, isInstock,
       {`$${price}`}
     </span>
 
-    <ThumbHover text="Details" />
+    {
+      isInstock ?
+        <ThumbHover text="Details" /> :
+        <div className="disabled-film">
+          <span className="text">SOLD<br /><span>OUT</span></span>
+        </div>
+    }
+
 
   </RouterLink>
 
