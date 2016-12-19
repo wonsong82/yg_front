@@ -12,23 +12,24 @@ $opacity--line2: 0.08; // #ebebeb
 // Frame Sizes for each sizes
 $frameSizeTop: 56px;
 $frameSize: 26px;
-$footerHeight: 270px;
+$dashSize: 185px;
+$footerHeight: 270px + $dashSize;
 
 $frameSizeTop--lg: 56px;
 $frameSize--lg: 20px;
-$footerHeight--lg: 270px;
+$footerHeight--lg: 270px + $dashSize;
 
 $frameSizeTop--md: 56px;
 $frameSize--md: 15px;
-$footerHeight--md: 313px;
+$footerHeight--md: 313px + $dashSize;
 
 $frameSizeTop--sm: 56px;
 $frameSize--sm: 10px;
-$footerHeight--sm: 401px;
+$footerHeight--sm: 401px + $dashSize;
 
 $frameSizeTop--xs: 56px;
 $frameSize--xs: 10px;
-$footerHeight--xs: 423px;
+$footerHeight--xs: 423px + $dashSize;
 
 // Z Index
 $z-header: 600;

@@ -98,3 +98,9 @@
 .icon-delete:before {
   content: "\73";
 }
+.icon-arrow-down:before {
+  content: "\75";
+}
+.icon-arrow-up:before {
+  content: "\76";
+}
