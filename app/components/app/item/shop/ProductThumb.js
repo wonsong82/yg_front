@@ -5,8 +5,10 @@ import Image from '../../../../components/lib/image/Image'
 import Ripple from '../../../../components/lib/effect/Ripple'
 import ThumbHover from '../../../../components/lib/button/ThumbHover'
 
-const ProductThumb = ({ title, url, artistName, price, originalPrice, thumb1x1, thumb2x1, thumb1x2, layoutStyle, layoutNum }) => (
+const ProductThumb = ({ title, url, artistName, price, originalPrice, isInstock, thumb1x1, thumb2x1, thumb1x2, layoutStyle, layoutNum }) => (
 
+
+  //isInstock == false // then Out stock display somewhere
 
   <RouterLink className={ `ProductThumb style-${layoutStyle}-${layoutNum}` } to={url} style={{color:'#000'}}>
 
