@@ -4,6 +4,7 @@ import BlogThumb from '../../../components/app/item/blog/BlogThumb'
 import BlogTextLink from '../../../components/app/item/blog/BlogTextLink'
 import ViewMore from '../../../components/lib/link/ViewMore'
 import Image from '../../../components/lib/image/Image'
+import ViewMoreScroll from '../../../components/lib/link/ViewMoreScroll'
 
 
 const Blog = ({ posts, hotPosts, onViewMoreClick, banners,
@@ -27,10 +28,17 @@ onHotPostsViewMoreClick, postsAllLoaded, hotPostsAllLoaded }) => (
       }
       </ul>
 
-      {
+      {/*
         !postsAllLoaded &&
         <ViewMore className="view-more" onClick={onViewMoreClick} />
+      */}
+
+      {
+        !postsAllLoaded &&
+        <ViewMoreScroll onViewMore={onViewMoreClick} />
       }
+
+
     </section>
 
 
@@ -70,6 +78,7 @@ onHotPostsViewMoreClick, postsAllLoaded, hotPostsAllLoaded }) => (
 
 
     </section>
+
 
   </div>
 )

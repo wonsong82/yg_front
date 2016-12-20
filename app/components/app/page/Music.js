@@ -3,6 +3,7 @@ import React from 'react'
 import ViewMore from '../../../components/lib/link/ViewMore'
 import AlbumGroup from '../../../transitions/app/item/music/AlbumGroup'
 import HotTrackGroup from '../../../transitions/app/item/music/HotTrackGroup'
+import ViewMoreScroll from '../../../components/lib/link/ViewMoreScroll'
 
 
 const Music = ({albumGroups, hotTrackGroups, albumsAllLoaded, hotTracksAllLoaded, onAlbumViewMoreClick, onHotTrackViewMoreClick, onAddToCartClick }) => (
@@ -17,9 +18,13 @@ const Music = ({albumGroups, hotTrackGroups, albumsAllLoaded, hotTracksAllLoaded
       <AlbumGroup key={`albumGroup-${i}`} albums={albums} />
       ))}
 
-      {!albumsAllLoaded && albumGroups && albumGroups.length ?
+      {/*{!albumsAllLoaded && albumGroups && albumGroups.length ?
       <ViewMore onClick={onAlbumViewMoreClick} />
-      : ''}
+      : ''}*/}
+
+      {!albumsAllLoaded && albumGroups && albumGroups.length ?
+        <ViewMoreScroll onViewMore={onAlbumViewMoreClick} />
+        : ''}
 
   </section>
 

@@ -4,7 +4,7 @@ import ViewMore from '../../../components/lib/link/ViewMore'
 import TourThumb from '../../../components/app/item/tour/TourThumb'
 import TourSchedule from '../../../components/app/item/tour/TourSchedule'
 import ScrollArea from 'react-scrollbar/dist/no-css'
-
+import ViewMoreScroll from '../../../components/lib/link/ViewMoreScroll'
 
 
 class Tour extends Component {
@@ -60,9 +60,14 @@ class Tour extends Component {
           )):null}
         </ul>
 
-        {
+        {/*{
           !toursAllLoaded &&
           <ViewMore className="view-more" onClick={onViewMoreClick} />
+        }*/}
+
+        {
+          !toursAllLoaded &&
+          <ViewMoreScroll onViewMore={onViewMoreClick} />
         }
       </div>
     )

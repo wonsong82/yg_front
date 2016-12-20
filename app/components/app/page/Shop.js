@@ -4,6 +4,7 @@ import ViewMore from '../../../components/lib/link/ViewMore'
 import CategoryFilter from '../../../components/app/item/shop/CategoryFilter'
 import SearchBox from '../../../components/app/item/shop/SearchBox'
 import ProductGroup from '../../../transitions/app/item/shop/ProductGroup'
+import ViewMoreScroll from '../../../components/lib/link/ViewMoreScroll'
 
 
 const Shop = ({ productGroups, productsAllLoaded, categories, isLoading, onViewMoreClick,onCategoryClick, onSearchSubmit, selectedCategory }) => (
@@ -36,9 +37,15 @@ const Shop = ({ productGroups, productsAllLoaded, categories, isLoading, onViewM
           <h6 className="not-found">Sorry, that didn't match any product</h6> : ''
       }
     </ul>
-    {
+
+    {/*{
       !productsAllLoaded && productGroups && productGroups.length ?
       <ViewMore className="view-more" onClick={onViewMoreClick} /> : ''
+    }*/}
+
+    {
+      !productsAllLoaded && productGroups && productGroups.length ?
+        <ViewMoreScroll onViewMore={onViewMoreClick} /> : ''
     }
 
   </div>
