@@ -38,7 +38,7 @@ class DashRadio extends Component {
           </div>
         </div>
 
-        <iframe className="radio" src="/dashradio-direct.html" frameborder="0"></iframe>
+        <iframe className="radio" src="/dashradio-redirect.html" frameborder="0"></iframe>
 
         {/*<span className="border" style={{backgroundColor: color}} />*/}
       </div>
