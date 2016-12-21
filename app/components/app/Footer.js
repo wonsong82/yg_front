@@ -1,7 +1,7 @@
 require('./Footer.scss')
 import React from 'react'
 import EmailSignup from '../../containers/app/footer/EmailSignup'
-import DashRadio from '../../components/app/footer/DashRadio'
+// import DashRadio from '../../components/app/footer/DashRadio'
 import AnchorLink from '../../components/lib/link/AnchorLink'
 
 
@@ -9,7 +9,7 @@ import AnchorLink from '../../components/lib/link/AnchorLink'
 const Footer = ({ color, bgColor }) => (
     <div className="Footer" style={{color, backgroundColor: bgColor}}>
 
-      <DashRadio color={color} />
+      {/*<DashRadio color={color} />*/}
 
       <div className="site-links">
         <AnchorLink href="/about-us" style={{color}}>About Us</AnchorLink>
