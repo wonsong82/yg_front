@@ -344,13 +344,14 @@ export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
         count = 6
 
     productsData = productsData.map( product => {
-      const { id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id } = product
+      const { id, post_title, url_friendly_name, images, thumb_1x1, thumb_2x1, thumb_1x2, artist_id , _stock_status} = product
       const artistName = artist_id ? artistsData[artist_id].name : 'YG'
       const price = product.product_type == "simple" ?
         product._regular_price :
         product.variation[0].display_price
       const image = images && images.length ? images[0] : false
       const url = '/shop/' + url_friendly_name
+      let isInstock = _stock_status == 'instock' ? true : false;
       if(!layoutStyle || layoutNum > count){
         layoutStyle = getLayoutStyle(LAYOUT_STYLE.RANDOM, 8)
         layoutNum = 1
@@ -366,6 +367,7 @@ export const loadProductsListOnSearch = (keyword) => (dispatch, getState) => {
         thumb1x2: thumb_1x2 || image || false,
         price,
         layoutStyle,
+        isInstock: isInstock,
         layoutNum: layoutNum++
       }
     })
