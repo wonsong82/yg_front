@@ -24,7 +24,7 @@ const Event = ({eventGroups, eventsAllLoaded, onViewMoreClick}) => (
           <ViewMore className="view-more" onClick={onViewMoreClick} />
         }*/}
         {
-          !postsAllLoaded &&
+          !eventsAllLoaded &&
           <ViewMoreScroll onViewMore={onViewMoreClick} />
         }
       </div>
