@@ -667,7 +667,7 @@ export const initArtistPage = ( name ) => (dispatch,getState) => {
 
   const artistsData = state.data.artists.contents.artistsOrder.map(id =>
     state.data.artists.contents.artists[id]
-  )
+  ).filter(e => e.visibility == true)
 
   const artists = artistsData.map((artist, i) => {
     if(artist.urlFriendlyName == name){
@@ -1249,9 +1249,11 @@ export const getArtistsData = () => ( dispatch, getState ) => {
       .then(json => {
         dispatch(receiveArtists(json))
 
+
+        // 2/21 visibility filter added
         let artistsData = json.artists_order.map(id =>
           json.artists[id]
-        )
+        ).filter(e => e.visibility == true)
 
         dispatch(setMainMenuArtistList( artistsData ))
         let imagesToLoad = []
