@@ -12,7 +12,15 @@ class Page extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // temprary fix
     if(nextProps.pagescroll){
+      $('body').css({height: 'initial', overflow:'initial'});
+    }
+    else {
+      $('body').css({height: '100%', overflow:'hidden'});
+    }
+    
+    /*if(nextProps.pagescroll){
       this.setState({
         height: 'auto'
       })
@@ -20,15 +28,15 @@ class Page extends Component {
       this.setState({
         height: $(window).height()+'px'
       })
-    }
+    }*/
   }
 
 
   render() {
-    const { ready, color, children, pagescroll } = this.props
+    const { ready, color, children } = this.props
 
     return (
-      <div className={pagescroll? 'Page' : 'Page disabled'} style={{height:this.state.height}}>
+      <div className="Page" >
         { ready ?
           children :
           <div className="loading">
