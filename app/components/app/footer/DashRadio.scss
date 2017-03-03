@@ -75,7 +75,7 @@
 
   .radio {
     width: 100%;
-    height: 140px;
+    height: 180px;
     border: 0;
     max-height: 0;
     overflow: hidden;
@@ -84,7 +84,7 @@
   }
   &.show {
     .radio {
-      max-height: 140px;
+      max-height: 180px;
     }
   }
 
